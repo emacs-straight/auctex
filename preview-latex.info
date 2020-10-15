@@ -2,7 +2,7 @@ This is preview-latex.info, produced by makeinfo version 6.7 from
 preview-latex.texi.
 
 This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 12.2.4 from 2020-06-29).
+(version 12.2.5 from 2020-09-25).
 
    Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2017, 2018 Free
 Software Foundation, Inc.
@@ -301,8 +301,8 @@ Preview/Generate previews (or toggle) at point
      surroundings include all areas up to the next valid preview, unless
      invalid previews occur before, in which case the area will include
      the last such preview in either direction.  And overriding any
-     other action, if a region is active ('transient-mark-mode' or
-     'zmacs-regions'), it is run through 'preview-region'.
+     other action, if a region is active ('transient-mark-mode'), it is
+     run through 'preview-region'.
 
 '<mouse-2>'
      The middle mouse button has a similar action bound to it as
@@ -884,9 +884,9 @@ several things that other packages may also provide.
      will make all text math subject to previews.  Since math mode is
      used throughly inside of LaTeX even for other purposes, this works
      by redefining '\(', '\)' and '$' and the 'math' environment
-     (apparently some people use ^^A$ that).  Only occurences of these
-     text math delimiters in later loaded packages and in the main
-     document will thus be affected.
+     (apparently some people use that).  Only occurences of these text
+     math delimiters in later loaded packages and in the main document
+     will thus be affected.
 'graphics'
      will subject all '\includegraphics' commands to a preview.
 'sections'
@@ -1081,8 +1081,8 @@ File: preview-latex.info,  Node: Provided commands,  Prev: Package options,  Up:
      '*'
           indicates an optional '*' modifier, as in '\includegraphics*'.
      '['
-          ^^A] indicates an optional argument in brackets.  This syntax
-          is somewhat baroque, but brief.
+          indicates an optional argument in brackets.  This syntax is
+          somewhat baroque, but brief.
      '[]'
           also indicates an optional argument in brackets.  Be sure to
           have encluded the entire optional argument specification in an
@@ -1910,7 +1910,7 @@ Appendix C Copying this Manual
 The copyright notice for this manual is:
 
    This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 12.2.4 from 2020-06-29).
+(version 12.2.5 from 2020-09-25).
 
    Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2017, 2018 Free
 Software Foundation, Inc.
@@ -2542,31 +2542,31 @@ Node: Availability9534
 Node: Contacts10143
 Node: Installation11416
 Node: Keys and lisp11617
-Node: Simple customization18712
-Node: Known problems24375
-Node: Font problems with Dvips25201
-Node: Too small bounding boxes26375
-Node: x-symbol interoperation27771
-Node: Middle-clicks paste instead of toggling29154
-Node: No images are displayed with gs 9.27 and earlier29839
-Node: For advanced users32481
-Node: The LaTeX style file32940
-Node: Package options35502
-Node: Provided commands46411
-Node: The Emacs interface53761
-Node: The preview images62472
-Node: Misplaced previews66222
-Node: ToDo69676
-Node: Frequently Asked Questions74447
-Node: Introduction to FAQ74770
-Node: Requirements75109
-Node: Installation Trouble76941
-Node: Customization79204
-Node: Troubleshooting82296
-Node: Other formats84814
-Node: Copying this Manual86129
-Node: GNU Free Documentation License87070
-Node: Index112194
+Node: Simple customization18693
+Node: Known problems24356
+Node: Font problems with Dvips25182
+Node: Too small bounding boxes26356
+Node: x-symbol interoperation27752
+Node: Middle-clicks paste instead of toggling29135
+Node: No images are displayed with gs 9.27 and earlier29820
+Node: For advanced users32462
+Node: The LaTeX style file32921
+Node: Package options35483
+Node: Provided commands46387
+Node: The Emacs interface53732
+Node: The preview images62443
+Node: Misplaced previews66193
+Node: ToDo69647
+Node: Frequently Asked Questions74418
+Node: Introduction to FAQ74741
+Node: Requirements75080
+Node: Installation Trouble76912
+Node: Customization79175
+Node: Troubleshooting82267
+Node: Other formats84785
+Node: Copying this Manual86100
+Node: GNU Free Documentation License87041
+Node: Index112165
 
 End Tag Table
 
