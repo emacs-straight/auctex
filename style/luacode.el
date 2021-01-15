@@ -1,6 +1,6 @@
-;;; luacode.el --- AUCTeX style for `luacode.sty' version 1.2a.
+;;; luacode.el --- AUCTeX style for `luacode.sty' version 1.2a.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2013, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2013, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Maintainer: auctex-devel@gnu.org
 ;; Author: Mosè Giordano <giordano.mose@libero.it>
@@ -29,10 +29,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "luacode"
@@ -51,16 +54,16 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("luadirect" "{")
-				("luaexec" "{")
-				("luastring" "{")
-				("luastringN" "{")
-				("luastringO" "{")
-				("LuaCodeDebugOn")
-				("LuaCodeDebugOff"))
-			      'function)))
- LaTeX-dialect)
+                                ("luaexec" "{")
+                                ("luastring" "{")
+                                ("luastringN" "{")
+                                ("luastringO" "{")
+                                ("LuaCodeDebugOn")
+                                ("LuaCodeDebugOff"))
+                              'function)))
+ TeX-dialect)
 
 (defvar LaTeX-luacode-package-options nil
   "Package options for the luacode package.")

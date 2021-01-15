@@ -1,6 +1,6 @@
-;;; cleveref.el --- AUCTeX style for `cleveref.sty' (v0.21.4)
+;;; cleveref.el --- AUCTeX style for `cleveref.sty' (v0.21.4)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2014--2019 Free Software Foundation, Inc.
+;; Copyright (C) 2014--2020 Free Software Foundation, Inc.
 
 ;; Author: Matthew Leach <matthew@mattleach.net>
 ;; Maintainer: auctex-devel@gnu.org
@@ -30,10 +30,13 @@
 
 ;;; Code
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (defun TeX-arg-cleveref-multiple-labels (optional &optional prompt)
   "Prompt for a series of labels completing with known labels.
@@ -41,15 +44,15 @@ If OPTIONAL is non-nil, insert the resulting value as an optional
 argument, otherwise as a mandatory one.  Use PROMPT as the prompt
 string."
   (if (and (fboundp 'reftex-arg-label)
-	   (fboundp 'reftex-plug-flag)
-	   (reftex-plug-flag 2))
+           (fboundp 'reftex-plug-flag)
+           (reftex-plug-flag 2))
       ;; Use RefTeX when enabled
       (TeX-arg-ref optional)
     ;; Use AUCTeX interface
     (let* ((labels (TeX-completing-read-multiple
-		    (TeX-argument-prompt optional prompt "Keys")
-		    (LaTeX-label-list)))
-	   (labels-string (mapconcat #'identity labels ",")))
+                    (TeX-argument-prompt optional prompt "Keys")
+                    (LaTeX-label-list)))
+           (labels-string (mapconcat #'identity labels ",")))
       (TeX-argument-insert labels-string optional))))
 
 (defun TeX-arg-cleveref-crossref-type (optional &optional prompt)
@@ -57,10 +60,10 @@ string."
 If OPTIONAL is non-nil, insert the resulting value in brackets.
 Use PROMPT as the prompt string."
   (let* ((type (mapcar #'list
-		       '("appendix" "subappendix" "subsubappendix"
-			 "subsubsubappendix" "subfigure" "subtable"
-			 "subequation")))
-	 (types (append (LaTeX-counter-list) type)))
+                       '("appendix" "subappendix" "subsubappendix"
+                         "subsubsubappendix" "subfigure" "subtable"
+                         "subequation")))
+         (types (append (LaTeX-counter-list) type)))
     (TeX-argument-insert
      (completing-read (TeX-argument-prompt optional prompt "Type") types)
      optional)))
@@ -145,55 +148,55 @@ Use PROMPT as the prompt string."
    ;; order not to run `reftex-compile-variables' every time the style
    ;; hook runs
    (when (and (boundp 'reftex-label-regexps)
-	      (fboundp 'reftex-compile-variables))
+              (fboundp 'reftex-compile-variables))
      (let ((regexp "\\\\label\\[[^]]*\\]{\\(?1:[^\n\r%\\{}]+\\)}"))
        (unless (member regexp reftex-label-regexps)
-	 (add-to-list (make-local-variable 'reftex-label-regexps)
-		      regexp t)
-	 (reftex-compile-variables))))
+         (add-to-list (make-local-variable 'reftex-label-regexps)
+                      regexp t)
+         (reftex-compile-variables))))
 
    ;; Fontification
    (when (and (fboundp 'font-latex-add-keywords)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("cref"          "*{")
-				("Cref"          "*{")
-				("crefrange"     "*{{")
-				("Crefrange"     "*{{")
-				("cpageref"      "{")
-				("Cpageref"      "{")
-				("cpagerefrange" "{{")
-				("Cpagerefrange" "{{")
-				("namecref"      "{")
-				("nameCref"      "{")
-				("lcnamecref"    "{")
-				("namecrefs"     "{")
-				("nameCrefs"     "{")
-				("lcnamecrefs"   "{")
-				("labelcref"     "{")
-				("labelcpageref" "{")
-				("label"         "[{"))
-			      'reference)
+                                ("Cref"          "*{")
+                                ("crefrange"     "*{{")
+                                ("Crefrange"     "*{{")
+                                ("cpageref"      "{")
+                                ("Cpageref"      "{")
+                                ("cpagerefrange" "{{")
+                                ("Cpagerefrange" "{{")
+                                ("namecref"      "{")
+                                ("nameCref"      "{")
+                                ("lcnamecref"    "{")
+                                ("namecrefs"     "{")
+                                ("nameCrefs"     "{")
+                                ("lcnamecrefs"   "{")
+                                ("labelcref"     "{")
+                                ("labelcpageref" "{")
+                                ("label"         "[{"))
+                              'reference)
      (font-latex-add-keywords '(("crefalias"              "{{")
-				("crefname"               "{{{")
-				("Crefname"               "{{{")
-				("creflabelformat"        "{{")
-				("crefrangelabelformat"   "{{")
-				("crefdefaultlabelformat" "{")
-				("crefformat"             "{{")
-				("Crefformat"             "{{")
-				("crefrangeformat"        "{{")
-				("Crefrangeformat"        "{{")
-				("crefmultiformat"        "{{{{{")
-				("Crefmultiformat"        "{{{{{")
-				("crefrangemultiformat"   "{{{{{")
-				("Crefrangemultiformat"   "{{{{{"))
-			      'function))
+                                ("crefname"               "{{{")
+                                ("Crefname"               "{{{")
+                                ("creflabelformat"        "{{")
+                                ("crefrangelabelformat"   "{{")
+                                ("crefdefaultlabelformat" "{")
+                                ("crefformat"             "{{")
+                                ("Crefformat"             "{{")
+                                ("crefrangeformat"        "{{")
+                                ("Crefrangeformat"        "{{")
+                                ("crefmultiformat"        "{{{{{")
+                                ("Crefmultiformat"        "{{{{{")
+                                ("crefrangemultiformat"   "{{{{{")
+                                ("Crefrangemultiformat"   "{{{{{"))
+                              'function))
 
    ;; Activate RefTeX reference style.
    (and LaTeX-reftex-ref-style-auto-activate
-	(fboundp 'reftex-ref-style-activate)
-	(reftex-ref-style-activate "Cleveref")))
- LaTeX-dialect)
+        (fboundp 'reftex-ref-style-activate)
+        (reftex-ref-style-activate "Cleveref")))
+ TeX-dialect)
 
 (defvar LaTeX-cleveref-package-options
   '("capitalise" "nameinlink" "noabbrev" "poorman")

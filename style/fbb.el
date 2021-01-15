@@ -1,6 +1,6 @@
-;;; fbb.el --- AUCTeX style for `fbb.sty' (v1.07)
+;;; fbb.el --- AUCTeX style for `fbb.sty' (v1.07)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2014, 2015, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2014--2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,10 +31,12 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "fbb"
@@ -63,20 +65,20 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("textlf"    "{")
-				("texttlf"   "{")
-				("textosf"   "{")
-				("texttosf"  "{")
-				("textsu"    "{"))
-			      'type-command)
+                                ("texttlf"   "{")
+                                ("textosf"   "{")
+                                ("texttosf"  "{")
+                                ("textsu"    "{"))
+                              'type-command)
      (font-latex-add-keywords '(("lfstyle"   "")
-				("tlfstyle"  "")
-				("osfstyle"  "")
-				("tosfstyle" "")
-				("sufigures" ""))
-			      'type-declaration)))
- LaTeX-dialect)
+                                ("tlfstyle"  "")
+                                ("osfstyle"  "")
+                                ("tosfstyle" "")
+                                ("sufigures" ""))
+                              'type-declaration)))
+ TeX-dialect)
 
 (defvar LaTeX-fbb-package-options
   '("lining" "osf" "oldstyle" "tabular" "p" "proportional"

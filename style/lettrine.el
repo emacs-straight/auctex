@@ -1,6 +1,6 @@
-;;; lettrine.el --- AUCTeX style for `lettrine.sty' (v2.21)
+;;; lettrine.el --- AUCTeX style for `lettrine.sty' (v2.21)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2011, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2011, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Mads Jensen <mje@inducks.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -29,10 +29,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (defvar LaTeX-lettrine-key-val-options
   '(("lines")
@@ -76,18 +79,18 @@
 
    ;; Lengths and dimensions:
    (LaTeX-add-lengths "DefaultFindent"
-		      "DefaultNindent"
-		      "DefaultSlope"
-		      "DiscardVskip"
-		      "LettrineWidth"
-		      "LettrineHeight"
-		      "LettrineDepth")
+                      "DefaultNindent"
+                      "DefaultSlope"
+                      "DiscardVskip"
+                      "LettrineWidth"
+                      "LettrineHeight"
+                      "LettrineDepth")
 
    ;; Fontification
    (when (and (fboundp 'font-latex-add-keywords)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("lettrine" "[{{")) 'textual)))
- LaTeX-dialect)
+ TeX-dialect)
 
 (defvar LaTeX-lettrine-package-options nil
   "Package options for the lettrine package.")

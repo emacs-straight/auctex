@@ -1,10 +1,10 @@
-;;; XCharter.el --- AUCTeX style for `XCharter.sty' (v1.094)  -*- lexical-binding: t; -*-
+;;; scholax.el --- AUCTeX style for `scholax.sty' (v1.027)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2014, 2017, 2018, 2020 Free Software Foundation, Inc.
+;; Copyright (C) 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
-;; Created: 2014-10-30
+;; Created: 2020-11-29
 ;; Keywords: tex
 
 ;; This file is part of AUCTeX.
@@ -26,8 +26,8 @@
 
 ;;; Commentary:
 
-;; This file adds support for `XCharter.sty' (v1.094) from 2017/08/08.
-;; `XCharter.sty' is part of TeXLive.
+;; This file adds support for `scholax.sty' (v1.027) from 2020/11/30.
+;; `scholax.sty' is part of TeXLive.
 
 ;;; Code:
 
@@ -39,10 +39,10 @@
                   (keywords class))
 
 (TeX-add-style-hook
- "XCharter"
+ "scholax"
  (lambda ()
 
-   ;; Run style hook for various packages loaded by XCharter
+   ;; Run style hook for various packages loaded by scholax
    (TeX-run-style-hooks "textcomp" "fontaxes")
 
    ;; New symbols
@@ -50,23 +50,28 @@
 
     ;; Only preamble commands
     '("useosf"  0)
-    '("useosfI" 0)
+    '("useproportional" 0)
+    '("thfamily" 0)
 
     ;; Text commands
     '("textsu"     t)   ; superior figures
-    '("sustyle"   -1)   ;
+    '("sustyle"   -1)
     '("textin"     t)   ; inferior figures
-    '("instyle"   -1)   ;
+    '("instyle"   -1)
+
     '("textlf"     t)   ; lining figures
-    '("lfstyle"   -1)   ;
+    '("lfstyle"   -1)
+
+    '("texttlf"    t)   ; tabular lining figures
+    '("tlfstyle"  -1)
+
     '("textosf"    t)   ; oldstyle figures
-    '("textosfI"   t)   ; oldstyle figures alternate
-    '("osfstyle"  -1)   ; whatever oldstyle option is in force
-    '("textnumerator"   t) ; numerators
-    '("textnu"          t) ;
-    '("textdenominator" t) ; denominators
-    '("textde"          t) ;
-    '("textfrac"        2))
+    '("osfstyle"  -1)
+
+    '("texttosf"   t)   ; tabular oldstyle figures
+    '("tosfstyle" -1)
+
+    '("textfrac"  "Numerator" "Denominator"))
 
    ;; Fontification
    (when (and (featurep 'font-latex)
@@ -74,24 +79,28 @@
      (font-latex-add-keywords '(("textsu"    "{")
                                 ("textin"    "{")
                                 ("textlf"    "{")
+                                ("texttlf"   "{")
                                 ("textosf"   "{")
-                                ("textosfI"  "{")
-                                ("textnumerator"   "{")
-                                ("textnu"          "{")
-                                ("textdenominator" "{")
-                                ("textde"          "{")
-                                ("textfrac"        "{{"))
+                                ("texttosf"  "{")
+                                ("textfrac"  "{{"))
                               'type-command)
      (font-latex-add-keywords '(("sustyle"   "")
                                 ("instyle"   "")
                                 ("lfstyle"   "")
-                                ("osfstyle"  ""))
+                                ("tlfstyle"  "")
+                                ("osfstyle"  "")
+                                ("tosfstyle" ""))
                               'type-declaration)))
  TeX-dialect)
 
-(defvar LaTeX-XCharter-package-options
-  '("lining" "lf" "oldstyle" "osf" "oldstyleI" "osfI"
-    "scaled" "sups" "scosf")
-  "Package options for the XCharter package.")
+(defvar LaTeX-scholax-package-options
+  '("scale"       "scaled"
+    "spacing"     "stretch"    "shrink"
+    "foresolidus" "aftsolidus" "raisefrac"
+    "theoremfont"
+    "scosf"    "sups" "lining"  "lf"
+    "oldstyle" "osf"  "tabular" "p" "proportional"
+    "looser"   "loosest")
+  "Package options for the scholax package.")
 
-;;; XCharter.el ends here
+;;; scholax.el ends here

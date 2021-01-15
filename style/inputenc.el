@@ -1,6 +1,6 @@
-;;; inputenc.el --- AUCTeX style for `inputenc.sty'
+;;; inputenc.el --- AUCTeX style for `inputenc.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2005, 2014 Free Software Foundation, Inc.
+;; Copyright (C) 2005, 2014, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arne Jørgensen <arne@arnested.dk>
 ;; Keywords: tex
@@ -28,44 +28,46 @@
 
 ;;; Code:
 
+(require 'tex)
+
 (defun LaTeX-inputenc-package-options nil
   "Prompt for package options for the inputenc package."
   ;; separate the condition in three to silence the byte compiler
   (if (boundp 'latex-inputenc-coding-alist)
       (when (fboundp 'latexenc-coding-system-to-inputenc)
-	(when (fboundp 'latexenc-inputenc-to-coding-system)
-	  (let ((default (latexenc-coding-system-to-inputenc
-			  (or coding-system-for-write
-			      buffer-file-coding-system)))
-		(selected 'undecided))
-	    (setq selected (completing-read
-			    (if default
-				(format "Input encoding (default %s): " default)
-			      "Input encoding: ")
-			    (mapcar 'car latex-inputenc-coding-alist)
-			    nil
-			    nil
-			    nil
-			    nil
-			    default))
+        (when (fboundp 'latexenc-inputenc-to-coding-system)
+          (let ((default (latexenc-coding-system-to-inputenc
+                          (or coding-system-for-write
+                              buffer-file-coding-system)))
+                (selected 'undecided))
+            (setq selected (completing-read
+                            (if default
+                                (format "Input encoding (default %s): " default)
+                              "Input encoding: ")
+                            (mapcar 'car latex-inputenc-coding-alist)
+                            nil
+                            nil
+                            nil
+                            nil
+                            default))
 
-	    ;; if necessary offer to set the coding system for saving
-	    ;; this buffer based on the selected input encoding
-	    (when (and (null
-			(coding-system-equal
-			 (coding-system-base
-			  (or coding-system-for-write
-			      buffer-file-coding-system))
-			 (coding-system-base
-			  (latexenc-inputenc-to-coding-system selected))))
-		       (y-or-n-p "Set coding system for saving this buffer? ")
-		       (set-buffer-file-coding-system
-			(coding-system-base
-			 (latexenc-inputenc-to-coding-system selected)))
-		       (message nil)))
+            ;; if necessary offer to set the coding system for saving
+            ;; this buffer based on the selected input encoding
+            (when (and (null
+                        (coding-system-equal
+                         (coding-system-base
+                          (or coding-system-for-write
+                              buffer-file-coding-system))
+                         (coding-system-base
+                          (latexenc-inputenc-to-coding-system selected))))
+                       (y-or-n-p "Set coding system for saving this buffer? ")
+                       (set-buffer-file-coding-system
+                        (coding-system-base
+                         (latexenc-inputenc-to-coding-system selected)))
+                       (message nil)))
 
-	    ;; return selected input encoding
-	    selected)))
+            ;; return selected input encoding
+            selected)))
     (TeX-read-string "Input encoding: ")))
 
 (defun LaTeX-arg-inputenc-inputenc (_optional)
@@ -78,7 +80,7 @@
    ;; New symbols
    (TeX-add-symbols
     '("inputencoding" LaTeX-arg-inputenc-inputenc)))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;; Local Variables:
 ;; coding: utf-8

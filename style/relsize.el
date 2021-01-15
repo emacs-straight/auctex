@@ -1,6 +1,6 @@
-;;; relsize.el --- AUCTeX style for `relsize.sty' version v4.1
+;;; relsize.el --- AUCTeX style for `relsize.sty' version v4.1  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2014, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2014, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,10 +31,12 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "relsize"
@@ -53,20 +55,20 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      ;; This is not easy, are the first 2 'variable oder rather
      ;; 'type-declaration?  I start with 'type-declaration, let the
      ;; users decide
      (font-latex-add-keywords '(("relsize"            "")
-				("relscale"           "")
-				("larger"             "")
-				("smaller"            ""))
-			      'type-declaration)
+                                ("relscale"           "")
+                                ("larger"             "")
+                                ("smaller"            ""))
+                              'type-declaration)
      (font-latex-add-keywords '(("textlarger"         "[{")
-				("textsmaller"        "[{")
-				("textscale"          "{{"))
-			      'type-command)))
- LaTeX-dialect)
+                                ("textsmaller"        "[{")
+                                ("textscale"          "{{"))
+                              'type-command)))
+ TeX-dialect)
 
 (defvar LaTeX-relsize-package-options nil
   "Package options for the relsize package.")

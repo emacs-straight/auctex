@@ -1,6 +1,6 @@
-;;; acronym.el --- AUCTeX style for `acronym.sty' version 1.38.
+;;; acronym.el --- AUCTeX style for `acronym.sty' version 1.38.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2013-2015, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2013-2015, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Maintainer: auctex-devel@gnu.org
 ;; Author: Mosè Giordano <giordano.mose@libero.it>
@@ -30,11 +30,12 @@
 ;;; Code:
 
 (require 'tex) ;Indispensable when compiling the call to `TeX-auto-add-type'.
+(require 'latex)
 
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-auto-add-type "acronym" "LaTeX")
 
@@ -53,8 +54,8 @@
 (defun LaTeX-acronym-cleanup ()
   "Move acronyms from `LaTeX-auto-acronym' to `LaTeX-acronym-list'."
   (mapc (lambda (acronym)
-	  (add-to-list 'LaTeX-acronym-list (list acronym)))
-	LaTeX-auto-acronym))
+          (add-to-list 'LaTeX-acronym-list (list acronym)))
+        LaTeX-auto-acronym))
 
 (add-hook 'TeX-auto-prepare-hook #'LaTeX-acronym-prepare t)
 (add-hook 'TeX-auto-cleanup-hook #'LaTeX-acronym-cleanup t)
@@ -72,10 +73,10 @@ argument, otherwise as a mandatory one.  Use PROMPT as the prompt
 string.  If DEFINITION is non-nil, add the chosen acronym to the
 list of defined acronyms."
   (let ((acronym (completing-read (TeX-argument-prompt optional prompt "Acronym")
-				  (LaTeX-acronym-list) nil nil nil
-				  'LaTeX-acronym-acronym-history)))
+                                  (LaTeX-acronym-list) nil nil nil
+                                  'LaTeX-acronym-acronym-history)))
     (if (and definition (not (string-equal "" acronym)))
-	(LaTeX-add-acronyms acronym))
+        (LaTeX-add-acronyms acronym))
     (TeX-argument-insert acronym optional optional)))
 
 (defun LaTeX-arg-define-acronym-acronym (optional &optional prompt)
@@ -149,33 +150,33 @@ string."
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("ac" "*{")
-				("acf" "*{")
-				("acs" "*{")
-				("acl" "*{")
-				("acp" "*{")
-				("acfp" "*{")
-				("acsp" "*{")
-				("aclp" "*{")
-				("acfi" "*{")
-				("acused" "{")
-				("acsu" "*{")
-				("aclu" "*{")
-				("iac" "*{")
-				("Iac" "*{")
-				("acro" "{[{")
-				("acroextra" "{")
-				("newacro" "{[{")
-				("acrodef" "{[{")
-				("acroindefinite" "{{{")
-				("acrodefindefinite" "{{{")
-				("newacroindefinite" "{{{")
-				("acroplural" "{[{")
-				("acrodefplural" "{[{")
-				("newacroplural" "{[{"))
-			      'function)))
- LaTeX-dialect)
+                                ("acf" "*{")
+                                ("acs" "*{")
+                                ("acl" "*{")
+                                ("acp" "*{")
+                                ("acfp" "*{")
+                                ("acsp" "*{")
+                                ("aclp" "*{")
+                                ("acfi" "*{")
+                                ("acused" "{")
+                                ("acsu" "*{")
+                                ("aclu" "*{")
+                                ("iac" "*{")
+                                ("Iac" "*{")
+                                ("acro" "{[{")
+                                ("acroextra" "{")
+                                ("newacro" "{[{")
+                                ("acrodef" "{[{")
+                                ("acroindefinite" "{{{")
+                                ("acrodefindefinite" "{{{")
+                                ("newacroindefinite" "{{{")
+                                ("acroplural" "{[{")
+                                ("acrodefplural" "{[{")
+                                ("newacroplural" "{[{"))
+                              'function)))
+ TeX-dialect)
 
 (defvar LaTeX-acronym-package-options
   '("footnote" "nohyperlinks" "printonlyused" "withpage" "smaller" "dua" "nolist")

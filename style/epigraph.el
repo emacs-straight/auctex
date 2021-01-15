@@ -1,6 +1,6 @@
-;;; epigraph.el --- AUCTeX style for `epigraph.sty' v1.5c
+;;; epigraph.el --- AUCTeX style for `epigraph.sty' v1.5c  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2012, 2017, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2012, 2017, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Mads Jensen <mje@inducks.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -30,10 +30,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "epigraph"
@@ -62,35 +65,35 @@
 
    ;; The value of these lengths can be changed with \setlength
    (LaTeX-add-lengths "epigraphwidth" "epigraphrule"
-		      "beforeepigraphskip"
-		      "afterepigraphskip")
+                      "beforeepigraphskip"
+                      "afterepigraphskip")
 
    ;; Append epigraphs to `LaTeX-item-list':
    (add-to-list 'LaTeX-item-list
-		'("epigraphs" . LaTeX-epigraph-qitem) t)
+                '("epigraphs" . LaTeX-epigraph-qitem) t)
 
    ;; Append qitem to `LaTeX-item-regexp':
    (unless (string-match "qitem" LaTeX-item-regexp)
      (set (make-local-variable 'LaTeX-item-regexp)
-	  (concat
-	   LaTeX-item-regexp
-	   "\\|"
-	   "qitem\\b"))
+          (concat
+           LaTeX-item-regexp
+           "\\|"
+           "qitem\\b"))
      (LaTeX-set-paragraph-start))
 
    ;; Fontification:
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("epigraph"     "{{")
-				("qitem"        "{{")
-				("epigraphhead" "[{"))
-			      'textual)
+                                ("qitem"        "{{")
+                                ("epigraphhead" "[{"))
+                              'textual)
      (font-latex-add-keywords '(("dropchapter"  "{")
-				("undodrop"     ""))
-			      'variable)
+                                ("undodrop"     ""))
+                              'variable)
      (font-latex-add-keywords '("cleartoevenpage")
-			      'warning)))
- LaTeX-dialect)
+                              'warning)))
+ TeX-dialect)
 
 (defvar LaTeX-epigraph-package-options nil
   "Package options for the epigraph package.")

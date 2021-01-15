@@ -1,6 +1,9 @@
-;;; jsarticle.el - Special code for jsarticle class.
+;;; jsarticle.el - Special code for jsarticle class.  -*- lexical-binding: t; -*-
 
 ;;; Code:
+
+(require 'tex)
+(require 'latex)
 
 (defvar LaTeX-jsarticle-class-options
   '("a3paper" "a4paper" "a5paper" "a6paper" "b4paper" "b5paper" "b6paper"
@@ -19,9 +22,9 @@
  (lambda ()
    (LaTeX-largest-level-set "section")
    (LaTeX-add-counters "part" "section" "subsection" "subsubsection" "paragraph"
-		       "subparagraph" "figure" "table")
+                       "subparagraph" "figure" "table")
    (LaTeX-add-pagestyles "headings" "myheadings")
    (LaTeX-add-environments "abstract"))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;;; jsarticle.el ends here

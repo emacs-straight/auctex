@@ -1,6 +1,6 @@
-;;; theorem.el --- AUCTeX style for `theorem.sty' (v2.2c)
+;;; theorem.el --- AUCTeX style for `theorem.sty' (v2.2c)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2015, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -36,10 +36,14 @@
 
 ;;; Code:
 
+(require 'crm)
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (defvar LaTeX-theorem-theoremstyle-list
   '(("plain") ("break") ("margin") ("change")
@@ -68,11 +72,11 @@ argument.  Use PROMPT as the prompt string."
   ;; `INITIAL-INPUT' (5th argument to `TeX-completing-read-multiple')
   ;; is hard-coded to `TeX-esc'.
   (let* ((crm-separator (regexp-quote TeX-esc))
-	 (fontdecl (mapconcat 'identity
-			      (TeX-completing-read-multiple
-			       (TeX-argument-prompt optional prompt "Font")
-			       LaTeX-theorem-fontdecl nil nil TeX-esc)
-			      TeX-esc)))
+         (fontdecl (mapconcat 'identity
+                              (TeX-completing-read-multiple
+                               (TeX-argument-prompt optional prompt "Font")
+                               LaTeX-theorem-fontdecl nil nil TeX-esc)
+                              TeX-esc)))
     (TeX-argument-insert fontdecl optional)))
 
 (defun LaTeX-theorem-env-label (environment)
@@ -87,20 +91,17 @@ RefTeX users should customize or add ENVIRONMENT to
 
   (add-to-list \\='LaTeX-label-alist \\='(\"lemma\" . \"lem:\"))
   (add-to-list \\='reftex-label-alist
-	       \\='(\"lemma\" ?m \"lem:\" \"~\\ref{%s}\"
-		 nil (\"Lemma\" \"lemma\") nil))"
+               \\='(\"lemma\" ?m \"lem:\" \"~\\ref{%s}\"
+                 nil (\"Lemma\" \"lemma\") nil))"
   (let ((opthead (TeX-read-string
-		  (TeX-argument-prompt t nil "Heading"))))
+                  (TeX-argument-prompt t nil "Heading"))))
     (LaTeX-insert-environment environment
-			      (when (and opthead
-					 (not (string= opthead "")))
-				(format "[%s]" opthead))))
+                              (when (and opthead
+                                         (not (string= opthead "")))
+                                (format "[%s]" opthead))))
   (when (LaTeX-label environment 'environment)
     (LaTeX-newline)
     (indent-according-to-mode)))
-
-;; Needed for auto-parsing
-(require 'tex)
 
 ;; Setup parsing for \newtheorem
 (TeX-auto-add-type "theorem-newtheorem" "LaTeX")
@@ -132,23 +133,23 @@ make them available as new environments."
     '("newtheorem"
       (TeX-arg-eval
        (lambda ()
-	 (let ((nthm (TeX-read-string
-		      (TeX-argument-prompt nil nil "Environment"))))
-	   (LaTeX-add-theorem-newtheorems nthm)
-	   (LaTeX-add-environments (list nthm 'LaTeX-theorem-env-label))
-	   (format "%s" nthm))))
+         (let ((nthm (TeX-read-string
+                      (TeX-argument-prompt nil nil "Environment"))))
+           (LaTeX-add-theorem-newtheorems nthm)
+           (LaTeX-add-environments (list nthm 'LaTeX-theorem-env-label))
+           (format "%s" nthm))))
       [ TeX-arg-environment "Numbered like" ]
       t [ (TeX-arg-eval progn (if (eq (save-excursion
-					(backward-char 2)
-					(preceding-char)) ?\])
-				  ()
-				(TeX-arg-counter t "Within counter"))
-			"") ])
+                                        (backward-char 2)
+                                        (preceding-char)) ?\])
+                                  ()
+                                (TeX-arg-counter t "Within counter"))
+                        "") ])
 
     '("theoremstyle"
       (TeX-arg-eval completing-read
-		    "Style: "
-		    LaTeX-theorem-theoremstyle-list))
+                    "Style: "
+                    LaTeX-theorem-theoremstyle-list))
 
     '("theorembodyfont"
       (LaTeX-arg-theorem-fontdecl "Body font"))
@@ -164,14 +165,14 @@ make them available as new environments."
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("theoremstyle"          "{")
-				("theorembodyfont"       "{")
-				("theoremheaderfont"     "{")
-				("theorempreskipamount"  "{")
-				("theorempostskipamount" "{"))
-			      'function)))
- LaTeX-dialect)
+                                ("theorembodyfont"       "{")
+                                ("theoremheaderfont"     "{")
+                                ("theorempreskipamount"  "{")
+                                ("theorempostskipamount" "{"))
+                              'function)))
+ TeX-dialect)
 
 (defvar LaTeX-theorem-package-options nil
   "Package options for the theorem package.")

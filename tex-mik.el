@@ -41,18 +41,7 @@
 
 (unless (get 'TeX-print-command 'saved-value)
   (setq TeX-print-command
-	"start \"\" %f"))
-
-(unless (get 'TeX-view-style 'saved-value)
-  (setq TeX-view-style '(("^epsf$" "start \"\" %f")
-			 ("." "yap -1 %dS %d"))))
-
-(unless (get 'TeX-output-view-style 'saved-value)
-  (setq TeX-output-view-style
-	'(("^dvi$" "^pstricks$\\|^pst-\\|^psfrag$" "dvips %d -o && start \"\" %f")
-	  ("^dvi$" "." "yap -1 %dS %d")
-	  ("^pdf$" "." "start \"\" %o")
-	  ("^html?$" "." "start \"\" %o"))))
+        "start \"\" %f"))
 
 (unless (get 'TeX-source-specials-view-position-flags 'saved-value)
   (setq TeX-source-specials-view-position-flags "-s %n%b"))

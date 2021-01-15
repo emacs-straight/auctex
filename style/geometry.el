@@ -1,6 +1,6 @@
-;;; geometry.el --- AUCTeX style for `geometry.sty' (v5.6)
+;;; geometry.el --- AUCTeX style for `geometry.sty' (v5.6)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2015, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,10 +31,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (defvar LaTeX-geometry-always-key-val-options
   '(("layout") ("layoutwidth") ("layoutheight") ("layoutsize")
@@ -58,19 +61,19 @@
 
 (defvar LaTeX-geometry-preamble-key-val-options
   '(("paper" ("a0paper" "a1paper" "a2paper" "a3paper" "a4paper"
-	      "a5paper" "a6paper" "b0paper" "b1paper" "b2paper"
-	      "b3paper" "b4paper" "b5paper" "b6paper" "c0paper"
-	      "c1paper" "c2paper" "c3paper" "c4paper" "c5paper"
-	      "c6paper" "b0j" "b1j" "b2j" "b3j" "b4j" "b5j" "b6j"
-	      "ansiapaper" "ansibpaper" "ansicpaper" "ansidpaper"
-	      "ansiepaper"))
+              "a5paper" "a6paper" "b0paper" "b1paper" "b2paper"
+              "b3paper" "b4paper" "b5paper" "b6paper" "c0paper"
+              "c1paper" "c2paper" "c3paper" "c4paper" "c5paper"
+              "c6paper" "b0j" "b1j" "b2j" "b3j" "b4j" "b5j" "b6j"
+              "ansiapaper" "ansibpaper" "ansicpaper" "ansidpaper"
+              "ansiepaper"))
     ("papername" ("a0paper" "a1paper" "a2paper" "a3paper" "a4paper"
-		  "a5paper" "a6paper" "b0paper" "b1paper" "b2paper"
-		  "b3paper" "b4paper" "b5paper" "b6paper" "c0paper"
-		  "c1paper" "c2paper" "c3paper" "c4paper" "c5paper"
-		  "c6paper" "b0j" "b1j" "b2j" "b3j" "b4j" "b5j" "b6j"
-		  "ansiapaper" "ansibpaper" "ansicpaper" "ansidpaper"
-		  "ansiepaper"))
+                  "a5paper" "a6paper" "b0paper" "b1paper" "b2paper"
+                  "b3paper" "b4paper" "b5paper" "b6paper" "c0paper"
+                  "c1paper" "c2paper" "c3paper" "c4paper" "c5paper"
+                  "c6paper" "b0j" "b1j" "b2j" "b3j" "b4j" "b5j" "b6j"
+                  "ansiapaper" "ansibpaper" "ansicpaper" "ansidpaper"
+                  "ansiepaper"))
     ("a0paper") ("a1paper") ("a2paper") ("a3paper") ("a4paper") ("a5paper")
     ("a6paper") ("b0paper") ("b1paper") ("b2paper") ("b3paper") ("b4paper")
     ("b5paper") ("b6paper") ("c0paper") ("c1paper") ("c2paper") ("c3paper")
@@ -79,14 +82,11 @@
     ("ansidpaper") ("ansiepaper") ("screen") ("paperwidth") ("paperheight")
     ("papersize") ("landscape") ("portrait")
     ("driver" ("dvips" "dvipdfm" "dvipdfmx" "xdvipdfmx"
-	       "pdftex" "luatex" "vtex" "xetex" "auto" "none"))
+               "pdftex" "luatex" "vtex" "xetex" "auto" "none"))
     ("dvips") ("dvipdfm") ("dvipdfmx") ("xdvipdfmx") ("pdftex") ("luatex")
     ("xetex") ("vtex") ("verbose") ("reset")
     ("mag") ("truedimen") ("pass") ("showframe") ("showcrop"))
   "Key=value options allowed only in the preamble for geometry macros.")
-
-;; Needed for auto-parsing.
-(require 'tex)
 
 ;; Setup for \savegeometry:
 (TeX-auto-add-type "geometry-savegeometry" "LaTeX" "geometry-savegeometries")
@@ -99,7 +99,7 @@ package.")
 
 (defun LaTeX-geometry-auto-prepare ()
   "Clear `LaTeX-auto-geometry-savegeometry' before parsing."
-  (setq	LaTeX-auto-geometry-savegeometry nil))
+  (setq LaTeX-auto-geometry-savegeometry nil))
 
 (add-hook 'TeX-auto-prepare-hook #'LaTeX-geometry-auto-prepare t)
 (add-hook 'TeX-update-style-hook #'TeX-auto-parse t)
@@ -115,8 +115,8 @@ package.")
    (TeX-add-symbols
     '("geometry"
       (TeX-arg-eval TeX-read-key-val nil
-		    (append LaTeX-geometry-preamble-key-val-options
-			    LaTeX-geometry-always-key-val-options)))
+                    (append LaTeX-geometry-preamble-key-val-options
+                            LaTeX-geometry-always-key-val-options)))
     '("newgeometry"
       (TeX-arg-key-val LaTeX-geometry-always-key-val-options))
 
@@ -125,35 +125,35 @@ package.")
     '("savegeometry"
       (TeX-arg-eval
        (lambda ()
-	 (let ((name (TeX-read-string "Name: ")))
-	   (LaTeX-add-geometry-savegeometries name)
-	   (format "%s" name)))))
+         (let ((name (TeX-read-string "Name: ")))
+           (LaTeX-add-geometry-savegeometries name)
+           (format "%s" name)))))
 
     '("loadgeometry"
       (TeX-arg-eval
        (lambda ()
-	 (completing-read "Name: "
-			  (LaTeX-geometry-savegeometry-list))))))
+         (completing-read "Name: "
+                          (LaTeX-geometry-savegeometry-list))))))
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("geometry"      "{")
-				("newgeometry"   "{")
-				("savegeometry"  "{")
-				("loadgeometry"  "{"))
-			      'function))
+                                ("newgeometry"   "{")
+                                ("savegeometry"  "{")
+                                ("loadgeometry"  "{"))
+                              'function))
 
    ;; Option management
    (if (and (LaTeX-provided-package-options-member "geometry" "dvipdfmx")
-	    (not (eq TeX-engine 'xetex)))
+            (not (eq TeX-engine 'xetex)))
        (setq TeX-PDF-from-DVI "Dvipdfmx")))
- LaTeX-dialect)
+ TeX-dialect)
 
 (defun LaTeX-geometry-package-options ()
   "Prompt for package options for the geometry package."
   (TeX-read-key-val t
-		    (append LaTeX-geometry-preamble-key-val-options
-			    LaTeX-geometry-always-key-val-options)))
+                    (append LaTeX-geometry-preamble-key-val-options
+                            LaTeX-geometry-always-key-val-options)))
 
 ;;; geometry.el ends here

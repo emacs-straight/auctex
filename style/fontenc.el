@@ -1,6 +1,6 @@
-;;; fontenc.el --- AUCTeX style for `fontenc.sty' (v1.99g)
+;;; fontenc.el --- AUCTeX style for `fontenc.sty' (v1.99g)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015 Free Software Foundation, Inc.
+;; Copyright (C) 2015, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(require 'tex)
+
 (defvar LaTeX-fontenc-package-options-list
   '(;; 128+ glyph encodings (text)
     "OT1" "OT2" "OT3" "OT4" "OT6"
@@ -45,8 +47,8 @@
 (defun LaTeX-fontenc-package-options ()
   "Prompt for package options for the fontenc package."
   (mapconcat 'identity
-	     (TeX-completing-read-multiple
-	      "Encoding(s): "
-	      LaTeX-fontenc-package-options-list) ","))
+             (TeX-completing-read-multiple
+              "Encoding(s): "
+              LaTeX-fontenc-package-options-list) ","))
 
 ;;; fontenc.el ends here

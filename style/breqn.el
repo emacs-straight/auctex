@@ -1,4 +1,4 @@
-;;; breqn.el --- AUCTeX style for `breqn.sty' (v0.98j)
+;;; breqn.el --- AUCTeX style for `breqn.sty' (v0.98j)  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2017--2020 Free Software Foundation, Inc.
 
@@ -52,8 +52,8 @@
 
 (defvar LaTeX-breqn-key-val-options
   '(("style" ("\\tiny" "\\scriptsize" "\\footnotesize" "\\small"
-	      "\\normalsize" "\\large" "\\Large" "\\LARGE"
-	      "\\huge" "\\Huge"))
+              "\\normalsize" "\\large" "\\Large" "\\LARGE"
+              "\\huge" "\\Huge"))
     ("number")
     ("indentstep")
     ("compact")
@@ -78,19 +78,19 @@ The keys \"label\" and \"labelprefix\" are omitted.")
 Keys offered for key=val query depend on ENV.  \"label\" and
 \"labelprefix\" are omitted."
   (let ((keyvals
-	 (TeX-read-key-val t
-			   (cond ((or (string= env "dgroup")
-				      (string= env "dgroup*"))
-				  (append '(("noalign") ("brace"))
-					  LaTeX-breqn-key-val-options))
-				 ((or (string= env "darray")
-				      (string= env "darray*"))
-				  (append '(("noalign") ("brace") ("cols" ("{}")))
-					  LaTeX-breqn-key-val-options))
-				 (t LaTeX-breqn-key-val-options)))))
+         (TeX-read-key-val t
+                           (cond ((or (string= env "dgroup")
+                                      (string= env "dgroup*"))
+                                  (append '(("noalign") ("brace"))
+                                          LaTeX-breqn-key-val-options))
+                                 ((or (string= env "darray")
+                                      (string= env "darray*"))
+                                  (append '(("noalign") ("brace") ("cols" ("{}")))
+                                          LaTeX-breqn-key-val-options))
+                                 (t LaTeX-breqn-key-val-options)))))
     (LaTeX-insert-environment env (when (and keyvals
-					     (not (string= keyvals "")))
-				    (concat LaTeX-optop keyvals LaTeX-optcl)))
+                                             (not (string= keyvals "")))
+                                    (concat LaTeX-optop keyvals LaTeX-optcl)))
     (LaTeX-env-label-as-keyval nil nil keyvals env)))
 
 (add-hook 'TeX-update-style-hook #'TeX-auto-parse t)
@@ -133,7 +133,7 @@ Keys offered for key=val query depend on ENV.  \"label\" and
     '("condition"  [ "Punctuation mark (default ,)" ] t)
     '("condition*" [ "Punctuation mark (default ,)" ] t)
     '("hiderel" t)))
- LaTeX-dialect)
+ TeX-dialect)
 
 (defvar LaTeX-breqn-package-options nil
   "Package options for the breqn package.")

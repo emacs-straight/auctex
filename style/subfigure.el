@@ -1,6 +1,6 @@
-;;; subfigure.el --- AUCTeX style file for subfigure.sty
+;;; subfigure.el --- AUCTeX style file for subfigure.sty  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2003, 2005, 2013, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2003, 2005, 2013, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Reiner Steib  <Reiner.Steib@gmx.de>
 ;; Maintainer: auctex-devel@gnu.org
@@ -29,10 +29,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "subfigure"
@@ -51,34 +54,34 @@
 
    ;; Install completion for labels:
    (setq TeX-complete-list
-	 (append
-	  '(("\\\\[Ss]ubref{\\([^{}\n\r\\%,]*\\)" 1 LaTeX-label-list "}"))
-	  TeX-complete-list))
+         (append
+          '(("\\\\[Ss]ubref{\\([^{}\n\r\\%,]*\\)" 1 LaTeX-label-list "}"))
+          TeX-complete-list))
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("subfigure" "[[{")
-				("subtable" "[[{"))
-			      'textual)
+                                ("subtable" "[[{"))
+                              'textual)
      (font-latex-add-keywords '(("Subref" "{")
-				("subref" "{"))
-			      'reference)))
- LaTeX-dialect)
+                                ("subref" "{"))
+                              'reference)))
+ TeX-dialect)
 
 (defvar LaTeX-subfigure-package-options '("normal" "hang" "center"
-					  "centerlast" "nooneline"
-					  "raggedright" "isu" "anne"
-					  "scriptsize" "footnotesize"
-					  "small" "normalsize" "large"
-					  "Large" "rm" "sf" "tt" "md"
-					  "bf" "up" "it" "sl" "sc" "RM"
-					  "SF" "TT" "MD" "BF" "IT" "SL"
-					  "SC" "UP" "figbotcap"
-					  "figtopcap" "tabbotcap"
-					  "tabtopcap" "FIGBOTCAP"
-					  "FIGTOPCAP" "TABBOTCAP"
-					  "TABTOPCAP" "loose" "tight")
+                                          "centerlast" "nooneline"
+                                          "raggedright" "isu" "anne"
+                                          "scriptsize" "footnotesize"
+                                          "small" "normalsize" "large"
+                                          "Large" "rm" "sf" "tt" "md"
+                                          "bf" "up" "it" "sl" "sc" "RM"
+                                          "SF" "TT" "MD" "BF" "IT" "SL"
+                                          "SC" "UP" "figbotcap"
+                                          "figtopcap" "tabbotcap"
+                                          "tabtopcap" "FIGBOTCAP"
+                                          "FIGTOPCAP" "TABBOTCAP"
+                                          "TABTOPCAP" "loose" "tight")
   "Package options for the subfigure package.")
 
 ;;; subfigure.el ends here

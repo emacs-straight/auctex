@@ -1,4 +1,4 @@
-;;; comment.el --- AUCTeX style for `comment.sty'
+;;; comment.el --- AUCTeX style for `comment.sty'  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2007, 2018, 2020 Free Software Foundation, Inc.
 
@@ -30,13 +30,16 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'tex-style)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (declare-function font-latex-set-syntactic-keywords
-		  "font-latex")
+                  "font-latex")
 
 (defvar font-latex-syntactic-keywords-extra)
 
@@ -54,25 +57,25 @@
    (mapc 'LaTeX-add-environments LaTeX-comment-env-list)
    ;; Fontification
    (when (and (fboundp 'font-latex-add-keywords)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      ;; For syntactic fontification.
      (add-to-list 'font-latex-syntactic-keywords-extra
-		  ;; \begin is supposed to start at the beginning of a line.
-		  `(,(format "^\\\\begin *{%s}.*\\(\n\\)"
-			     (regexp-opt LaTeX-comment-env-list))
-		    (1 "!" t)))
+                  ;; \begin is supposed to start at the beginning of a line.
+                  `(,(format "^\\\\begin *{%s}.*\\(\n\\)"
+                             (regexp-opt LaTeX-comment-env-list))
+                    (1 "!" t)))
      (add-to-list 'font-latex-syntactic-keywords-extra
-		  ;; \end is supposed to start at the beginning of a line.
-		  `(,(format "^\\(\\\\\\)end *{%s}"
-			     (regexp-opt LaTeX-comment-env-list))
-		    (1 "!" t)))
+                  ;; \end is supposed to start at the beginning of a line.
+                  `(,(format "^\\(\\\\\\)end *{%s}"
+                             (regexp-opt LaTeX-comment-env-list))
+                    (1 "!" t)))
      (font-latex-add-keywords '(("includecomment" "{")
-				("excludecomment" "{")
-				("specialcomment" "{{{")
-				("processcomment" "{{{{"))
-			      'variable)
+                                ("excludecomment" "{")
+                                ("specialcomment" "{{{")
+                                ("processcomment" "{{{{"))
+                              'variable)
      ;; Tell font-lock about the update.
      (font-latex-set-syntactic-keywords)))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;;; comment.el ends here

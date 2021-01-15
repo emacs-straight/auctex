@@ -1,6 +1,6 @@
-;;; FiraMono.el --- AUCTeX style for `FiraMono.sty' (v2016/02/13)
+;;; FiraMono.el --- AUCTeX style for `FiraMono.sty' (v2016/02/13)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2016, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2016, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,10 +31,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "FiraMono"
@@ -56,20 +59,20 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("sufigures"        "")
-				("firamonooldstyle" "")
-				("firamonolining"   "")
-				("firamonomedium"   ""))
-			      'type-declaration)))
- LaTeX-dialect)
+                                ("firamonooldstyle" "")
+                                ("firamonolining"   "")
+                                ("firamonomedium"   ""))
+                              'type-declaration)))
+ TeX-dialect)
 
 (defvar LaTeX-FiraMono-package-options '("scaled" "scale"
-					 "type1"
-					 "lining" "lf"
-					 "oldstyle" "osf"
-					 "nomap"
-					 "medium" "mb")
+                                         "type1"
+                                         "lining" "lf"
+                                         "oldstyle" "osf"
+                                         "nomap"
+                                         "medium" "mb")
   "Package options for the FiraMono package.")
 
 ;;; FiraMono.el ends here

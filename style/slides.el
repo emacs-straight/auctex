@@ -1,6 +1,6 @@
-;;; slides.el --- AUCTeX style for the `slides' document class
+;;; slides.el --- AUCTeX style for the `slides' document class  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2004, 2013 Free Software Foundation, Inc.
+;; Copyright (C) 2004, 2013, 2020 Free Software Foundation, Inc.
 
 ;; Author: Ralf Angeli <angeli@iwi.uni-sb.de>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,6 +31,9 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 (defvar LaTeX-slides-class-options
   '("a4paper" "a5paper" "b5paper" "letterpaper" "legalpaper" "executivepaper"
     "landscape" "clock" "draft" "final" "titlepage" "notitlepage" "onecolumn"
@@ -41,11 +44,11 @@
  "slides"
  (lambda ()
    (LaTeX-add-environments "slide"
-			   "overlay"
-			   "note")
+                           "overlay"
+                           "note")
    (LaTeX-add-counters "minutes" "seconds")
    (LaTeX-add-pagestyles "headings" "slide" "overlay" "note")
    (setq LaTeX-default-document-environment "slide"))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;;; slides.el ends here

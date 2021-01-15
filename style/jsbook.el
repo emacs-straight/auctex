@@ -1,6 +1,9 @@
-;;; jsbook.el - Special code for jsbook class.
+;;; jsbook.el - Special code for jsbook class.  -*- lexical-binding: t; -*-
 
 ;;; Code:
+
+(require 'tex)
+(require 'latex)
 
 (defvar LaTeX-jsbook-class-options
   '("a3paper" "a4paper" "a5paper" "a6paper" "b4paper" "b5paper" "b6paper"
@@ -20,12 +23,12 @@
  (lambda ()
    (if (LaTeX-provided-class-options-member "jsbook" "report")
        (progn
-	 (LaTeX-largest-level-set "chapter")
-	 (LaTeX-add-environments "abstract"))
+         (LaTeX-largest-level-set "chapter")
+         (LaTeX-add-environments "abstract"))
      (LaTeX-largest-level-set "part"))
    (LaTeX-add-counters "part" "chapter" "section" "subsection" "subsubsection"
-		       "paragraph" "subparagraph" "figure" "table")
+                       "paragraph" "subparagraph" "figure" "table")
    (LaTeX-add-pagestyles "headings" "myheadings"))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;;; jsbook.el ends here

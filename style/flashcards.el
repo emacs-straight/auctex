@@ -1,6 +1,6 @@
-;;; flashcards.el --- AUCTeX style for the flashcards class.
+;;; flashcards.el --- AUCTeX style for the flashcards class.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2007, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2007, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Ralf Angeli <angeli@caeruleus.net>
 ;; Maintainer: auctex-devel@gnu.org
@@ -30,10 +30,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "flashcards"
@@ -54,13 +57,13 @@
    (LaTeX-add-environments '("flashcard" ["Header"] "Front side"))
    ;; Fontification
    (when (and (fboundp 'font-latex-add-keywords)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("cardfrontstyle" "[{")
-				("cardfrontfoot" "{")
-				("cardbackstyle" "[{")
-				("cardfrontheadstyle" "[{")
-				("cardfrontfootstyle" "[{"))
-			      'variable)))
- LaTeX-dialect)
+                                ("cardfrontfoot" "{")
+                                ("cardbackstyle" "[{")
+                                ("cardfrontheadstyle" "[{")
+                                ("cardfrontfootstyle" "[{"))
+                              'variable)))
+ TeX-dialect)
 
 ;;; flashcards.el ends here

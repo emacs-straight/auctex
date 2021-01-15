@@ -1,4 +1,4 @@
-;;; tikz.el --- AUCTeX style for `tikz.sty'
+;;; tikz.el --- AUCTeX style for `tikz.sty'  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016, 2020 Free Software Foundation, Inc.
 
@@ -30,6 +30,9 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 (defcustom TeX-TikZ-point-name-regexp
   "(\\([A-Za-z0-9]+\\))"
   "A regexp that matches TikZ names."
@@ -44,12 +47,12 @@
 
 (defconst TeX-TikZ-relative-point-function-map
   (apply #'append (mapcar
-		   (lambda (point-map)
-		     (let ((key (car point-map))
-			   (value (cadr point-map)))
-		       `((,(concat "+" key) ,value "+")
-			 (,(concat "++" key) ,value "++"))))
-		   TeX-TikZ-point-function-map))
+                   (lambda (point-map)
+                     (let ((key (car point-map))
+                           (value (cadr point-map)))
+                       `((,(concat "+" key) ,value "+")
+                         (,(concat "++" key) ,value "++"))))
+                   TeX-TikZ-point-function-map))
   "`TeX-TikZ-point-function-map' with \"+\" and \"++\" as a
 prefix.")
 

@@ -1,6 +1,6 @@
-;;; bulgarian.el --- AUCTeX style for the `bulgarian' babel option.
+;;; bulgarian.el --- AUCTeX style for the `bulgarian' babel option.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2008, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2008, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Ralf Angeli <angeli@caeruleus.net>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,10 +31,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-quotes
-		  "font-latex"
-		  (quotes))
+                  "font-latex"
+                  (quotes))
 
 (defvar LaTeX-bulgarian-mode-syntax-table
   (copy-syntax-table LaTeX-mode-syntax-table)
@@ -48,13 +51,13 @@
    (set-syntax-table LaTeX-bulgarian-mode-syntax-table)
    (unless (eq (car TeX-quote-language) 'override)
      (setq TeX-quote-language
-	   `("bulgarian" "\"`" "\"'" ,TeX-quote-after-quote)))
+           `("bulgarian" "\"`" "\"'" ,TeX-quote-after-quote)))
    (setq LaTeX-babel-hyphen-language "bulgarian")
    ;; Fontification of quotation marks.
    (when (fboundp 'font-latex-add-quotes)
      (font-latex-add-quotes '("\"`" "\"'"))
      (font-latex-add-quotes '("\"<" "\">" french)))
    (run-hooks 'TeX-language-bg-hook))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;;; bulgarian.el ends here

@@ -1,6 +1,6 @@
-;;; metalogo.el --- AUCTeX style for `metalogo.sty' version 0.12.
+;;; metalogo.el --- AUCTeX style for `metalogo.sty' version 0.12.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2013, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2013, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Maintainer: auctex-devel@gnu.org
 ;; Author: Mosè Giordano <giordano.mose@libero.it>
@@ -29,10 +29,12 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "metalogo"
@@ -47,11 +49,11 @@
     ;; Commands
     '("setlogokern"
       (TeX-arg-eval completing-read "Kern parameters: "
-		    '(("Te") ("eX") ("La") ("aT") ("Xe") ("eT") ("eL") ("X2")))
+                    '(("Te") ("eX") ("La") ("aT") ("Xe") ("eT") ("eL") ("X2")))
       (TeX-arg-length "Dimension"))
     '("setlogodrop"
       [TeX-arg-eval completing-read "Drop parameters: "
-		    '(("TeX") ("Xe") ("XeTeX"))]
+                    '(("TeX") ("Xe") ("XeTeX"))]
       (TeX-arg-length "Dimension"))
     '("setLaTeXa" 1)
     '("setLaTeXee" 1)
@@ -67,22 +69,22 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '( ;; Logos
-				("LaTeXe")
-				("XeTeX")
-				("XeLaTeX")
-				("LuaTeX")
-				("LuaLaTeX")
-				;; Commands
-				("setlogokern" "{{")
-				("setlogodrop" "[{")
-				("setLaTeXa" "{")
-				("setLaTeXee" "{")
-				("seteverylogo" "{")
-				("everylogo" "{"))
-			      'function)))
- LaTeX-dialect)
+                                ("LaTeXe")
+                                ("XeTeX")
+                                ("XeLaTeX")
+                                ("LuaTeX")
+                                ("LuaLaTeX")
+                                ;; Commands
+                                ("setlogokern" "{{")
+                                ("setlogodrop" "[{")
+                                ("setLaTeXa" "{")
+                                ("setLaTeXee" "{")
+                                ("seteverylogo" "{")
+                                ("everylogo" "{"))
+                              'function)))
+ TeX-dialect)
 
 (defvar LaTeX-metalogo-package-options nil
   "Package options for the metalogo package.")

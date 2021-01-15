@@ -1,6 +1,6 @@
-;;; unicode-math.el --- AUCTeX style for `unicode-math.sty' version 0.7e.
+;;; unicode-math.el --- AUCTeX style for `unicode-math.sty' version 0.7e.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2013, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2013, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Maintainer: auctex-devel@gnu.org
 ;; Author: Mosè Giordano <giordano.mose@libero.it>
@@ -29,10 +29,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (defvar LaTeX-unicode-math-package-options-list
   '(("math-style" ("ISO" "TeX" "french" "upright" "literal"))
@@ -47,18 +50,18 @@
 
 (defvar LaTeX-unicode-math-setmathfont-options
   (append LaTeX-unicode-math-package-options-list
-	  '(("range")
-	    ("script-font")
-	    ("script-features")
-	    ("sscript-font")
-	    ("sscript-features")))
+          '(("range")
+            ("script-font")
+            ("script-features")
+            ("sscript-font")
+            ("sscript-features")))
   "Options for the setmathfont macro of the unicode-math package.")
 
 (TeX-add-style-hook
  "unicode-math"
  (lambda ()
    (TeX-run-style-hooks "ifxetex" "ifluatex" "expl3" "xparse" "l3keys2e"
-			"fontspec" "catchfile" "fix-cm" "filehook")
+                        "fontspec" "catchfile" "fix-cm" "filehook")
    (TeX-add-symbols
     '("setmathfont" [TeX-arg-key-val LaTeX-unicode-math-setmathfont-options]
       "Math font name")
@@ -66,11 +69,11 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("setmathfont" "[{")
-				("unimathsetup" "{"))
-			      'function)))
- LaTeX-dialect)
+                                ("unimathsetup" "{"))
+                              'function)))
+ TeX-dialect)
 
 (defun LaTeX-unicode-math-package-options ()
   "Prompt for package options for the unicode-math package."

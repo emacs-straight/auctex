@@ -1,6 +1,6 @@
-;;; tabulary.el --- AUCTeX style for the tabulary package.
+;;; tabulary.el --- AUCTeX style for the tabulary package.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2013-2016 Free Software Foundation, Inc.
+;; Copyright (C) 2013-2016, 2020 Free Software Foundation, Inc.
 
 ;; Author: Mads Jensen <mje@inducks.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -30,6 +30,9 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 (defvar LaTeX-tabulary-package-options
   '("debugshow")
   "Package options for the tabulary package.")
@@ -42,7 +45,7 @@
    ;; Use the enhanced tabular indentation.  Append to
    ;; `LaTeX-indent-environment-list' in order not to override custom settings.
    (add-to-list (make-local-variable 'LaTeX-indent-environment-list)
-		'("tabulary" LaTeX-indent-tabular))
+                '("tabulary" LaTeX-indent-tabular))
 
    ;; Append tabulary to `LaTeX-item-list' with `LaTeX-item-tabular*'
    (add-to-list 'LaTeX-item-list '("tabulary" . LaTeX-item-tabular*) t)
@@ -61,7 +64,7 @@
 
    ;; `tabulary.sty' adds some new column specification letters.
    (set (make-local-variable 'LaTeX-array-column-letters)
-	(concat LaTeX-array-column-letters "L" "C" "R" "J")))
- LaTeX-dialect)
+        (concat LaTeX-array-column-letters "L" "C" "R" "J")))
+ TeX-dialect)
 
 ;;; tabulary.el ends here

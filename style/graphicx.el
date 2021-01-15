@@ -1,6 +1,6 @@
-;;; graphicx.el --- AUCTeX style file for graphicx.sty
+;;; graphicx.el --- AUCTeX style file for graphicx.sty  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2000, 2004, 2005, 2014--2018 by Free Software Foundation, Inc.
+;; Copyright (C) 2000, 2004, 2005, 2014--2020 by Free Software Foundation, Inc.
 
 ;; Author: Ryuichi Arafune <arafune@debian.org>
 ;; Created: 1999/3/20
@@ -28,14 +28,18 @@
 ;; Acknowledgements
 ;;  Dr. Thomas Baumann <thomas.baumann@ch.tum.de>
 ;;  David Kastrup <David.Kastrup@t-online.de>
-;;  Masayuki Akata <ataka@milk.freemail.ne.jp>
+;;  Masayuki Ataka <masayuki.ataka@gmail.com>
 
 ;;; Code:
 
+(require 'crm)
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (defvar LaTeX-graphicx-key-val-options
   '(("bb")
@@ -89,25 +93,25 @@ If `TeX-engine' is set to symbol 'default (while
 is non-nil, add the keys \"page\" and \"pagebox\" to list of
 key-val's."
   (let ((crm-local-completion-map
-	 (remove (assoc 32 crm-local-completion-map)
-		 crm-local-completion-map))
-	(minibuffer-local-completion-map
-	 (remove (assoc 32 minibuffer-local-completion-map)
-		 minibuffer-local-completion-map)))
+         (remove (assoc 32 crm-local-completion-map)
+                 crm-local-completion-map))
+        (minibuffer-local-completion-map
+         (remove (assoc 32 minibuffer-local-completion-map)
+                 minibuffer-local-completion-map)))
     (TeX-argument-insert
      (TeX-read-key-val optional
-		       (if (and (or (and (eq TeX-engine 'default)
-					 (not (TeX-PDF-from-DVI)))
-				    (eq TeX-engine 'luatex))
-				TeX-PDF-mode)
-			   (append '(("page")
-				     ("pagebox" ("mediabox"
-						 "cropbox"
-						 "bleedbox"
-						 "trimbox"
-						 "artbox")))
-				   LaTeX-graphicx-key-val-options)
-			 LaTeX-graphicx-key-val-options))
+                       (if (and (or (and (eq TeX-engine 'default)
+                                         (not (TeX-PDF-from-DVI)))
+                                    (eq TeX-engine 'luatex))
+                                TeX-PDF-mode)
+                           (append '(("page")
+                                     ("pagebox" ("mediabox"
+                                                 "cropbox"
+                                                 "bleedbox"
+                                                 "trimbox"
+                                                 "artbox")))
+                                   LaTeX-graphicx-key-val-options)
+                         LaTeX-graphicx-key-val-options))
      optional)))
 
 (defun LaTeX-includegraphics-extensions-list ()
@@ -115,54 +119,54 @@ key-val's."
 Return value is a list of regexps."
   (let ((temp (copy-sequence LaTeX-includegraphics-extensions)))
     (cond (;; 'default TeX-engine:
-	   (eq TeX-engine 'default)
-	   (if ;; we want to produce a pdf
-	       (if TeX-PDF-mode
-		   ;; Return t if default compiler produces PDF,
-		   ;; nil for "Dvips" or "Dvipdfmx"
-		   (not (TeX-PDF-from-DVI))
-		 ;; t if pdftex is used in dvi-mode
-		 TeX-DVI-via-PDFTeX)
-	       ;; We're using pdflatex in pdf-mode
-	       (TeX-delete-duplicate-strings
-		(append LaTeX-includegraphics-pdftex-extensions
-			temp))
-	     ;; We're generating a .dvi to process with dvips or dvipdfmx
-	     (progn
-	       ;; dvipdfmx can handle jpeg, pdf and png for image formats.
-	       (unless (and TeX-PDF-mode
-			    (string= (TeX-PDF-from-DVI) "Dvipdfmx"))
-		 (dolist (x '("jpe?g" "pdf" "png"))
-		   (setq temp (delete x temp))))
-	       (TeX-delete-duplicate-strings
-		(append LaTeX-includegraphics-dvips-extensions
-			temp)))))
-	  ;; Running luatex in pdf or dvi-mode:
-	  ((eq TeX-engine 'luatex)
-	   (if TeX-PDF-mode
-	       (TeX-delete-duplicate-strings
-		(append LaTeX-includegraphics-pdftex-extensions
-			temp))
-	     (progn
-	       (dolist (x '("jpe?g" "pdf" "png"))
-		 (setq temp (delete x temp)))
-	       (TeX-delete-duplicate-strings
-		(append LaTeX-includegraphics-dvips-extensions
-			temp)))))
-	  ;; Running xetex in any mode:
-	  ((eq TeX-engine 'xetex)
-	   (TeX-delete-duplicate-strings
-	    (append LaTeX-includegraphics-xetex-extensions
-		    temp)))
-	  ;; For anything else
-	  (t
-	   (if (and TeX-PDF-mode
-		    (string= (TeX-PDF-from-DVI) "Dvipdfmx"))
-	       ;; dvipdfmx can handle the same image formats as dvips.
-	       (TeX-delete-duplicate-strings
-		(append LaTeX-includegraphics-dvips-extensions
-			temp))
-	     temp)))))
+           (eq TeX-engine 'default)
+           (if ;; we want to produce a pdf
+               (if TeX-PDF-mode
+                   ;; Return t if default compiler produces PDF,
+                   ;; nil for "Dvips" or "Dvipdfmx"
+                   (not (TeX-PDF-from-DVI))
+                 ;; t if pdftex is used in dvi-mode
+                 TeX-DVI-via-PDFTeX)
+               ;; We're using pdflatex in pdf-mode
+               (TeX-delete-duplicate-strings
+                (append LaTeX-includegraphics-pdftex-extensions
+                        temp))
+             ;; We're generating a .dvi to process with dvips or dvipdfmx
+             (progn
+               ;; dvipdfmx can handle jpeg, pdf and png for image formats.
+               (unless (and TeX-PDF-mode
+                            (string= (TeX-PDF-from-DVI) "Dvipdfmx"))
+                 (dolist (x '("jpe?g" "pdf" "png"))
+                   (setq temp (delete x temp))))
+               (TeX-delete-duplicate-strings
+                (append LaTeX-includegraphics-dvips-extensions
+                        temp)))))
+          ;; Running luatex in pdf or dvi-mode:
+          ((eq TeX-engine 'luatex)
+           (if TeX-PDF-mode
+               (TeX-delete-duplicate-strings
+                (append LaTeX-includegraphics-pdftex-extensions
+                        temp))
+             (progn
+               (dolist (x '("jpe?g" "pdf" "png"))
+                 (setq temp (delete x temp)))
+               (TeX-delete-duplicate-strings
+                (append LaTeX-includegraphics-dvips-extensions
+                        temp)))))
+          ;; Running xetex in any mode:
+          ((eq TeX-engine 'xetex)
+           (TeX-delete-duplicate-strings
+            (append LaTeX-includegraphics-xetex-extensions
+                    temp)))
+          ;; For anything else
+          (t
+           (if (and TeX-PDF-mode
+                    (string= (TeX-PDF-from-DVI) "Dvipdfmx"))
+               ;; dvipdfmx can handle the same image formats as dvips.
+               (TeX-delete-duplicate-strings
+                (append LaTeX-includegraphics-dvips-extensions
+                        temp))
+             temp)))))
 
 (defun LaTeX-includegraphics-extensions (&optional list)
   "Return appropriate extensions for input files to \\includegraphics.
@@ -171,7 +175,7 @@ Optional argument LIST if non-nil is used as list of regexps of
 extensions to be matched."
   (unless list
     (setq list (LaTeX-includegraphics-extensions-list)))
-  (concat "\\." (mapconcat #'identity list "$\\|\\.") "$"))
+  (concat "\\." (mapconcat #'identity list "\\'\\|\\.") "\\'"))
 
 (defvar LaTeX-includegraphics-global-files nil
   "List of the non-local graphic files to include in LaTeX documents.
@@ -183,19 +187,19 @@ May be reset with `\\[universal-argument] \\[TeX-normal-mode]'.")
 Offers all graphic files found in the TeX search path.  See
 `LaTeX-includegraphics-read-file' for more."
   (let ((LaTeX-includegraphics-extensions
-	 (LaTeX-includegraphics-extensions-list)))
+         (LaTeX-includegraphics-extensions-list)))
     (unless LaTeX-includegraphics-global-files
       (message "Searching for graphic files...")
       (setq LaTeX-includegraphics-global-files
-	    (TeX-search-files-by-type
-	     'graphics 'global t
-	     LaTeX-includegraphics-strip-extension-flag))
+            (TeX-search-files-by-type
+             'graphics 'global t
+             LaTeX-includegraphics-strip-extension-flag))
       (message "Searching for graphic files...done"))
     (completing-read
      "Image file: "
      (append
       (TeX-search-files-by-type 'graphics 'local t
-				LaTeX-includegraphics-strip-extension-flag)
+                                LaTeX-includegraphics-strip-extension-flag)
       LaTeX-includegraphics-global-files)
      nil nil nil)))
 
@@ -210,24 +214,19 @@ subdirectories and inserts the relative file name.  See
     "Image file: " nil nil nil nil
     (lambda (fname)
       (or (file-directory-p fname)
-	  (string-match (LaTeX-includegraphics-extensions) fname))))
+          (string-match (LaTeX-includegraphics-extensions) fname))))
    (TeX-master-directory)))
 
-(defun LaTeX-arg-includegraphics (_prefix)
+(defun LaTeX-arg-includegraphics (optional)
   "Ask for mandantory argument for the \\includegraphics command."
-  (let* ((image-file (funcall LaTeX-includegraphics-read-file)))
-    (TeX-insert-braces 0)
-    (insert
+  (let ((image-file (funcall LaTeX-includegraphics-read-file)))
+    (TeX-argument-insert
      (if LaTeX-includegraphics-strip-extension-flag
-	 ;; We don't have `replace-regexp-in-string' in all (X)Emacs versions:
-	 (with-temp-buffer
-	   (insert image-file)
-	   (goto-char (point-max))
-	   (when (search-backward-regexp (LaTeX-includegraphics-extensions)
-					 nil t 1)
-	     (replace-match ""))
-	   (buffer-string))
-       image-file))))
+         (replace-regexp-in-string (LaTeX-includegraphics-extensions)
+                                   ""
+                                   image-file)
+       image-file)
+     optional)))
 
 (TeX-add-style-hook
  "graphicx"
@@ -237,49 +236,49 @@ subdirectories and inserts the relative file name.  See
 
     '("resizebox"
       (TeX-arg-eval completing-read
-		    (TeX-argument-prompt optional nil "Width")
-		    (append '("\\width" "!")
-			    (mapcar
-			     (lambda (x) (concat TeX-esc (car x)))
-			     (LaTeX-length-list))))
+                    (TeX-argument-prompt nil nil "Width")
+                    (append '("\\width" "!")
+                            (mapcar
+                             (lambda (x) (concat TeX-esc (car x)))
+                             (LaTeX-length-list))))
       (TeX-arg-eval completing-read
-		    (TeX-argument-prompt optional nil "Height")
-		    (append '("\\height" "\\totalheight" "\\depth" "!")
-			    (mapcar
-			     (lambda (x) (concat TeX-esc (car x)))
-			     (LaTeX-length-list))))
+                    (TeX-argument-prompt nil nil "Height")
+                    (append '("\\height" "\\totalheight" "\\depth" "!")
+                            (mapcar
+                             (lambda (x) (concat TeX-esc (car x)))
+                             (LaTeX-length-list))))
       "Argument")
 
     '("resizebox*"
       (TeX-arg-eval completing-read
-		    (TeX-argument-prompt optional nil "Width")
-		    (append '("\\width" "!")
-			    (mapcar
-			     (lambda (x) (concat TeX-esc (car x)))
-			     (LaTeX-length-list))))
+                    (TeX-argument-prompt nil nil "Width")
+                    (append '("\\width" "!")
+                            (mapcar
+                             (lambda (x) (concat TeX-esc (car x)))
+                             (LaTeX-length-list))))
       (TeX-arg-eval completing-read
-		    (TeX-argument-prompt optional nil "Height")
-		    (append '("\\height" "\\totalheight" "\\depth" "!")
-			    (mapcar
-			     (lambda (x) (concat TeX-esc (car x)))
-			     (LaTeX-length-list))))
+                    (TeX-argument-prompt nil nil "Height")
+                    (append '("\\height" "\\totalheight" "\\depth" "!")
+                            (mapcar
+                             (lambda (x) (concat TeX-esc (car x)))
+                             (LaTeX-length-list))))
       "Argument")
 
     '("rotatebox" (TeX-arg-conditional (member "graphics" (TeX-style-list))
-				       ()
-				     ([ TeX-arg-key-val (("x") ("y") ("origin") ("units")) ]))
+                                       ()
+                                       ([ TeX-arg-key-val (("x") ("y") ("origin") ("units")) ]))
       "Angle" "Argument")
 
     '("scalebox" "Horizontal scale" [ "Vertical scale" ] "Argument")
 
     '("includegraphics" (TeX-arg-conditional (member "graphics" (TeX-style-list))
-					     (["llx,lly"] ["urx,ury"])
-					   ([ LaTeX-arg-graphicx-includegraphics-key-val ]))
+                                             (["llx,lly"] ["urx,ury"])
+                                             ([ LaTeX-arg-graphicx-includegraphics-key-val ]))
       LaTeX-arg-includegraphics)
 
     '("includegraphics*" (TeX-arg-conditional (member "graphics" (TeX-style-list))
-					      (["llx,lly"] ["urx,ury"])
-					    ([ LaTeX-arg-graphicx-includegraphics-key-val ]))
+                                              (["llx,lly"] ["urx,ury"])
+                                              ([ LaTeX-arg-graphicx-includegraphics-key-val ]))
       LaTeX-arg-includegraphics)
 
     '("graphicspath" t)
@@ -290,24 +289,24 @@ subdirectories and inserts the relative file name.  See
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("reflectbox" "{")
-				("resizebox" "*{{{")
-				("rotatebox" "[{{")
-				("scalebox" "{[{"))
-			      'textual)
+                                ("resizebox" "*{{{")
+                                ("rotatebox" "[{{")
+                                ("scalebox" "{[{"))
+                              'textual)
      (font-latex-add-keywords '(("includegraphics" "*[[{"))
-			      'reference)
+                              'reference)
      (font-latex-add-keywords '(("graphicspath"              "{")
-				("DeclareGraphicsExtensions" "{")
-				("DeclareGraphicsRule"       "{{{{"))
-			      'function))
+                                ("DeclareGraphicsExtensions" "{")
+                                ("DeclareGraphicsRule"       "{{{{"))
+                              'function))
 
    ;; Option management
    (if (and (LaTeX-provided-package-options-member "graphicx" "dvipdfmx")
-	    (not (eq TeX-engine 'xetex)))
+            (not (eq TeX-engine 'xetex)))
        (setq TeX-PDF-from-DVI "Dvipdfmx")))
- LaTeX-dialect)
+ TeX-dialect)
 
 (defvar LaTeX-graphicx-package-options
   '("draft"       "final"         "debugshow"

@@ -1,4 +1,4 @@
-;;; algorithm.el --- AUCTeX style for the (LaTeX) algorithm package
+;;; algorithm.el --- AUCTeX style for the (LaTeX) algorithm package  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020 Free Software Foundation, Inc.
 
@@ -28,6 +28,9 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 (defvar LaTeX-algorithm-package-options
   '("section")
   "Package options for the algorithm package.")
@@ -36,23 +39,23 @@
 (defun LaTeX-env-algorithm (environment)
   "Insert a algorithm-like ENVIRONMENT with caption and label."
   (let* ((pos (completing-read (TeX-argument-prompt t nil "Position")
-			       '(("H"))))
-	 (caption (TeX-read-string "Caption: "))
-	 (short-caption (when (>= (length caption) LaTeX-short-caption-prompt-length)
-			  (TeX-read-string "(Optional) Short caption: "))))
+                               '(("H"))))
+         (caption (TeX-read-string "Caption: "))
+         (short-caption (when (>= (length caption) LaTeX-short-caption-prompt-length)
+                          (TeX-read-string "(Optional) Short caption: "))))
     (LaTeX-insert-environment environment
-			      (concat
-			       (unless (zerop (length pos))
-				 (concat LaTeX-optop pos LaTeX-optcl))))
+                              (concat
+                               (unless (zerop (length pos))
+                                 (concat LaTeX-optop pos LaTeX-optcl))))
     ;; top caption -- do nothing if user skips caption
     (unless (zerop (length caption))
       ;; insert `\caption[short-caption]{caption':
       (insert TeX-esc "caption")
       (when (and short-caption (not (string= short-caption "")))
-	(insert LaTeX-optop short-caption LaTeX-optcl))
+        (insert LaTeX-optop short-caption LaTeX-optcl))
       (insert TeX-grop caption)
       ;; ask for a label and insert it
-;      (LaTeX-label environment 'environment)
+                                        ;      (LaTeX-label environment 'environment)
       ;; the longtable `\caption' is equivalent to a
       ;; `\multicolumn', so it needs a `\\' at the
       ;; end of the line.  Prior to that, add } to
@@ -74,7 +77,7 @@
     '("algorithm"  LaTeX-env-algorithm ))
    (TeX-add-symbols
     '("listofalgorithms" 0))
-      LaTeX-dialect))
+      TeX-dialect))
 
 
 ;;; algorithm.el ends here

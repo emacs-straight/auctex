@@ -1,6 +1,6 @@
-;;; paralist.el -- AUCTeX style for paralist.sty
+;;; paralist.el -- AUCTeX style for paralist.sty  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2003-2005, 2014, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2003-2005, 2014, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author:   Ralf Angeli <angeli@iwi.uni-sb.de>
 ;; Maintainer: auctex-devel@gnu.org
@@ -30,10 +30,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 ;; Insert an itemize-ish environment and ask for an optional label
 (defun LaTeX-paralist-env-item-opt-label (environment)
@@ -93,20 +96,20 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("setdefaultitem" "{{{{")
-				("setdefaultenum" "{{{{")
-				("setdefaultleftmargin" "{{{{{{"))
-			      'variable)))
- LaTeX-dialect)
+                                ("setdefaultenum" "{{{{")
+                                ("setdefaultleftmargin" "{{{{{{"))
+                              'variable)))
+ TeX-dialect)
 
 (defvar LaTeX-paralist-package-options '("newitem" "olditem" "newenum"
-					 "oldenum" "alwaysadjust"
-					 "neveradjust" "neverdecrease"
-					 "increaseonly" "defblank"
-					 "pointedenum" "pointlessenum"
-					 "cfg" "nocfg" "flushright"
-					 "flushleft")
+                                         "oldenum" "alwaysadjust"
+                                         "neveradjust" "neverdecrease"
+                                         "increaseonly" "defblank"
+                                         "pointedenum" "pointlessenum"
+                                         "cfg" "nocfg" "flushright"
+                                         "flushleft")
   "Package options for the paralist package.")
 
 ;;; paralist.el ends here

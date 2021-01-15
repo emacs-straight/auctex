@@ -1,6 +1,6 @@
-;;; amstex.el --- AMS-LaTeX support.
+;;; amstex.el --- AMS-LaTeX support.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2004, 2005 Free Software Foundation, Inc.
+;; Copyright (C) 2004, 2005, 2020 Free Software Foundation, Inc.
 
 ;; Maintainer: auctex-devel@gnu.org
 ;; Keywords: tex
@@ -40,22 +40,24 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 (TeX-add-style-hook
  "amstex"
- (function
-  (lambda ()
-    (unless (memq major-mode '(plain-tex-mode ams-tex-mode))
-      (TeX-run-style-hooks "amsmath"))))
- LaTeX-dialect)
+ (lambda ()
+   (unless (memq major-mode '(plain-tex-mode ams-tex-mode))
+     (TeX-run-style-hooks "amsmath")))
+ TeX-dialect)
 
 (defvar LaTeX-amstex-package-options '("noamsfonts" "psamsfonts" 
-				       "intlimits" "nointlimits"
-				       "sumlimits" "nosumlimits"
-				       "namelimits" "nonamelimits"
-				       "leqno" "reqno" "centertags"
-				       "tbtags" "fleqn" "righttag"
-				       "ctagsplt" "intlim" "nosumlim"
-				       "nonamelm")
-    "Package options for the amstex package.")
+                                       "intlimits" "nointlimits"
+                                       "sumlimits" "nosumlimits"
+                                       "namelimits" "nonamelimits"
+                                       "leqno" "reqno" "centertags"
+                                       "tbtags" "fleqn" "righttag"
+                                       "ctagsplt" "intlim" "nosumlim"
+                                       "nonamelm")
+  "Package options for the amstex package.")
 
 ;;; amstex.el ends here.

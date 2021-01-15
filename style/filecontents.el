@@ -1,6 +1,6 @@
-;;; filecontents.el --- AUCTeX style for `filecontents.sty'
+;;; filecontents.el --- AUCTeX style for `filecontents.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2013--2016 Free Software Foundation, Inc.
+;; Copyright (C) 2013--2016, 2020 Free Software Foundation, Inc.
 
 ;; Author: Mads Jensen <mje@inducks.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -33,6 +33,9 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 (TeX-add-style-hook
  "filecontents"
  (lambda ()
@@ -42,17 +45,17 @@
 
    (make-local-variable 'LaTeX-indent-environment-list)
    (add-to-list 'LaTeX-indent-environment-list
-		'("filecontents" current-indentation) t)
+                '("filecontents" current-indentation) t)
    (add-to-list 'LaTeX-indent-environment-list
-		'("filecontents*" current-indentation) t))
- LaTeX-dialect)
+                '("filecontents*" current-indentation) t))
+ TeX-dialect)
 
 (defun LaTeX-env-filecontents (environment)
   "Insert ENVIRONMENT with filename for contents."
   (LaTeX-insert-environment environment
-			    (concat TeX-grop
-				    (TeX-read-string "File: ")
-				    TeX-grcl))
+                            (concat TeX-grop
+                                    (TeX-read-string "File: ")
+                                    TeX-grcl))
   (delete-horizontal-space))
 
 (defvar LaTeX-filecontents-package-options nil

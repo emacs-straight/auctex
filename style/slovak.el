@@ -1,9 +1,11 @@
-;;; slovak.el --- Setup AUCTeX for editing Slovak text.
+;;; slovak.el --- Setup AUCTeX for editing Slovak text.  -*- lexical-binding: t; -*-
+
+(require 'tex)
 
 ;; Silence the compiler:
 (declare-function font-latex-add-quotes
-		  "font-latex"
-		  (quotes))
+                  "font-latex"
+                  (quotes))
 
 (TeX-add-style-hook
  "slovak"
@@ -14,4 +16,4 @@
      (font-latex-add-quotes '("\"`" "\"'"))
      (font-latex-add-quotes '("\"<" "\">" french)))
    (run-hooks 'TeX-language-sk-hook))
- LaTeX-dialect)
+ TeX-dialect)

@@ -1,6 +1,6 @@
-;;; units.el --- AUCTeX style for the LaTeX package `units.sty' (v0.9b)
+;;; units.el --- AUCTeX style for the LaTeX package `units.sty' (v0.9b)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2004, 2005, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2004, 2005, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Christian Schlauer <cschl@arcor.de>
 ;; Maintainer: auctex-devel@gnu.org
@@ -29,10 +29,12 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "units"
@@ -45,9 +47,9 @@
    (TeX-run-style-hooks "nicefrac")
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("unit" "[{") ("unitfrac" "[{{")) 'textual)))
- LaTeX-dialect)
+ TeX-dialect)
 
 (defvar LaTeX-units-package-options '("tight" "loose")
   "Package options for the units package.")

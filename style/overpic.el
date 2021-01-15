@@ -1,4 +1,4 @@
-;;; overpic.el --- AUCTeX style for `overpic.sty' (v1.3)
+;;; overpic.el --- AUCTeX style for `overpic.sty' (v1.3)  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020 Free Software Foundation, Inc.
 
@@ -31,10 +31,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 (defvar LaTeX-graphicx-key-val-options)
 (defvar LaTeX-graphicx-package-options)
 
@@ -57,28 +60,28 @@ This function is an variation of
 in `LaTeX-overpic-key-val-options' are offered in addition to the
 ones provided by `LaTeX-graphicx-key-val-options'."
   (let ((crm-local-completion-map
-	 (remove (assoc 32 crm-local-completion-map)
-		 crm-local-completion-map))
-	(minibuffer-local-completion-map
-	 (remove (assoc 32 minibuffer-local-completion-map)
-		 minibuffer-local-completion-map)))
+         (remove (assoc 32 crm-local-completion-map)
+                 crm-local-completion-map))
+        (minibuffer-local-completion-map
+         (remove (assoc 32 minibuffer-local-completion-map)
+                 minibuffer-local-completion-map)))
     (TeX-argument-insert
      (TeX-read-key-val optional
-		       (if (and (or (and (eq TeX-engine 'default)
-					 (not (TeX-PDF-from-DVI)))
-				    (eq TeX-engine 'luatex))
-				TeX-PDF-mode)
-			   (append '(("page")
-				     ("pagebox" ("mediabox"
-						 "cropbox"
-						 "bleedbox"
-						 "trimbox"
-						 "artbox")))
-				   LaTeX-overpic-key-val-options
-				   LaTeX-graphicx-key-val-options)
-			 (append
-			  LaTeX-overpic-key-val-options
-			  LaTeX-graphicx-key-val-options)))
+                       (if (and (or (and (eq TeX-engine 'default)
+                                         (not (TeX-PDF-from-DVI)))
+                                    (eq TeX-engine 'luatex))
+                                TeX-PDF-mode)
+                           (append '(("page")
+                                     ("pagebox" ("mediabox"
+                                                 "cropbox"
+                                                 "bleedbox"
+                                                 "trimbox"
+                                                 "artbox")))
+                                   LaTeX-overpic-key-val-options
+                                   LaTeX-graphicx-key-val-options)
+                         (append
+                          LaTeX-overpic-key-val-options
+                          LaTeX-graphicx-key-val-options)))
      optional)))
 
 
@@ -103,10 +106,10 @@ ones provided by `LaTeX-graphicx-key-val-options'."
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("setOverpic" "{"))
-			      'function)))
- LaTeX-dialect)
+                              'function)))
+ TeX-dialect)
 
 (defvar LaTeX-overpic-package-options
   (progn

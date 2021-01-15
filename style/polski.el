@@ -1,6 +1,6 @@
-;;; polski.el --- AUCTeX style for `polski.sty'.
+;;; polski.el --- AUCTeX style for `polski.sty'.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2007, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2007, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Ralf Angeli <angeli@caeruleus.net>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,10 +31,12 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-quotes
-		  "font-latex"
-		  (quotes))
+                  "font-latex"
+                  (quotes))
 
 (defvar LaTeX-polski-package-options
   '("plmath" "nomathsymbols" "MeX" "T1" "QX" "OT1" "OT4" "prefixinginverb"
@@ -56,6 +58,6 @@
    (when (fboundp 'font-latex-add-quotes)
      (font-latex-add-quotes '(",," "''")))
    (run-hooks 'TeX-language-pl-hook))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;;; polski.el ends here

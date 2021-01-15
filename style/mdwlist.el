@@ -1,6 +1,6 @@
-;;; mdwlist.el --- AUCTeX style for `mdwlist.sty'
+;;; mdwlist.el --- AUCTeX style for `mdwlist.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2004, 2005, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2004, 2005, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Maintainer: auctex-devel@gnu.org
 ;; Keywords: tex
@@ -28,10 +28,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "mdwlist"
@@ -51,17 +54,17 @@
    (setq LaTeX-end-regexp (concat LaTeX-end-regexp "\\|suspend\\b"))
    (make-local-variable 'paragraph-start)
    (setq paragraph-start (concat paragraph-start
-				 "\\|[ \t]*" TeX-comment-start-regexp "*[ \t]*"
-				 (regexp-quote TeX-esc)
-				 "\\(resume\\b\\|suspend\\b\\)"))
+                                 "\\|[ \t]*" TeX-comment-start-regexp "*[ \t]*"
+                                 (regexp-quote TeX-esc)
+                                 "\\(resume\\b\\|suspend\\b\\)"))
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("makecompactlist" "{{")
-				("suspend" "[{")
-				("resume" "[{["))
-			      'function)))
- LaTeX-dialect)
+                                ("suspend" "[{")
+                                ("resume" "[{["))
+                              'function)))
+ TeX-dialect)
 
 (defvar LaTeX-mdwlist-package-options nil
   "Package options for the mdwlist package.")

@@ -1,6 +1,6 @@
-;;; mflogo.el --- AUCTeX style for `mflogo.sty'
+;;; mflogo.el --- AUCTeX style for `mflogo.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2012, 2019 Free Software Foundation, Inc.
+;; Copyright (C) 2012, 2019, 2020 Free Software Foundation, Inc.
 
 ;; Author: Mads Jensen <mje@inducks.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -30,10 +30,12 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "mflogo"
@@ -46,12 +48,12 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("textlogo" "{"))
-			      'type-command)
+                              'type-command)
      (font-latex-add-keywords '(("logofamily" ""))
-			      'type-declaration)))
- LaTeX-dialect)
+                              'type-declaration)))
+ TeX-dialect)
 
 (defvar LaTeX-mflogo-package-options nil
   "Package options for the mflogo package.")

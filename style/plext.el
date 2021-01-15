@@ -1,6 +1,6 @@
-;;; plext.el --- AUCTeX style for the plext package.
+;;; plext.el --- AUCTeX style for the plext package.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2014 Free Software Foundation, Inc.
+;; Copyright (C) 2014, 2020 Free Software Foundation, Inc.
 
 ;; Author: Ikumi Keita <ikumi@ikumi.que.jp>
 ;; Maintainer: auctex-devel@gnu.org
@@ -30,6 +30,9 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 (TeX-add-style-hook
  "plext"
  (lambda ()
@@ -43,36 +46,36 @@
     '("tabular*" LaTeX-plext-env-array))
 
    (set (make-local-variable 'LaTeX-array-skipping-regexp)
-	(concat "\\(?:<[tyz]>\\)?[ \t]*" (regexp-opt '("[t]" "[b]" ""))))
+        (concat "\\(?:<[tyz]>\\)?[ \t]*" (regexp-opt '("[t]" "[b]" ""))))
    (set (make-local-variable 'LaTeX-tabular*-skipping-regexp)
-	(concat "\\(?:<[tyz]>\\)?[ \t]*{[^}]*}[ \t]*"
-		(regexp-opt '("[t]" "[b]" "")))))
- LaTeX-dialect)
+        (concat "\\(?:<[tyz]>\\)?[ \t]*{[^}]*}[ \t]*"
+                (regexp-opt '("[t]" "[b]" "")))))
+ TeX-dialect)
 
 (defun LaTeX-plext-env-array (env)
   (let ((dir (TeX-read-string "(Optional) Direction (t or y or z): "))
-	(width (if (string= env "tabular*")
-		   (TeX-read-string "Width: " LaTeX-default-width)))
-	(pos (and LaTeX-default-position ; LaTeX-default-position can
-					; be nil, i.e. do not prompt
-		  (TeX-read-string "(Optional) Position: " LaTeX-default-position)))
-	(fmt (TeX-read-string "Format: " LaTeX-default-format)))
+        (width (if (string= env "tabular*")
+                   (TeX-read-string "Width: " LaTeX-default-width)))
+        (pos (and LaTeX-default-position ; LaTeX-default-position can
+                                        ; be nil, i.e. do not prompt
+                  (TeX-read-string "(Optional) Position: " LaTeX-default-position)))
+        (fmt (TeX-read-string "Format: " LaTeX-default-format)))
     (unless (zerop (length dir))
       (setq dir (concat "<" dir ">")))
     (if (string= env "tabular*")
-	(setq LaTeX-default-width width))
+        (setq LaTeX-default-width width))
     (setq LaTeX-default-position pos)
     (setq LaTeX-default-format fmt)
     (LaTeX-insert-environment env
-			      (concat
-			       dir
-			       (if (string= env "tabular*")
-				   (concat TeX-grop width TeX-grcl))
-			       (unless (zerop (length pos))
-				 (concat LaTeX-optop pos LaTeX-optcl))
-			       (concat TeX-grop fmt TeX-grcl)))
+                              (concat
+                               dir
+                               (if (string= env "tabular*")
+                                   (concat TeX-grop width TeX-grcl))
+                               (unless (zerop (length pos))
+                                 (concat LaTeX-optop pos LaTeX-optcl))
+                               (concat TeX-grop fmt TeX-grcl)))
     (if (string= env "tabular*")
-	(LaTeX-item-tabular* t)
+        (LaTeX-item-tabular* t)
       (LaTeX-item-array t))))
 
 ;;; plext.el ends here.

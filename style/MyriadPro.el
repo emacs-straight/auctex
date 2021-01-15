@@ -1,6 +1,6 @@
-;;; MyriadPro.el --- AUCTeX style for `MyriadPro.sty' (v0.5)
+;;; MyriadPro.el --- AUCTeX style for `MyriadPro.sty' (v0.5)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2014, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2014, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -33,10 +33,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "MyriadPro"
@@ -53,25 +56,25 @@
 
    ;; More control over spacing in `\slantfrac':
    (LaTeX-add-lengths "MdSlantfracSpacingBeforeSlash"
-		      "MdSlantfracSpacingAfterSlash")
+                      "MdSlantfracSpacingAfterSlash")
 
    ;; `\mathversion' is available with sansmath option
    (when (LaTeX-provided-package-options-member "MyriadPro" "sansmath")
      (TeX-add-symbols
       '("mathversion"
-	(TeX-arg-eval completing-read "Math version: "
-		      '(("sans")        ("sansbold")
-			("sanstabular") ("sansboldtabular"))))))
+        (TeX-arg-eval completing-read "Math version: "
+                      '(("sans")        ("sansbold")
+                        ("sanstabular") ("sansboldtabular"))))))
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("smallfrac"   "{{")
-				("slantfrac"   "{{"))
-			      'textual)
+                                ("slantfrac"   "{{"))
+                              'textual)
      (font-latex-add-keywords '(("mathversion" "{"))
-			      'variable)))
- LaTeX-dialect)
+                              'variable)))
+ TeX-dialect)
 
 (defvar LaTeX-MyriadPro-package-options
   '(;; Font selection

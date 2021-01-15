@@ -1,6 +1,6 @@
-;;; mnras.el --- AUCTeX style for `mnras.cls' version 3.0.
+;;; mnras.el --- AUCTeX style for `mnras.cls' version 3.0.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2015, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Maintainer: auctex-devel@gnu.org
 ;; Author: Mosè Giordano <mose@gnu.org>
@@ -29,10 +29,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "mnras"
@@ -167,11 +170,11 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("author" "[{")
-				("title" "[{")
-				("newauthor"))
-			      'function))))
+                                ("title" "[{")
+                                ("newauthor"))
+                              'function))))
 
 (defvar LaTeX-mnras-class-options
   '("letters"  "onecolumn" "doublespacing" "referee" "galley" "landscape"

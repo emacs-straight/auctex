@@ -1,4 +1,4 @@
-;;; prosper.el --- Prosper style file for AUCTeX
+;;; prosper.el --- Prosper style file for AUCTeX  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2001, 2002, 2014, 2020 Free Software Foundation, Inc.
 
@@ -59,18 +59,19 @@
 ;; auctex. I shall have to download the latest version, and see if
 ;; its already been fixed.
 
-
+(require 'tex)
+(require 'latex)
 
 (defconst LaTeX-prosper-version "2008-05-25"
   "prosper.el version.")
 
 (defconst LaTeX-prosper-transition-styles '("Split"
-					  "Blinds"
-					  "Box"
-					  "Wipe"
-					  "Dissolve"
-					  "Glitter"
-					  "Replace")
+                                          "Blinds"
+                                          "Box"
+                                          "Wipe"
+                                          "Dissolve"
+                                          "Glitter"
+                                          "Replace")
   "List of transition styles provided by prosper.")
 
 (defconst LaTeX-prosper-slide-styles
@@ -83,10 +84,10 @@
 (defun LaTeX-prosper-insert-title (_optional)
   (newline)
   (mapc (lambda(f)
-	  (TeX-insert-macro f)
-	  (newline))
-	'("title" "subtitle" "author" "email" "institution" "slideCaption"
-	  "Logo" "DefaultTransition"))
+          (TeX-insert-macro f)
+          (newline))
+        '("title" "subtitle" "author" "email" "institution" "slideCaption"
+          "Logo" "DefaultTransition"))
   (LaTeX-insert-environment "document")
   (TeX-insert-macro "maketitle"))
 
@@ -121,13 +122,13 @@
   (insert "[" )
   (insert (LaTeX-prosper-slide-style-prompt) " ")
   (mapc (lambda(f)
-	  (if (y-or-n-p (car f))
-	      (insert (car (cdr f)) " ")))
-	'(("Draft?" "draft")
-	  ("Color Slides?" "slideColor")
-	  ("Disable running total on each slide?" "nototal")
-	  ("Is the final version going to be PDF?" "pdf")
-	  ("Are you going to use Adobe Distiller" "distiller")))
+          (if (y-or-n-p (car f))
+              (insert (car (cdr f)) " ")))
+        '(("Draft?" "draft")
+          ("Color Slides?" "slideColor")
+          ("Disable running total on each slide?" "nototal")
+          ("Is the final version going to be PDF?" "pdf")
+          ("Are you going to use Adobe Distiller" "distiller")))
   (delete-char -1)
   (insert "]"))
 
@@ -184,6 +185,6 @@
     '("onlyInPS" t)
     '("onlyInPDF" t)
     '("FromSlide" "Number")))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;;; prosper.el ends here

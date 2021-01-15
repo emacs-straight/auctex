@@ -1,5 +1,5 @@
 @c This is part of the AUCTeX manual.
-@c Copyright (C) 1994-2002, 2004-2010, 2012-2020 Free Software
+@c Copyright (C) 1994-2002, 2004-2010, 2012-2021 Free Software
 @c Foundation, Inc.
 @c See file auctex.texi for copying conditions.
 @include macros.texi
@@ -7,6 +7,82 @@
 @chapheading Changes and New Features in @AUCTeX{}
 
 @end ifset
+
+@heading News in 13.0
+
+@itemize @bullet
+@item
+Since @AUCTeX{} 12.2, @kbd{C-x C-w} accidentally disabled the parse on
+save in that buffer, even when you enabled @code{TeX-auto-save} option.
+This bug was fixed.
+
+@item
+@AUCTeX{} now requires GNU Emacs 24.3 or higher.
+
+@item
+Old implementations for viewers were discarded, as stated long before.
+The variables @code{TeX-output-view-style} and @code{TeX-view-style}
+have no effect now. The former placeholders @samp{%v} and @samp{%vv} in
+@code{TeX-command-list} are ignored.
+
+@item
+@AUCTeX{} now uses lexical binding which has been introduced in Emacs
+24.  This change should have no user-visible effect and require no
+manual adaptions except in the following cases.
+
+@itemize @bullet
+@item
+Entries added to the customization variable @code{TeX-expand-list} also
+had access to variables @code{command} and @code{pos}.  Those are now
+properly declared and named @code{TeX-expand-command} and
+@code{TeX-expand-pos}.
+
+@item
+Entries added to the customization variable @code{TeX-expand-list} had
+access to a variable @code{file} which was bound to
+@code{TeX-active-master}, i.e., it evaluated to either the master or
+region file.  This usage must be replaced with either
+@code{TeX-active-master} or @code{TeX-active-master-with-quotes}.
+
+@item
+Viewer entries in @code{TeX-view-program-list} also had access to a
+variable @code{file} which was bound to the name of the master or region
+file without extension.  Instead, the function @code{TeX-active-master}
+has to be used now.
+
+@item
+Macro argument parsing functions could set a variable @code{exit-mark}
+to the buffer position where point should be left after all arguments
+have been read.  This variable is now named @code{TeX-exit-mark}.
+
+@item
+The functions in @code{LaTeX-section-hook} had access or modified the
+previously undeclared variables @code{title}, @code{name}, @code{level},
+@code{done-mark}, and @code{toc}.  These variables are now properly
+declared and have the @code{LaTeX-} prefix, e.g.,
+@code{LaTeX-done-mark}.
+
+@item
+The functions in @code{ConTeXt-numbered-section-hook} and
+@code{ConTeXt-unnumbered-section-hook} had access or modified the
+previously undeclared variables @code{title}, @code{name}, @code{level},
+@code{done-mark}, and @code{reference}.  These variables are now
+properly declared and have the @code{ConTeXt-} prefix, e.g.,
+@code{ConTeXt-title}.
+
+@item
+The functions in @code{TeX-translate-location-hook} could access and
+modify the free variables @code{file}, @code{line}, @code{error},
+@code{offset}, @code{context}, and @code{string}.  Those are now properly
+declared variables with the prefix @code{TeX-translate-location-}, e.g.,
+@code{TeX-translate-location-file}.
+@end itemize
+
+@item
+The constant @code{LaTeX-dialect} has been renamed to @code{TeX-dialect}
+and moved from @file{latex.el} to @file{tex.el}.  @code{LaTeX-dialect}
+now is an obsolete alias.
+@end itemize
 
 @heading News in 12.3
 

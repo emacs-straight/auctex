@@ -1,6 +1,6 @@
-;;; FiraSans.el --- AUCTeX style for `FiraSans.sty' (v2016/11/20)
+;;; FiraSans.el --- AUCTeX style for `FiraSans.sty' (v2016/11/20)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2016, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2016, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,10 +31,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "FiraSans"
@@ -66,23 +69,23 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("sufigures"        "")
-				("firaoldstyle"     "")
-				("firalining"       "")
-				("firatabular"      "")
-				("firaproportional" "")
-				("firathin"         "")
-				("firalight"        "")
-				("firaextralight"   "")
-				("firaultralight"   "")
-				("firamedium"       "")
-				("firabook"         "")
-				("firasemibold"     "")
-				("firaextrabold"    "")
-				("firaheavy"        ""))
-			      'type-declaration)))
- LaTeX-dialect)
+                                ("firaoldstyle"     "")
+                                ("firalining"       "")
+                                ("firatabular"      "")
+                                ("firaproportional" "")
+                                ("firathin"         "")
+                                ("firalight"        "")
+                                ("firaextralight"   "")
+                                ("firaultralight"   "")
+                                ("firamedium"       "")
+                                ("firabook"         "")
+                                ("firasemibold"     "")
+                                ("firaextrabold"    "")
+                                ("firaheavy"        ""))
+                              'type-declaration)))
+ TeX-dialect)
 
 (defvar LaTeX-FiraSans-package-options
   '("scaled" "scale"

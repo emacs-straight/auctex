@@ -1,6 +1,6 @@
-;;; subfiles.el --- AUCTeX style for the subfiles package.
+;;; subfiles.el --- AUCTeX style for the subfiles package.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2016, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2016, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Uwe Brauer <oub@mat.ucm.es>
 ;; Created: 07 Nov 2016
@@ -33,14 +33,17 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (declare-function reftex-compile-variables
-		  "reftex"
-		  ())
+                  "reftex"
+                  ())
 
 (defvar LaTeX-subfiles-package-options nil
   "Package options for the subfiles package.")
@@ -51,7 +54,7 @@
    (read-file-name
     "Main file: " nil nil nil nil
     (lambda (texfiles)
-      (string-match "\\.tex$" texfiles)))
+      (string-match "\\.tex\\'" texfiles)))
    (TeX-master-directory)))
 
 (TeX-add-style-hook
@@ -64,34 +67,41 @@
    (let ((master-file (cadr (assoc "subfiles" LaTeX-provided-class-options))))
      (when (stringp master-file)
        (TeX-run-style-hooks
-	(file-name-sans-extension master-file))))
+        (file-name-sans-extension master-file))))
 
    (TeX-add-symbols
-    '("subfile" TeX-arg-file))
+    '("subfile" TeX-arg-file)
+    '("subfileinclude" TeX-arg-file))
 
-   ;; Ensure that \subfile stays in one line
-   (LaTeX-paragraph-commands-add-locally "subfile")
+   ;; Ensure that \subfile and \subfileinclude stay in one line
+   (LaTeX-paragraph-commands-add-locally '("subfile" "subfileinclude"))
 
    ;; Tell AUCTeX that \subfile loads a file.  regexp is the same as
    ;; for \input or \include.  This will run `TeX-run-style-hooks' on
    ;; subfile(s) when master file is loaded.
    (TeX-auto-add-regexp
     `(,(concat
-	"\\\\subfile"
-	"{\\(\\.*[^#}%\\\\\\.\n\r]+\\)\\(\\.[^#}%\\\\\\.\n\r]+\\)?}")
+        "\\\\subfile\\(?:include\\)?"
+        "{\\(\\.*[^#}%\\\\\\.\n\r]+\\)\\(\\.[^#}%\\\\\\.\n\r]+\\)?}")
       1 TeX-auto-file))
 
    ;; Tell RefTeX the same thing.
    (when (and (boundp 'reftex-include-file-commands)
-	      (not (member "subfile" reftex-include-file-commands)))
-     (add-to-list 'reftex-include-file-commands "subfile" t)
+              (not (string-match "subfile"
+                                 (mapconcat #'identity
+                                            reftex-include-file-commands
+                                            "|"))))
+     (make-local-variable 'reftex-include-file-commands)
+     (add-to-list 'reftex-include-file-commands "subfile\\(?:include\\)?" t)
      (reftex-compile-variables))
 
-   ;; The following code will fontify `\subfile{}' like \input.
+   ;; The following code will fontify \subfile{} and
+   ;; \subfileinclude{} like \input.
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
-     (font-latex-add-keywords '(("subfile" "{"))
-			      'reference)))
- LaTeX-dialect)
+              (eq TeX-install-font-lock 'font-latex-setup))
+     (font-latex-add-keywords '(("subfile"        "{")
+                                ("subfileinclude" "{"))
+                              'reference)))
+ TeX-dialect)
 
 ;;; subfiles.el ends here

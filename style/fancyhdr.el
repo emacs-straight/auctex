@@ -1,4 +1,4 @@
-;;; fancyhdr.el --- AUCTeX style for `fancyhdr.sty'
+;;; fancyhdr.el --- AUCTeX style for `fancyhdr.sty'  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2012, 2013, 2018, 2020 Free Software Foundation, Inc.
 
@@ -29,10 +29,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "fancyhdr"
@@ -69,7 +72,7 @@
 
    ;; Fontification
    (when (and (fboundp 'font-latex-add-keywords)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("fancyhead" "[{")
                                 ("fancyfoot" "[{")
                                 ("lhead" "{")
@@ -85,7 +88,7 @@
                                 ("footrulewidth" "")
                                 ("plainheadrulewidth" "")
                                 ("plainfootrulewidth" "")) 'variable)))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;; Because there can be many positions, `TeX-completing-read-multiple' is used
 ;; instead of just `completing-read', and a `collection' argument is provided as

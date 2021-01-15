@@ -1,6 +1,6 @@
-;;; ragged2e.el --- AUCTeX style for `ragged2e.sty'
+;;; ragged2e.el --- AUCTeX style for `ragged2e.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2011, 2015, 2019 Free Software Foundation, Inc.
+;; Copyright (C) 2011, 2015, 2019, 2020 Free Software Foundation, Inc.
 
 ;; Author: Mads Jensen <mje@inducks.org>
 ;; Created: 2011-04-16
@@ -29,10 +29,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "ragged2e"
@@ -63,13 +66,13 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("Centering"    "")
-				("justifying"   "")
-				("RaggedRight"  "")
-				("RaggedLeft"   ""))
-			      'function)))
- LaTeX-dialect)
+                                ("justifying"   "")
+                                ("RaggedRight"  "")
+                                ("RaggedLeft"   ""))
+                              'function)))
+ TeX-dialect)
 
 (defvar LaTeX-ragged2e-package-options
   '("originalcommands" "newcommands" "originalparameters" "document"

@@ -1,6 +1,6 @@
-;;; pst-plot.el --- AUCTeX style for `pst-plot.sty'
+;;; pst-plot.el --- AUCTeX style for `pst-plot.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2007, 2014, 2015, 2019 Free Software Foundation, Inc.
+;; Copyright (C) 2007, 2014, 2015, 2019, 2020 Free Software Foundation, Inc.
 
 ;; Author: Holger Sparr <holger.sparr@gmx.net>
 ;; Created: 21 Jun 2007
@@ -35,11 +35,13 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function LaTeX-pst-arrows "pstricks" ())
 (declare-function LaTeX-pst-point  "pstricks" ())
 (declare-function TeX-arg-compl-list
-		  "pstricks" (list &optional prompt hist))
+                  "pstricks" (list &optional prompt hist))
 
 (defvar LaTeX-pst-parameters-completion-regexp)
 (defvar LaTeX-pst-parameters-name-list)
@@ -143,6 +145,6 @@
     (setq LaTeX-pst-parameters-name-list
           (append LaTeX-pstplot-parameters-name-list
                   LaTeX-pst-parameters-name-list))))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;;; pst-plot.el ends here

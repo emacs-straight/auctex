@@ -1,6 +1,6 @@
-;;; ocgx.el --- AUCTeX style for `ocgx.sty' (v0.5)
+;;; ocgx.el --- AUCTeX style for `ocgx.sty' (v0.5)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,10 +31,12 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "ocgx"
@@ -59,13 +61,13 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("switchocg"  "{{")
-				("showocg"    "{{")
-				("hideocg"    "{{")
-				("actionsocg" "{{{{"))
-			      'function)))
- LaTeX-dialect)
+                                ("showocg"    "{{")
+                                ("hideocg"    "{{")
+                                ("actionsocg" "{{{{"))
+                              'function)))
+ TeX-dialect)
 
 (defvar LaTeX-ocgx-package-options nil
   "Package options for the ocgx package.")

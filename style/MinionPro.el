@@ -1,6 +1,6 @@
-;;; MinionPro.el -- AUCTeX style for MinionPro.sty
+;;; MinionPro.el -- AUCTeX style for MinionPro.sty  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2005, 2014, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2005, 2014, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Mark Trettin <Mark.Trettin@gmx.de>
 ;; Maintainer: auctex-devel@gnu.org
@@ -24,7 +24,7 @@
 ;; Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 
-;;; Commentary: 
+;;; Commentary:
 
 ;; This file adds support for `MinionPro.sty' (v2.3) from 2012/08/03.
 ;; The latest version of MinionPro is available as part of FontPro
@@ -32,10 +32,12 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "MinionPro"
@@ -51,11 +53,11 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("smallfrac" "{{")
-				("slantfrac" "{{"))
-			      'textual)))
- LaTeX-dialect)
+                                ("slantfrac" "{{"))
+                              'textual)))
+ TeX-dialect)
 
 (defvar LaTeX-MinionPro-package-options
   '("smallfamily" "medfamily" "fullfamily" "noopticals" "opticals"

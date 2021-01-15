@@ -1,6 +1,6 @@
-;;; nicefrac.el --- AUCTeX style for the LaTeX package `nicefrac.sty' (v0.9b)
+;;; nicefrac.el --- AUCTeX style for the LaTeX package `nicefrac.sty' (v0.9b)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2004, 2005, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2004, 2005, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Christian Schlauer <cschl@arcor.de>
 ;; Maintainer: auctex-devel@gnu.org
@@ -29,10 +29,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "nicefrac"
@@ -41,9 +44,9 @@
     '("nicefrac" [ "Font changing command" ] "Numerator" "Denominator"))
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("nicefrac" "[{{")) 'textual)))
- LaTeX-dialect)
+ TeX-dialect)
 
 (defvar LaTeX-nicefrac-package-options '("nice" "ugly")
   "Package options for the nicefrac package.")

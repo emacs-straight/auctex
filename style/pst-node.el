@@ -1,6 +1,6 @@
-;;; pst-node.el --- AUCTeX style for `pst-node.sty'
+;;; pst-node.el --- AUCTeX style for `pst-node.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2007, 2013, 2014 Free Software Foundation, Inc.
+;; Copyright (C) 2007, 2013, 2014, 2020 Free Software Foundation, Inc.
 
 ;; Author: Holger Sparr <holger.sparr@gmx.net>
 ;; Created: 21 Jun 2007
@@ -35,13 +35,16 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function LaTeX-package-parameter-value
-		  "pstricks" (param pname))
+                  "pstricks" (param pname))
 (declare-function LaTeX-package-parameters-pref-and-chosen
-		  "pstricks" (param pname noskip))
+                  "pstricks" (param pname noskip))
 (declare-function LaTeX-package-parameters
-		  "pstricks" (optional pname preparam param))
+                  "pstricks" (optional pname preparam param))
 (declare-function LaTeX-pst-angle  "pstricks" ())
 (declare-function LaTeX-pst-point  "pstricks" ())
 (declare-function LaTeX-pst-arrows "pstricks" ())
@@ -132,7 +135,7 @@
 (defun LaTeX-pstnode-env-psmatrix (env)
   "Return psmatrix environment with arguments."
   (let ((opt (TeX-completing-read-multiple "Options: "
-					   LaTeX-pstnode-psmatrix-list)))
+                                           LaTeX-pstnode-psmatrix-list)))
     (LaTeX-insert-environment env opt)))
 
 (TeX-add-style-hook
@@ -199,6 +202,6 @@
      '("pscolhook" t))
     (TeX-run-style-hooks
      "pstricks")))
- LaTeX-dialect)
+ TeX-dialect)
 
 ;;; pst-node.el ends here

@@ -1,6 +1,6 @@
-;;; booktabs.el -- AUCTeX style for booktabs.sty
+;;; booktabs.el -- AUCTeX style for booktabs.sty  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2003, 2004, 2013, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2003, 2004, 2013, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author:   Ralf Angeli <angeli@iwi.uni-sb.de>
 ;; Maintainer: auctex-devel@gnu.org
@@ -30,17 +30,19 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (defun LaTeX-booktabs-arg-paren (optional prompt)
   "Prompt for a value and use parentheses when it is inserted.
 If OPTIONAL is non-nil the parameter is labeled as optional.
 PROMPT is the value of the prompt to be shown."
   (let ((TeX-arg-opening-brace "\(")
-	(TeX-arg-closing-brace "\)"))
+        (TeX-arg-closing-brace "\)"))
     (TeX-parse-argument optional prompt)))
 
 (TeX-add-style-hook
@@ -49,15 +51,15 @@ PROMPT is the value of the prompt to be shown."
    ;; Do not append an empty group to toprule, midrule, and bottomrule macros,
    ;; otherwise one gets a wrong spacing in the table.
    (setq TeX-insert-braces-alist (append TeX-insert-braces-alist
-					 '(("toprule" . nil)
-					   ("midrule" . nil)
-					   ("bottomrule" . nil))))
+                                         '(("toprule" . nil)
+                                           ("midrule" . nil)
+                                           ("bottomrule" . nil))))
    ;; New symbols
    (TeX-add-symbols
     '("toprule" [ "Thickness" ])
     '("midrule" [ "Thickness" ])
     '("bottomrule" [ "Thickness" ])
-    ;; The `ignore' resets `last-optional-rejected' to nil so that the trim
+    ;; The `ignore' resets `TeX-last-optional-rejected' to nil so that the trim
     ;; argument is prompted also when the thickness is skipped.
     '("cmidrule" [ "Thickness" ] (ignore) [ LaTeX-booktabs-arg-paren "Trim" ]
       "Column(s)")
@@ -67,16 +69,16 @@ PROMPT is the value of the prompt to be shown."
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("toprule" "[")
-				("midrule" "[")
-				("bottomrule" "[")
-				("cmidrule" "[({")
-				("addlinespace" "[")
-				("morecmidrules" "")
-				("specialrule" "{{{"))
-			      'function)))
- LaTeX-dialect)
+                                ("midrule" "[")
+                                ("bottomrule" "[")
+                                ("cmidrule" "[({")
+                                ("addlinespace" "[")
+                                ("morecmidrules" "")
+                                ("specialrule" "{{{"))
+                              'function)))
+ TeX-dialect)
 
 (defvar LaTeX-booktabs-package-options nil
   "Package options for the booktabs package.")

@@ -1,4 +1,4 @@
-;;; bidi.el --- AUCTeX style for the (XeLaTeX) bidi package
+;;; bidi.el --- AUCTeX style for the (XeLaTeX) bidi package  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016--2020 Free Software Foundation, Inc.
 
@@ -29,10 +29,16 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
+(declare-function TeX-check-engine-add-engines
+                  "tex-buf"
+                  (&rest engines))
 
 (defvar LaTeX-bidi-package-options
   '("RTLdocument" "rldocument" "extrafootnotefeatures")
@@ -170,25 +176,25 @@
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("LR"        "{")
-				("LRE"       "{")
-				("RLE"       "{")
-				("RL"        "{")
-				("LTRthanks" "{")
-				("RTLthanks" "{"))
-			      'textual)
+                                ("LRE"       "{")
+                                ("RLE"       "{")
+                                ("RL"        "{")
+                                ("LTRthanks" "{")
+                                ("RTLthanks" "{"))
+                              'textual)
      (font-latex-add-keywords '(("LTRfootnote"     "[{")
-				("RTLfootnote"     "[{")
-				("LTRfootnotetext" "[{")
-				("RTLfootnotetext" "[{")
-				("LTRmarginpar"    "[{")
-				("RTLmarginpar"    "[{"))
-			      'reference)
+                                ("RTLfootnote"     "[{")
+                                ("LTRfootnotetext" "[{")
+                                ("RTLfootnotetext" "[{")
+                                ("LTRmarginpar"    "[{")
+                                ("RTLmarginpar"    "[{"))
+                              'reference)
      (font-latex-add-keywords '(("XeTeX"   "")
-				("XeLaTeX" "")
-				("SepMark" "{"))
-			      'function)))
- LaTeX-dialect)
+                                ("XeLaTeX" "")
+                                ("SepMark" "{"))
+                              'function)))
+ TeX-dialect)
 
 ;;; bidi.el ends here

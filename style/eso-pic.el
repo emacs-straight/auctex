@@ -1,6 +1,6 @@
-;;; eso-pic.el --- AUCTeX style for `eso-pic.sty' (v2.0d)
+;;; eso-pic.el --- AUCTeX style for `eso-pic.sty' (v3.0a)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2014 Free Software Foundation, Inc.
+;; Copyright (C) 2014, 2020, 2021 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -26,21 +26,19 @@
 
 ;;; Commentary:
 
-;; This file adds support for `eso-pic.sty' (v2.0d) from 2013/10/06.
+;; This file adds support for `eso-pic.sty' (v3.0a) from 2020/10/14.
 ;; `eso-pic.sty' is part of TeXLive.
 
 ;;; Code:
+
+(require 'tex)
+(require 'latex)
 
 (TeX-add-style-hook
  "eso-pic"
  (lambda ()
 
-   ;; Run style hook for eso-pic
-   (TeX-run-style-hooks "atbegshi")
-
-   ;; New symbols
    (TeX-add-symbols
-
     ;; Basic commands
     '("AddToShipoutPictureBG"   t)
     '("AddToShipoutPictureBG*"  t)
@@ -70,16 +68,18 @@
    (TeX-declare-expert-macros
     "eso-pic"
     "gridSetup" "LenToUnit"))
- LaTeX-dialect)
+ TeX-dialect)
 
 (defvar LaTeX-eso-pic-package-options-list
   '(("pscoord"      ("true" "false"))
     ("texcoord"     ("true" "false"))
     ("grid"         ("true" "false"))
+    ("gridBG"       ("true" "false"))
     ("gridunit"     ("mm" "in" "bp" "pt"))
     ("gridcolor")
     ("subgridcolor")
     ("subgridstyle" ("solid" "dotted"))
+    ("colorgrid"    ("true" "false"))
     ("dvips"        ("true" "false")))
   "Package options for the eso-pic package.")
 

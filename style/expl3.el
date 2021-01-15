@@ -1,4 +1,4 @@
-;;; expl3.el --- AUCTeX style for `expl3.sty'
+;;; expl3.el --- AUCTeX style for `expl3.sty'  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2015, 2017-2020 Free Software Foundation, Inc.
 
@@ -30,6 +30,9 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 (defvar font-latex-match-simple-include-list)
 
 (defvar LaTeX-expl3-syntax-table
@@ -47,14 +50,14 @@
      ;; Fontify _ and : as part of macros.
      (add-to-list 'font-latex-match-simple-include-list "_" t)
      (add-to-list 'font-latex-match-simple-include-list ":" t)))
- LaTeX-dialect)
+ TeX-dialect)
 
 (defun LaTeX-expl3-package-options ()
   "Read the expl3 package options from the user."
   (TeX-read-key-val t '(("check-declarations" ("true" "false"))
-			("log-functions" ("true" "false"))
-			("driver" ("auto"    "latex2e"
-				   "dvips"   "dvipdfmx"
-				   "pdfmode" "xdvipdfmx")))))
+                        ("log-functions" ("true" "false"))
+                        ("driver" ("auto"    "latex2e"
+                                   "dvips"   "dvipdfmx"
+                                   "pdfmode" "xdvipdfmx")))))
 
 ;;; expl3.el ends here

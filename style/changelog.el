@@ -1,6 +1,6 @@
-;;; changelog.el --- AUCTeX style for `changelog.sty' (v2.0.0)
+;;; changelog.el --- AUCTeX style for `changelog.sty' (v2.0.0)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2019 Free Software Foundation, Inc.
+;; Copyright (C) 2019, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,10 +31,14 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
+(defvar reftex-label-alist)
 
 (defvar LaTeX-changelog-env-key-val-options
   '(("section" ("true" "false"))
@@ -56,45 +60,45 @@ The keys sectioncmd and label are added in the function
 (defun LaTeX-env-changelog (environment)
   "Insert ENVIRONMENT, ask for optional argument and insert a label."
   (let* ((seccmds (mapcar #'car LaTeX-section-list))
-	 ;; Collect the key=vals acc. to environment & documentclass
-	 (opts (TeX-read-key-val
-		t
-		(if (string= environment "changelog")
-		    (append
-		     `(("sectioncmd"
-			,(if (< (LaTeX-largest-level) 2)
-			     (append
-			      (mapcar (lambda (cmd) (concat TeX-esc cmd))
-				      seccmds)
-			      (mapcar (lambda (cmd) (concat TeX-esc cmd "*"))
-				      seccmds))
-			   (append
-			    (mapcar (lambda (cmd) (concat TeX-esc cmd))
-				    (remove "chapter" seccmds))
-			    (mapcar (lambda (cmd) (concat TeX-esc cmd "*"))
-				    (remove "chapter" seccmds))))))
-		     LaTeX-changelog-env-key-val-options
-		     LaTeX-changelog-version-env-key-val-options)
-		  LaTeX-changelog-version-env-key-val-options)))
-	 ;; Extract the chosen sectioning command
-	 (sec (progn
-		(string-match "sectioncmd=\\\\\\([a-z]+\\)\\(\\*?\\)" opts)
-		(match-string-no-properties 1 opts)))
-	 ;; Temp. re-bind `LaTeX-label-alist' and pick the label
-	 ;; prefix from `LaTeX-section-label'
-	 (LaTeX-label-alist
-	  (when (and (string= environment "changelog")
-		     (match-string 2 opts)
-		     (not (string= (match-string 2 opts) "*")))
-	    `(,(cons environment
-		     (cdr (assoc sec LaTeX-section-label))))))
-	 ;; Temp. re-bind `reftex-label-alist' as well and make
-	 ;; `reftex-label' DTRT:
-	 (reftex-label-alist
-	  (when (and (boundp 'reftex-label-alist)
-		     LaTeX-label-alist
-		     (string= environment "changelog"))
-	    `((,environment ?s ,(cdr (assoc sec LaTeX-section-label)) nil t)))))
+         ;; Collect the key=vals acc. to environment & documentclass
+         (opts (TeX-read-key-val
+                t
+                (if (string= environment "changelog")
+                    (append
+                     `(("sectioncmd"
+                        ,(if (< (LaTeX-largest-level) 2)
+                             (append
+                              (mapcar (lambda (cmd) (concat TeX-esc cmd))
+                                      seccmds)
+                              (mapcar (lambda (cmd) (concat TeX-esc cmd "*"))
+                                      seccmds))
+                           (append
+                            (mapcar (lambda (cmd) (concat TeX-esc cmd))
+                                    (remove "chapter" seccmds))
+                            (mapcar (lambda (cmd) (concat TeX-esc cmd "*"))
+                                    (remove "chapter" seccmds))))))
+                     LaTeX-changelog-env-key-val-options
+                     LaTeX-changelog-version-env-key-val-options)
+                  LaTeX-changelog-version-env-key-val-options)))
+         ;; Extract the chosen sectioning command
+         (sec (progn
+                (string-match "sectioncmd=\\\\\\([a-z]+\\)\\(\\*?\\)" opts)
+                (match-string-no-properties 1 opts)))
+         ;; Temp. re-bind `LaTeX-label-alist' and pick the label
+         ;; prefix from `LaTeX-section-label'
+         (LaTeX-label-alist
+          (when (and (string= environment "changelog")
+                     (match-string 2 opts)
+                     (not (string= (match-string 2 opts) "*")))
+            `(,(cons environment
+                     (cdr (assoc sec LaTeX-section-label))))))
+         ;; Temp. re-bind `reftex-label-alist' as well and make
+         ;; `reftex-label' DTRT:
+         (reftex-label-alist
+          (when (and (boundp 'reftex-label-alist)
+                     LaTeX-label-alist
+                     (string= environment "changelog"))
+            `((,environment ?s ,(cdr (assoc sec LaTeX-section-label)) nil t)))))
     (LaTeX-insert-environment
      environment
      (when (and opts (not (string= opts "")))
@@ -123,35 +127,35 @@ The keys sectioncmd and label are added in the function
     '("fixed"      0)
     '("security"   0)
     `("shortversion" (TeX-arg-key-val
-		      ,(append
-			'(("changes"))
-			LaTeX-changelog-version-env-key-val-options))))
+                      ,(append
+                        '(("changes"))
+                        LaTeX-changelog-version-env-key-val-options))))
 
    ;; Tell RefTeX that the optional arg of changelog env. can contain a label:
    (when (and (boundp 'reftex-label-regexps)
-	      (fboundp 'reftex-compile-variables)
-	      (not (string-match  "\\bchangelog\\b"
-				  (mapconcat #'identity
-					     reftex-label-regexps
-					     "|"))))
+              (fboundp 'reftex-compile-variables)
+              (not (string-match  "\\bchangelog\\b"
+                                  (mapconcat #'identity
+                                             reftex-label-regexps
+                                             "|"))))
      (add-to-list (make-local-variable 'reftex-label-regexps)
-		  (concat "\\\\begin{changelog}"
-			  (LaTeX-extract-key-value-label nil 1))
-		  t)
+                  (concat "\\\\begin{changelog}"
+                          (LaTeX-extract-key-value-label nil 1))
+                  t)
      (reftex-compile-variables))
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("added"        "")
-				("changed"      "")
-				("deprecated"   "")
-				("removed"      "")
-				("fixed"        "")
-				("security"     "")
-				("shortversion" "{"))
-			      'function)))
- LaTeX-dialect)
+                                ("changed"      "")
+                                ("deprecated"   "")
+                                ("removed"      "")
+                                ("fixed"        "")
+                                ("security"     "")
+                                ("shortversion" "{"))
+                              'function)))
+ TeX-dialect)
 
 (defvar LaTeX-changelog-package-options nil
   "Package options for the changelog package.")

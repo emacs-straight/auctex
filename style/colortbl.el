@@ -1,6 +1,6 @@
-;;; colortbl.el --- AUCTeX style for `colortbl.sty' (v1.0a)
+;;; colortbl.el --- AUCTeX style for `colortbl.sty' (v1.0a)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015, 2016, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2015, 2016, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,10 +31,13 @@
 
 ;;; Code:
 
+(require 'tex)
+(require 'latex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "colortbl"
@@ -53,40 +56,40 @@
     ;; `TeX-arg-color' is provided by color.el,
     ;; `TeX-arg-xcolor' is provided by xcolor.el.
     '("columncolor" (TeX-arg-conditional (member "xcolor" (TeX-style-list))
-					 (TeX-arg-xcolor)
-				       (TeX-arg-color))
+                                         (TeX-arg-xcolor)
+                                         (TeX-arg-color))
       [ TeX-arg-length "Left overhang" ] [ TeX-arg-length "Right overhang" ] )
 
     '("rowcolor"    (TeX-arg-conditional (member "xcolor" (TeX-style-list))
-					 (TeX-arg-xcolor)
-				       (TeX-arg-color))
+                                         (TeX-arg-xcolor)
+                                         (TeX-arg-color))
       [ TeX-arg-length "Left overhang" ] [ TeX-arg-length "Right overhang" ] )
 
     '("cellcolor"   (TeX-arg-conditional (member "xcolor" (TeX-style-list))
-					 (TeX-arg-xcolor)
-				       (TeX-arg-color))
+                                         (TeX-arg-xcolor)
+                                         (TeX-arg-color))
       [ TeX-arg-length "Left overhang" ] [ TeX-arg-length "Right overhang" ] )
 
     '("arrayrulecolor" (TeX-arg-conditional (member "xcolor" (TeX-style-list))
-					 (TeX-arg-xcolor)
-				       (TeX-arg-color)))
+                                            (TeX-arg-xcolor)
+                                            (TeX-arg-color)))
 
     '("doublerulesepcolor" (TeX-arg-conditional (member "xcolor" (TeX-style-list))
-					 (TeX-arg-xcolor)
-				       (TeX-arg-color))))
+                                                (TeX-arg-xcolor)
+                                                (TeX-arg-color))))
 
    (LaTeX-add-lengths "minrowclearance")
 
    ;; Fontification
    (when (and (featurep 'font-latex)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("columncolor"  "[{[[")
-				("rowcolor"     "[{[[")
-				("cellcolor"    "[{[[")
-				("arrayrulecolor"     "[{")
-				("doublerulesepcolor" "[{"))
-			      'function)))
- LaTeX-dialect)
+                                ("rowcolor"     "[{[[")
+                                ("cellcolor"    "[{[[")
+                                ("arrayrulecolor"     "[{")
+                                ("doublerulesepcolor" "[{"))
+                              'function)))
+ TeX-dialect)
 
 ;; colortbl.sty has one option `debugshow'.  I ignore that since it
 ;; would only take more time during insertation in a buffer and I

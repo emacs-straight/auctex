@@ -1,6 +1,6 @@
-;;; xltabular.el --- AUCTeX style for `xltabular.sty' (v0.05)
+;;; xltabular.el --- AUCTeX style for `xltabular.sty' (v0.05)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2017 Free Software Foundation, Inc.
+;; Copyright (C) 2017, 2020 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -29,6 +29,11 @@
 ;; This file adds support for `xltabular.sty' (v0.05) from 2017/10/26.
 ;; `xltabular.sty' is part of TeXLive.
 
+;;; Code:
+
+(require 'tex)
+(require 'latex)
+
 (defvar LaTeX-xltabular-skipping-regexp
   (concat "[ \t]*" (regexp-opt '("[l]" "[r]" "[c]" "")) "[ \t]*{[^}]*}[ \t]*")
   "Regexp matching between \\begin{xltabular} and column specification.
@@ -46,25 +51,25 @@ nested curly brace pair nor escaped \"}\".")
   ;; is a combination of `LaTeX-env-tabular*' and
   ;; `LaTeX-env-longtable':
   (let* ((pos (completing-read (TeX-argument-prompt t nil "Position")
-			       '("l" "r" "c")))
-	 (width (TeX-read-string "Width: " LaTeX-default-width))
-	 (fmt (TeX-read-string "Format: " LaTeX-default-format))
-	 (caption (TeX-read-string "Caption: "))
-	 (short-caption (when (>= (length caption) LaTeX-short-caption-prompt-length)
-			  (TeX-read-string "(Optional) Short caption: "))))
+                               '("l" "r" "c")))
+         (width (TeX-read-string "Width: " LaTeX-default-width))
+         (fmt (TeX-read-string "Format: " LaTeX-default-format))
+         (caption (TeX-read-string "Caption: "))
+         (short-caption (when (>= (length caption) LaTeX-short-caption-prompt-length)
+                          (TeX-read-string "(Optional) Short caption: "))))
     (setq LaTeX-default-format fmt)
     (LaTeX-insert-environment environment
-			      (concat
-			       (unless (zerop (length pos))
-				 (concat LaTeX-optop pos LaTeX-optcl))
-			       (concat TeX-grop width TeX-grcl)
-			       (concat TeX-grop fmt TeX-grcl)))
+                              (concat
+                               (unless (zerop (length pos))
+                                 (concat LaTeX-optop pos LaTeX-optcl))
+                               (concat TeX-grop width TeX-grcl)
+                               (concat TeX-grop fmt TeX-grcl)))
     ;; top caption -- do nothing if user skips caption
     (unless (zerop (length caption))
       ;; insert `\caption[short-caption]{caption':
       (insert TeX-esc "caption")
       (when (and short-caption (not (string= short-caption "")))
-	(insert LaTeX-optop short-caption LaTeX-optcl))
+        (insert LaTeX-optop short-caption LaTeX-optcl))
       (insert TeX-grop caption)
       ;; ask for a label and insert it
       (LaTeX-label environment 'environment)
@@ -106,7 +111,7 @@ If SUPPRESS is non-nil, do not insert line break macro."
    ;; Use the enhanced table formatting.  Append to
    ;; `LaTeX-indent-environment-list' in order not to override custom settings.
    (add-to-list (make-local-variable 'LaTeX-indent-environment-list)
-		'("xltabular" LaTeX-indent-tabular) t)
+                '("xltabular" LaTeX-indent-tabular) t)
 
    ;; Append xltabular to `LaTeX-label-alist', in order not to
    ;; override possible custome values.
@@ -120,7 +125,7 @@ If SUPPRESS is non-nil, do not insert line break macro."
    (when (fboundp 'reftex-add-label-environments)
      (reftex-add-label-environments
       '(("xltabular" ?t nil nil caption)))))
- LaTeX-dialect)
+ TeX-dialect)
 
 (defvar LaTeX-xltabular-package-options nil
   "Package options for the xltabular package.")

@@ -1,6 +1,6 @@
-;;; nameref.el --- AUCTeX style for `nameref.sty'
+;;; nameref.el --- AUCTeX style for `nameref.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2013, 2015, 2018 Free Software Foundation, Inc.
+;; Copyright (C) 2013, 2015, 2018, 2020 Free Software Foundation, Inc.
 
 ;; Author: Mads Jensen <mje@inducks.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -29,10 +29,12 @@
 
 ;;; Code:
 
+(require 'tex)
+
 ;; Silence the compiler:
 (declare-function font-latex-add-keywords
-		  "font-latex"
-		  (keywords class))
+                  "font-latex"
+                  (keywords class))
 
 (TeX-add-style-hook
  "nameref"
@@ -43,18 +45,18 @@
     '("Nameref" TeX-arg-ref))
 
    (setq TeX-complete-list
-	 (append
-	  '(("\\\\\\(?:N\\|n\\)ameref\\*?{\\([^{}\n\r\\%,]*\\)" 1 LaTeX-label-list "}"))
-	  TeX-complete-list))
+         (append
+          '(("\\\\\\(?:N\\|n\\)ameref\\*?{\\([^{}\n\r\\%,]*\\)" 1 LaTeX-label-list "}"))
+          TeX-complete-list))
 
-   ;, Fontification
+                                        ;, Fontification
    (when (and (fboundp 'font-latex-add-keywords)
-	      (fboundp 'font-latex-set-syntactic-keywords)
-	      (eq TeX-install-font-lock 'font-latex-setup))
+              (fboundp 'font-latex-set-syntactic-keywords)
+              (eq TeX-install-font-lock 'font-latex-setup))
      (font-latex-add-keywords '(("nameref" "*{")
-				("Nameref" "{"))
-			      'reference)))
- LaTeX-dialect)
+                                ("Nameref" "{"))
+                              'reference)))
+ TeX-dialect)
 
 (defvar LaTeX-nameref-package-options nil
   "Package options for nameref.")
