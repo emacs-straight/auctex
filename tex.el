@@ -1,6 +1,6 @@
 ;;; tex.el --- Support for TeX documents.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 1985-2022 Free Software Foundation, Inc.
+;; Copyright (C) 1985-2023 Free Software Foundation, Inc.
 
 ;; Maintainer: auctex-devel@gnu.org
 ;; Keywords: tex
@@ -56,6 +56,7 @@
                   (bus service path interface signal handler &rest args))
 (declare-function LaTeX-environment-list "latex" nil)
 (declare-function LaTeX-bibliography-list "latex" nil)
+(declare-function LaTeX-section-name "latex" (level))
 (declare-function comint-exec "ext:comint"
                   (buffer name command startfile switches))
 (declare-function comint-mode "ext:comint" nil)
@@ -91,7 +92,6 @@
 (defvar LaTeX-optcl)
 (defvar LaTeX-optop)
 (defvar LaTeX-largest-level)
-(defvar LaTeX-section-list)
 ;; tex-ispell.el
 (defvar TeX-ispell-verb-delimiters)
 ;; Others:
@@ -270,41 +270,41 @@ expanded.  The expansion is done using the information found in
 The third element is the function which actually start the process.
 Several such hooks have been defined:
 
-TeX-run-command: Start up the process and show the output in a
+`TeX-run-command': Start up the process and show the output in a
 separate buffer.  Check that there is not two commands running for the
 same file.  Return the process object.
 
-TeX-run-format: As `TeX-run-command', but assume the output is created
+`TeX-run-format': As `TeX-run-command', but assume the output is created
 by a TeX macro package.  Return the process object.
 
-TeX-run-TeX: For TeX output.
+`TeX-run-TeX': For TeX output.
 
-TeX-run-interactive: Run TeX or LaTeX interactively.
+`TeX-run-interactive': Run TeX or LaTeX interactively.
 
-TeX-run-BibTeX: For BibTeX output.
+`TeX-run-BibTeX': For BibTeX output.
 
-TeX-run-Biber: For Biber output.
+`TeX-run-Biber': For Biber output.
 
-TeX-run-compile: Use `compile' to run the process.
+`TeX-run-compile': Use `compile' to run the process.
 
-TeX-run-shell: Use `shell-command' to run the process.
+`TeX-run-shell': Use `shell-command' to run the process.
 
-TeX-run-discard: Start the process in the background, discarding its
+`TeX-run-discard': Start the process in the background, discarding its
 output.
 
-TeX-run-background: Start the process in the background, show output
+`TeX-run-background': Start the process in the background, show output
 in other window.
 
-TeX-run-silent: Start the process in the background.
+`TeX-run-silent': Start the process in the background.
 
-TeX-run-discard-foreground: Start the process in the foreground,
+`TeX-run-discard-foreground': Start the process in the foreground,
 discarding its output.
 
-TeX-run-function: Execute the Lisp function or function call
+`TeX-run-function': Execute the Lisp function or function call
 specified by the string in the second element.  Consequently,
 this hook does not start a process.
 
-TeX-run-discard-or-function: If the command is a Lisp function,
+`TeX-run-discard-or-function': If the command is a Lisp function,
 execute it as such, otherwise start the command as a process,
 discarding its output.
 
@@ -701,11 +701,6 @@ sure \"%p\" is the first entry."
    TeX-expand-list
    TeX-expand-list-builtin))
 
-;; This variable used to be defined in tex-buf.el.  It is used in
-;; `TeX-mode-specific-command-menu-entries' in this file.  It is now
-;; (June 2021) moved into this file to avoid `void-variable' errors
-;; with the "Command" menu if tex-buf.el is not loaded yet for reasons
-;; mentioned above.
 (defcustom TeX-parse-all-errors t
   "Whether to automatically collect all warning and errors after running TeX.
 
@@ -1106,24 +1101,32 @@ DE is the name of the desktop environment, APP is the name of viewer."
     (and (featurep 'dbusbind)
          (require 'dbus nil :no-error)
          (dbus-ignore-errors (dbus-get-unique-name :session))
-         (dbus-ping :session (format "org.%s.%s.Daemon" de app))
+         ;; Apparently, `dbus-ping' can signal errors in certain
+         ;; situations.  If so, fail gracefully (bug#59380).
+         (ignore-errors
+           (dbus-ping :session (format "org.%s.%s.Daemon" de app)
+                      ;; Don't block for up to 25 secs if something
+                      ;; is wonky.
+                      2000))
          (or (not (memq :forward options))
              (let ((spec (dbus-introspect-get-method
                           :session (format "org.%s.%s.Daemon" de app)
                           (format "/org/%s/%s/Daemon" de app)
                           (format "org.%s.%s.Daemon" de app)
                           "FindDocument")))
-               ;; FindDocument must exist, and its signature must be (String,
-               ;; Boolean, String).  Evince versions between 2.30 and 2.91.x
-               ;; didn't have the Boolean spawn argument we need to start evince
-               ;; initially.
-               (and spec
-                    (equal '("s" "b" "s")
-                           (delq nil (mapcar (lambda (elem)
-                                               (when (and (listp elem)
-                                                          (eq (car elem) 'arg))
-                                                 (cdr (caar (cdr elem)))))
-                                             spec)))))))))
+               ;; FindDocument must exist, and its signature must be
+               ;; (String, Boolean, String).  Evince versions between
+               ;; 2.30 and 2.91.x didn't have the Boolean spawn
+               ;; argument we need to start evince initially.
+               (and
+                spec
+                (equal '("s" "b" "s")
+                       (delq nil (mapcar
+                                  (lambda (elem)
+                                    (when (and (listp elem)
+                                               (eq (car elem) 'arg))
+                                      (cdr (caar (cdr elem)))))
+                                  spec)))))))))
 
 (defun TeX-pdf-tools-sync-view ()
   "Focus the focused page/paragraph in `pdf-view-mode'.
@@ -3257,7 +3260,7 @@ See `completion-at-point-functions'."
 (make-variable-buffer-local 'TeX-default-macro)
 
 (defcustom TeX-insert-braces t
-  "If non-nil, append a empty pair of braces after inserting a macro.
+  "If non-nil, append an empty pair of braces after inserting a macro.
 
 See also `TeX-insert-braces-alist'."
   :group 'TeX-macro
@@ -3941,7 +3944,8 @@ Generated by `TeX-auto-add-type'."))
        (make-variable-buffer-local ',change)
        (defun ,add (&rest ,(intern names))
          ,(concat "Add information about " (upcase names)
-                  " to the current buffer.
+                  ".
+Information is added to the current buffer.
 Generated by `TeX-auto-add-type'.")
          (TeX-auto-add-information ,unique-key ,(intern names)))
        (defun ,local ()
@@ -5569,10 +5573,18 @@ in the buffer."
   (TeX-find-balanced-brace -1 depth limit))
 
 (defun TeX-find-macro-boundaries (&optional lower-bound)
-  "Return a list containing the start and end of a macro.
+  "Return a cons containing the start and end of a macro.
 If LOWER-BOUND is given, do not search backward further than this
 point in buffer.  Arguments enclosed in brackets or braces are
 considered part of the macro."
+  ;; FIXME: Pay attention to `texmathp-allow-detached-args' and
+  ;; `reftex-allow-detached-macro-args'.
+  ;; Should we handle cases like \"{o} and \\[3mm] (that is, a macro
+  ;; whose name is a symbol and takes some arguments) as well?  Note
+  ;; that amsmath package arranges the macro \\ so that white spaces
+  ;; between \\ and [something] prevents the latter to be interpreted
+  ;; as an optional argument.  mathtools package arranges some
+  ;; environments including gathered similarly.
   (save-restriction
     (when lower-bound
       (narrow-to-region lower-bound (point-max)))
@@ -5599,6 +5611,7 @@ considered part of the macro."
                          (condition-case nil (backward-sexp)
                            (error (throw 'abort nil)))
                          (forward-comment -1)
+                         (skip-chars-backward " \t")
                          (and (memq (char-before) '(?\] ?\}))
                               (not (TeX-escaped-p (1- (point)))))))
                 (skip-chars-backward "A-Za-z@*")
@@ -5628,7 +5641,7 @@ those will be considered part of it."
         (while (not (eobp))
           (cond
            ;; Skip over pairs of square brackets
-           ((or (looking-at "[ \t]*\n?\\(\\[\\)") ; Be conservative: Consider
+           ((or (looking-at "[ \t]*\n?[ \t]*\\(\\[\\)") ; Be conservative: Consider
                                         ; only consecutive lines.
                 (and (looking-at (concat "[ \t]*" TeX-comment-start-regexp))
                      (save-excursion
@@ -5639,7 +5652,7 @@ those will be considered part of it."
                 (forward-sexp)
               (scan-error (throw 'found (point)))))
            ;; Skip over pairs of curly braces
-           ((or (looking-at "[ \t]*\n?{") ; Be conservative: Consider
+           ((or (looking-at "[ \t]*\n?[ \t]*{") ; Be conservative: Consider
                                         ; only consecutive lines.
                 (and (looking-at (concat "[ \t]*" TeX-comment-start-regexp))
                      (save-excursion
@@ -5714,8 +5727,8 @@ throwing an error.
 A pattern is escaped, if it is preceded by an odd number of escape
 characters."
   (let ((search-fun (if (eq direction 'backward)
-                        (if regexp-flag 're-search-backward 'search-backward)
-                      (if regexp-flag 're-search-forward 'search-forward))))
+                        (if regexp-flag #'re-search-backward #'search-backward)
+                      (if regexp-flag #'re-search-forward #'search-forward))))
     (catch 'found
       (while (funcall search-fun pattern bound noerror)
         (when (not (TeX-escaped-p (match-beginning 0)))
@@ -6278,7 +6291,7 @@ between.
 If there is an active region, ARG will be ignored, braces will be
 inserted around the region, and point will be left after the
 closing brace."
-  (interactive "P")
+  (interactive "*P")
   (if (TeX-active-mark)
       (progn
         (if (< (point) (mark))
@@ -6369,7 +6382,7 @@ tracker.  Visit ")
 ;;; Documentation
 
 (defun TeX-documentation-texdoc (&optional arg)
-  "Run texdoc to read documentation.
+  "Run Texdoc to read documentation.
 
 Prompt for selection of the package of which to show the documentation.
 
@@ -6377,81 +6390,54 @@ If called with a prefix argument ARG, after selecting the
 package, prompt for selection of the manual of that package to
 show."
   (interactive "P")
-  (let ((pkg (thing-at-point 'symbol))
-        buffer list doc)
-    ;; Strip off properties.  XXX: XEmacs doesn't have
-    ;; `substring-no-properties'.
-    (set-text-properties 0 (length pkg) nil pkg)
-    (setq pkg (TeX-read-string "View documentation for: " pkg))
-    (unless (zerop (length pkg))
-      (if arg
-          ;; Called with prefix argument: run "texdoc --list --nointeract <pkg>"
-          (progn
-            ;; Create the buffer, insert the result of the command, and
-            ;; accumulate the list of manuals.
-            (with-current-buffer (get-buffer-create
-                                  (setq buffer (format "*texdoc: %s*" pkg)))
-              (erase-buffer)
-              (insert (shell-command-to-string
-                       (concat "texdoc --list --nointeract " pkg)))
-              (goto-char 1)             ; No need to use `point-min' here.
-              (save-excursion
+  (if (not (executable-find "texdoc"))
+      (message "texdoc not found")
+    (let ((pkg (thing-at-point 'symbol t))
+          buffer list doc)
+      (setq pkg (TeX-read-string "View documentation for: " pkg))
+      (unless (zerop (length pkg))
+        (if arg
+            ;; Called with prefix argument:
+            ;; run "texdoc --list --nointeract <pkg>"
+            (progn
+              ;; Create the buffer, insert the result of the command,
+              ;; and accumulate the list of manuals.
+              (with-current-buffer
+                  (setq buffer (get-buffer-create (format "*texdoc: %s*" pkg)))
+                (erase-buffer)
+                (call-process "texdoc" nil t nil
+                              "--list" "--nointeract" pkg)
+                (goto-char 1)             ; No need to use `point-min' here.
                 (while (re-search-forward
-                        ;; XXX: XEmacs doesn't support character classes in
-                        ;; regexps, like "[:alnum:]".
-                        "^ *\\([0-9]+\\) +\\([-~/a-zA-Z0-9_.${}#%,:\\ ()]+\\)" nil t)
-                  (push (cons (match-string 1) (match-string 2)) list))))
-            (unwind-protect
-                (cond
-                 ((null (executable-find "texdoc"))
-                  ;; Note: `shell-command-to-string' uses shell, only
-                  ;; `call-process' looks at `exec-path', thus only here makes
-                  ;; sense to use `executable-find' to test whether texdoc is
-                  ;; available.
-                  (message "texdoc not found"))
-                 (list
-                  ;; Go on if there are manuals listed: show the buffer, prompt
-                  ;; for the number of the manual, then run
-                  ;;     texdoc --just-view <doc>
-                  (TeX-pop-to-buffer (get-buffer buffer))
-                  (condition-case nil
-                      (when (setq doc
-                                  (cdr (assoc (TeX-read-string "Please enter \
-the number of the file to view, anything else to skip: ") list)))
-                        (call-process "texdoc" nil 0 nil "--just-view" doc))
-                    ;; Exit gently if a `quit' signal is thrown.
-                    (quit nil)))
-                 (t (message "No documentation found for %s" pkg)))
-              ;; In any case quit-and-kill the window.
-              (when (get-buffer-window buffer)
-                (quit-window t (get-buffer-window buffer)))))
-        ;; Called without prefix argument: just run "texdoc --view <pkg>" and
-        ;; show the output, so that the user is warned in case it doesn't find
-        ;; the documentation or "texdoc" is not available.
-        (message "%s"
-                 ;; The folowing code to the end of `defun' used to be
-                 ;; just
-                 ;; (shell-command-to-string (concat "texdoc --view " pkg))
-                 ;; , but in some cases it blocks emacs until the user
-                 ;; quits the viewer (bug#28905).
-                 (with-output-to-string
-                   (let* (;; Use pipe rather than pty because the
-                          ;; latter causes atril (evince variant
-                          ;; viewer) to exit before showing anything.
-                          (process-connection-type nil)
-                          (process (start-process-shell-command
-                                    "Doc view" standard-output
-                                    (concat "texdoc --view " pkg))))
-                     ;; Suppress the message "Process Doc view
-                     ;; finished".
-                     (set-process-sentinel process #'ignore)
-                     ;; Kill temp buffer without query.  This is
-                     ;; necessary, at least for some environment, if
-                     ;; the underlying shell can't find the texdoc
-                     ;; executable.
-                     (set-process-query-on-exit-flag process nil)
-                     ;; Don't discard shell output.
-                     (accept-process-output process))))))))
+                        "^ *\\([0-9]+\\) +\\([-~/a-zA-Z0-9_.${}#%,:\\ ()]+\\)"
+                        nil t)
+                  (push (cons (match-string 1) (match-string 2)) list)))
+              (unwind-protect
+                  (cond
+                   (list
+                    ;; Go on if there are manuals listed: show the
+                    ;; buffer, prompt for the number of the manual,
+                    ;; then run
+                    ;;     texdoc --just-view <doc>
+                    (TeX-pop-to-buffer buffer)
+                    (condition-case nil
+                        (when (setq doc
+                                    (cdr (assoc (TeX-read-string "Please \
+enter the number of the file to view, anything else to skip: ") list)))
+                          (call-process "texdoc" nil 0 nil "--just-view" doc))
+                      ;; Exit gently if a `quit' signal is thrown.
+                      (quit nil)))
+                   (t (message "No documentation found for %s" pkg)))
+                ;; In any case quit-and-kill the window.
+                (when (get-buffer-window buffer)
+                  (quit-window t (get-buffer-window buffer)))))
+          ;; Called without prefix argument:
+          ;; just run "texdoc --view <pkg>".
+          ;; Recent Texdoc returns exit code 3 when it can't find the
+          ;; specified document, according to
+          ;; <URL:https://tug.org/texdoc/doc/texdoc.man1.pdf>
+          (if (= (call-process "texdoc" nil nil nil "--view" pkg) 3)
+              (message "No documentation found for %s" pkg)))))))
 
 (defun TeX-goto-info-page ()
   "Read documentation for AUCTeX in the info system."
@@ -9074,8 +9060,7 @@ Initialize it to `LaTeX-largest-level' if needed."
 determine the current section by `LaTeX-command-section'.
 The levels are defined by `LaTeX-section-list'."
   (interactive "p")
-  (let ((old-level (car (rassoc (list (LaTeX-command-section-level))
-                                LaTeX-section-list))))
+  (let ((old-level (LaTeX-section-name (LaTeX-command-section-level))))
     (setq LaTeX-command-section-level (+ LaTeX-command-section-level arg))
     (cond
      ((> LaTeX-command-section-level 6)
@@ -9085,8 +9070,8 @@ The levels are defined by `LaTeX-section-list'."
       (setq LaTeX-command-section-level 0)
       (message "Cannot enlarge LaTeX-command-section-level above part."))
      (t (message "Changed level from %s to %s."
-                 old-level (car (rassoc (list LaTeX-command-section-level)
-                                        LaTeX-section-list)))))))
+                 old-level (LaTeX-section-name
+                            LaTeX-command-section-level))))))
 
 (defun LaTeX-command-section-boundaries ()
   "Return the boundaries of the current section as (start . end).
@@ -9094,13 +9079,10 @@ The section is determined by `LaTeX-command-section-level'."
   (let* ((case-fold-search nil)
          (rx (concat "\\\\" (regexp-opt
                              (mapcar
-                              (lambda (level)
-                                (car (rassoc (list level) LaTeX-section-list)))
-                              (let (r)
-                                (dotimes (i (1+ (LaTeX-command-section-level)))
-                                  (push i r))
-                                r)))
-                     "{")))
+                              #'LaTeX-section-name
+                              (number-sequence
+                               0 (LaTeX-command-section-level))))
+                     "\\*?{")))
     (cons (save-excursion
             (re-search-backward rx nil t)
             (point))

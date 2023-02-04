@@ -1,6 +1,6 @@
 ;;; multi-prompt.el --- Completing read of multiple strings  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 1996-2021 Free Software Foundation, Inc.
+;; Copyright (C) 1996-2023 Free Software Foundation, Inc.
 
 ;; Author: Per Abrahamsen <abraham@dina.kvl.dk>
 ;; Maintainer: auctex-devel@gnu.org
@@ -147,9 +147,9 @@ The value of FLAG is used to specify the type of completion operation.
 A value of nil specifies `try-completion'.  A value of t specifies
 `all-completions'.  A value of lambda specifes a test for an exact match.
 
-For more information on STRING, PREDICATE, and FLAG, see the Elisp
-Reference sections on 'Programmed Completion' and 'Basic Completion
-Functions'."
+For more information on STRING, PREDICATE, and FLAG, see the
+Elisp Reference Info node `(elisp)Programmed Completion' and Info node
+`(elisp)Basic Completion'."
   (let ((beg 0) (last 0) matched)
     (while (string-match multi-prompt-key-value-sep string beg)
       (setq matched t
@@ -171,7 +171,7 @@ This is achieved by eval'ing all variables in the value parts of
 the alist elements."
   (mapcar (lambda (x)
             (if (and (cadr x) (symbolp (cadr x)) (not (functionp (cadr x))))
-                (cons (car x) (list (eval (cadr x) t)))
+                (cons (car x) (list (symbol-value (cadr x))))
               x))
           table))
 
@@ -185,9 +185,13 @@ the alist elements."
             hist def inherit-input-method)
   "Read multiple strings, with completion and key=value support.
 PROMPT is a string to prompt with, usually ending with a colon
-and a space.  TABLE is an alist.  The car of each element should
-be a string representing a key and the optional cdr should be a
-list with strings to be used as values for the key.
+and a space.
+
+TABLE is an alist where each entry is a list.  The first element
+of each list is a string representing a key and the optional
+second element is a list with strings to be used as values for
+the key.  The second element can also be a variable returning a
+list of strings.
 
 See the documentation for `completing-read' for details on the
 other arguments: PREDICATE, REQUIRE-MATCH, INITIAL-INPUT, HIST,
