@@ -161,10 +161,6 @@ Otherwise, restore AUCTeX definition saved in the symbol property
         (defalias mode (if restore
                            (get mode 'auctex-function-definition))))))
 
-;; Delete aliases predefined in tex-mode.el so that AUCTeX
-;; autoloads provided below take precedence.
-(TeX--alias-overlapped-modes)
-
 ;; COMPATIBILITY for Emacs<29, which executes
 ;; (defalias 'LaTeX-mode #'latex-mode) etc. in tex-mode.el.
 (with-eval-after-load 'tex-mode
@@ -172,11 +168,11 @@ Otherwise, restore AUCTeX definition saved in the symbol property
   (if (featurep 'tex-site)
       (TeX--alias-overlapped-modes t)))
 
-(defconst AUCTeX-version "14.0.0"
+(defconst AUCTeX-version "14.0.2"
   "AUCTeX version.
 If not a regular release, the date of the last change.")
 
-(defconst AUCTeX-date "2024-02-08"
+(defconst AUCTeX-date "2024-02-09"
   "AUCTeX release date using the ISO 8601 format, yyyy-mm-dd.")
 
 ;; Store bibitems when saving a BibTeX buffer
