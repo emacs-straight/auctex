@@ -17,7 +17,8 @@
 #   latex: prtightpage.def
 #   latex: prtracingall.def
 
-EMACS=emacs --batch -q -no-site-file -no-init-file -l lpath.el
+EMACSBIN=emacs
+EMACS=$(EMACSBIN) --batch -q -no-site-file -no-init-file -l lpath.el
 MAKEINFO=makeinfo
 INSTALL_INFO=install-info
 PERL=perl
@@ -39,12 +40,30 @@ ALL_GENERATED_FILES=$(MAIN_GENERATED_FILES)	\
 		$(INFO_FILES)
 
 # Generate & compile everything including the manuals below doc/.
-all: $(ALL_GENERATED_FILES) compile autoloads
+all: $(ALL_GENERATED_FILES) compile auctex-autoloads.el
 
 compile: $(patsubst %.el,%.elc,$(wildcard *.el style/*.el))
 
-autoloads:
-	$(EMACS) -f loaddefs-generate-batch loaddefs.el .
+# If we were depending on emacs 29.1, we could simply use
+# loaddefs-generate.  If we were depending on 28.1, we could still use
+# update-directory-autoloads...
+AUTOLOAD=--eval '\
+(let* ((autoload-file (expand-file-name "$@")) \
+       (autoload-file-dir (file-name-directory autoload-file))) \
+  (if (fboundp `loaddefs-generate) \
+      (loaddefs-generate autoload-file-dir autoload-file \
+                         (list "tex-wizard.el") \
+                         "(add-to-list `load-path\n\
+                                       (directory-file-name\n\
+                                         (file-name-directory load-file-name)))")\
+    (mapc (lambda (file) \
+            (update-file-autoloads file nil autoload-file)) \
+          command-line-args-left)) \
+  (save-buffers-kill-emacs t))'
+
+auctex-autoloads.el:
+	rm -f $@
+	$(EMACS) $(AUTOLOAD) $(wildcard *.el)
 
 %.elc: %.el
 	$(EMACS) -f batch-byte-compile $<
@@ -53,17 +72,18 @@ autoloads:
 # will be built on elpa due to :doc ("doc/auctex.texi"
 # "doc/preview-latex.texi") in the auctex recipe in elpa-packges and
 # compiling is done locally.
-elpa: $(MAIN_GENERATED_FILES)
+elpa: $(MAIN_GENERATED_FILES) ChangeLog
 
 # We want the tex-site.el target to be always run so that the version
-# (especially the release version grabbed from the top of the git
-# log/ChangeLog) is correct.
+# (especially the release version grabbed from the top of the git log)
+# is correct.
 .PHONY: tex-site.el
 
 clean:
 	rm -f $(ALL_GENERATED_FILES) \
 		$(wildcard *.elc style/*.elc) \
-		loaddefs.el
+		auctex-autoloads.el \
+		$(DYNVARSFILES)
 
 # Copied&adapted from doc/Makefile.in.
 MAKEINFO_PLAIN=$(MAKEINFO) -D rawfile --no-headers
@@ -71,21 +91,17 @@ README: doc/intro.texi doc/preview-readme.texi doc/macros.texi
 	(cd doc; $(MAKEINFO_PLAIN) intro.texi --output -) >$@
 	(cd doc; $(MAKEINFO_PLAIN) preview-readme.texi --output -) >> $@
 
-# Commands copied&adapted from autogen.sh and doc/Makefile.in.
-IGNORED:=$(shell rm -f ChangeLog && ./build-aux/gitlog-to-auctexlog && cat ChangeLog.1 >> ChangeLog)
 # Committer date of HEAD.
-AUCTEXDATE:=$(shell git log -n1 --pretty=tformat:"%ci" \
-	| sed -nre 's/ /_/p' | sed -nre 's/ .*//p')
+AUCTEXDATE:=$(shell (git log -n1 --pretty=tformat:"%ci" 2>/dev/null \
+                     || date +"%Y-%m-%d %T") 		       	    \
+                    | sed -re 's/ /_/' -e 's/ .*//')
 # Extract the version number from the diff line "+;; Version: 14.0.4" of
 # the commit HEAD which is only filled when we did a release in the last
 # commit.
-THISVERSION:=$(shell git show HEAD -- auctex.el \
+THISVERSION:=$(shell git show HEAD -- auctex.el 2>/dev/null \
 	| sed -nre 's/[+];; Version: ([0-9]+.[0-9]+.[0-9]+)/\1/p')
-# Extract the last version number from the previous change to auctex.el,
-# i.e., only look at commits starting at HEAD~1.
-LASTVERSION:=$(shell git log HEAD~1 -p --first-parent -- auctex.el \
-	| grep "+;; Version: " \
-	| sed -nre 's/[+];; Version: ([0-9]+.[0-9]+.[0-9]+)/\1/p;q')
+# Extract the last released version number from `auctex.el`.
+LASTVERSION:=$(shell sed -nre '/Version:/{s/;; Version: ([0-9]+.[0-9]+.[0-9]+)/\1/p;q}' auctex.el)
 AUCTEXVERSION:=$(if $(THISVERSION),$(THISVERSION),$(LASTVERSION).$(AUCTEXDATE))
 
 tex-site.el: tex-site.el.in
@@ -96,9 +112,13 @@ tex-site.el: tex-site.el.in
 	    -e 's|@AUCTEXDATE@|$(AUCTEXDATE)|'\
 	    $< >$@
 
-doc/version.texi: ChangeLog
+doc/version.texi:
 	echo @set VERSION $(AUCTEXVERSION) >$@
 	echo @set UPDATED $(AUCTEXDATE) >>$@
+
+ChangeLog:
+	rm -f $@
+	./build-aux/gitlog-to-auctexlog && cat ChangeLog.1 >> $@
 
 # Copied&adapted from doc/Makefile.in.
 doc/preview-dtxdoc.texi: latex/preview.dtx doc/preview-dtxdoc.pl
@@ -115,3 +135,15 @@ dir: $(INFO_FILES)
 $(LATEX_FILES): latex/preview.dtx latex/bootstrap.ins
 	cd latex; $(TEX) '\nonstopmode \input bootstrap.ins'
 	cd latex; $(TEX) '\nonstopmode \input preview-mk.ins'
+
+DYNVARSFILES = *.dynvars style/*.dynvars auctex-dynvars
+dynvars-check:
+	rm -f $(wildcard *.elc) $(wildcard style/*.elc) $(DYNVARSFILES)
+	EMACS_GENERATE_DYNVARS=1 $(EMACS) -f batch-byte-compile \
+		$(wildcard *.el) $(wildcard style/*.el) \
+		> /dev/null 2>&1
+	cat *.dynvars style/*.dynvars > auctex-dynvars
+	rm -f $(wildcard *.elc) $(wildcard style/*.elc)
+	EMACS_DYNVARS_FILE=auctex-dynvars $(EMACS) \
+		-f batch-byte-compile \
+		$(wildcard *.el) $(wildcard style/*.el)
