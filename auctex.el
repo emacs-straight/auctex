@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2014-2024 Free Software Foundation, Inc.
 
-;; Version: 14.0.4
+;; Version: 14.0.5
 ;; URL: https://www.gnu.org/software/auctex/
 ;; Maintainer: auctex-devel@gnu.org
 ;; Notifications-To: auctex-diffs@gnu.org
@@ -26,6 +26,14 @@
 
 ;;; Commentary:
 
+;; AUCTeX is a comprehensive customizable integrated environment for
+;; writing input files for TeX, LaTeX, ConTeXt, Texinfo, and docTeX
+;; using Emacs.  One component of AUCTeX is preview-latex, a combination
+;; of folding and in-source previewing that provides true "What You See
+;; Is What You Get" experience in the sourcebuffer.
+
+;;; Code:
+
 ;; This can be used for starting up AUCTeX.  The following somewhat
 ;; strange trick causes tex-site.el to be loaded in a way that can be
 ;; safely undone using (unload-feature 'tex-site).
@@ -34,8 +42,6 @@
 ;; strange code such as
 ;;     (require 'tex-site (expand-file-name "tex-site.el"
 ;;                         (file-name-directory load-file-name))
-
-;;; Code:
 
 (autoload 'TeX-load-hack
   (expand-file-name "tex-site.el"
