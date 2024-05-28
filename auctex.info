@@ -1,8 +1,8 @@
-This is doc5brmzS.info, produced by makeinfo version 6.8 from
+This is doc1hfMpW.info, produced by makeinfo version 6.8 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.0.5.2024-05-25_15:52:03 from
-2024-05-25_15:52:03), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.0.5.2024-05-27_21:07:34 from
+2024-05-27_21:07:34), a sophisticated TeX environment for Emacs.
 
    Copyright (C) 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -24,7 +24,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: doc5brmzS.info,  Node: Top,  Next: Copying,  Up: (dir)
+File: doc1hfMpW.info,  Node: Top,  Next: Copying,  Up: (dir)
 
 AUCTeX
 ******
@@ -197,7 +197,7 @@ Indices
 
 
 
-File: doc5brmzS.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
+File: doc1hfMpW.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
 
 Copying
 *******
@@ -236,7 +236,7 @@ that accompany them.  This manual specifically is covered by the GNU
 Free Documentation License (*note Copying this Manual::).
 
 
-File: doc5brmzS.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: Top
+File: doc1hfMpW.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: Top
 
 1 Introduction
 **************
@@ -248,7 +248,7 @@ File: doc5brmzS.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: 
 * Quick Start::                 Quick Start
 
 
-File: doc5brmzS.info,  Node: Summary,  Next: Installation,  Up: Introduction
+File: doc1hfMpW.info,  Node: Summary,  Next: Installation,  Up: Introduction
 
 1.1 Overview of AUCTeX
 ======================
@@ -309,7 +309,7 @@ developers of AUCTeX themselves with technical issues, they can be found
 on the discussion list <auctex-devel@gnu.org>.
 
 
-File: doc5brmzS.info,  Node: Installation,  Next: Quick Start,  Prev: Summary,  Up: Introduction
+File: doc1hfMpW.info,  Node: Installation,  Next: Quick Start,  Prev: Summary,  Up: Introduction
 
 1.2 Installing AUCTeX
 =====================
@@ -360,7 +360,7 @@ MS Windows are asked to consult *Note Installation under MS Windows::.
 * Customizing::
 
 
-File: doc5brmzS.info,  Node: Prerequisites,  Next: Configure,  Up: Installation
+File: doc1hfMpW.info,  Node: Prerequisites,  Next: Configure,  Up: Installation
 
 1.2.1 Prerequisites
 -------------------
@@ -417,7 +417,7 @@ File: doc5brmzS.info,  Node: Prerequisites,  Next: Configure,  Up: Installation
 (preview-latex)Known problems::.
 
 
-File: doc5brmzS.info,  Node: Configure,  Next: Build/install and uninstall,  Prev: Prerequisites,  Up: Installation
+File: doc1hfMpW.info,  Node: Configure,  Next: Build/install and uninstall,  Prev: Prerequisites,  Up: Installation
 
 1.2.2 Configure
 ---------------
@@ -523,7 +523,7 @@ it out with one of these options:
      but is normally not necessary otherwise.
 
 
-File: doc5brmzS.info,  Node: Build/install and uninstall,  Next: Loading the package,  Prev: Configure,  Up: Installation
+File: doc1hfMpW.info,  Node: Build/install and uninstall,  Next: Loading the package,  Prev: Configure,  Up: Installation
 
 1.2.3 Build/install and uninstall
 ---------------------------------
@@ -550,7 +550,7 @@ You will need administration privileges if you installed the package
 into system directories.
 
 
-File: doc5brmzS.info,  Node: Loading the package,  Next: Advice for package providers,  Prev: Build/install and uninstall,  Up: Installation
+File: doc1hfMpW.info,  Node: Loading the package,  Next: Advice for package providers,  Prev: Build/install and uninstall,  Up: Installation
 
 1.2.4 Loading the package
 -------------------------
@@ -610,7 +610,7 @@ its modes have been used,
 in your init file should accomplish that.
 
 
-File: doc5brmzS.info,  Node: Advice for package providers,  Next: Advice for non-privileged users,  Prev: Loading the package,  Up: Installation
+File: doc1hfMpW.info,  Node: Advice for package providers,  Next: Advice for non-privileged users,  Prev: Loading the package,  Up: Installation
 
 1.2.5 Providing AUCTeX as a package
 -----------------------------------
@@ -670,7 +670,7 @@ supported Unix-like installation:
      would neither conflict with nor provide 'preview-tetex'.
 
 
-File: doc5brmzS.info,  Node: Advice for non-privileged users,  Next: Installation under MS Windows,  Prev: Advice for package providers,  Up: Installation
+File: doc1hfMpW.info,  Node: Advice for non-privileged users,  Next: Installation under MS Windows,  Prev: Advice for package providers,  Up: Installation
 
 1.2.6 Installation for non-privileged users
 -------------------------------------------
@@ -791,7 +791,7 @@ directory:
      (load "~/development/auctex/preview-latex.el" nil t t)
 
 
-File: doc5brmzS.info,  Node: Installation under MS Windows,  Next: Customizing,  Prev: Advice for non-privileged users,  Up: Installation
+File: doc1hfMpW.info,  Node: Installation under MS Windows,  Next: Customizing,  Prev: Advice for non-privileged users,  Up: Installation
 
 1.2.7 Installation under MS Windows
 -----------------------------------
@@ -1087,7 +1087,7 @@ single quotes for that.
    Well, that about is all.  Have fun!
 
 
-File: doc5brmzS.info,  Node: Customizing,  Prev: Installation under MS Windows,  Up: Installation
+File: doc1hfMpW.info,  Node: Customizing,  Prev: Installation under MS Windows,  Up: Installation
 
 1.2.8 Customizing
 -----------------
@@ -1121,7 +1121,7 @@ could use the program 'kpsewhich'.  In this case you normally don't have
 to alter anything.
 
 
-File: doc5brmzS.info,  Node: Quick Start,  Prev: Installation,  Up: Introduction
+File: doc1hfMpW.info,  Node: Quick Start,  Prev: Installation,  Up: Introduction
 
 1.3 Quick Start
 ===============
@@ -1180,7 +1180,7 @@ ask you for a master file.
 '.emacs.d/init.el'.
 
 
-File: doc5brmzS.info,  Node: Editing Facilities,  Next: Processing Facilities,  Up: Quick Start
+File: doc1hfMpW.info,  Node: Editing Facilities,  Next: Processing Facilities,  Up: Quick Start
 
 1.3.1 Functions for editing TeX files
 -------------------------------------
@@ -1299,7 +1299,7 @@ outline mode is provided as well.  And there's more, but this is beyond
 the scope of this Quick Start Guide.
 
 
-File: doc5brmzS.info,  Node: Processing Facilities,  Prev: Editing Facilities,  Up: Quick Start
+File: doc1hfMpW.info,  Node: Processing Facilities,  Prev: Editing Facilities,  Up: Quick Start
 
 1.3.2 Creating and viewing output, debugging
 --------------------------------------------
@@ -1405,7 +1405,7 @@ run 'latex' only on the current buffer, using the preamble from the
 master file.
 
 
-File: doc5brmzS.info,  Node: Editing,  Next: Display,  Prev: Introduction,  Up: Top
+File: doc1hfMpW.info,  Node: Editing,  Next: Display,  Prev: Introduction,  Up: Top
 
 2 Editing the Document Source
 *****************************
@@ -1434,7 +1434,7 @@ by indenting and filling and for navigating through the document.
 * Filling::                     Automatic and manual line breaking
 
 
-File: doc5brmzS.info,  Node: Quotes,  Next: Font Specifiers,  Up: Editing
+File: doc1hfMpW.info,  Node: Quotes,  Next: Font Specifiers,  Up: Editing
 
 2.1 Insertion of Quotes, Dollars, and Braces
 ============================================
@@ -1494,7 +1494,7 @@ nothing special.  The second '$' will match the first.  This will be
 indicated by moving the cursor temporarily over the first dollar sign.
 
  -- Command: TeX-insert-dollar ARG
-     ('$') Insert dollar sign.
+     ('$') Insert dollar sign (or another math delimiter).
 
      Show matching dollar sign if this dollar sign end the TeX math
      mode.
@@ -1516,15 +1516,6 @@ the customizable variable 'TeX-electric-math'.
      Besides 'nil', possible values for this variable are '("$" . "$")'
      for TeX inline equations '$...$', and '("\(" . "\)")' for LaTeX
      inline equations '\(...\)'.
-
-     If the variable is non-'nil' and point is inside math mode right
-     between a couple of single dollars, pressing '$' will insert
-     another pair of dollar signs and leave the point between them.
-     Thus, if 'TeX-electric-math' is set to '("$" . "$")' you can easily
-     obtain a TeX display equation '$$...$$' by pressing '$' twice in a
-     row.  (Note that you should not use double dollar signs in LaTeX
-     because this practice can lead to wrong spacing in typeset
-     documents.)
 
      In addition, when the variable is non-'nil' and there is an active
      region outside math mode, typing '$' will put around the active
@@ -1548,6 +1539,8 @@ file
    Math mode which didn't start with dollar(s) shouldn't be closed with
 dollar.
  -- User Option: TeX-refuse-unmatched-dollar
+     This option _has no effect_ when 'TeX-electric-math' is non-'nil'.
+
      This option determines the behavior when the user types '$' at a
      position where AUCTeX thinks that it is in math mode which didn't
      start with dollar(s).
@@ -1648,7 +1641,7 @@ when typing '(', '{' and '['.
      completion.
 
 
-File: doc5brmzS.info,  Node: Font Specifiers,  Next: Sectioning,  Prev: Quotes,  Up: Editing
+File: doc1hfMpW.info,  Node: Font Specifiers,  Next: Sectioning,  Prev: Quotes,  Up: Editing
 
 2.2 Inserting Font Specifiers
 =============================
@@ -1721,7 +1714,7 @@ inserted.
      structure as 'TeX-font-list'.
 
 
-File: doc5brmzS.info,  Node: Sectioning,  Next: Environments,  Prev: Font Specifiers,  Up: Editing
+File: doc1hfMpW.info,  Node: Sectioning,  Next: Environments,  Prev: Font Specifiers,  Up: Editing
 
 2.3 Inserting chapters, sections, etc.
 ======================================
@@ -1836,7 +1829,7 @@ label will be prefixed by the value specified in 'LaTeX-section-hook'.
      inserted for other types of sections.
 
 
-File: doc5brmzS.info,  Node: Environments,  Next: Mathematics,  Prev: Sectioning,  Up: Editing
+File: doc1hfMpW.info,  Node: Environments,  Next: Mathematics,  Prev: Sectioning,  Up: Editing
 
 2.4 Inserting Environment Templates
 ===================================
@@ -1964,7 +1957,7 @@ and to the end of the current environment.
      calls 'LaTeX-find-matching-end'.
 
 
-File: doc5brmzS.info,  Node: Equations,  Next: Floats,  Up: Environments
+File: doc1hfMpW.info,  Node: Equations,  Next: Floats,  Up: Environments
 
 2.4.1 Equations
 ---------------
@@ -1984,7 +1977,7 @@ default prefix, which is controlled by the following variables:
      'gather'.
 
 
-File: doc5brmzS.info,  Node: Floats,  Next: Itemize-like,  Prev: Equations,  Up: Environments
+File: doc1hfMpW.info,  Node: Floats,  Next: Itemize-like,  Prev: Equations,  Up: Environments
 
 2.4.2 Floats
 ------------
@@ -2039,7 +2032,7 @@ environment.
      caption.
 
 
-File: doc5brmzS.info,  Node: Itemize-like,  Next: Tabular-like,  Prev: Floats,  Up: Environments
+File: doc1hfMpW.info,  Node: Itemize-like,  Next: Tabular-like,  Prev: Floats,  Up: Environments
 
 2.4.3 Itemize-like Environments
 -------------------------------
@@ -2059,7 +2052,7 @@ if the key binding is still available.
      Otherwise, you will be asked only in description environments.
 
 
-File: doc5brmzS.info,  Node: Tabular-like,  Next: Customizing Environments,  Prev: Itemize-like,  Up: Environments
+File: doc1hfMpW.info,  Node: Tabular-like,  Next: Customizing Environments,  Prev: Itemize-like,  Up: Environments
 
 2.4.4 Tabular-like Environments
 -------------------------------
@@ -2102,7 +2095,7 @@ or 'M-<RET>' in these environments.  It recognizes the current
 environment and does the appropriate job depending on the context.
 
 
-File: doc5brmzS.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up: Environments
+File: doc1hfMpW.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up: Environments
 
 2.4.5 Customizing Environments
 ------------------------------
@@ -2111,7 +2104,7 @@ File: doc5brmzS.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up:
 environments.
 
 
-File: doc5brmzS.info,  Node: Mathematics,  Next: Completion,  Prev: Environments,  Up: Editing
+File: doc1hfMpW.info,  Node: Mathematics,  Next: Completion,  Prev: Environments,  Up: Editing
 
 2.5 Entering Mathematics
 ========================
@@ -2192,7 +2185,7 @@ characters, when you begin to enter math constructs.
      by 'C-c C-e' ('LaTeX-environment').
 
 
-File: doc5brmzS.info,  Node: Completion,  Next: Marking,  Prev: Mathematics,  Up: Editing
+File: doc1hfMpW.info,  Node: Completion,  Next: Marking,  Prev: Mathematics,  Up: Editing
 
 2.6 Completion
 ==============
@@ -2375,7 +2368,7 @@ after you enabled automatic parsing on save, and that the basename of
 the BibTeX file does not conflict with the basename of one of TeX files.
 
 
-File: doc5brmzS.info,  Node: Marking,  Next: Commenting,  Prev: Completion,  Up: Editing
+File: doc1hfMpW.info,  Node: Marking,  Next: Commenting,  Prev: Completion,  Up: Editing
 
 2.7 Marking Environments, Sections, or Texinfo Nodes
 ====================================================
@@ -2394,7 +2387,7 @@ mark to its end.
 * Marking (Texinfo):: Texinfo Commands for Marking Environments, Sections, and Nodes
 
 
-File: doc5brmzS.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Marking
+File: doc1hfMpW.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Marking
 
 2.7.1 LaTeX Commands for Marking Environments and Sections
 ----------------------------------------------------------
@@ -2418,7 +2411,7 @@ File: doc5brmzS.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Mar
      environments.
 
 
-File: doc5brmzS.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Marking
+File: doc1hfMpW.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Marking
 
 2.7.2 Texinfo Commands for Marking Environments and Sections
 ------------------------------------------------------------
@@ -2457,7 +2450,7 @@ File: doc5brmzS.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Mar
      '@node' or '@bye'.
 
 
-File: doc5brmzS.info,  Node: Commenting,  Next: Indenting,  Prev: Marking,  Up: Editing
+File: doc1hfMpW.info,  Node: Commenting,  Next: Indenting,  Prev: Marking,  Up: Editing
 
 2.8 Commenting
 ==============
@@ -2485,7 +2478,7 @@ single '%' respectively.
      starting with a '%', until the first non-comment line.
 
 
-File: doc5brmzS.info,  Node: Indenting,  Next: Filling,  Prev: Commenting,  Up: Editing
+File: doc1hfMpW.info,  Node: Indenting,  Next: Filling,  Prev: Commenting,  Up: Editing
 
 2.9 Indenting
 =============
@@ -2678,7 +2671,7 @@ behavior can be controlled by setting the variable
      option is disabled by default.
 
 
-File: doc5brmzS.info,  Node: Filling,  Prev: Indenting,  Up: Editing
+File: doc1hfMpW.info,  Node: Filling,  Prev: Indenting,  Up: Editing
 
 2.10 Filling
 ============
@@ -2816,7 +2809,7 @@ inside the comment, AUCTeX will report an error.
      }
 
 
-File: doc5brmzS.info,  Node: Display,  Next: Processing,  Prev: Editing,  Up: Top
+File: doc1hfMpW.info,  Node: Display,  Next: Processing,  Prev: Editing,  Up: Top
 
 3 Controlling Screen Display
 ****************************
@@ -2874,7 +2867,7 @@ together.
 * Prettifying::                 Displaying Greek and math macros as Unicode characters
 
 
-File: doc5brmzS.info,  Node: Font Locking,  Next: Folding,  Up: Display
+File: doc1hfMpW.info,  Node: Font Locking,  Next: Folding,  Up: Display
 
 3.1 Font Locking
 ================
@@ -2919,7 +2912,7 @@ description the various options are explained in conceptional groups.
 * Known problems::              Known fontification problems
 
 
-File: doc5brmzS.info,  Node: Fontification of macros,  Next: Fontification of quotes,  Up: Font Locking
+File: doc1hfMpW.info,  Node: Fontification of macros,  Next: Fontification of quotes,  Up: Font Locking
 
 3.1.1 Fontification of macros
 -----------------------------
@@ -3140,7 +3133,7 @@ variable 'font-latex-user-keyword-classes'.
      above.
 
 
-File: doc5brmzS.info,  Node: Fontification of quotes,  Next: Fontification of math,  Prev: Fontification of macros,  Up: Font Locking
+File: doc1hfMpW.info,  Node: Fontification of quotes,  Next: Fontification of math,  Prev: Fontification of macros,  Up: Font Locking
 
 3.1.2 Fontification of quotes
 -----------------------------
@@ -3172,7 +3165,7 @@ properties.
      fontified.
 
 
-File: doc5brmzS.info,  Node: Fontification of math,  Next: Verbatim content,  Prev: Fontification of quotes,  Up: Font Locking
+File: doc1hfMpW.info,  Node: Fontification of math,  Next: Verbatim content,  Prev: Fontification of quotes,  Up: Font Locking
 
 3.1.3 Fontification of mathematical constructs
 ----------------------------------------------
@@ -3245,7 +3238,7 @@ an own face named 'font-latex-script-char-face'.
      Other Display Specifications: (elisp)Other Display Specs.
 
 
-File: doc5brmzS.info,  Node: Verbatim content,  Next: Faces,  Prev: Fontification of math,  Up: Font Locking
+File: doc1hfMpW.info,  Node: Verbatim content,  Next: Faces,  Prev: Fontification of math,  Up: Font Locking
 
 3.1.4 Verbatim macros and environments
 --------------------------------------
@@ -3263,7 +3256,7 @@ environments are recognized is controlled by the variables
 respectively.
 
 
-File: doc5brmzS.info,  Node: Faces,  Next: Known problems,  Prev: Verbatim content,  Up: Font Locking
+File: doc1hfMpW.info,  Node: Faces,  Next: Known problems,  Prev: Verbatim content,  Up: Font Locking
 
 3.1.5 Faces used by font-latex
 ------------------------------
@@ -3275,7 +3268,7 @@ font-latex are accessible through a customization group by typing 'M-x
 customize-group <RET> font-latex-highlighting-faces <RET>'.
 
 
-File: doc5brmzS.info,  Node: Known problems,  Prev: Faces,  Up: Font Locking
+File: doc1hfMpW.info,  Node: Known problems,  Prev: Faces,  Up: Font Locking
 
 3.1.6 Known fontification problems
 ----------------------------------
@@ -3296,7 +3289,7 @@ workaround.  In docTeX documents, '^^A$' is also available for similar
 purpose.
 
 
-File: doc5brmzS.info,  Node: Folding,  Next: Outline,  Prev: Font Locking,  Up: Display
+File: doc1hfMpW.info,  Node: Folding,  Next: Outline,  Prev: Font Locking,  Up: Display
 
 3.2 Folding Macros and Environments
 ===================================
@@ -3564,7 +3557,7 @@ variable 'TeX-fold-help-echo-max-length'.
      binding.
 
 
-File: doc5brmzS.info,  Node: Outline,  Next: Narrowing,  Prev: Folding,  Up: Display
+File: doc1hfMpW.info,  Node: Outline,  Next: Narrowing,  Prev: Folding,  Up: Display
 
 3.3 Outlining the Document
 ==========================
@@ -3601,7 +3594,7 @@ better outline support.  It is available from your favorite emacs lisp
 archive.
 
 
-File: doc5brmzS.info,  Node: Narrowing,  Next: Prettifying,  Prev: Outline,  Up: Display
+File: doc1hfMpW.info,  Node: Narrowing,  Next: Prettifying,  Prev: Outline,  Up: Display
 
 3.4 Narrowing
 =============
@@ -3627,7 +3620,7 @@ the option of enabling them; if you enable the commands, confirmation
 will no longer be required for them.
 
 
-File: doc5brmzS.info,  Node: Prettifying,  Prev: Narrowing,  Up: Display
+File: doc1hfMpW.info,  Node: Prettifying,  Prev: Narrowing,  Up: Display
 
 3.5 Prettifying
 ===============
@@ -3656,7 +3649,7 @@ this variable is part of Emacs' stock 'tex-mode.el' and used by that and
 AUCTeX.
 
 
-File: doc5brmzS.info,  Node: Processing,  Next: Customization,  Prev: Display,  Up: Top
+File: doc1hfMpW.info,  Node: Processing,  Next: Customization,  Prev: Display,  Up: Top
 
 4 Starting Processors, Viewers and Other Programs
 *************************************************
@@ -3685,7 +3678,7 @@ can also customize the buttons by the options 'TeX-bar-TeX-buttons',
 * Documentation::               Documentation about macros and packages.
 
 
-File: doc5brmzS.info,  Node: Commands,  Next: Viewing,  Up: Processing
+File: doc1hfMpW.info,  Node: Commands,  Next: Viewing,  Up: Processing
 
 4.1 Executing Commands
 ======================
@@ -3702,7 +3695,7 @@ external command.
 * Processor Options::           Options for TeX Processors
 
 
-File: doc5brmzS.info,  Node: Starting a Command,  Next: Selecting a Command,  Up: Commands
+File: doc1hfMpW.info,  Node: Starting a Command,  Next: Selecting a Command,  Up: Commands
 
 4.1.1 Starting a Command on a Document or Region
 ------------------------------------------------
@@ -3811,7 +3804,7 @@ when you are editing multiple documents in parallel.  This limitation
 applies for preview by preview-latex as well.
 
 
-File: doc5brmzS.info,  Node: Selecting a Command,  Next: Processor Options,  Prev: Starting a Command,  Up: Commands
+File: doc1hfMpW.info,  Node: Selecting a Command,  Next: Processor Options,  Prev: Starting a Command,  Up: Commands
 
 4.1.2 Selecting and Executing a Command
 ---------------------------------------
@@ -3995,7 +3988,7 @@ verbatim macros like '\Verb' from 'fancyvrb.sty' or '\mintinline' from
      avoided as they are not recognized by 'font-latex.el'.
 
 
-File: doc5brmzS.info,  Node: Processor Options,  Prev: Selecting a Command,  Up: Commands
+File: doc1hfMpW.info,  Node: Processor Options,  Prev: Selecting a Command,  Up: Commands
 
 4.1.3 Options for TeX Processors
 --------------------------------
@@ -4212,7 +4205,7 @@ is controlled by 'ConTeXt-Mark-version' option.
      basis, by specifying it as a file variable.
 
 
-File: doc5brmzS.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
+File: doc1hfMpW.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
 
 4.2 Viewing the Formatted Output
 ================================
@@ -4226,7 +4219,7 @@ formatted output of your document.
 * I/O Correlation::             Forward and inverse search
 
 
-File: doc5brmzS.info,  Node: Starting Viewers,  Next: I/O Correlation,  Up: Viewing
+File: doc1hfMpW.info,  Node: Starting Viewers,  Next: I/O Correlation,  Up: Viewing
 
 4.2.1 Starting Viewers
 ----------------------
@@ -4332,7 +4325,7 @@ the variable in place.  In addition, the use of a function in
 'TeX-command-list' makes use of the hook 'TeX-run-discard-or-function'.
 
 
-File: doc5brmzS.info,  Node: I/O Correlation,  Prev: Starting Viewers,  Up: Viewing
+File: doc1hfMpW.info,  Node: I/O Correlation,  Prev: Starting Viewers,  Up: Viewing
 
 4.2.2 Forward and Inverse Search
 --------------------------------
@@ -4452,7 +4445,7 @@ implemented as minor mode map of 'TeX-source-correlate-mode', in order
 that its bindings don't affect buffers outside of AUCTeX.
 
 
-File: doc5brmzS.info,  Node: Debugging,  Next: Checking,  Prev: Viewing,  Up: Processing
+File: doc1hfMpW.info,  Node: Debugging,  Next: Checking,  Prev: Viewing,  Up: Processing
 
 4.3 Catching the errors
 =======================
@@ -4512,7 +4505,7 @@ error reported by TeX along with the documentation.  There is however an
 * Error overview::            List of all errors and warnings
 
 
-File: doc5brmzS.info,  Node: Ignoring warnings,  Next: Error overview,  Up: Debugging
+File: doc1hfMpW.info,  Node: Ignoring warnings,  Next: Error overview,  Up: Debugging
 
 4.3.1 Controlling warnings to be reported
 -----------------------------------------
@@ -4560,7 +4553,7 @@ options.
      'nil', all warnings are hidden in any case.
 
 
-File: doc5brmzS.info,  Node: Error overview,  Prev: Ignoring warnings,  Up: Debugging
+File: doc1hfMpW.info,  Node: Error overview,  Prev: Ignoring warnings,  Up: Debugging
 
 4.3.2 List of all errors and warnings
 -------------------------------------
@@ -4605,7 +4598,7 @@ default, but you can change this behavior by customizing the option
      be used regardless of the value of this variable.
 
 
-File: doc5brmzS.info,  Node: Checking,  Next: Control,  Prev: Debugging,  Up: Processing
+File: doc1hfMpW.info,  Node: Checking,  Next: Control,  Prev: Debugging,  Up: Processing
 
 4.4 Checking for problems
 =========================
@@ -4644,7 +4637,7 @@ before using them.  You can get 'lacheck' from
 <https://www.ctan.org/pkg/chktex>.  TeX Live contains both.
 
 
-File: doc5brmzS.info,  Node: Control,  Next: Cleaning,  Prev: Checking,  Up: Processing
+File: doc1hfMpW.info,  Node: Control,  Next: Cleaning,  Prev: Checking,  Up: Processing
 
 4.5 Controlling the output
 ==========================
@@ -4697,7 +4690,7 @@ separate directory.
      'TEXINPUTS' and 'BIBINPUTS'.
 
 
-File: doc5brmzS.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up: Processing
+File: doc1hfMpW.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up: Processing
 
 4.6 Cleaning intermediate and output files
 ==========================================
@@ -4732,7 +4725,7 @@ File: doc5brmzS.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up
      deleting files.
 
 
-File: doc5brmzS.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
+File: doc1hfMpW.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
 
 4.7 Documentation about macros and packages
 ===========================================
@@ -4757,7 +4750,7 @@ File: doc5brmzS.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
      Thus it isn't sure whether this command works for MiKTeX or not.
 
 
-File: doc5brmzS.info,  Node: Customization,  Next: Appendices,  Prev: Processing,  Up: Top
+File: doc1hfMpW.info,  Node: Customization,  Next: Appendices,  Prev: Processing,  Up: Top
 
 5 Customization and Extension
 *****************************
@@ -4772,7 +4765,7 @@ File: doc5brmzS.info,  Node: Customization,  Next: Appendices,  Prev: Processing
 * Style Files::                 Writing Your Own Style Support
 
 
-File: doc5brmzS.info,  Node: Modes and Hooks,  Next: Multifile,  Up: Customization
+File: doc1hfMpW.info,  Node: Modes and Hooks,  Next: Multifile,  Up: Customization
 
 5.1 Modes and Hooks
 ===================
@@ -4817,7 +4810,7 @@ mode and runs 'plain-TeX-mode-hook' as well.
      added to the hook for this purpose.
 
 
-File: doc5brmzS.info,  Node: Multifile,  Next: Parsing Files,  Prev: Modes and Hooks,  Up: Customization
+File: doc1hfMpW.info,  Node: Multifile,  Next: Parsing Files,  Prev: Modes and Hooks,  Up: Customization
 
 5.2 Multifile Documents
 =======================
@@ -4884,7 +4877,7 @@ you can set 'TeX-master' in your init file such as 'init.el' or
 
      If you dislike AUCTeX automatically modifying your files, you can
      set this variable to '"<none>"'.  By default, AUCTeX will modify
-     any file with an extension of '.tex', '.texi' or '.dtx'.
+     any file with an extension of '.tex', '.ltx', '.texi' or '.dtx'.
 
  -- Command: TeX-master-file-ask
      ('C-c _') Query for the name of a master file and add the
@@ -4923,7 +4916,7 @@ master file.  *Note Automatic Local::.
      'TeX-save-document'.
 
 
-File: doc5brmzS.info,  Node: Parsing Files,  Next: Internationalization,  Prev: Multifile,  Up: Customization
+File: doc1hfMpW.info,  Node: Parsing Files,  Next: Internationalization,  Prev: Multifile,  Up: Customization
 
 5.3 Automatic Parsing of TeX Files
 ==================================
@@ -5053,7 +5046,7 @@ these before loading AUCTeX by quoting them, as in the example above.
      Parse all TeX and LaTeX commands that AUCTeX can use.
 
 
-File: doc5brmzS.info,  Node: Internationalization,  Next: Automatic,  Prev: Parsing Files,  Up: Customization
+File: doc1hfMpW.info,  Node: Internationalization,  Next: Automatic,  Prev: Parsing Files,  Up: Customization
 
 5.4 Language Support
 ====================
@@ -5084,7 +5077,7 @@ for supporting CJK scripts in a standard LaTeX document.
 * Japanese::                    Using AUCTeX with Japanese
 
 
-File: doc5brmzS.info,  Node: European,  Next: Japanese,  Up: Internationalization
+File: doc1hfMpW.info,  Node: European,  Next: Japanese,  Up: Internationalization
 
 5.4.1 Using AUCTeX with European Languages
 ------------------------------------------
@@ -5266,7 +5259,7 @@ respectively.
      second key press.  If 'nil' do it the other way round.
 
 
-File: doc5brmzS.info,  Node: Japanese,  Prev: European,  Up: Internationalization
+File: doc1hfMpW.info,  Node: Japanese,  Prev: European,  Up: Internationalization
 
 5.4.2 Using AUCTeX with Japanese TeX
 ------------------------------------
@@ -5391,7 +5384,7 @@ won't matter in buffers with other engines.
    See 'tex-jp.el' for more information.
 
 
-File: doc5brmzS.info,  Node: Automatic,  Next: Style Files,  Prev: Internationalization,  Up: Customization
+File: doc1hfMpW.info,  Node: Automatic,  Next: Style Files,  Prev: Internationalization,  Up: Customization
 
 5.5 Automatic Customization
 ===========================
@@ -5449,7 +5442,7 @@ and 'CVS'.
      for TeX files in a directory.
 
 
-File: doc5brmzS.info,  Node: Automatic Global,  Next: Automatic Private,  Up: Automatic
+File: doc1hfMpW.info,  Node: Automatic Global,  Next: Automatic Private,  Up: Automatic
 
 5.5.1 Automatic Customization for the Site
 ------------------------------------------
@@ -5479,7 +5472,7 @@ the variable 'TeX-auto-global' to 'nil'.
      shared by all users of a site.
 
 
-File: doc5brmzS.info,  Node: Automatic Private,  Next: Automatic Local,  Prev: Automatic Global,  Up: Automatic
+File: doc1hfMpW.info,  Node: Automatic Private,  Next: Automatic Local,  Prev: Automatic Global,  Up: Automatic
 
 5.5.2 Automatic Customization for a User
 ----------------------------------------
@@ -5511,7 +5504,7 @@ directories listed in 'TeX-auto-private'
      These correspond to the personal TeX macros.
 
 
-File: doc5brmzS.info,  Node: Automatic Local,  Prev: Automatic Private,  Up: Automatic
+File: doc1hfMpW.info,  Node: Automatic Local,  Prev: Automatic Private,  Up: Automatic
 
 5.5.3 Automatic Customization for a Directory
 ---------------------------------------------
@@ -5544,7 +5537,7 @@ set 'TeX-auto-local' to 'nil'.
      Subdirectory name is actually taken from 'TeX-auto-local'.
 
 
-File: doc5brmzS.info,  Node: Style Files,  Prev: Automatic,  Up: Customization
+File: doc1hfMpW.info,  Node: Style Files,  Prev: Automatic,  Up: Customization
 
 5.6 Writing Your Own Style Support
 ==================================
@@ -5566,7 +5559,7 @@ directories instead of 'auto' directories.
 send it to us.
 
 
-File: doc5brmzS.info,  Node: Simple Style,  Next: Adding Macros,  Up: Style Files
+File: doc1hfMpW.info,  Node: Simple Style,  Next: Adding Macros,  Up: Style Files
 
 5.6.1 A Simple Style File
 -------------------------
@@ -5653,7 +5646,7 @@ DIALECT-EXPR to pass constant 'TeX-dialect' currently defined to
      file, or any mode derived thereof.
 
 
-File: doc5brmzS.info,  Node: Adding Macros,  Next: Adding Environments,  Prev: Simple Style,  Up: Style Files
+File: doc1hfMpW.info,  Node: Adding Macros,  Next: Adding Environments,  Prev: Simple Style,  Up: Style Files
 
 5.6.2 Adding Support for Macros
 -------------------------------
@@ -5931,7 +5924,7 @@ users.  Those should be marked as expert macros using
      'TeX-complete-expert-commands'.
 
 
-File: doc5brmzS.info,  Node: Adding Environments,  Next: Adding Other,  Prev: Adding Macros,  Up: Style Files
+File: doc1hfMpW.info,  Node: Adding Environments,  Next: Adding Other,  Prev: Adding Macros,  Up: Style Files
 
 5.6.3 Adding Support for Environments
 -------------------------------------
@@ -6051,9 +6044,6 @@ in 'latex.el' it is just ignored.
 'LaTeX-env-bib'
      Insert the given environment with a label for a bibitem.
 
-'LaTeX-env-contents'
-     Insert the given environment with a filename as its argument.
-
 'LaTeX-env-args'
      Insert the given environment with arguments.  You can use this as a
      hook in case you want to specify multiple complex arguments just
@@ -6080,7 +6070,7 @@ non-expert users.  Those should be marked as expert environments using
      'TeX-complete-expert-commands'.
 
 
-File: doc5brmzS.info,  Node: Adding Other,  Next: Hacking the Parser,  Prev: Adding Environments,  Up: Style Files
+File: doc1hfMpW.info,  Node: Adding Other,  Next: Hacking the Parser,  Prev: Adding Environments,  Up: Style Files
 
 5.6.4 Adding or Examining Other Information
 -------------------------------------------
@@ -6190,7 +6180,7 @@ can provide completion support for the optional arguments.
      Which see.
 
 
-File: doc5brmzS.info,  Node: Hacking the Parser,  Prev: Adding Other,  Up: Style Files
+File: doc1hfMpW.info,  Node: Hacking the Parser,  Prev: Adding Other,  Up: Style Files
 
 5.6.5 Automatic Extraction of New Things
 ----------------------------------------
@@ -6293,7 +6283,7 @@ symbols found.
      List of functions to be called after parsing a TeX file.
 
 
-File: doc5brmzS.info,  Node: Appendices,  Next: Indices,  Prev: Customization,  Up: Top
+File: doc1hfMpW.info,  Node: Appendices,  Next: Indices,  Prev: Customization,  Up: Top
 
 Appendix A Copying, Changes, Development, FAQ, Texinfo Mode
 ***********************************************************
@@ -6307,15 +6297,15 @@ Appendix A Copying, Changes, Development, FAQ, Texinfo Mode
 * Texinfo mode::
 
 
-File: doc5brmzS.info,  Node: Copying this Manual,  Next: Changes,  Up: Appendices
+File: doc1hfMpW.info,  Node: Copying this Manual,  Next: Changes,  Up: Appendices
 
 A.1 Copying this Manual
 =======================
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.0.5.2024-05-25_15:52:03 from
-2024-05-25_15:52:03), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.0.5.2024-05-27_21:07:34 from
+2024-05-27_21:07:34), a sophisticated TeX environment for Emacs.
 
    Copyright (C) 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -6334,7 +6324,7 @@ Foundation, Inc.
 * GNU Free Documentation License:: License for copying this manual.
 
 
-File: doc5brmzS.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
+File: doc1hfMpW.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
 
 A.1.1 GNU Free Documentation License
 ------------------------------------
@@ -6816,7 +6806,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: doc5brmzS.info,  Node: Changes,  Next: Development,  Prev: Copying this Manual,  Up: Appendices
+File: doc1hfMpW.info,  Node: Changes,  Next: Development,  Prev: Copying this Manual,  Up: Appendices
 
 A.2 Changes and New Features
 ============================
@@ -6992,6 +6982,32 @@ News in 14.1
         - AUCTeX omits '--nonstop' option when
           'TeX-source-correlate-mode' is enabled because 'context'
           ignores '--synctex' option if '--nonstop' is present.
+
+   * 'LaTeX-insert-left-brace', 'TeX-insert-dollar' and
+     'TeX-insert-backslash' now have appropriate 'delete-selection'
+     properties, that differentiate between the "electric" and
+     "just-insert-the-symbol" behavior.  That should simplify
+     cooperation with other electric modes.
+
+     As a result of this adjustment, the behavior of 'TeX-insert-dollar'
+     is affected in some ways:
+        - With raw prefix argument 'C-u', '$' ('TeX-insert-dollar') now
+          inserts four dollars as opposed to one.  This behavior is
+          in-line with other symbols, in particular '"'
+          ('TeX-insert-quote') and '\' ('TeX-insert-backslash').  If you
+          need one literal '$', you can type 'C-1 $' or 'C-q $'.
+        - We no longer have explicit support of the special behavior
+          that if 'TeX-electric-math' is non-nil and point is inside
+          math mode right between a couple of single dollars, pressing
+          '$' will insert another pair of dollar signs and leave the
+          point between them.
+
+          It still works as before if 'TeX-electric-math' is pair of
+          dollars while it inserts '\(' and '\)' when
+          'TeX-electric-math' is '("\(" . "\)")'.
+        - When 'TeX-electric-math' is a pair of dollars and the point is
+          in inline math (without active region), '$' inserts two
+          dollars, not one dollar which just closes the math mode.
 
    * AUCTeX now requires GNU Emacs 27.1 or higher.
 
@@ -8316,7 +8332,7 @@ Older versions
 See the file 'history.texi' for older changes.
 
 
-File: doc5brmzS.info,  Node: Development,  Next: FAQ,  Prev: Changes,  Up: Appendices
+File: doc1hfMpW.info,  Node: Development,  Next: FAQ,  Prev: Changes,  Up: Appendices
 
 A.3 Future Development
 ======================
@@ -8336,7 +8352,7 @@ on the mailing list of AUCTeX first.
 * Bugs::
 
 
-File: doc5brmzS.info,  Node: Mid-term Goals,  Next: Wishlist,  Up: Development
+File: doc1hfMpW.info,  Node: Mid-term Goals,  Next: Wishlist,  Up: Development
 
 A.3.1 Mid-term Goals
 --------------------
@@ -8407,7 +8423,7 @@ A.3.1 Mid-term Goals
         - Usage of ConTeXt mode
 
 
-File: doc5brmzS.info,  Node: Wishlist,  Next: Bugs,  Prev: Mid-term Goals,  Up: Development
+File: doc1hfMpW.info,  Node: Wishlist,  Next: Bugs,  Prev: Mid-term Goals,  Up: Development
 
 A.3.2 Wishlist
 --------------
@@ -8573,7 +8589,7 @@ A.3.2 Wishlist
    * Hook up the letter environment with 'bbdb.el'.
 
 
-File: doc5brmzS.info,  Node: Bugs,  Prev: Wishlist,  Up: Development
+File: doc1hfMpW.info,  Node: Bugs,  Prev: Wishlist,  Up: Development
 
 A.3.3 Bugs
 ----------
@@ -8604,7 +8620,7 @@ A.3.3 Bugs
    * Correct indentation for tabbing, table, and math environments.
 
 
-File: doc5brmzS.info,  Node: FAQ,  Next: Texinfo mode,  Prev: Development,  Up: Appendices
+File: doc1hfMpW.info,  Node: FAQ,  Next: Texinfo mode,  Prev: Development,  Up: Appendices
 
 A.4 Frequently Asked Questions
 ==============================
@@ -8768,7 +8784,7 @@ A.4 Frequently Asked Questions
      'AUC' for short.
 
 
-File: doc5brmzS.info,  Node: Texinfo mode,  Prev: FAQ,  Up: Appendices
+File: doc1hfMpW.info,  Node: Texinfo mode,  Prev: FAQ,  Up: Appendices
 
 A.5 Features specific to AUCTeX's Texinfo major mode
 ====================================================
@@ -8794,7 +8810,7 @@ commands.
 * Unbinding::                   Which native mode key bindings are missing
 
 
-File: doc5brmzS.info,  Node: Exploiting,  Next: Superseding,  Up: Texinfo mode
+File: doc1hfMpW.info,  Node: Exploiting,  Next: Superseding,  Up: Texinfo mode
 
 A.5.1 How AUCTeX and the native mode work together
 --------------------------------------------------
@@ -8814,7 +8830,7 @@ mode is as follows:
      otherwise.
 
 
-File: doc5brmzS.info,  Node: Superseding,  Next: Mapping,  Prev: Exploiting,  Up: Texinfo mode
+File: doc1hfMpW.info,  Node: Superseding,  Next: Mapping,  Prev: Exploiting,  Up: Texinfo mode
 
 A.5.2 Where the native mode is superseded
 -----------------------------------------
@@ -8911,7 +8927,7 @@ Kill jobs
      superseded by 'C-c C-k' ('TeX-kill-job') in AUCTeX.
 
 
-File: doc5brmzS.info,  Node: Mapping,  Next: Unbinding,  Prev: Superseding,  Up: Texinfo mode
+File: doc1hfMpW.info,  Node: Mapping,  Next: Unbinding,  Prev: Superseding,  Up: Texinfo mode
 
 A.5.3 Where key bindings are mapped to the native mode
 ------------------------------------------------------
@@ -8955,7 +8971,7 @@ Update menus
      C-d' in AUCTeX instead.
 
 
-File: doc5brmzS.info,  Node: Unbinding,  Prev: Mapping,  Up: Texinfo mode
+File: doc1hfMpW.info,  Node: Unbinding,  Prev: Mapping,  Up: Texinfo mode
 
 A.5.4 Which native mode key bindings are missing
 ------------------------------------------------
@@ -8970,7 +8986,7 @@ Show the section structure
      AUCTeX for inserting '@node'.
 
 
-File: doc5brmzS.info,  Node: Indices,  Prev: Appendices,  Up: Top
+File: doc1hfMpW.info,  Node: Indices,  Prev: Appendices,  Up: Top
 
 Indices
 *******
@@ -8983,7 +8999,7 @@ Indices
 * Concept Index::
 
 
-File: doc5brmzS.info,  Node: Key Index,  Next: Function Index,  Up: Indices
+File: doc1hfMpW.info,  Node: Key Index,  Next: Function Index,  Up: Indices
 
 Key Index
 =========
@@ -8993,11 +9009,11 @@ Key Index
 
 * ":                                     Quotes.              (line  15)
 * $:                                     Quotes.              (line  61)
-* (:                                     Quotes.              (line 168)
-* [:                                     Quotes.              (line 168)
+* (:                                     Quotes.              (line 161)
+* [:                                     Quotes.              (line 161)
 * ^:                                     Mathematics.         (line  64)
 * _:                                     Mathematics.         (line  64)
-* {:                                     Quotes.              (line 168)
+* {:                                     Quotes.              (line 161)
 * C-c %:                                 Commenting.          (line  23)
 * C-c *:                                 Marking (LaTeX).     (line   7)
 * C-c * <1>:                             Marking (Texinfo).   (line   7)
@@ -9085,7 +9101,7 @@ Key Index
 * C-c ^:                                 Control.             (line  18)
 * C-c _:                                 Multifile.           (line  71)
 * C-c `:                                 Debugging.           (line  12)
-* C-c {:                                 Quotes.              (line 136)
+* C-c {:                                 Quotes.              (line 129)
 * C-c ~:                                 Mathematics.         (line  12)
 * C-j:                                   Indenting.           (line  78)
 * C-M-a:                                 Environments.        (line 109)
@@ -9102,7 +9118,7 @@ Key Index
 * TAB:                                   Indenting.           (line  74)
 
 
-File: doc5brmzS.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Indices
+File: doc1hfMpW.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Indices
 
 Function Index
 ==============
@@ -9127,11 +9143,10 @@ Function Index
 * LaTeX-CLASSNAME-class-options:         Adding Other.        (line 107)
 * LaTeX-close-environment:               Environments.        (line 101)
 * LaTeX-command-section:                 Starting a Command.  (line  41)
-* LaTeX-declare-expert-environments:     Adding Environments. (line 143)
-* LaTeX-env-args:                        Adding Environments. (line 124)
+* LaTeX-declare-expert-environments:     Adding Environments. (line 140)
+* LaTeX-env-args:                        Adding Environments. (line 121)
 * LaTeX-env-array:                       Adding Environments. (line  92)
 * LaTeX-env-bib:                         Adding Environments. (line 118)
-* LaTeX-env-contents:                    Adding Environments. (line 121)
 * LaTeX-env-figure:                      Adding Environments. (line  88)
 * LaTeX-env-item:                        Adding Environments. (line  74)
 * LaTeX-env-item-args:                   Adding Environments. (line  77)
@@ -9244,7 +9259,7 @@ Function Index
 * TeX-fold-section:                      Folding.             (line  97)
 * TeX-font:                              Font Specifiers.     (line  54)
 * TeX-home-buffer:                       Control.             (line  17)
-* TeX-insert-braces:                     Quotes.              (line 135)
+* TeX-insert-braces:                     Quotes.              (line 128)
 * TeX-insert-braces <1>:                 Superseding.         (line  29)
 * TeX-insert-dollar:                     Quotes.              (line  60)
 * TeX-insert-macro:                      Completion.          (line  88)
@@ -9284,7 +9299,7 @@ Function Index
 * turn-on-auto-fill:                     Filling.             (line   6)
 
 
-File: doc5brmzS.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
+File: doc1hfMpW.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
 
 Variable Index
 ==============
@@ -9419,7 +9434,7 @@ Variable Index
 * LaTeX-default-style:                   Adding Macros.       (line 192)
 * LaTeX-default-width:                   Tabular-like.        (line  13)
 * LaTeX-done-mark:                       Sectioning.          (line  62)
-* LaTeX-electric-left-right-brace:       Quotes.              (line 171)
+* LaTeX-electric-left-right-brace:       Quotes.              (line 164)
 * LaTeX-enable-toolbar:                  Processing.          (line  11)
 * LaTeX-end-regexp:                      Indenting.           (line 119)
 * LaTeX-eqnarray-label:                  Equations.           (line  12)
@@ -9491,7 +9506,7 @@ Variable Index
 * TeX-arg-input-file-search <1>:         Adding Macros.       (line 192)
 * TeX-arg-input-file-search <2>:         Adding Macros.       (line 201)
 * TeX-arg-item-label-p:                  Itemize-like.        (line  16)
-* TeX-arg-right-insert-p:                Quotes.              (line 164)
+* TeX-arg-right-insert-p:                Quotes.              (line 157)
 * TeX-auto-cleanup-hook:                 Hacking the Parser.  (line 100)
 * TeX-auto-empty-regexp-list:            Parsing Files.       (line  94)
 * TeX-auto-full-regexp-list:             Parsing Files.       (line 127)
@@ -9621,7 +9636,7 @@ Variable Index
 * TeX-quote-after-quote:                 Quotes.              (line  29)
 * TeX-quote-language-alist:              European.            (line 142)
 * TeX-raise-frame-function:              I/O Correlation.     (line  85)
-* TeX-refuse-unmatched-dollar:           Quotes.              (line 114)
+* TeX-refuse-unmatched-dollar:           Quotes.              (line 105)
 * TeX-region:                            Starting a Command.  (line  32)
 * TeX-region <1>:                        Starting a Command.  (line  65)
 * TeX-save-query:                        Multifile.           (line 102)
@@ -9654,7 +9669,7 @@ Variable Index
                                                               (line   6)
 
 
-File: doc5brmzS.info,  Node: Concept Index,  Prev: Variable Index,  Up: Indices
+File: doc1hfMpW.info,  Node: Concept Index,  Prev: Variable Index,  Up: Indices
 
 Concept Index
 =============
@@ -9725,7 +9740,7 @@ Concept Index
 * ASCII pTeX <1>:                        Japanese.           (line    6)
 * auctex.el:                             Loading the package.
                                                              (line   10)
-* auctex.el <1>:                         Changes.            (line 1076)
+* auctex.el <1>:                         Changes.            (line 1102)
 * auto directories.:                     Automatic.          (line    6)
 * auto-fill-mode:                        Indenting.          (line   29)
 * Auto-Reveal:                           Folding.            (line    6)
@@ -10037,7 +10052,7 @@ Concept Index
 * tex-site.el:                           Loading the package.
                                                              (line   10)
 * tex-site.el <1>:                       Customizing.        (line    6)
-* tex-site.el <2>:                       Changes.            (line 1076)
+* tex-site.el <2>:                       Changes.            (line 1102)
 * tool bar, toolbar:                     Processing.         (line   11)
 * Trailer:                               Commands.           (line    6)
 * Underfull boxes:                       Debugging.          (line    6)
@@ -10078,86 +10093,86 @@ Node: Editing Facilities50036
 Node: Processing Facilities54736
 Node: Editing59468
 Node: Quotes60801
-Node: Font Specifiers69814
-Node: Sectioning71889
-Node: Environments76423
-Node: Equations81902
-Node: Floats82497
-Node: Itemize-like84504
-Node: Tabular-like85335
-Node: Customizing Environments87152
-Node: Mathematics87395
-Node: Completion90840
-Node: Marking98876
-Node: Marking (LaTeX)99503
-Node: Marking (Texinfo)100450
-Node: Commenting102066
-Node: Indenting103394
-Node: Filling111856
-Node: Display117729
-Node: Font Locking120227
-Node: Fontification of macros122309
-Node: Fontification of quotes132011
-Node: Fontification of math133510
-Node: Verbatim content137182
-Node: Faces137959
-Node: Known problems138459
-Node: Folding139459
-Node: Outline152024
-Node: Narrowing153306
-Node: Prettifying154378
-Node: Processing155620
-Node: Commands156951
-Node: Starting a Command157510
-Node: Selecting a Command162748
-Node: Processor Options171874
-Node: Viewing182841
-Node: Starting Viewers183218
-Node: I/O Correlation188875
-Ref: I/O Correlation-Footnote-1194554
-Node: Debugging194804
-Node: Ignoring warnings197441
-Node: Error overview199507
-Node: Checking201424
-Node: Control203356
-Node: Cleaning205470
-Node: Documentation206834
-Node: Customization207934
-Node: Modes and Hooks208430
-Node: Multifile210502
-Node: Parsing Files215241
-Node: Internationalization220233
-Node: European221585
-Node: Japanese229077
-Node: Automatic234149
-Node: Automatic Global236647
-Node: Automatic Private237784
-Node: Automatic Local239123
-Node: Style Files240364
-Node: Simple Style241173
-Node: Adding Macros244897
-Node: Adding Environments254405
-Node: Adding Other259738
-Node: Hacking the Parser264343
-Node: Appendices268334
-Node: Copying this Manual268633
-Node: GNU Free Documentation License269548
-Node: Changes294671
-Node: Development360341
-Node: Mid-term Goals360990
-Node: Wishlist363806
-Node: Bugs369792
-Node: FAQ370875
-Node: Texinfo mode378386
-Node: Exploiting379523
-Node: Superseding380344
-Node: Mapping384898
-Node: Unbinding386736
-Node: Indices387275
-Node: Key Index387441
-Node: Function Index395484
-Node: Variable Index408195
-Node: Concept Index434360
+Node: Font Specifiers69414
+Node: Sectioning71489
+Node: Environments76023
+Node: Equations81502
+Node: Floats82097
+Node: Itemize-like84104
+Node: Tabular-like84935
+Node: Customizing Environments86752
+Node: Mathematics86995
+Node: Completion90440
+Node: Marking98476
+Node: Marking (LaTeX)99103
+Node: Marking (Texinfo)100050
+Node: Commenting101666
+Node: Indenting102994
+Node: Filling111456
+Node: Display117329
+Node: Font Locking119827
+Node: Fontification of macros121909
+Node: Fontification of quotes131611
+Node: Fontification of math133110
+Node: Verbatim content136782
+Node: Faces137559
+Node: Known problems138059
+Node: Folding139059
+Node: Outline151624
+Node: Narrowing152906
+Node: Prettifying153978
+Node: Processing155220
+Node: Commands156551
+Node: Starting a Command157110
+Node: Selecting a Command162348
+Node: Processor Options171474
+Node: Viewing182441
+Node: Starting Viewers182818
+Node: I/O Correlation188475
+Ref: I/O Correlation-Footnote-1194154
+Node: Debugging194404
+Node: Ignoring warnings197041
+Node: Error overview199107
+Node: Checking201024
+Node: Control202956
+Node: Cleaning205070
+Node: Documentation206434
+Node: Customization207534
+Node: Modes and Hooks208030
+Node: Multifile210102
+Node: Parsing Files214849
+Node: Internationalization219841
+Node: European221193
+Node: Japanese228685
+Node: Automatic233757
+Node: Automatic Global236255
+Node: Automatic Private237392
+Node: Automatic Local238731
+Node: Style Files239972
+Node: Simple Style240781
+Node: Adding Macros244505
+Node: Adding Environments254013
+Node: Adding Other259257
+Node: Hacking the Parser263862
+Node: Appendices267853
+Node: Copying this Manual268152
+Node: GNU Free Documentation License269067
+Node: Changes294190
+Node: Development361281
+Node: Mid-term Goals361930
+Node: Wishlist364746
+Node: Bugs370732
+Node: FAQ371815
+Node: Texinfo mode379326
+Node: Exploiting380463
+Node: Superseding381284
+Node: Mapping385838
+Node: Unbinding387676
+Node: Indices388215
+Node: Key Index388381
+Node: Function Index396424
+Node: Variable Index409062
+Node: Concept Index435227
 
 End Tag Table
 
