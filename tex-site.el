@@ -63,7 +63,7 @@
   :load "tex" :load "latex" :load "tex-style")
 
 (defvar TeX-lisp-directory
-  (file-name-directory load-file-name)
+  (directory-file-name (file-name-directory load-file-name))
   "The directory where most of the AUCTeX lisp files are located.
 For the location of lisp files associated with
 styles, see the variables TeX-style-* (hand-generated lisp) and
@@ -72,7 +72,7 @@ TeX-auto-* (automatically generated lisp).")
 (add-to-list 'load-path TeX-lisp-directory)
 
 (defvar TeX-data-directory
-  (file-name-directory load-file-name)
+  (directory-file-name (file-name-directory load-file-name))
   "The directory where the AUCTeX non-Lisp data is located.")
 
 (defcustom TeX-auto-global
@@ -168,11 +168,11 @@ Otherwise, restore AUCTeX definition saved in the symbol property
   (if (featurep 'tex-site)
       (TeX--alias-overlapped-modes t)))
 
-(defconst AUCTeX-version "14.0.5.2024-05-27_21:07:34"
+(defconst AUCTeX-version "14.0.5.2024-06-20_15:10:47"
   "AUCTeX version.
 If not a regular release, the date of the last change.")
 
-(defconst AUCTeX-date "2024-05-27_21:07:34"
+(defconst AUCTeX-date "2024-06-20_15:10:47"
   "AUCTeX release date using the ISO 8601 format, yyyy-mm-dd.")
 
 ;; Store bibitems when saving a BibTeX buffer
