@@ -1,4 +1,4 @@
-This is TeX, Version 3.141592653 (TeX Live 2022/Debian) (preloaded format=tex 2024.4.23)  21 JUN 2024 09:02
+This is TeX, Version 3.141592653 (TeX Live 2022/Debian) (preloaded format=tex 2024.4.23)  1 JUL 2024 09:02
 **\nonstopmode \input bootstrap.ins
 (./bootstrap.ins (/usr/share/texlive/texmf-dist/tex/latex/base/docstrip.tex
 \blockLevel=\count26
@@ -97,6 +97,7 @@ Processing file preview.dtx (installer,make) -> preview-mk.ins
 <auctex . > % % % <auctex . > % % % % <auccfg . > <auccfg . > <auccfg . >
 <auccfg . > <auccfg . > <auccfg . > <auccfg . > <auccfg . > <auccfg . >
 <auccfg . > <auccfg . > <auccfg . > <auccfg . > <auccfg . > <auccfg . >
+<auccfg . > <auccfg . > <auccfg . > <auccfg . > <auccfg . > <auccfg . >
 <auccfg . > <auccfg . > <auccfg . > <auccfg . > <auccfg . > <auccfg . > % % %
 % % % <lyx . > <lyx . > <lyx . > <lyx . > <lyx . > % % % % % % % % % %
 <counters . > <counters . > <counters . > <counters . > <counters . >
@@ -147,7 +148,7 @@ Processing file preview.dtx (installer,make) -> preview-mk.ins
 <installer . > <installer . > <installer . > <installer . > <installer . >
 <installer . > % % % <driver . > <driver . > <driver . > <driver . >
 <driver . > <driver . > <driver . > % % % % % % % %
-Lines  processed: 1897
+Lines  processed: 1903
 Comments removed: 1238
 Comments  passed: 2
 Codelines passed: 371

@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2014-2024 Free Software Foundation, Inc.
 
-;; Version: 14.0.5
+;; Version: 14.0.6
 ;; URL: https://www.gnu.org/software/auctex/
 ;; Maintainer: auctex-devel@gnu.org
 ;; Notifications-To: auctex-diffs@gnu.org
@@ -28,9 +28,8 @@
 
 ;; AUCTeX is a comprehensive customizable integrated environment for
 ;; writing input files for TeX, LaTeX, ConTeXt, Texinfo, and docTeX
-;; using Emacs.  One component of AUCTeX is preview-latex, a combination
-;; of folding and in-source previewing that provides true "What You See
-;; Is What You Get" experience in the sourcebuffer.
+;; using Emacs.  One component of AUCTeX is preview-latex which provides
+;; true "What You See Is What You Get" experience in the sourcebuffer.
 
 ;;; Code:
 
