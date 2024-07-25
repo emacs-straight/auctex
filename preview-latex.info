@@ -1,8 +1,8 @@
-This is docaqWFnD.info, produced by makeinfo version 6.8 from
+This is docKYatEu.info, produced by makeinfo version 6.8 from
 preview-latex.texi.
 
 This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 14.0.6.2024-07-19_23:25:29 from 2024-07-19_23:25:29).
+(version 14.0.6.2024-07-24_12:49:07 from 2024-07-24_12:49:07).
 
    Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2017-2019, 2021
 Free Software Foundation, Inc.
@@ -24,7 +24,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: docaqWFnD.info,  Node: Top,  Prev: (dir),  Up: (dir)
+File: docKYatEu.info,  Node: Top,  Prev: (dir),  Up: (dir)
 
 preview-latex
 *************
@@ -57,7 +57,7 @@ font to visually offset it.
 * Index::                       A menu of many topics.
 
 
-File: docaqWFnD.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
+File: docKYatEu.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
 
 Copying
 *******
@@ -71,7 +71,7 @@ General Public Licenses accompanying them and the explanatory section in
 License (*note Copying this Manual::).
 
 
-File: docaqWFnD.info,  Node: Introduction,  Next: Installation,  Prev: Copying,  Up: Top
+File: docKYatEu.info,  Node: Introduction,  Next: Installation,  Prev: Copying,  Up: Top
 
 1 Introduction
 **************
@@ -95,7 +95,7 @@ between source and image representation.
 * Contacts::
 
 
-File: docaqWFnD.info,  Node: What use is it?,  Next: Activating preview-latex,  Prev: Introduction,  Up: Introduction
+File: docKYatEu.info,  Node: What use is it?,  Next: Activating preview-latex,  Prev: Introduction,  Up: Introduction
 
 1.1 What use is it?
 ===================
@@ -120,7 +120,7 @@ LaTeX style file for extracting the material of interest in the
 background and providing fast interactive response.
 
 
-File: docaqWFnD.info,  Node: Activating preview-latex,  Next: Getting started,  Prev: What use is it?,  Up: Introduction
+File: docKYatEu.info,  Node: Activating preview-latex,  Next: Getting started,  Prev: What use is it?,  Up: Introduction
 
 1.2 Activating preview-latex
 ============================
@@ -140,7 +140,7 @@ cause are duplicate Lisp files that might be detectable with 'M-x
 list-load-path-shadows <RET>'.
 
 
-File: docaqWFnD.info,  Node: Getting started,  Next: Basic modes of operation,  Prev: Activating preview-latex,  Up: Introduction
+File: docKYatEu.info,  Node: Getting started,  Next: Basic modes of operation,  Prev: Activating preview-latex,  Up: Introduction
 
 1.3 Getting started
 ===================
@@ -177,7 +177,7 @@ edited text).
 session to the next as long as you don't kill your buffer.
 
 
-File: docaqWFnD.info,  Node: Basic modes of operation,  Next: More documentation,  Prev: Getting started,  Up: Introduction
+File: docKYatEu.info,  Node: Basic modes of operation,  Next: More documentation,  Prev: Getting started,  Up: Introduction
 
 1.4 Basic modes of operation
 ============================
@@ -202,7 +202,7 @@ access to its CVS archive and further information from its project site
 (https://savannah.nongnu.org/projects/dvipng).
 
 
-File: docaqWFnD.info,  Node: More documentation,  Next: Availability,  Prev: Basic modes of operation,  Up: Introduction
+File: docKYatEu.info,  Node: More documentation,  Next: Availability,  Prev: Basic modes of operation,  Up: Introduction
 
 1.5 More documentation
 ======================
@@ -229,7 +229,7 @@ installation; on typical TeX Live-based systems,
 will display it.
 
 
-File: docaqWFnD.info,  Node: Availability,  Next: Contacts,  Prev: More documentation,  Up: Introduction
+File: docKYatEu.info,  Node: Availability,  Next: Contacts,  Prev: More documentation,  Up: Introduction
 
 1.6 Availability
 ================
@@ -247,7 +247,7 @@ the repository (https://git.savannah.gnu.org/cgit/auctex.git) via web
 interface.
 
 
-File: docaqWFnD.info,  Node: Contacts,  Prev: Availability,  Up: Introduction
+File: docKYatEu.info,  Node: Contacts,  Prev: Availability,  Up: Introduction
 
 1.7 Contacts
 ============
@@ -274,7 +274,7 @@ for service contracts or for added functionality.  Take a look at the
 'TODO' list for suggestions in that area.
 
 
-File: docaqWFnD.info,  Node: Installation,  Next: Keys and lisp,  Prev: Introduction,  Up: Top
+File: docKYatEu.info,  Node: Installation,  Next: Keys and lisp,  Prev: Introduction,  Up: Top
 
 2 Installation
 **************
@@ -282,7 +282,7 @@ File: docaqWFnD.info,  Node: Installation,  Next: Keys and lisp,  Prev: Introduc
 Installation is now being covered in *note (auctex)Installation::.
 
 
-File: docaqWFnD.info,  Node: Keys and lisp,  Next: Simple customization,  Prev: Installation,  Up: Top
+File: docKYatEu.info,  Node: Keys and lisp,  Next: Simple customization,  Prev: Installation,  Up: Top
 
 3 Key bindings and user-level lisp functions
 ********************************************
@@ -455,7 +455,7 @@ LaTeX/TeX Output/Kill Job
      preview-latex may be confused and place the previews wrong.
 
 
-File: docaqWFnD.info,  Node: Simple customization,  Next: Known problems,  Prev: Keys and lisp,  Up: Top
+File: docKYatEu.info,  Node: Simple customization,  Next: Known problems,  Prev: Keys and lisp,  Up: Top
 
 4 Simple customization
 **********************
@@ -573,7 +573,7 @@ in *note For advanced users::), but some are:
      'preview-default-option-list' by customizing this variable.
 
 
-File: docaqWFnD.info,  Node: Known problems,  Next: For advanced users,  Prev: Simple customization,  Up: Top
+File: docKYatEu.info,  Node: Known problems,  Next: For advanced users,  Prev: Simple customization,  Up: Top
 
 5 Known problems
 ****************
@@ -597,7 +597,7 @@ information interesting to us and send it to the <bug-auctex@gnu.org>
 list.  Please use the bug reporting commands if at all possible.
 
 
-File: docaqWFnD.info,  Node: Font problems with Dvips,  Next: Too small bounding boxes,  Up: Known problems
+File: docKYatEu.info,  Node: Font problems with Dvips,  Next: Too small bounding boxes,  Up: Known problems
 
 5.1 Font problems with Dvips
 ============================
@@ -623,7 +623,7 @@ a long-standing bug in its implementation fixed (only very recent
 versions of Dvips have).
 
 
-File: docaqWFnD.info,  Node: Too small bounding boxes,  Next: x-symbol interoperation,  Prev: Font problems with Dvips,  Up: Known problems
+File: docKYatEu.info,  Node: Too small bounding boxes,  Next: x-symbol interoperation,  Prev: Font problems with Dvips,  Up: Known problems
 
 5.2 Too small bounding boxes
 ============================
@@ -651,7 +651,7 @@ convenient for _pure_ PostScript stuff like that created by PSTricks,
 which Dvips would otherwise reserve no space for.
 
 
-File: docaqWFnD.info,  Node: x-symbol interoperation,  Next: Middle-clicks paste instead of toggling,  Prev: Too small bounding boxes,  Up: Known problems
+File: docKYatEu.info,  Node: x-symbol interoperation,  Next: Middle-clicks paste instead of toggling,  Prev: Too small bounding boxes,  Up: Known problems
 
 5.3 x-symbol interoperation
 ===========================
@@ -679,7 +679,7 @@ environment or, as a last resort, customize the variable
 -translate-file=cp8bit'.
 
 
-File: docaqWFnD.info,  Node: Middle-clicks paste instead of toggling,  Next: No images are displayed with gs 9.27 and earlier,  Prev: x-symbol interoperation,  Up: Known problems
+File: docKYatEu.info,  Node: Middle-clicks paste instead of toggling,  Next: No images are displayed with gs 9.27 and earlier,  Prev: x-symbol interoperation,  Up: Known problems
 
 5.4 Middle-clicks paste instead of toggling
 ===========================================
@@ -692,7 +692,7 @@ afterwards.  Since previews over the current match will auto-open,
 anyway, this should not be much of a problem in practice.
 
 
-File: docaqWFnD.info,  Node: No images are displayed with gs 9.27 and earlier,  Next: Black texts are too hard to read on dark background,  Prev: Middle-clicks paste instead of toggling,  Up: Known problems
+File: docKYatEu.info,  Node: No images are displayed with gs 9.27 and earlier,  Next: Black texts are too hard to read on dark background,  Prev: Middle-clicks paste instead of toggling,  Up: Known problems
 
 5.5 No images are displayed with gs 9.27 and earlier
 ====================================================
@@ -745,7 +745,7 @@ option 'preview-pdf-adjust-color-method'.
      Ghostscript 9.50 was released but now is 't'.
 
 
-File: docaqWFnD.info,  Node: Black texts are too hard to read on dark background,  Prev: No images are displayed with gs 9.27 and earlier,  Up: Known problems
+File: docKYatEu.info,  Node: Black texts are too hard to read on dark background,  Prev: No images are displayed with gs 9.27 and earlier,  Up: Known problems
 
 5.6 Black texts are too hard to read on dark background
 =======================================================
@@ -758,7 +758,7 @@ like dark background in Emacs frame should customize
 'preview-pdf-adjust-color-method' to 'nil'.
 
 
-File: docaqWFnD.info,  Node: For advanced users,  Next: ToDo,  Prev: Known problems,  Up: Top
+File: docKYatEu.info,  Node: For advanced users,  Next: ToDo,  Prev: Known problems,  Up: Top
 
 6 For advanced users
 ********************
@@ -775,7 +775,7 @@ Emacs-lisp part integrating the thing into Emacs (aided by AUCTeX).
 * Misplaced previews::
 
 
-File: docaqWFnD.info,  Node: The LaTeX style file,  Next: The Emacs interface,  Prev: For advanced users,  Up: For advanced users
+File: docKYatEu.info,  Node: The LaTeX style file,  Next: The Emacs interface,  Prev: For advanced users,  Up: For advanced users
 
 6.1 The LaTeX style file
 ========================
@@ -834,7 +834,7 @@ usually speed up the process significantly.
 * Provided commands::
 
 
-File: docaqWFnD.info,  Node: Package options,  Next: Provided commands,  Prev: The LaTeX style file,  Up: The LaTeX style file
+File: docKYatEu.info,  Node: Package options,  Next: Provided commands,  Prev: The LaTeX style file,  Up: The LaTeX style file
 
 6.1.1 Package options
 ---------------------
@@ -1051,7 +1051,7 @@ and similar to the corresponding TeX commands they allude to:
      may reset them if you don't like that.
 
 
-File: docaqWFnD.info,  Node: Provided commands,  Prev: Package options,  Up: The LaTeX style file
+File: docKYatEu.info,  Node: Provided commands,  Prev: Package options,  Up: The LaTeX style file
 
 6.1.2 Provided commands
 -----------------------
@@ -1206,7 +1206,7 @@ File: docaqWFnD.info,  Node: Provided commands,  Prev: Package options,  Up: The
      the conditional '\ifPreview' together with '\else' and '\fi'.
 
 
-File: docaqWFnD.info,  Node: The Emacs interface,  Next: The preview images,  Prev: The LaTeX style file,  Up: For advanced users
+File: docKYatEu.info,  Node: The Emacs interface,  Next: The preview images,  Prev: The LaTeX style file,  Up: For advanced users
 
 6.2 The Emacs interface
 =======================
@@ -1384,7 +1384,7 @@ together in making preview-latex work as intended.
      flicker in the appearance.
 
 
-File: docaqWFnD.info,  Node: The preview images,  Next: Misplaced previews,  Prev: The Emacs interface,  Up: For advanced users
+File: docKYatEu.info,  Node: The preview images,  Next: Misplaced previews,  Prev: The Emacs interface,  Up: For advanced users
 
 6.3 The preview images
 ======================
@@ -1458,7 +1458,7 @@ guarantee that jumping around in the document will encounter only
 prerendered images.
 
 
-File: docaqWFnD.info,  Node: Misplaced previews,  Prev: The preview images,  Up: For advanced users
+File: docKYatEu.info,  Node: Misplaced previews,  Prev: The preview images,  Up: For advanced users
 
 6.4 Misplaced previews
 ======================
@@ -1523,7 +1523,7 @@ your favorite macro in 'preview-default-preamble', which is customizable
 in the 'Preview Latex' group.
 
 
-File: docaqWFnD.info,  Node: ToDo,  Next: Frequently Asked Questions,  Prev: For advanced users,  Up: Top
+File: docKYatEu.info,  Node: ToDo,  Next: Frequently Asked Questions,  Prev: For advanced users,  Up: Top
 
 Appendix A ToDo
 ***************
@@ -1637,7 +1637,7 @@ Appendix A ToDo
      when this library is available, since it has been optimized for it.
 
 
-File: docaqWFnD.info,  Node: Frequently Asked Questions,  Next: Copying this Manual,  Prev: ToDo,  Up: Top
+File: docKYatEu.info,  Node: Frequently Asked Questions,  Next: Copying this Manual,  Prev: ToDo,  Up: Top
 
 Appendix B Frequently Asked Questions
 *************************************
@@ -1652,7 +1652,7 @@ Appendix B Frequently Asked Questions
 * Other formats::
 
 
-File: docaqWFnD.info,  Node: Introduction to FAQ,  Next: Requirements,  Prev: Frequently Asked Questions,  Up: Frequently Asked Questions
+File: docKYatEu.info,  Node: Introduction to FAQ,  Next: Requirements,  Prev: Frequently Asked Questions,  Up: Frequently Asked Questions
 
 B.1 Introduction
 ================
@@ -1665,7 +1665,7 @@ Send an email with the subject:
    to <auctex-devel@gnu.org>.
 
 
-File: docaqWFnD.info,  Node: Requirements,  Next: Installation Trouble,  Prev: Introduction to FAQ,  Up: Frequently Asked Questions
+File: docKYatEu.info,  Node: Requirements,  Next: Installation Trouble,  Prev: Introduction to FAQ,  Up: Frequently Asked Questions
 
 B.2 Requirements
 ================
@@ -1716,7 +1716,7 @@ work with preview-latex.  In that case, use TeX Live
 (https://tug.org/texlive/) instead.
 
 
-File: docaqWFnD.info,  Node: Installation Trouble,  Next: Customization,  Prev: Requirements,  Up: Frequently Asked Questions
+File: docKYatEu.info,  Node: Installation Trouble,  Next: Customization,  Prev: Requirements,  Up: Frequently Asked Questions
 
 B.3 Installation Trouble
 ========================
@@ -1763,7 +1763,7 @@ An outdated 'preview' installation
      gets found is the correct one.
 
 
-File: docaqWFnD.info,  Node: Customization,  Next: Troubleshooting,  Prev: Installation Trouble,  Up: Frequently Asked Questions
+File: docKYatEu.info,  Node: Customization,  Next: Troubleshooting,  Prev: Installation Trouble,  Up: Frequently Asked Questions
 
 B.4 Customization
 =================
@@ -1859,7 +1859,7 @@ back into the main file as figures with the '\includegraphics' macro.
 In this case, previewing of inline math will work as usual.
 
 
-File: docaqWFnD.info,  Node: Troubleshooting,  Next: Other formats,  Prev: Customization,  Up: Frequently Asked Questions
+File: docKYatEu.info,  Node: Troubleshooting,  Next: Other formats,  Prev: Customization,  Up: Frequently Asked Questions
 
 B.5 Troubleshooting
 ===================
@@ -1914,7 +1914,7 @@ message about the file being corrupted or the display of all the preview
 images instead of your typeset document.  (Also *note Customization::.)
 
 
-File: docaqWFnD.info,  Node: Other formats,  Prev: Troubleshooting,  Up: Frequently Asked Questions
+File: docKYatEu.info,  Node: Other formats,  Prev: Troubleshooting,  Up: Frequently Asked Questions
 
 B.6 preview-latex when not using LaTeX
 ======================================
@@ -1956,7 +1956,7 @@ file looking like the following:
      \end{document}
 
 
-File: docaqWFnD.info,  Node: Copying this Manual,  Next: Index,  Prev: Frequently Asked Questions,  Up: Top
+File: docKYatEu.info,  Node: Copying this Manual,  Next: Index,  Prev: Frequently Asked Questions,  Up: Top
 
 Appendix C Copying this Manual
 ******************************
@@ -1964,7 +1964,7 @@ Appendix C Copying this Manual
 The copyright notice for this manual is:
 
    This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 14.0.6.2024-07-19_23:25:29 from 2024-07-19_23:25:29).
+(version 14.0.6.2024-07-24_12:49:07 from 2024-07-24_12:49:07).
 
    Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2017-2019, 2021
 Free Software Foundation, Inc.
@@ -1983,7 +1983,7 @@ Free Software Foundation, Inc.
 * GNU Free Documentation License:: License for copying this manual.
 
 
-File: docaqWFnD.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
+File: docKYatEu.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
 
 C.1 GNU Free Documentation License
 ==================================
@@ -2465,7 +2465,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: docaqWFnD.info,  Node: Index,  Prev: Copying this Manual,  Up: Top
+File: docKYatEu.info,  Node: Index,  Prev: Copying this Manual,  Up: Top
 
 Index
 *****

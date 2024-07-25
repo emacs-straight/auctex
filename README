@@ -71,6 +71,7 @@ you should usually file with the 'M-x TeX-submit-bug-report <RET>'
 command.  If you want to address the developers of AUCTeX themselves
 with technical issues, they can be found on the discussion list
 <auctex-devel@gnu.org>.
+
 preview-latex in a nutshell
 ***************************
 
