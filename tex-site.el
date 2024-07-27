@@ -106,6 +106,9 @@ shared by all users of a site."
   ;; Tell emacs to continue standard unloading procedure.
   nil)
 
+;; Silence the compiler for the variable defined below:
+(defvar TeX-modes)
+
 (defun TeX-modes-set (var value &optional _ignored)
   "Set VAR (which should be `TeX-modes') to VALUE.
 
@@ -190,11 +193,11 @@ Otherwise, restore AUCTeX definition saved in the symbol property
   (if (featurep 'tex-site)
       (TeX--alias-overlapped-modes t)))
 
-(defconst AUCTeX-version "14.0.6.2024-07-25_17:44:14"
+(defconst AUCTeX-version "14.0.6.2024-07-26_18:02:10"
   "AUCTeX version.
 If not a regular release, the date of the last change.")
 
-(defconst AUCTeX-date "2024-07-25_17:44:14"
+(defconst AUCTeX-date "2024-07-26_18:02:10"
   "AUCTeX release date using the ISO 8601 format, yyyy-mm-dd.")
 
 ;; Store bibitems when saving a BibTeX buffer
