@@ -1,8 +1,8 @@
-This is docKgHLfc.info, produced by makeinfo version 6.8 from
+This is docMRi35S.info, produced by makeinfo version 6.8 from
 preview-latex.texi.
 
 This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 14.0.6.2024-08-08_17:37:06 from 2024-08-08_17:37:06).
+(version 14.0.6.2024-08-09_13:55:36 from 2024-08-09_13:55:36).
 
    Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2017-2019, 2021
 Free Software Foundation, Inc.
@@ -24,7 +24,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: docKgHLfc.info,  Node: Top,  Prev: (dir),  Up: (dir)
+File: docMRi35S.info,  Node: Top,  Prev: (dir),  Up: (dir)
 
 preview-latex
 *************
@@ -57,7 +57,7 @@ font to visually offset it.
 * Index::                       A menu of many topics.
 
 
-File: docKgHLfc.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
+File: docMRi35S.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
 
 Copying
 *******
@@ -71,7 +71,7 @@ General Public Licenses accompanying them and the explanatory section in
 License (*note Copying this Manual::).
 
 
-File: docKgHLfc.info,  Node: Introduction,  Next: Installation,  Prev: Copying,  Up: Top
+File: docMRi35S.info,  Node: Introduction,  Next: Installation,  Prev: Copying,  Up: Top
 
 1 Introduction
 **************
@@ -95,7 +95,7 @@ between source and image representation.
 * Contacts::
 
 
-File: docKgHLfc.info,  Node: What use is it?,  Next: Activating preview-latex,  Prev: Introduction,  Up: Introduction
+File: docMRi35S.info,  Node: What use is it?,  Next: Activating preview-latex,  Prev: Introduction,  Up: Introduction
 
 1.1 What use is it?
 ===================
@@ -120,7 +120,7 @@ LaTeX style file for extracting the material of interest in the
 background and providing fast interactive response.
 
 
-File: docKgHLfc.info,  Node: Activating preview-latex,  Next: Getting started,  Prev: What use is it?,  Up: Introduction
+File: docMRi35S.info,  Node: Activating preview-latex,  Next: Getting started,  Prev: What use is it?,  Up: Introduction
 
 1.2 Activating preview-latex
 ============================
@@ -140,23 +140,22 @@ cause are duplicate Lisp files that might be detectable with 'M-x
 list-load-path-shadows <RET>'.
 
 
-File: docKgHLfc.info,  Node: Getting started,  Next: Basic modes of operation,  Prev: Activating preview-latex,  Up: Introduction
+File: docMRi35S.info,  Node: Getting started,  Next: Basic modes of operation,  Prev: Activating preview-latex,  Up: Introduction
 
 1.3 Getting started
 ===================
 
 Once activated, preview-latex and its documentation will be accessible
-via its menus (note that preview-latex requires AUCTeX to be loaded).
-When you have loaded a LaTeX document (a sample document 'circ.tex' is
-included in the distribution, but most documents including math and/or
-figures should do), you can use its menu or 'C-c C-p C-d' (for
-'Preview/Document').  Previews will now be generated for various objects
-in your document.  You can use the time to take a short look at the
-other menu entries and key bindings in the 'Preview' menu.  You'll see
-the previewed objects change into a roadworks sign when preview-latex
-has determined just what it is going to preview.  Note that you can
-freely navigate the buffer while this is going on.  When the process is
-finished you will see the objects typeset in your buffer.
+via its menus.  When you have loaded a LaTeX document (a sample document
+'circ.tex' is included in the distribution, but most documents including
+math and/or figures should do), you can use its menu or 'C-c C-p C-d'
+(for 'Preview/Document').  Previews will now be generated for various
+objects in your document.  You can use the time to take a short look at
+the other menu entries and key bindings in the 'Preview' menu.  You'll
+see the previewed objects change into a roadworks sign when
+preview-latex has determined just what it is going to preview.  Note
+that you can freely navigate the buffer while this is going on.  When
+the process is finished you will see the objects typeset in your buffer.
 
    It is a bad idea, however, to edit the buffer before the roadworks
 signs appear, since that is the moment when the correlation between the
@@ -177,7 +176,7 @@ edited text).
 session to the next as long as you don't kill your buffer.
 
 
-File: docKgHLfc.info,  Node: Basic modes of operation,  Next: More documentation,  Prev: Getting started,  Up: Introduction
+File: docMRi35S.info,  Node: Basic modes of operation,  Next: More documentation,  Prev: Getting started,  Up: Introduction
 
 1.4 Basic modes of operation
 ============================
@@ -197,12 +196,11 @@ The default is 'png' (the most efficient image type).  A special setting
 is 'dvipng' in case you have the 'dvipng' program installed.  In this
 case, 'dvipng' will be used for converting DVI files and Ghostscript
 (with a 'PNG' device) for converting PDF files.  'dvipng' is much faster
-than the combination of Dvips and Ghostscript.  You can get downloads,
-access to its CVS archive and further information from its project site
-(https://savannah.nongnu.org/projects/dvipng).
+than the combination of Dvips and Ghostscript.  'dvipng' is included in
+standard TeX Live distribution.
 
 
-File: docKgHLfc.info,  Node: More documentation,  Next: Availability,  Prev: Basic modes of operation,  Up: Introduction
+File: docMRi35S.info,  Node: More documentation,  Next: Availability,  Prev: Basic modes of operation,  Up: Introduction
 
 1.5 More documentation
 ======================
@@ -229,17 +227,13 @@ installation; on typical TeX Live-based systems,
 will display it.
 
 
-File: docKgHLfc.info,  Node: Availability,  Next: Contacts,  Prev: More documentation,  Up: Introduction
+File: docMRi35S.info,  Node: Availability,  Next: Contacts,  Prev: More documentation,  Up: Introduction
 
 1.6 Availability
 ================
 
 The preview-latex project is now part of AUCTeX and accessible as part
 of the AUCTeX project page (https://savannah.gnu.org/projects/auctex).
-You can get its files from the AUCTeX download area
-(https://ftp.gnu.org/pub/gnu/auctex/).  As of AUCTeX 11.81,
-preview-latex should already be integrated into AUCTeX, so no separate
-download will be necessary.
 
    Anonymous Git is available at <git://git.savannah.gnu.org/auctex.git>
 or <https://git.savannah.gnu.org/git/auctex.git>.  You can also browse
@@ -247,7 +241,7 @@ the repository (https://git.savannah.gnu.org/cgit/auctex.git) via web
 interface.
 
 
-File: docKgHLfc.info,  Node: Contacts,  Prev: Availability,  Up: Introduction
+File: docMRi35S.info,  Node: Contacts,  Prev: Availability,  Up: Introduction
 
 1.7 Contacts
 ============
@@ -274,7 +268,7 @@ for service contracts or for added functionality.  Take a look at the
 'TODO' list for suggestions in that area.
 
 
-File: docKgHLfc.info,  Node: Installation,  Next: Keys and lisp,  Prev: Introduction,  Up: Top
+File: docMRi35S.info,  Node: Installation,  Next: Keys and lisp,  Prev: Introduction,  Up: Top
 
 2 Installation
 **************
@@ -282,7 +276,7 @@ File: docKgHLfc.info,  Node: Installation,  Next: Keys and lisp,  Prev: Introduc
 Installation is now being covered in *note (auctex)Installation::.
 
 
-File: docKgHLfc.info,  Node: Keys and lisp,  Next: Simple customization,  Prev: Installation,  Up: Top
+File: docMRi35S.info,  Node: Keys and lisp,  Next: Simple customization,  Prev: Installation,  Up: Top
 
 3 Key bindings and user-level lisp functions
 ********************************************
@@ -455,7 +449,7 @@ LaTeX/TeX Output/Kill Job
      preview-latex may be confused and place the previews wrong.
 
 
-File: docKgHLfc.info,  Node: Simple customization,  Next: Known problems,  Prev: Keys and lisp,  Up: Top
+File: docMRi35S.info,  Node: Simple customization,  Next: Known problems,  Prev: Keys and lisp,  Up: Top
 
 4 Simple customization
 **********************
@@ -573,7 +567,7 @@ in *note For advanced users::), but some are:
      'preview-default-option-list' by customizing this variable.
 
 
-File: docKgHLfc.info,  Node: Known problems,  Next: For advanced users,  Prev: Simple customization,  Up: Top
+File: docMRi35S.info,  Node: Known problems,  Next: For advanced users,  Prev: Simple customization,  Up: Top
 
 5 Known problems
 ****************
@@ -597,7 +591,7 @@ information interesting to us and send it to the <bug-auctex@gnu.org>
 list.  Please use the bug reporting commands if at all possible.
 
 
-File: docKgHLfc.info,  Node: Font problems with Dvips,  Next: Too small bounding boxes,  Up: Known problems
+File: docMRi35S.info,  Node: Font problems with Dvips,  Next: Too small bounding boxes,  Up: Known problems
 
 5.1 Font problems with Dvips
 ============================
@@ -623,7 +617,7 @@ a long-standing bug in its implementation fixed (only very recent
 versions of Dvips have).
 
 
-File: docKgHLfc.info,  Node: Too small bounding boxes,  Next: x-symbol interoperation,  Prev: Font problems with Dvips,  Up: Known problems
+File: docMRi35S.info,  Node: Too small bounding boxes,  Next: x-symbol interoperation,  Prev: Font problems with Dvips,  Up: Known problems
 
 5.2 Too small bounding boxes
 ============================
@@ -651,7 +645,7 @@ convenient for _pure_ PostScript stuff like that created by PSTricks,
 which Dvips would otherwise reserve no space for.
 
 
-File: docKgHLfc.info,  Node: x-symbol interoperation,  Next: Middle-clicks paste instead of toggling,  Prev: Too small bounding boxes,  Up: Known problems
+File: docMRi35S.info,  Node: x-symbol interoperation,  Next: Middle-clicks paste instead of toggling,  Prev: Too small bounding boxes,  Up: Known problems
 
 5.3 x-symbol interoperation
 ===========================
@@ -679,7 +673,7 @@ environment or, as a last resort, customize the variable
 -translate-file=cp8bit'.
 
 
-File: docKgHLfc.info,  Node: Middle-clicks paste instead of toggling,  Next: No images are displayed with gs 9.27 and earlier,  Prev: x-symbol interoperation,  Up: Known problems
+File: docMRi35S.info,  Node: Middle-clicks paste instead of toggling,  Next: No images are displayed with gs 9.27 and earlier,  Prev: x-symbol interoperation,  Up: Known problems
 
 5.4 Middle-clicks paste instead of toggling
 ===========================================
@@ -692,7 +686,7 @@ afterwards.  Since previews over the current match will auto-open,
 anyway, this should not be much of a problem in practice.
 
 
-File: docKgHLfc.info,  Node: No images are displayed with gs 9.27 and earlier,  Next: Black texts are too hard to read on dark background,  Prev: Middle-clicks paste instead of toggling,  Up: Known problems
+File: docMRi35S.info,  Node: No images are displayed with gs 9.27 and earlier,  Next: Black texts are too hard to read on dark background,  Prev: Middle-clicks paste instead of toggling,  Up: Known problems
 
 5.5 No images are displayed with gs 9.27 and earlier
 ====================================================
@@ -745,7 +739,7 @@ option 'preview-pdf-adjust-color-method'.
      Ghostscript 9.50 was released but now is 't'.
 
 
-File: docKgHLfc.info,  Node: Black texts are too hard to read on dark background,  Prev: No images are displayed with gs 9.27 and earlier,  Up: Known problems
+File: docMRi35S.info,  Node: Black texts are too hard to read on dark background,  Prev: No images are displayed with gs 9.27 and earlier,  Up: Known problems
 
 5.6 Black texts are too hard to read on dark background
 =======================================================
@@ -758,7 +752,7 @@ like dark background in Emacs frame should customize
 'preview-pdf-adjust-color-method' to 'nil'.
 
 
-File: docKgHLfc.info,  Node: For advanced users,  Next: ToDo,  Prev: Known problems,  Up: Top
+File: docMRi35S.info,  Node: For advanced users,  Next: ToDo,  Prev: Known problems,  Up: Top
 
 6 For advanced users
 ********************
@@ -775,7 +769,7 @@ Emacs-lisp part integrating the thing into Emacs (aided by AUCTeX).
 * Misplaced previews::
 
 
-File: docKgHLfc.info,  Node: The LaTeX style file,  Next: The Emacs interface,  Prev: For advanced users,  Up: For advanced users
+File: docMRi35S.info,  Node: The LaTeX style file,  Next: The Emacs interface,  Prev: For advanced users,  Up: For advanced users
 
 6.1 The LaTeX style file
 ========================
@@ -834,7 +828,7 @@ usually speed up the process significantly.
 * Provided commands::
 
 
-File: docKgHLfc.info,  Node: Package options,  Next: Provided commands,  Prev: The LaTeX style file,  Up: The LaTeX style file
+File: docMRi35S.info,  Node: Package options,  Next: Provided commands,  Prev: The LaTeX style file,  Up: The LaTeX style file
 
 6.1.1 Package options
 ---------------------
@@ -1051,7 +1045,7 @@ and similar to the corresponding TeX commands they allude to:
      may reset them if you don't like that.
 
 
-File: docKgHLfc.info,  Node: Provided commands,  Prev: Package options,  Up: The LaTeX style file
+File: docMRi35S.info,  Node: Provided commands,  Prev: Package options,  Up: The LaTeX style file
 
 6.1.2 Provided commands
 -----------------------
@@ -1206,7 +1200,7 @@ File: docKgHLfc.info,  Node: Provided commands,  Prev: Package options,  Up: The
      the conditional '\ifPreview' together with '\else' and '\fi'.
 
 
-File: docKgHLfc.info,  Node: The Emacs interface,  Next: The preview images,  Prev: The LaTeX style file,  Up: For advanced users
+File: docMRi35S.info,  Node: The Emacs interface,  Next: The preview images,  Prev: The LaTeX style file,  Up: For advanced users
 
 6.2 The Emacs interface
 =======================
@@ -1384,7 +1378,7 @@ together in making preview-latex work as intended.
      flicker in the appearance.
 
 
-File: docKgHLfc.info,  Node: The preview images,  Next: Misplaced previews,  Prev: The Emacs interface,  Up: For advanced users
+File: docMRi35S.info,  Node: The preview images,  Next: Misplaced previews,  Prev: The Emacs interface,  Up: For advanced users
 
 6.3 The preview images
 ======================
@@ -1458,7 +1452,7 @@ guarantee that jumping around in the document will encounter only
 prerendered images.
 
 
-File: docKgHLfc.info,  Node: Misplaced previews,  Prev: The preview images,  Up: For advanced users
+File: docMRi35S.info,  Node: Misplaced previews,  Prev: The preview images,  Up: For advanced users
 
 6.4 Misplaced previews
 ======================
@@ -1523,7 +1517,7 @@ your favorite macro in 'preview-default-preamble', which is customizable
 in the 'Preview Latex' group.
 
 
-File: docKgHLfc.info,  Node: ToDo,  Next: Frequently Asked Questions,  Prev: For advanced users,  Up: Top
+File: docMRi35S.info,  Node: ToDo,  Next: Frequently Asked Questions,  Prev: For advanced users,  Up: Top
 
 Appendix A ToDo
 ***************
@@ -1637,7 +1631,7 @@ Appendix A ToDo
      when this library is available, since it has been optimized for it.
 
 
-File: docKgHLfc.info,  Node: Frequently Asked Questions,  Next: Copying this Manual,  Prev: ToDo,  Up: Top
+File: docMRi35S.info,  Node: Frequently Asked Questions,  Next: Copying this Manual,  Prev: ToDo,  Up: Top
 
 Appendix B Frequently Asked Questions
 *************************************
@@ -1652,7 +1646,7 @@ Appendix B Frequently Asked Questions
 * Other formats::
 
 
-File: docKgHLfc.info,  Node: Introduction to FAQ,  Next: Requirements,  Prev: Frequently Asked Questions,  Up: Frequently Asked Questions
+File: docMRi35S.info,  Node: Introduction to FAQ,  Next: Requirements,  Prev: Frequently Asked Questions,  Up: Frequently Asked Questions
 
 B.1 Introduction
 ================
@@ -1665,7 +1659,7 @@ Send an email with the subject:
    to <auctex-devel@gnu.org>.
 
 
-File: docKgHLfc.info,  Node: Requirements,  Next: Installation Trouble,  Prev: Introduction to FAQ,  Up: Frequently Asked Questions
+File: docMRi35S.info,  Node: Requirements,  Next: Installation Trouble,  Prev: Introduction to FAQ,  Up: Frequently Asked Questions
 
 B.2 Requirements
 ================
@@ -1716,7 +1710,7 @@ work with preview-latex.  In that case, use TeX Live
 (https://tug.org/texlive/) instead.
 
 
-File: docKgHLfc.info,  Node: Installation Trouble,  Next: Customization,  Prev: Requirements,  Up: Frequently Asked Questions
+File: docMRi35S.info,  Node: Installation Trouble,  Next: Customization,  Prev: Requirements,  Up: Frequently Asked Questions
 
 B.3 Installation Trouble
 ========================
@@ -1763,7 +1757,7 @@ An outdated 'preview' installation
      gets found is the correct one.
 
 
-File: docKgHLfc.info,  Node: Customization,  Next: Troubleshooting,  Prev: Installation Trouble,  Up: Frequently Asked Questions
+File: docMRi35S.info,  Node: Customization,  Next: Troubleshooting,  Prev: Installation Trouble,  Up: Frequently Asked Questions
 
 B.4 Customization
 =================
@@ -1859,7 +1853,7 @@ back into the main file as figures with the '\includegraphics' macro.
 In this case, previewing of inline math will work as usual.
 
 
-File: docKgHLfc.info,  Node: Troubleshooting,  Next: Other formats,  Prev: Customization,  Up: Frequently Asked Questions
+File: docMRi35S.info,  Node: Troubleshooting,  Next: Other formats,  Prev: Customization,  Up: Frequently Asked Questions
 
 B.5 Troubleshooting
 ===================
@@ -1914,7 +1908,7 @@ message about the file being corrupted or the display of all the preview
 images instead of your typeset document.  (Also *note Customization::.)
 
 
-File: docKgHLfc.info,  Node: Other formats,  Prev: Troubleshooting,  Up: Frequently Asked Questions
+File: docMRi35S.info,  Node: Other formats,  Prev: Troubleshooting,  Up: Frequently Asked Questions
 
 B.6 preview-latex when not using LaTeX
 ======================================
@@ -1956,7 +1950,7 @@ file looking like the following:
      \end{document}
 
 
-File: docKgHLfc.info,  Node: Copying this Manual,  Next: Index,  Prev: Frequently Asked Questions,  Up: Top
+File: docMRi35S.info,  Node: Copying this Manual,  Next: Index,  Prev: Frequently Asked Questions,  Up: Top
 
 Appendix C Copying this Manual
 ******************************
@@ -1964,7 +1958,7 @@ Appendix C Copying this Manual
 The copyright notice for this manual is:
 
    This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 14.0.6.2024-08-08_17:37:06 from 2024-08-08_17:37:06).
+(version 14.0.6.2024-08-09_13:55:36 from 2024-08-09_13:55:36).
 
    Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2017-2019, 2021
 Free Software Foundation, Inc.
@@ -1983,7 +1977,7 @@ Free Software Foundation, Inc.
 * GNU Free Documentation License:: License for copying this manual.
 
 
-File: docKgHLfc.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
+File: docMRi35S.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
 
 C.1 GNU Free Documentation License
 ==================================
@@ -2465,7 +2459,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: docKgHLfc.info,  Node: Index,  Prev: Copying this Manual,  Up: Top
+File: docMRi35S.info,  Node: Index,  Prev: Copying this Manual,  Up: Top
 
 Index
 *****
@@ -2600,38 +2594,38 @@ Node: Introduction2702
 Node: What use is it?3372
 Node: Activating preview-latex4757
 Node: Getting started5504
-Node: Basic modes of operation7447
-Node: More documentation8648
-Node: Availability9513
-Node: Contacts10236
-Node: Installation11505
-Node: Keys and lisp11702
-Node: Simple customization18773
-Node: Known problems24584
-Node: Font problems with Dvips25462
-Node: Too small bounding boxes26628
-Node: x-symbol interoperation28020
-Node: Middle-clicks paste instead of toggling29404
-Node: No images are displayed with gs 9.27 and earlier30085
-Node: Black texts are too hard to read on dark background32783
-Node: For advanced users33424
-Node: The LaTeX style file33879
-Node: Package options36437
-Node: Provided commands47337
-Node: The Emacs interface54678
-Node: The preview images64014
-Node: Misplaced previews67767
-Node: ToDo71237
-Node: Frequently Asked Questions76010
-Node: Introduction to FAQ76329
-Node: Requirements76664
-Node: Installation Trouble78602
-Node: Customization80862
-Node: Troubleshooting85037
-Node: Other formats87543
-Node: Copying this Manual88854
-Node: GNU Free Documentation License89825
-Node: Index114944
+Node: Basic modes of operation7393
+Node: More documentation8508
+Node: Availability9373
+Node: Contacts9885
+Node: Installation11154
+Node: Keys and lisp11351
+Node: Simple customization18422
+Node: Known problems24233
+Node: Font problems with Dvips25111
+Node: Too small bounding boxes26277
+Node: x-symbol interoperation27669
+Node: Middle-clicks paste instead of toggling29053
+Node: No images are displayed with gs 9.27 and earlier29734
+Node: Black texts are too hard to read on dark background32432
+Node: For advanced users33073
+Node: The LaTeX style file33528
+Node: Package options36086
+Node: Provided commands46986
+Node: The Emacs interface54327
+Node: The preview images63663
+Node: Misplaced previews67416
+Node: ToDo70886
+Node: Frequently Asked Questions75659
+Node: Introduction to FAQ75978
+Node: Requirements76313
+Node: Installation Trouble78251
+Node: Customization80511
+Node: Troubleshooting84686
+Node: Other formats87192
+Node: Copying this Manual88503
+Node: GNU Free Documentation License89474
+Node: Index114593
 
 End Tag Table
 

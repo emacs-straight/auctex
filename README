@@ -126,17 +126,16 @@ list-load-path-shadows <RET>'.
 *****************
 
 Once activated, preview-latex and its documentation will be accessible
-via its menus (note that preview-latex requires AUCTeX to be loaded).
-When you have loaded a LaTeX document (a sample document 'circ.tex' is
-included in the distribution, but most documents including math and/or
-figures should do), you can use its menu or 'C-c C-p C-d' (for
-'Preview/Document').  Previews will now be generated for various objects
-in your document.  You can use the time to take a short look at the
-other menu entries and key bindings in the 'Preview' menu.  You'll see
-the previewed objects change into a roadworks sign when preview-latex
-has determined just what it is going to preview.  Note that you can
-freely navigate the buffer while this is going on.  When the process is
-finished you will see the objects typeset in your buffer.
+via its menus.  When you have loaded a LaTeX document (a sample document
+'circ.tex' is included in the distribution, but most documents including
+math and/or figures should do), you can use its menu or 'C-c C-p C-d'
+(for 'Preview/Document').  Previews will now be generated for various
+objects in your document.  You can use the time to take a short look at
+the other menu entries and key bindings in the 'Preview' menu.  You'll
+see the previewed objects change into a roadworks sign when
+preview-latex has determined just what it is going to preview.  Note
+that you can freely navigate the buffer while this is going on.  When
+the process is finished you will see the objects typeset in your buffer.
 
 It is a bad idea, however, to edit the buffer before the roadworks signs
 appear, since that is the moment when the correlation between the
@@ -174,9 +173,8 @@ The default is 'png' (the most efficient image type).  A special setting
 is 'dvipng' in case you have the 'dvipng' program installed.  In this
 case, 'dvipng' will be used for converting DVI files and Ghostscript
 (with a 'PNG' device) for converting PDF files.  'dvipng' is much faster
-than the combination of Dvips and Ghostscript.  You can get downloads,
-access to its CVS archive and further information from its project site
-(https://savannah.nongnu.org/projects/dvipng).
+than the combination of Dvips and Ghostscript.  'dvipng' is included in
+standard TeX Live distribution.
 
 5 More documentation
 ********************
@@ -206,10 +204,6 @@ will display it.
 
 The preview-latex project is now part of AUCTeX and accessible as part
 of the AUCTeX project page (https://savannah.gnu.org/projects/auctex).
-You can get its files from the AUCTeX download area
-(https://ftp.gnu.org/pub/gnu/auctex/).  As of AUCTeX 11.81,
-preview-latex should already be integrated into AUCTeX, so no separate
-download will be necessary.
 
 Anonymous Git is available at <git://git.savannah.gnu.org/auctex.git> or
 <https://git.savannah.gnu.org/git/auctex.git>.  You can also browse the
