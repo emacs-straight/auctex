@@ -1,6 +1,6 @@
 This is the README file for the AUCTeX distribution.
 
-     Copyright (C) 2008, 2017, 2018 Free Software Foundation, Inc.
+     Copyright (C) 2008, 2017, 2018, 2024 Free Software Foundation, Inc.
 
      Copying and distribution of this file, with or without
      modification, are permitted in any medium without royalty provided
@@ -40,24 +40,21 @@ information, see further below.
 
 More detailed information about the features and usage of AUCTeX can be
 found in the AUCTeX manual.  You can access it from within Emacs by
-typing 'C-h i d m auctex <RET>'.  If you prefer the standalone info
-reader, issue the command 'info auctex' in a terminal.
+typing 'C-h i d m auctex <RET>'.
 
 AUCTeX is written entirely in Emacs Lisp, and hence you can easily add
 new features for your own needs.  It is a GNU project and distributed
 under the 'GNU General Public License Version 3'.
 
-The most recent version is always available at
-<https://ftp.gnu.org/pub/gnu/auctex/>.
+AUCTeX is a package distributed at ELPA, Emacs Lisp Package Archive.
+You can manage it in Emacs package manager.
 
 WWW users may want to check out the AUCTeX page at
-<https://www.gnu.org/software/auctex/>.
-
-For comprehensive information about how to install AUCTeX read the file
-'INSTALL' or 'INSTALL.windows', respectively.
+<https://www.gnu.org/software/auctex/> and
+<https://elpa.gnu.org/packages/auctex.html>.
 
 If you are considering upgrading AUCTeX, the recent changes are
-described in the 'CHANGES' file.
+described in the 'NEWS.org' file.
 
 If you want to discuss AUCTeX with other users or its developers, there
 are several mailing lists you can use.
@@ -108,16 +105,10 @@ background and providing fast interactive response.
 2 Activating preview-latex
 **************************
 
-After installation, the package may need to be activated (and remember
-to activate AUCTeX too).  If preview-latex is installed via the Emacs
-package manager (ELPA), activation should be automatic upon
-installation.
+Successful installation automatically activates the package at Emacs
+startup.
 
-The usual activation (if it is not done automatically) would be
-
-     (load "preview-latex.el" nil t t)
-
-If you still don't get a "Preview" menu in LaTeX mode in spite of AUCTeX
+If you don't get a "Preview" menu in LaTeX mode in spite of AUCTeX
 showing its "Command", your installation is broken.  One possible cause
 are duplicate Lisp files that might be detectable with 'M-x
 list-load-path-shadows <RET>'.
@@ -231,6 +222,5 @@ in the subject to <info-auctex-request@gnu.org>.
 Offers to support further development will be appreciated.  If you want
 to show your appreciation with a donation to the main developer, you can
 do so via PayPal to <dak@gnu.org>, and of course you can arrange for
-service contracts or for added functionality.  Take a look at the 'TODO'
-list for suggestions in that area.
+service contracts or for added functionality.
 

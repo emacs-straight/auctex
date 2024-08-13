@@ -1,8 +1,8 @@
-This is doc6f4j9k.info, produced by makeinfo version 6.8 from
+This is doc0nEGKy.info, produced by makeinfo version 6.8 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.0.6.2024-08-11_13:25:23 from
-2024-08-11_13:25:23), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.0.6.2024-08-12_12:36:20 from
+2024-08-12_12:36:20), a sophisticated TeX environment for Emacs.
 
    Copyright (C) 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -24,7 +24,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: doc6f4j9k.info,  Node: Top,  Next: Copying,  Up: (dir)
+File: doc0nEGKy.info,  Node: Top,  Next: Copying,  Up: (dir)
 
 AUCTeX
 ******
@@ -197,7 +197,7 @@ Indices
 
 
 
-File: doc6f4j9k.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
+File: doc0nEGKy.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
 
 Copying
 *******
@@ -236,7 +236,7 @@ that accompany them.  This manual specifically is covered by the GNU
 Free Documentation License (*note Copying this Manual::).
 
 
-File: doc6f4j9k.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: Top
+File: doc0nEGKy.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: Top
 
 1 Introduction
 **************
@@ -248,7 +248,7 @@ File: doc6f4j9k.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: 
 * Quick Start::                 Quick Start
 
 
-File: doc6f4j9k.info,  Node: Summary,  Next: Installation,  Up: Introduction
+File: doc0nEGKy.info,  Node: Summary,  Next: Installation,  Up: Introduction
 
 1.1 Overview of AUCTeX
 ======================
@@ -283,14 +283,12 @@ be found in the remainder of this manual.
 add new features for your own needs.  It is a GNU project and
 distributed under the 'GNU General Public License Version 3'.
 
-   The most recent version is always available at
-<https://ftp.gnu.org/pub/gnu/auctex/>.
+   AUCTeX is a package distributed at ELPA, Emacs Lisp Package Archive.
+You can manage it in Emacs package manager.  (*note (emacs)Packages::)
 
    WWW users may want to check out the AUCTeX page at
-<https://www.gnu.org/software/auctex/>.
-
-   For comprehensive information about how to install AUCTeX *Note
-Installation::, or *note Installation under MS Windows::, respectively.
+<https://www.gnu.org/software/auctex/> and
+<https://elpa.gnu.org/packages/auctex.html>.
 
    If you are considering upgrading AUCTeX, the recent changes are
 described in *note Changes::.
@@ -309,55 +307,41 @@ developers of AUCTeX themselves with technical issues, they can be found
 on the discussion list <auctex-devel@gnu.org>.
 
 
-File: doc6f4j9k.info,  Node: Installation,  Next: Quick Start,  Prev: Summary,  Up: Introduction
+File: doc0nEGKy.info,  Node: Installation,  Next: Quick Start,  Prev: Summary,  Up: Introduction
 
 1.2 Installing AUCTeX
 =====================
 
-The modern and strongly recommended way of installing AUCTeX is by using
-the Emacs package manager integrated in Emacs 24 and greater (ELPA).
-Simply do 'M-x list-packages <RET>', mark the auctex package for
-installation with 'i', and hit 'x' to execute the installation
-procedure.  That's all.
+AUCTeX is a package distributed at ELPA, Emacs Lisp Package Archive.  To
+install AUCTeX, simply do 'M-x list-packages <RET>', mark the auctex
+package for installation with 'i', and hit 'x' to execute the
+installation procedure.  That's all.
+
+   Caution.  If you have installed former AUCTeX as regular tarball
+release, uninstall it to avoid possible troubles.
 
    'use-package' users can use this simple recipe in their
 'user-init-file' which essentially does the same as the manual
 installation explained above.
 
-     (use-package tex
-       :ensure auctex)
+     (use-package auctex
+       :ensure t)
 
-   Using the ELPA version has several advantages.  Besides being
-platform and OS independent, you will receive intermediate bugfix
-releases between major AUCTeX releases conveniently.  For past ELPA
-releases, see <https://elpa.gnu.org/packages/auctex.html>.  Once the
-installation is completed, you can skip the rest of this section and
-proceed to *note Quick Start::.
-
-   Installing AUCTeX should be simple: merely './configure', 'make', and
-'make install' for a standard site-wide installation (most other
-installations can be done by specifying a '--prefix=...' option).
-
-   On many systems, this will already activate the package, making its
-modes the default instead of the built-in modes of Emacs.  If this is
-not the case, consult *note Loading the package::.  Please read through
-this document fully before installing anything.  The installation
-procedure has changed as compared to earlier versions.  Users of
-MS Windows are asked to consult *Note Installation under MS Windows::.
+   For past ELPA releases, see
+<https://elpa.gnu.org/packages/auctex.html>.  Once the installation is
+completed, you can skip the rest of this section and proceed to *note
+Quick Start::.
 
 * Menu:
 
 * Prerequisites::
-* Configure::
-* Build/install and uninstall::
-* Loading the package::
+* Activating the package::
 * Advice for package providers::
-* Advice for non-privileged users::
-* Installation under MS Windows::
+* Using AUCTeX from local Git repo::
 * Customizing::
 
 
-File: doc6f4j9k.info,  Node: Prerequisites,  Next: Configure,  Up: Installation
+File: doc0nEGKy.info,  Node: Prerequisites,  Next: Activating the package,  Up: Installation
 
 1.2.1 Prerequisites
 -------------------
@@ -384,196 +368,28 @@ File: doc6f4j9k.info,  Node: Prerequisites,  Next: Configure,  Up: Installation
 
    * A working TeX installation
 
-     Well, AUCTeX would be pointless without that.  Processing
-     documentation requires TeX, LaTeX and Texinfo during installation.
-     preview-latex requires Dvips or 'dvipng' for its operation in DVI
-     mode.  The default configuration of AUCTeX is tailored for
-     TeX Live-based distributions, but can be adapted easily.
+     Well, AUCTeX would be pointless without that.  preview-latex
+     requires Dvips or 'dvipng' for its operation in DVI mode.  The
+     default configuration of AUCTeX is tailored for TeX Live-based
+     distributions, but can be adapted easily.
 
    * A recent Ghostscript
 
      This is needed for operation of preview-latex in both DVI and PDF
      mode.  Ghostscript version 7.07 or newer is required.
 
-   * GNU make
-
-     Recent AUCTeX uses GNU make specific capabilities in the Makefiles.
-     If your OS's default 'make' command is not GNU make, you have to
-     obtain it in order to build AUCTeX by yourself.  GNU make is
-     sometimes provided under the name 'gmake' in your OS's binary
-     package system.
-
-   * The Texinfo package
-
-     Strictly speaking, you can get away without it if you are building
-     from the distribution tarball, have not modified any files and
-     don't need a printed version of the manual: the pregenerated info
-     file is included in the tarball.  At least version 4.0 is required.
-
    For some known issues with various software, see *note
 (preview-latex)Known problems::.
 
 
-File: doc6f4j9k.info,  Node: Configure,  Next: Build/install and uninstall,  Prev: Prerequisites,  Up: Installation
+File: doc0nEGKy.info,  Node: Activating the package,  Next: Advice for package providers,  Prev: Prerequisites,  Up: Installation
 
-1.2.2 Configure
----------------
-
-The first step is to configure the source code, telling it where various
-files will be.  To do so, run
-
-     ./configure OPTIONS
-
-   (Note: if you have fetched AUCTeX from Git rather than a regular
-release, you will have to first follow the instructions in
-'README.GIT').
-
-   On many machines, you will not need to specify any options, but if
-'configure' cannot determine something on its own, you'll need to help
-it out with one of these options:
-
-'--prefix=PREFIX'
-     All automatic placements for package components will be chosen from
-     sensible existing hierarchies below this: directories like 'man',
-     'share' and 'bin' are supposed to be directly below PREFIX.
-
-     Only if no workable placement can be found there, in some cases an
-     alternative search will be made in a prefix deduced from a suitable
-     binary.
-
-     '/usr/local' is the default PREFIX, intended to be suitable for a
-     site-wide installation.  If you are packaging this as an operating
-     system component for distribution, the setting '/usr' will probably
-     be the right choice.  See *note Advice for package providers:: for
-     detail.
-
-     If you are planning to install the package as a single
-     non-priviledged user, you will typically set PREFIX to your home
-     directory.  Consult *note Advice for non-privileged users:: for
-     additional instructions.
-
-'--with-emacs=/PATH/TO/EMACS'
-     If you are using a pretest which isn't in your 'PATH', or
-     'configure' is not finding the right Emacs executable, you can
-     specify it with this option.
-
-'--with-lispdir=LISPDIR'
-     This option specifies the location of the 'site-lisp' directory
-     within 'load-path' under which the files will get installed (the
-     bulk will get installed in a subdirectory).  './configure' should
-     figure this out by itself.
-
-'--with-auctexstartfile=auctex.el'
-'--with-previewstartfile=preview-latex.el'
-     This is the name of the respective startup files.  If LISPDIR
-     contains a subdirectory 'site-start.d', the start files are placed
-     there, and 'site-start.el' should load them automatically.  Please
-     be aware that you must not move the start files after installation
-     since other files are found _relative_ to them.
-
-'--with-packagelispdir=auctex'
-     This is the directory where the bulk of the package gets located.
-     The startfile adds this into 'load-path'.
-
-'--with-auto-dir=/DIR'
-     You can use this option to specify the directory containing
-     automatically generated information by 'M-x
-     TeX-auto-generate-global <RET>'.  It is not necessary for most TeX
-     installs, but may be used if you don't like the directory that
-     configure is suggesting.
-
-'--help'
-     This is not an option specific to AUCTeX.  A number of standard
-     options to 'configure' exist, and we do not have the room to
-     describe them here; a short description of each is available, using
-     '--help'.
-
-'--disable-preview'
-     This disables configuration and installation of preview-latex.
-     This option is not actually recommended.  If your Emacs does not
-     support images, you should really upgrade to a newer version.
-     Distributors should, if possible, refrain from distributing AUCTeX
-     and preview-latex separately in order to avoid confusion and
-     upgrade hassles if users install partial packages on their own.
-
-'--with-texmf-dir=/DIR'
-'--without-texmf-dir'
-     This option is used for specifying a TDS-compliant directory
-     hierarchy.  Using '--with-texmf-dir=/DIR' you can specify where the
-     TeX TDS directory hierarchy resides, and the TeX files will get
-     installed in '/DIR/tex/latex/preview/'.
-
-     If you use the '--without-texmf-dir' option, the TeX-related files
-     will be kept in the Emacs Lisp tree, and at runtime the 'TEXINPUTS'
-     environment variable will be made to point there.  You can install
-     those files into your own TeX tree at some later time with 'M-x
-     preview-install-styles <RET>'.
-
-'--with-tex-dir=/DIR'
-     If you want to specify an exact directory for the preview TeX
-     files, use '--with-tex-dir=/DIR'.  In this case, the files will be
-     placed in '/DIR', and you'll also need the following option:
-
-'--with-doc-dir=/DIR'
-     This option may be used to specify where the TeX documentation
-     goes.  It is to be used when you are using '--with-tex-dir=/DIR',
-     but is normally not necessary otherwise.
-
-
-File: doc6f4j9k.info,  Node: Build/install and uninstall,  Next: Loading the package,  Prev: Configure,  Up: Installation
-
-1.2.3 Build/install and uninstall
----------------------------------
-
-Once 'configure' has been run, simply enter
-
-     make
-
-at the prompt to byte-compile the lisp files, extract the TeX files and
-build the documentation files.  To install the files into the locations
-chosen earlier, type
-
-     make install
-
-You may need special privileges to install, e.g., if you are installing
-into system directories.
-
-   Should you want to completely remove the installed package, in the
-same directory you built AUCTeX run
-
-     make uninstall
-
-You will need administration privileges if you installed the package
-into system directories.
-
-
-File: doc6f4j9k.info,  Node: Loading the package,  Next: Advice for package providers,  Prev: Build/install and uninstall,  Up: Installation
-
-1.2.4 Loading the package
--------------------------
+1.2.2 Activating the package
+----------------------------
 
 You can detect the successful activation of AUCTeX and preview-latex in
 the menus after loading a LaTeX file like 'circ.tex': AUCTeX then gives
 you a 'Command' menu, and preview-latex gives you a 'Preview' menu.
-
-   With Emacs (or if you explicitly disabled use of the package system),
-the startup files 'auctex.el' and 'preview-latex.el' may already be in a
-directory of the 'site-start.d/' variety if your Emacs installation
-provides it.  In that case they should be automatically loaded on
-startup and nothing else needs to be done.  If not, they should at least
-have been placed somewhere in your 'load-path'.  You can then load them
-by placing the lines
-
-     (load "auctex.el" nil t t)
-     (load "preview-latex.el" nil t t)
-into your init file such as 'init.el' or '.emacs'.
-
-   If you explicitly used '--with-lispdir', you may need to add the
-specified directory into Emacs' 'load-path' variable by adding something
-like
-
-     (add-to-list 'load-path "~/elisp")
-before the above lines into your Emacs startup file.
 
    For site-wide activation in GNU Emacs, see *Note Advice for package
 providers::.
@@ -605,17 +421,14 @@ takes care of some other compatibility issues.
    When there is a site-wide installation of AUCTeX and you don't want
 to use it, you can disable it by
      (push '(auctex nil) package-load-list)
-in your early init file (*note (emacs)Early Init File::) for ELPA
-installation, or
-     (unload-feature 'tex-site)
-in your (standard) init file for configure-make installation.  (We
-recommend those treatments over setting 'TeX-modes' to 'nil', because
-they don't leave unused autoloads persisted.)
+in your early init file (*note (emacs)Early Init File::).  (We recommend
+this treatment over setting 'TeX-modes' to 'nil', because it doesn't
+leave unused autoloads persisted.)
 
 
-File: doc6f4j9k.info,  Node: Advice for package providers,  Next: Advice for non-privileged users,  Prev: Loading the package,  Up: Installation
+File: doc0nEGKy.info,  Node: Advice for package providers,  Next: Using AUCTeX from local Git repo,  Prev: Activating the package,  Up: Installation
 
-1.2.5 Providing AUCTeX as a package
+1.2.3 Providing AUCTeX as a package
 -----------------------------------
 
 As a package provider, you should make sure that your users will be
@@ -625,483 +438,56 @@ system might be used by more than one user, with different preferences.
    There are people that prefer the built-in Emacs modes for editing TeX
 files, in particular plain TeX users.  There are various ways to tell
 AUCTeX even after auto-activation that it should not get used, and they
-are described in *note Introduction to AUCTeX: Introduction.
+are described in the *note previous node: Activating the package.
 
    So if you have users that don't want to use the preinstalled AUCTeX,
-they can easily get rid of it.  Activating AUCTeX by default is
-therefore a good choice.
+they can easily get rid of it.  Installing AUCTeX as site-wide default
+is therefore a good choice.
 
-   First of all, you can install ELPA AUCTeX package under a directory
-listed in 'package-directory-list' to have site-wide default.
-
-   Next, we discuss configure-make installation.
-
-   If the installation procedure did not achieve this already by placing
-'auctex.el' and 'preview-latex.el' into a possibly existing
-'site-start.d' directory, you can do this by placing
-
-     (load "auctex.el" nil t t)
-     (load "preview-latex.el" nil t t)
-
-in the system-wide 'site-start.el'.
-
-   The '--without-texmf-dir' option can be convenient for systems that
-are intended to support more than a single TeX distribution.  Since more
-often than not TeX packages for operating system distributions are
-either much more outdated or much less complete than separately provided
-systems like TeX Live, this method may be generally preferable when
-providing packages.
-
-   The following package structure would be adequate for a typical fully
-supported Unix-like installation:
-
-'preview-tetex'
-     Style files and documentation for 'preview.sty', placed into a TeX
-     tree where it is accessible from the teTeX executables usually
-     delivered with a system.  If there are other commonly used TeX
-     system packages, it might be appropriate to provide separate
-     packages for those.
-'auctex-emacs-tetex'
-     This package will require the installation of 'preview-tetex' and
-     will record in 'TeX-macro-global' where to find the TeX tree.  It
-     is also a good idea to run
-          emacs -batch -f TeX-auto-generate-global
-     when either AUCTeX or teTeX get installed or upgraded.  If your
-     users might want to work with a different TeX distribution
-     (nowadays pretty common), instead consider the following:
-'auctex-emacs'
-     This package will be compiled with '--without-texmf-dir' and will
-     consequently contain the 'preview' style files in its private
-     directory.  It will probably not be possible to initialize
-     'TeX-macro-global' to a sensible value, so running
-     'TeX-auto-generate-global' does not appear useful.  This package
-     would neither conflict with nor provide 'preview-tetex'.
+   You can install ELPA AUCTeX package under a directory listed in
+'package-directory-list' to have site-wide default.
 
 
-File: doc6f4j9k.info,  Node: Advice for non-privileged users,  Next: Installation under MS Windows,  Prev: Advice for package providers,  Up: Installation
+File: doc0nEGKy.info,  Node: Using AUCTeX from local Git repo,  Next: Customizing,  Prev: Advice for package providers,  Up: Installation
 
-1.2.6 Installation for non-privileged users
--------------------------------------------
+1.2.4 Using AUCTeX from local Git repo
+--------------------------------------
 
-Often people without system administration privileges want to install
-software for their private use.  In that case you need to pass more
-options to the 'configure' script.
-
-   The main expedient is using the '--prefix' option to the 'configure'
-script, and let it point to the personal home directory.  In that way,
-resulting binaries will be installed under the 'bin' subdirectory of
-your home directory, manual pages under 'man' and so on.  It is
-reasonably easy to maintain a bunch of personal software, since the
-prefix argument is supported by most 'configure' scripts.
-
-   You often need to specify '--with-lispdir' option as well.  If you
-haven't installed Emacs under your home directory and use Emacs
-installed in system directories, the 'configure' script might not be
-able to figure out suitable place to install lisp files under your home
-directory.  In that case, the 'configure' script would silently choose,
-by default, the 'site-lisp' directory within 'load-path' for the place,
-where administration privileges are usually required to put relevant
-files.  Thus you will have to tell the 'configure' script explicitly
-where to put those files by, e.g.,
-'--with-lispdir='/home/myself/share/emacs/site-lisp''.
-
-   You'll have to add something like
-'/home/myself/share/emacs/site-lisp' to your 'load-path' variable, if it
-isn't there already.
-
-   In addition, you will have to tell 'configure' script where to
-install TeX-related files such as 'preview.sty' if preview-latex isn't
-disabled.  It is enough to specify '--with-texmf-dir=$HOME/texmf' for
-most typical cases, but you have to create the direcotry '$HOME/texmf'
-in advance if it doesn't exist.  If this prescription doesn't work,
-consider using one or more of the options '--with-texmf-dir=/DIR',
-'--without-texmf-dir', '--with-tex-dir=/DIR' and '--with-doc-dir=/DIR'.
-See *note Configure:: for detail of these options.
-
-   Now here is another thing to ponder: perhaps you want to make it easy
-for other users to share parts of your personal Emacs configuration.  In
-general, you can do this by writing '~myself/' anywhere where you
-specify paths to something installed in your personal subdirectories,
-not merely '~/', since the latter, when used by other users, will point
-to non-existent files.
-
-   For yourself, it will do to manipulate environment variables in your
-'.profile' resp. '.login' files.  But if people will be copying just
-Elisp files, their copies will not work.  While it would in general be
-preferable if the added components where available from a shell level,
-too (like when you call the standalone info reader, or try using
-'preview.sty' for functionality besides of Emacs previews), it will be a
-big help already if things work from inside of Emacs.
-
-   Here is how to do the various parts:
-
-Making the Elisp available
-..........................
-
-In GNU Emacs, it should be sufficient if people just do
-
-     (load "~myself/share/emacs/site-lisp/auctex.el" nil t t)
-     (load "~myself/share/emacs/site-lisp/preview-latex.el" nil t t)
-where the path points to your personal installation.  The rest of the
-package should be found relative from there without further ado.
-
-Making the Info files available
-...............................
-
-For making the info files accessible from within Elisp, something like
-the following might be convenient to add into your or other people's
-startup files:
-
-     (eval-after-load 'info
-        '(add-to-list 'Info-directory-list "~myself/info"))
-
-Making the LaTeX style available
-................................
-
-If you want others to be able to share your installation, you should
-configure it using '--without-texmf-dir', in which case things should
-work as well for them as for you.
-
-1.2.6.1 Using AUCTeX from local Git repo
-........................................
-
-With the techniques described above, it is also possible to use AUCTeX
-directly from a local Git repository.  Let's assume you have your Git
-repositories under '~/development/'.
+It is also possible to use AUCTeX directly from a local Git repository.
+Let's assume you have your Git repositories under '~/development/'.
 
    First, you have to fetch a copy of the AUCTeX Git repository.  In a
 shell, change directory to '~/development/' and do:
      git clone https://git.savannah.gnu.org/git/auctex.git
 
    Now change directory to '~/development/auctex' and run
-'./autogen.sh'.  Next thing is to run 'configure' like this:
-     ./configure --without-texmf-dir --with-lispdir=.
-
-When finished, simply enter
      make
-and you're finished.  Note that the 'make install' step is not
-necessary.
 
-   Now you have to tell Emacs about the plan.  The following variables
-must be set in your init file because their normal values are only
-correct when AUCTeX is installed:
-     (setq TeX-data-directory "~/development/auctex"
-           TeX-lisp-directory TeX-data-directory)
+   Now you have to tell Emacs about the plan.  Put the following code in
+your init file:
+     (load "~/development/auctex/auctex-autoloads.el" nil t t)
+     (with-eval-after-load 'info
+       (add-to-list 'Info-additional-directory-list
+                    "~/development/auctex/doc/"))
+and you're finished.
 
-The info files will be available with this:
-     (eval-after-load 'info
-        '(add-to-list 'Info-additional-directory-list
-                      "~/development/auctex/doc"))
-
-Now you're ready to load 'auctex.el' and 'preview-latex.el' out of this
-directory:
-     (load "~/development/auctex/auctex.el" nil t t)
-     (load "~/development/auctex/preview-latex.el" nil t t)
+   Note for 'use-package' users: you can wrap the above recipe with
+'use-package' like this:
+     (use-package auctex
+       :init
+       (load "~/development/auctex/auctex-autoloads.el" nil t t)
+       (with-eval-after-load 'info
+         (add-to-list 'Info-additional-directory-list
+                      "~/development/auctex/doc")))
 
 
-File: doc6f4j9k.info,  Node: Installation under MS Windows,  Next: Customizing,  Prev: Advice for non-privileged users,  Up: Installation
+File: doc0nEGKy.info,  Node: Customizing,  Prev: Using AUCTeX from local Git repo,  Up: Installation
 
-1.2.7 Installation under MS Windows
------------------------------------
-
-In a Nutshell
-.............
-
-The following are brief installation instructions for the impatient.  In
-case you don't understand some of this, run into trouble of some sort,
-or need more elaborate information, refer to the detailed instructions
-further below.
-
-  1. Install the prerequisites, i.e. GNU Emacs, MSYS or Cygwin, a TeX
-     system, and Ghostscript.
-
-  2. Open the MSYS shell or a Cygwin shell and change to the directory
-     containing the unzipped file contents.
-
-  3. Configure AUCTeX:
-
-     For Emacs: Many people like to install AUCTeX into the pseudo file
-     system hierarchy set up by the Emacs installation.  Assuming Emacs
-     is installed in 'C:/Program Files/Emacs' and the directory for
-     local additions of your TeX system, e.g. MiKTeX, is
-     'C:/localtexmf', you can do this by typing the following statement
-     at the shell prompt:
-
-          ./configure --prefix='C:/Program Files/Emacs' \
-            --infodir='C:/Program Files/Emacs/info' \
-            --with-texmf-dir='C:/localtexmf'
-
-     The commands above is example for common usage.  More on
-     configuration options can be found in the detailed installation
-     instructions below.
-
-     If the configuration script failed to find all required programs,
-     make sure that these programs are in your system path and add
-     directories containing the programs to the 'PATH' environment
-     variable if necessary.  Here is how to do that in W2000/XP:
-
-       1. On the desktop, right click "My Computer" and select
-          properties.
-       2. Click on "Advanced" in the "System Properties" window.
-       3. Select "Environment Variables".
-       4. Select "path" in "System Variables" and click "edit".  Move to
-          the front in the line (this might require scrolling) and add
-          the missing path including drive letter, ended with a
-          semicolon.
-
-  4. If there were no further error messages, type
-
-          make
-
-     In case there were, please refer to the detailed description below.
-
-  5. Finish the installation by typing
-
-          make install
-
-Detailed Installation Instructions
-..................................
-
-Installation of AUCTeX under Windows is in itself not more complicated
-than on other platforms.  However, meeting the prerequisites might
-require more work than on some other platforms, and feel less natural.
-
-   If you are experiencing any problems, even if you think they are of
-your own making, be sure to report them to <auctex-devel@gnu.org> so
-that we can explain things better in future.
-
-   Windows is a problematic platform for installation scripts.  The main
-problem is that the installation procedure requires consistent file
-names in order to find its way in the directory hierarchy, and Windows
-path names are a mess.
-
-   The installation procedure tries finding stuff in system search paths
-and in Emacs paths.  For that to succeed, you have to use the same
-syntax and spelling and case of paths everywhere: in your system search
-paths, in Emacs' 'load-path' variable, as argument to the scripts.  If
-your path names contain spaces or other 'shell-unfriendly' characters,
-most notably backslashes for directory separators, place the whole path
-in '"double quote marks"' whenever you specify it on a command line.
-
-   Avoid 'helpful' magic file names like '/cygdrive/c' and
-'C:\PROGRA~1\' like the plague.  It is quite unlikely that the scripts
-will be able to identify the actual file names involved.  Use the full
-paths, making use of normal Windows drive letters like ' 'C:/Program
-Files/Emacs' ' where required, and using the same combination of upper-
-and lowercase letters as in the actual files.  File names containing
-shell-special characters like spaces or backslashes (if you prefer that
-syntax) need to get properly quoted to the shell: the above example used
-single quotes for that.
-
-   Ok, now here are the steps to perform:
-
-  1. You need to unpack the AUCTeX distribution (which you seemingly
-     have done since you are reading this).  It must be unpacked in a
-     separate installation directory outside of your Emacs file
-     hierarchy: the installation will later copy all necessary files to
-     their final destination, and you can ultimately remove the
-     directory where you unpacked the files.
-
-     Line endings are a problem under Windows.  The distribution
-     contains only text files, and theoretically most of the involved
-     tools should get along with that.  However, the files are processed
-     by various utilities, and it is conceivable that not all of them
-     will use the same line ending conventions.  If you encounter
-     problems, it might help if you try unpacking (or checking out) the
-     files in binary mode, if your tools allow that.
-
-     If you don't have a suitable unpacking tool, skip to the next step:
-     this should provide you with a working 'unzip' command.
-
-  2. The installation of AUCTeX will require the MSYS tool set from
-     <http://www.mingw.org/> or the Cygwin tool set from
-     <https://cygwin.com/>.  The latter is slower and larger (the
-     download size of the base system is about 15 MB) but comes with a
-     package manager that allows for updating the tool set and
-     installing additional packages like, for example, the spell checker
-     aspell.
-
-     If Cygwin specific paths like '/cygdrive/c' crop up in the course
-     of the installation, using a non-Cygwin Emacs could conceivably
-     cause trouble.  Using Cygwin either for everything or nothing might
-     save headaches, _if_ things don't work out.
-
-  3. Install a current version of Emacs from
-     <https://ftp.gnu.org/gnu/emacs/windows/>.
-
-  4. You need a working TeX installation.  One popular installation
-     under Windows is MiKTeX (https://miktex.org/).  Another much more
-     extensive system is TeX Live (https://www.tug.org/texlive/) which
-     is rather close to its Unix cousins.
-
-  5. A working copy of Ghostscript (https://www.ghostscript.com/) is
-     required for preview-latex operation.  Examining the output from
-          gswin32c -h
-     on a Windows command line should tell you whether your Ghostscript
-     supports the 'png16m' device needed for PNG support.  MiKTeX
-     apparently comes with its own Ghostscript called 'mgs.exe'.
-
-  6. Perl (https://www.perl.org/) is needed for rebuilding the
-     documentation if you are working with a copy from Git or have
-     touched documentation source files in the preview-latex part.  If
-     the line endings of the file 'preview/latex/preview.dtx' don't
-     correspond with what Perl calls '\n' when reading text files,
-     you'll run into trouble.
-
-  7. Now the fun stuff starts.  If you have not yet done so, unpack the
-     AUCTeX distribution into a separate directory after rereading the
-     instructions for unpacking above.
-
-  8. Ready for takeoff.  Start some shell (typically 'bash') capable of
-     running 'configure', change into the installation directory and
-     call './configure' with appropriate options.
-
-     Typical options you'll want to specify will be
-     '--prefix=DRIVE:/PATH/TO/EMACS-HIERARCHY'
-          which tells 'configure' where to perform the installation.  It
-          may also make 'configure' find Emacs automatically; if this
-          doesn't happen, try '--with-emacs' as described below.  All
-          automatic detection of files and directories restricts itself
-          to directories below the PREFIX or in the same hierarchy as
-          the program accessing the files.  Usually, directories like
-          'man', 'share' and 'bin' will be situated right under PREFIX.
-
-          This option also affects the defaults for placing the Texinfo
-          documentation files (see also '--infodir' below) and
-          automatically generated style hooks.
-
-          If you have a central directory hierarchy (not untypical with
-          Cygwin) for such stuff, you might want to specify its root
-          here.  You stand a good chance that this will be the only
-          option you need to supply, as long as your TeX-related
-          executables are in your system path, which they better be for
-          AUCTeX's operation, anyway.
-
-     '--with-emacs'
-          if you are installing for a version of Emacs.  You can use
-          '--with-emacs=DRIVE:/PATH/TO/EMACS' to specify the name of the
-          installed Emacs executable, complete with its path if
-          necessary (if Emacs is not within a directory specified in
-          your 'PATH' environment setting).
-
-     '--with-lispdir=DRIVE:/PATH/TO/SITE-LISP'
-          This option tells a place in 'load-path' below which the files
-          are situated.  The startup files 'auctex.el' and
-          'preview-latex.el' will get installed here unless a
-          subdirectory 'site-start.d' exists which will then be used
-          instead.  The other files from AUCTeX will be installed in a
-          subdirectory called 'auctex'.
-
-          If you think that you need a different setup, please refer to
-          the full installation instructions in *note Configure::.
-
-     '--infodir=DRIVE:/PATH/TO/INFO/DIRECTORY'
-          If you are installing into an Emacs directory, info files have
-          to be put into the 'info' folder below that directory.  The
-          configuration script will usually try to install into the
-          folder 'share/info', so you have to override this by
-          specifying something like '--infodir='C:/Program Files/info''
-          for the configure call.
-
-     '--with-auto-dir=DRIVE:/DIR'
-          Directory containing automatically generated information.  You
-          should not normally need to set this, as '--prefix' should
-          take care of this.
-
-     '--disable-preview'
-          Use this option if your Emacs version is unable to support
-          image display.
-
-     '--with-texmf-dir=DRIVE:/DIR'
-          This will specify the directory where your TeX installation
-          sits.  If your TeX installation does not conform to the TDS
-          (TeX directory standard), you may need to specify more options
-          to get everything in place.
-
-     For more information about any of the above and additional options,
-     see *note Configure::.
-
-     Some executables might not be found in your path.  That is not a
-     good idea, but you can get around by specifying environment
-     variables to 'configure':
-          GS="DRIVE:/PATH/TO/GSWIN32C.EXE" ./configure ...
-     should work for this purpose.  'gswin32c.exe' is the usual name for
-     the required _command line_ executable under Windows; in contrast,
-     'gswin32.exe' is likely to fail.
-
-     As an alternative to specifying variables for the 'configure' call
-     you can add directories containing the required executables to the
-     'PATH' variable of your Windows system.  This is especially a good
-     idea if Emacs has trouble finding the respective programs later
-     during normal operation.
-
-  9. Run 'make' in the installation directory.
-
-  10. Run 'make install' in the installation directory.
-
-  11. With Emacs, activation of AUCTeX and preview-latex depends on a
-     working 'site-start.d' directory or similar setup, since then the
-     startup files 'auctex.el' and 'preview-latex.el' will have been
-     placed there.  If this has not been done, you should be able to
-     load the startup files manually with
-          (load "auctex.el" nil t t)
-          (load "preview-latex.el" nil t t)
-     in either a site-wide 'site-start.el' or your personal startup file
-     (usually accessible as '~/.emacs' or '~/.emacs.d/init.el' from
-     within Emacs).
-
-     The default configuration of AUCTeX is probably not the best fit
-     for Windows systems with MiKTeX.  You might want to add
-          (require 'tex-mik)
-     after loading 'auctex.el' and 'preview-latex.el' in order to get
-     more appropriate values for some customization options.
-
-     You can always use
-
-          M-x customize-group <RET> AUCTeX <RET>
-
-     in order to customize more stuff, or use the 'Customize' menu.
-
-  12. Load 'circ.tex' into Emacs and see if you get the 'Command' menu.
-     Try using it to LaTeX the file.
-
-  13. Check whether the 'Preview' menu is available in this file.  Use
-     it to generate previews for the document.
-
-     If this barfs and tells you that image type 'png' is not supported,
-     you can either add PNG support to your Emacs installation or choose
-     another image format to be used by preview-latex.
-
-     Adding support for an image format usually involves the
-     installation of a library, e.g. from <http://gnuwin32.sf.net/>.  If
-     you got your Emacs from <https://www.gnu.org/> you might want to
-     check its README file
-     (https://ftp.gnu.org/gnu/emacs/windows/README) for details.
-
-     A different image format can be chosen by setting the variable
-     'preview-image-type'.  While it is recommended to keep the 'dvipng'
-     or 'png' setting, you can temporarily select a different format
-     like 'pnm' to check if the lack of PNG support is the only problem
-     with your Emacs installation.
-
-     Try adding the line
-
-          (setq preview-image-type 'pnm)
-
-     to your init file for a quick test.  You should remove the line
-     after the test again, because PNM files take away *vast* amounts of
-     disk space, and thus also of load/save time.
-
-   Well, that about is all.  Have fun!
-
-
-File: doc6f4j9k.info,  Node: Customizing,  Prev: Installation under MS Windows,  Up: Installation
-
-1.2.8 Customizing
+1.2.5 Customizing
 -----------------
 
 Most of the site-specific customization should already have happened
-during configuration of AUCTeX.  Any further customization can be done
+during installation of AUCTeX.  Any further customization can be done
 with customization buffers directly in Emacs.  Just type 'M-x
 customize-group <RET> AUCTeX <RET>' to open the customization group for
 AUCTeX or use the menu entries provided in the mode menus.  Editing the
@@ -1128,7 +514,7 @@ could use the program 'kpsewhich'.  In this case you normally don't have
 to alter anything.
 
 
-File: doc6f4j9k.info,  Node: Quick Start,  Prev: Installation,  Up: Introduction
+File: doc0nEGKy.info,  Node: Quick Start,  Prev: Installation,  Up: Introduction
 
 1.3 Quick Start
 ===============
@@ -1141,25 +527,10 @@ you to prepare your first LaTeX document with AUCTeX after only a few
 minutes of reading.
 
    In this introduction, we assume that AUCTeX is already installed on
-your system.  If this is not the case, you should read the file
-'INSTALL' in the base directory of the unpacked distribution tarball.
-These installation instructions are available in this manual as well,
-*note Installation::.  We also assume that you are familiar with the way
-keystrokes are written in Emacs manuals.  If not, have a look at the
-Emacs Tutorial in the Help menu.
-
-   If AUCTeX is installed in any other way than from the Emacs package
-manager (ELPA), you might still need to activate it, by inserting
-
-     (load "auctex.el" nil t t)
-in your user init file.(1)
-
-   If AUCTeX is installed from ELPA, the installation procedure already
-cares about loading AUCTeX correctly and you *must not* have the line
-above in your init file.  Note that this also applies if you have the
-following line in your init file
-
-     (package-initialize)
+your system.  If this is not the case, you should read the installation
+instructions in this manual (*note Installation::).  We also assume that
+you are familiar with the way keystrokes are written in Emacs manuals.
+If not, have a look at the Emacs Tutorial in the Help menu.
 
    In order to get support for many of the LaTeX packages you will use
 in your documents, you should enable document parsing as well, which can
@@ -1180,13 +551,8 @@ ask you for a master file.
 * Editing Facilities::          Functions for editing TeX files
 * Processing Facilities::       Creating and viewing output, debugging
 
-   ---------- Footnotes ----------
-
-   (1) This usually is a file in your home directory called '.emacs', or
-'.emacs.d/init.el'.
-
 
-File: doc6f4j9k.info,  Node: Editing Facilities,  Next: Processing Facilities,  Up: Quick Start
+File: doc0nEGKy.info,  Node: Editing Facilities,  Next: Processing Facilities,  Up: Quick Start
 
 1.3.1 Functions for editing TeX files
 -------------------------------------
@@ -1305,7 +671,7 @@ outline mode is provided as well.  And there's more, but this is beyond
 the scope of this Quick Start Guide.
 
 
-File: doc6f4j9k.info,  Node: Processing Facilities,  Prev: Editing Facilities,  Up: Quick Start
+File: doc0nEGKy.info,  Node: Processing Facilities,  Prev: Editing Facilities,  Up: Quick Start
 
 1.3.2 Creating and viewing output, debugging
 --------------------------------------------
@@ -1412,7 +778,7 @@ run 'latex' only on the current buffer, using the preamble from the
 master file.
 
 
-File: doc6f4j9k.info,  Node: Editing,  Next: Display,  Prev: Introduction,  Up: Top
+File: doc0nEGKy.info,  Node: Editing,  Next: Display,  Prev: Introduction,  Up: Top
 
 2 Editing the Document Source
 *****************************
@@ -1441,7 +807,7 @@ by indenting and filling and for navigating through the document.
 * Filling::                     Automatic and manual line breaking
 
 
-File: doc6f4j9k.info,  Node: Quotes,  Next: Font Specifiers,  Up: Editing
+File: doc0nEGKy.info,  Node: Quotes,  Next: Font Specifiers,  Up: Editing
 
 2.1 Insertion of Quotes, Dollars, and Braces
 ============================================
@@ -1648,7 +1014,7 @@ when typing '(', '{' and '['.
      completion.
 
 
-File: doc6f4j9k.info,  Node: Font Specifiers,  Next: Sectioning,  Prev: Quotes,  Up: Editing
+File: doc0nEGKy.info,  Node: Font Specifiers,  Next: Sectioning,  Prev: Quotes,  Up: Editing
 
 2.2 Inserting Font Specifiers
 =============================
@@ -1721,7 +1087,7 @@ inserted.
      structure as 'TeX-font-list'.
 
 
-File: doc6f4j9k.info,  Node: Sectioning,  Next: Environments,  Prev: Font Specifiers,  Up: Editing
+File: doc0nEGKy.info,  Node: Sectioning,  Next: Environments,  Prev: Font Specifiers,  Up: Editing
 
 2.3 Inserting chapters, sections, etc.
 ======================================
@@ -1836,7 +1202,7 @@ label will be prefixed by the value specified in 'LaTeX-section-hook'.
      inserted for other types of sections.
 
 
-File: doc6f4j9k.info,  Node: Environments,  Next: Mathematics,  Prev: Sectioning,  Up: Editing
+File: doc0nEGKy.info,  Node: Environments,  Next: Mathematics,  Prev: Sectioning,  Up: Editing
 
 2.4 Inserting Environment Templates
 ===================================
@@ -1964,7 +1330,7 @@ and to the end of the current environment.
      calls 'LaTeX-find-matching-end'.
 
 
-File: doc6f4j9k.info,  Node: Equations,  Next: Floats,  Up: Environments
+File: doc0nEGKy.info,  Node: Equations,  Next: Floats,  Up: Environments
 
 2.4.1 Equations
 ---------------
@@ -1984,7 +1350,7 @@ default prefix, which is controlled by the following variables:
      'gather'.
 
 
-File: doc6f4j9k.info,  Node: Floats,  Next: Itemize-like,  Prev: Equations,  Up: Environments
+File: doc0nEGKy.info,  Node: Floats,  Next: Itemize-like,  Prev: Equations,  Up: Environments
 
 2.4.2 Floats
 ------------
@@ -2039,7 +1405,7 @@ environment.
      caption.
 
 
-File: doc6f4j9k.info,  Node: Itemize-like,  Next: Tabular-like,  Prev: Floats,  Up: Environments
+File: doc0nEGKy.info,  Node: Itemize-like,  Next: Tabular-like,  Prev: Floats,  Up: Environments
 
 2.4.3 Itemize-like Environments
 -------------------------------
@@ -2059,7 +1425,7 @@ if the key binding is still available.
      Otherwise, you will be asked only in description environments.
 
 
-File: doc6f4j9k.info,  Node: Tabular-like,  Next: Customizing Environments,  Prev: Itemize-like,  Up: Environments
+File: doc0nEGKy.info,  Node: Tabular-like,  Next: Customizing Environments,  Prev: Itemize-like,  Up: Environments
 
 2.4.4 Tabular-like Environments
 -------------------------------
@@ -2102,7 +1468,7 @@ or 'M-<RET>' in these environments.  It recognizes the current
 environment and does the appropriate job depending on the context.
 
 
-File: doc6f4j9k.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up: Environments
+File: doc0nEGKy.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up: Environments
 
 2.4.5 Customizing Environments
 ------------------------------
@@ -2111,7 +1477,7 @@ File: doc6f4j9k.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up:
 environments.
 
 
-File: doc6f4j9k.info,  Node: Mathematics,  Next: Completion,  Prev: Environments,  Up: Editing
+File: doc0nEGKy.info,  Node: Mathematics,  Next: Completion,  Prev: Environments,  Up: Editing
 
 2.5 Entering Mathematics
 ========================
@@ -2192,7 +1558,7 @@ characters, when you begin to enter math constructs.
      by 'C-c C-e' ('LaTeX-environment').
 
 
-File: doc6f4j9k.info,  Node: Completion,  Next: Marking,  Prev: Mathematics,  Up: Editing
+File: doc0nEGKy.info,  Node: Completion,  Next: Marking,  Prev: Mathematics,  Up: Editing
 
 2.6 Completion
 ==============
@@ -2375,7 +1741,7 @@ after you enabled automatic parsing on save, and that the basename of
 the BibTeX file does not conflict with the basename of one of TeX files.
 
 
-File: doc6f4j9k.info,  Node: Marking,  Next: Commenting,  Prev: Completion,  Up: Editing
+File: doc0nEGKy.info,  Node: Marking,  Next: Commenting,  Prev: Completion,  Up: Editing
 
 2.7 Marking Environments, Sections, or Texinfo Nodes
 ====================================================
@@ -2394,7 +1760,7 @@ mark to its end.
 * Marking (Texinfo):: Texinfo Commands for Marking Environments, Sections, and Nodes
 
 
-File: doc6f4j9k.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Marking
+File: doc0nEGKy.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Marking
 
 2.7.1 LaTeX Commands for Marking Environments and Sections
 ----------------------------------------------------------
@@ -2418,7 +1784,7 @@ File: doc6f4j9k.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Mar
      environments.
 
 
-File: doc6f4j9k.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Marking
+File: doc0nEGKy.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Marking
 
 2.7.2 Texinfo Commands for Marking Environments and Sections
 ------------------------------------------------------------
@@ -2457,7 +1823,7 @@ File: doc6f4j9k.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Mar
      '@node' or '@bye'.
 
 
-File: doc6f4j9k.info,  Node: Commenting,  Next: Indenting,  Prev: Marking,  Up: Editing
+File: doc0nEGKy.info,  Node: Commenting,  Next: Indenting,  Prev: Marking,  Up: Editing
 
 2.8 Commenting
 ==============
@@ -2485,7 +1851,7 @@ single '%' respectively.
      starting with a '%', until the first non-comment line.
 
 
-File: doc6f4j9k.info,  Node: Indenting,  Next: Filling,  Prev: Commenting,  Up: Editing
+File: doc0nEGKy.info,  Node: Indenting,  Next: Filling,  Prev: Commenting,  Up: Editing
 
 2.9 Indenting
 =============
@@ -2678,7 +2044,7 @@ behavior can be controlled by setting the variable
      option is disabled by default.
 
 
-File: doc6f4j9k.info,  Node: Filling,  Prev: Indenting,  Up: Editing
+File: doc0nEGKy.info,  Node: Filling,  Prev: Indenting,  Up: Editing
 
 2.10 Filling
 ============
@@ -2816,7 +2182,7 @@ inside the comment, AUCTeX will report an error.
      }
 
 
-File: doc6f4j9k.info,  Node: Display,  Next: Processing,  Prev: Editing,  Up: Top
+File: doc0nEGKy.info,  Node: Display,  Next: Processing,  Prev: Editing,  Up: Top
 
 3 Controlling Screen Display
 ****************************
@@ -2874,7 +2240,7 @@ together.
 * Prettifying::                 Displaying Greek and math macros as Unicode characters
 
 
-File: doc6f4j9k.info,  Node: Font Locking,  Next: Folding,  Up: Display
+File: doc0nEGKy.info,  Node: Font Locking,  Next: Folding,  Up: Display
 
 3.1 Font Locking
 ================
@@ -2919,7 +2285,7 @@ description the various options are explained in conceptional groups.
 * Known problems::              Known fontification problems
 
 
-File: doc6f4j9k.info,  Node: Fontification of macros,  Next: Fontification of quotes,  Up: Font Locking
+File: doc0nEGKy.info,  Node: Fontification of macros,  Next: Fontification of quotes,  Up: Font Locking
 
 3.1.1 Fontification of macros
 -----------------------------
@@ -3140,7 +2506,7 @@ variable 'font-latex-user-keyword-classes'.
      above.
 
 
-File: doc6f4j9k.info,  Node: Fontification of quotes,  Next: Fontification of math,  Prev: Fontification of macros,  Up: Font Locking
+File: doc0nEGKy.info,  Node: Fontification of quotes,  Next: Fontification of math,  Prev: Fontification of macros,  Up: Font Locking
 
 3.1.2 Fontification of quotes
 -----------------------------
@@ -3172,7 +2538,7 @@ properties.
      fontified.
 
 
-File: doc6f4j9k.info,  Node: Fontification of math,  Next: Verbatim content,  Prev: Fontification of quotes,  Up: Font Locking
+File: doc0nEGKy.info,  Node: Fontification of math,  Next: Verbatim content,  Prev: Fontification of quotes,  Up: Font Locking
 
 3.1.3 Fontification of mathematical constructs
 ----------------------------------------------
@@ -3245,7 +2611,7 @@ an own face named 'font-latex-script-char-face'.
      Other Display Specifications: (elisp)Other Display Specs.
 
 
-File: doc6f4j9k.info,  Node: Verbatim content,  Next: Faces,  Prev: Fontification of math,  Up: Font Locking
+File: doc0nEGKy.info,  Node: Verbatim content,  Next: Faces,  Prev: Fontification of math,  Up: Font Locking
 
 3.1.4 Verbatim macros and environments
 --------------------------------------
@@ -3263,7 +2629,7 @@ environments are recognized is controlled by the variables
 respectively.
 
 
-File: doc6f4j9k.info,  Node: Faces,  Next: Known problems,  Prev: Verbatim content,  Up: Font Locking
+File: doc0nEGKy.info,  Node: Faces,  Next: Known problems,  Prev: Verbatim content,  Up: Font Locking
 
 3.1.5 Faces used by font-latex
 ------------------------------
@@ -3275,7 +2641,7 @@ font-latex are accessible through a customization group by typing 'M-x
 customize-group <RET> font-latex-highlighting-faces <RET>'.
 
 
-File: doc6f4j9k.info,  Node: Known problems,  Prev: Faces,  Up: Font Locking
+File: doc0nEGKy.info,  Node: Known problems,  Prev: Faces,  Up: Font Locking
 
 3.1.6 Known fontification problems
 ----------------------------------
@@ -3296,7 +2662,7 @@ workaround.  In docTeX documents, '^^A$' is also available for similar
 purpose.
 
 
-File: doc6f4j9k.info,  Node: Folding,  Next: Outline,  Prev: Font Locking,  Up: Display
+File: doc0nEGKy.info,  Node: Folding,  Next: Outline,  Prev: Font Locking,  Up: Display
 
 3.2 Folding Macros and Environments
 ===================================
@@ -3564,7 +2930,7 @@ variable 'TeX-fold-help-echo-max-length'.
      binding.
 
 
-File: doc6f4j9k.info,  Node: Outline,  Next: Narrowing,  Prev: Folding,  Up: Display
+File: doc0nEGKy.info,  Node: Outline,  Next: Narrowing,  Prev: Folding,  Up: Display
 
 3.3 Outlining the Document
 ==========================
@@ -3601,7 +2967,7 @@ better outline support.  It is available from your favorite emacs lisp
 archive.
 
 
-File: doc6f4j9k.info,  Node: Narrowing,  Next: Prettifying,  Prev: Outline,  Up: Display
+File: doc0nEGKy.info,  Node: Narrowing,  Next: Prettifying,  Prev: Outline,  Up: Display
 
 3.4 Narrowing
 =============
@@ -3627,7 +2993,7 @@ the option of enabling them; if you enable the commands, confirmation
 will no longer be required for them.
 
 
-File: doc6f4j9k.info,  Node: Prettifying,  Prev: Narrowing,  Up: Display
+File: doc0nEGKy.info,  Node: Prettifying,  Prev: Narrowing,  Up: Display
 
 3.5 Prettifying
 ===============
@@ -3658,7 +3024,7 @@ this variable is part of Emacs' stock 'tex-mode.el' and used by that and
 AUCTeX.
 
 
-File: doc6f4j9k.info,  Node: Processing,  Next: Customization,  Prev: Display,  Up: Top
+File: doc0nEGKy.info,  Node: Processing,  Next: Customization,  Prev: Display,  Up: Top
 
 4 Starting Processors, Viewers and Other Programs
 *************************************************
@@ -3687,7 +3053,7 @@ can also customize the buttons by the options 'TeX-bar-TeX-buttons',
 * Documentation::               Documentation about macros and packages.
 
 
-File: doc6f4j9k.info,  Node: Commands,  Next: Viewing,  Up: Processing
+File: doc0nEGKy.info,  Node: Commands,  Next: Viewing,  Up: Processing
 
 4.1 Executing Commands
 ======================
@@ -3704,7 +3070,7 @@ external command.
 * Processor Options::           Options for TeX Processors
 
 
-File: doc6f4j9k.info,  Node: Starting a Command,  Next: Selecting a Command,  Up: Commands
+File: doc0nEGKy.info,  Node: Starting a Command,  Next: Selecting a Command,  Up: Commands
 
 4.1.1 Starting a Command on a Document or Region
 ------------------------------------------------
@@ -3813,7 +3179,7 @@ when you are editing multiple documents in parallel.  This limitation
 applies for preview by preview-latex as well.
 
 
-File: doc6f4j9k.info,  Node: Selecting a Command,  Next: Processor Options,  Prev: Starting a Command,  Up: Commands
+File: doc0nEGKy.info,  Node: Selecting a Command,  Next: Processor Options,  Prev: Starting a Command,  Up: Commands
 
 4.1.2 Selecting and Executing a Command
 ---------------------------------------
@@ -3996,7 +3362,7 @@ verbatim macros like '\Verb' from 'fancyvrb.sty' or '\mintinline' from
      avoided as they are not recognized by 'font-latex.el'.
 
 
-File: doc6f4j9k.info,  Node: Processor Options,  Prev: Selecting a Command,  Up: Commands
+File: doc0nEGKy.info,  Node: Processor Options,  Prev: Selecting a Command,  Up: Commands
 
 4.1.3 Options for TeX Processors
 --------------------------------
@@ -4213,7 +3579,7 @@ is controlled by 'ConTeXt-Mark-version' option.
      basis, by specifying it as a file variable.
 
 
-File: doc6f4j9k.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
+File: doc0nEGKy.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
 
 4.2 Viewing the Formatted Output
 ================================
@@ -4227,7 +3593,7 @@ formatted output of your document.
 * I/O Correlation::             Forward and inverse search
 
 
-File: doc6f4j9k.info,  Node: Starting Viewers,  Next: I/O Correlation,  Up: Viewing
+File: doc0nEGKy.info,  Node: Starting Viewers,  Next: I/O Correlation,  Up: Viewing
 
 4.2.1 Starting Viewers
 ----------------------
@@ -4333,7 +3699,7 @@ the variable in place.  In addition, the use of a function in
 'TeX-command-list' makes use of the hook 'TeX-run-discard-or-function'.
 
 
-File: doc6f4j9k.info,  Node: I/O Correlation,  Prev: Starting Viewers,  Up: Viewing
+File: doc0nEGKy.info,  Node: I/O Correlation,  Prev: Starting Viewers,  Up: Viewing
 
 4.2.2 Forward and Inverse Search
 --------------------------------
@@ -4453,7 +3819,7 @@ implemented as minor mode map of 'TeX-source-correlate-mode', in order
 that its bindings don't affect buffers outside of AUCTeX.
 
 
-File: doc6f4j9k.info,  Node: Debugging,  Next: Checking,  Prev: Viewing,  Up: Processing
+File: doc0nEGKy.info,  Node: Debugging,  Next: Checking,  Prev: Viewing,  Up: Processing
 
 4.3 Catching the errors
 =======================
@@ -4513,7 +3879,7 @@ error reported by TeX along with the documentation.  There is however an
 * Error overview::            List of all errors and warnings
 
 
-File: doc6f4j9k.info,  Node: Ignoring warnings,  Next: Error overview,  Up: Debugging
+File: doc0nEGKy.info,  Node: Ignoring warnings,  Next: Error overview,  Up: Debugging
 
 4.3.1 Controlling warnings to be reported
 -----------------------------------------
@@ -4561,7 +3927,7 @@ options.
      'nil', all warnings are hidden in any case.
 
 
-File: doc6f4j9k.info,  Node: Error overview,  Prev: Ignoring warnings,  Up: Debugging
+File: doc0nEGKy.info,  Node: Error overview,  Prev: Ignoring warnings,  Up: Debugging
 
 4.3.2 List of all errors and warnings
 -------------------------------------
@@ -4606,7 +3972,7 @@ default, but you can change this behavior by customizing the option
      be used regardless of the value of this variable.
 
 
-File: doc6f4j9k.info,  Node: Checking,  Next: Control,  Prev: Debugging,  Up: Processing
+File: doc0nEGKy.info,  Node: Checking,  Next: Control,  Prev: Debugging,  Up: Processing
 
 4.4 Checking for problems
 =========================
@@ -4645,7 +4011,7 @@ before using them.  You can get 'lacheck' from
 <https://www.ctan.org/pkg/chktex>.  TeX Live contains both.
 
 
-File: doc6f4j9k.info,  Node: Control,  Next: Cleaning,  Prev: Checking,  Up: Processing
+File: doc0nEGKy.info,  Node: Control,  Next: Cleaning,  Prev: Checking,  Up: Processing
 
 4.5 Controlling the output
 ==========================
@@ -4698,7 +4064,7 @@ separate directory.
      'TEXINPUTS' and 'BIBINPUTS'.
 
 
-File: doc6f4j9k.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up: Processing
+File: doc0nEGKy.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up: Processing
 
 4.6 Cleaning intermediate and output files
 ==========================================
@@ -4733,7 +4099,7 @@ File: doc6f4j9k.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up
      deleting files.
 
 
-File: doc6f4j9k.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
+File: doc0nEGKy.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
 
 4.7 Documentation about macros and packages
 ===========================================
@@ -4758,7 +4124,7 @@ File: doc6f4j9k.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
      Thus it isn't sure whether this command works for MiKTeX or not.
 
 
-File: doc6f4j9k.info,  Node: Customization,  Next: Appendices,  Prev: Processing,  Up: Top
+File: doc0nEGKy.info,  Node: Customization,  Next: Appendices,  Prev: Processing,  Up: Top
 
 5 Customization and Extension
 *****************************
@@ -4773,7 +4139,7 @@ File: doc6f4j9k.info,  Node: Customization,  Next: Appendices,  Prev: Processing
 * Style Files::                 Writing Your Own Style Support
 
 
-File: doc6f4j9k.info,  Node: Modes and Hooks,  Next: Multifile,  Up: Customization
+File: doc0nEGKy.info,  Node: Modes and Hooks,  Next: Multifile,  Up: Customization
 
 5.1 Modes and Hooks
 ===================
@@ -4818,7 +4184,7 @@ mode and runs 'plain-TeX-mode-hook' as well.
      added to the hook for this purpose.
 
 
-File: doc6f4j9k.info,  Node: Multifile,  Next: Parsing Files,  Prev: Modes and Hooks,  Up: Customization
+File: doc0nEGKy.info,  Node: Multifile,  Next: Parsing Files,  Prev: Modes and Hooks,  Up: Customization
 
 5.2 Multifile Documents
 =======================
@@ -4924,7 +4290,7 @@ master file.  *Note Automatic Local::.
      'TeX-save-document'.
 
 
-File: doc6f4j9k.info,  Node: Parsing Files,  Next: Internationalization,  Prev: Multifile,  Up: Customization
+File: doc0nEGKy.info,  Node: Parsing Files,  Next: Internationalization,  Prev: Multifile,  Up: Customization
 
 5.3 Automatic Parsing of TeX Files
 ==================================
@@ -5054,7 +4420,7 @@ these before loading AUCTeX by quoting them, as in the example above.
      Parse all TeX and LaTeX commands that AUCTeX can use.
 
 
-File: doc6f4j9k.info,  Node: Internationalization,  Next: Automatic,  Prev: Parsing Files,  Up: Customization
+File: doc0nEGKy.info,  Node: Internationalization,  Next: Automatic,  Prev: Parsing Files,  Up: Customization
 
 5.4 Language Support
 ====================
@@ -5085,7 +4451,7 @@ for supporting CJK scripts in a standard LaTeX document.
 * Japanese::                    Using AUCTeX with Japanese
 
 
-File: doc6f4j9k.info,  Node: European,  Next: Japanese,  Up: Internationalization
+File: doc0nEGKy.info,  Node: European,  Next: Japanese,  Up: Internationalization
 
 5.4.1 Using AUCTeX with European Languages
 ------------------------------------------
@@ -5267,7 +4633,7 @@ respectively.
      second key press.  If 'nil' do it the other way round.
 
 
-File: doc6f4j9k.info,  Node: Japanese,  Prev: European,  Up: Internationalization
+File: doc0nEGKy.info,  Node: Japanese,  Prev: European,  Up: Internationalization
 
 5.4.2 Using AUCTeX with Japanese TeX
 ------------------------------------
@@ -5392,7 +4758,7 @@ won't matter in buffers with other engines.
    See 'tex-jp.el' for more information.
 
 
-File: doc6f4j9k.info,  Node: Automatic,  Next: Style Files,  Prev: Internationalization,  Up: Customization
+File: doc0nEGKy.info,  Node: Automatic,  Next: Style Files,  Prev: Internationalization,  Up: Customization
 
 5.5 Automatic Customization
 ===========================
@@ -5450,7 +4816,7 @@ and 'CVS'.
      for TeX files in a directory.
 
 
-File: doc6f4j9k.info,  Node: Automatic Global,  Next: Automatic Private,  Up: Automatic
+File: doc0nEGKy.info,  Node: Automatic Global,  Next: Automatic Private,  Up: Automatic
 
 5.5.1 Automatic Customization for the Site
 ------------------------------------------
@@ -5480,7 +4846,7 @@ the variable 'TeX-auto-global' to 'nil'.
      shared by all users of a site.
 
 
-File: doc6f4j9k.info,  Node: Automatic Private,  Next: Automatic Local,  Prev: Automatic Global,  Up: Automatic
+File: doc0nEGKy.info,  Node: Automatic Private,  Next: Automatic Local,  Prev: Automatic Global,  Up: Automatic
 
 5.5.2 Automatic Customization for a User
 ----------------------------------------
@@ -5512,7 +4878,7 @@ directories listed in 'TeX-auto-private'
      These correspond to the personal TeX macros.
 
 
-File: doc6f4j9k.info,  Node: Automatic Local,  Prev: Automatic Private,  Up: Automatic
+File: doc0nEGKy.info,  Node: Automatic Local,  Prev: Automatic Private,  Up: Automatic
 
 5.5.3 Automatic Customization for a Directory
 ---------------------------------------------
@@ -5545,7 +4911,7 @@ set 'TeX-auto-local' to 'nil'.
      Subdirectory name is actually taken from 'TeX-auto-local'.
 
 
-File: doc6f4j9k.info,  Node: Style Files,  Prev: Automatic,  Up: Customization
+File: doc0nEGKy.info,  Node: Style Files,  Prev: Automatic,  Up: Customization
 
 5.6 Writing Your Own Style Support
 ==================================
@@ -5567,7 +4933,7 @@ directories instead of 'auto' directories.
 send it to us.
 
 
-File: doc6f4j9k.info,  Node: Simple Style,  Next: Adding Macros,  Up: Style Files
+File: doc0nEGKy.info,  Node: Simple Style,  Next: Adding Macros,  Up: Style Files
 
 5.6.1 A Simple Style File
 -------------------------
@@ -5654,7 +5020,7 @@ DIALECT-EXPR to pass constant 'TeX-dialect' currently defined to
      file, or any mode derived thereof.
 
 
-File: doc6f4j9k.info,  Node: Adding Macros,  Next: Adding Environments,  Prev: Simple Style,  Up: Style Files
+File: doc0nEGKy.info,  Node: Adding Macros,  Next: Adding Environments,  Prev: Simple Style,  Up: Style Files
 
 5.6.2 Adding Support for Macros
 -------------------------------
@@ -5932,7 +5298,7 @@ users.  Those should be marked as expert macros using
      'TeX-complete-expert-commands'.
 
 
-File: doc6f4j9k.info,  Node: Adding Environments,  Next: Adding Other,  Prev: Adding Macros,  Up: Style Files
+File: doc0nEGKy.info,  Node: Adding Environments,  Next: Adding Other,  Prev: Adding Macros,  Up: Style Files
 
 5.6.3 Adding Support for Environments
 -------------------------------------
@@ -6078,7 +5444,7 @@ non-expert users.  Those should be marked as expert environments using
      'TeX-complete-expert-commands'.
 
 
-File: doc6f4j9k.info,  Node: Adding Other,  Next: Hacking the Parser,  Prev: Adding Environments,  Up: Style Files
+File: doc0nEGKy.info,  Node: Adding Other,  Next: Hacking the Parser,  Prev: Adding Environments,  Up: Style Files
 
 5.6.4 Adding or Examining Other Information
 -------------------------------------------
@@ -6188,7 +5554,7 @@ can provide completion support for the optional arguments.
      Which see.
 
 
-File: doc6f4j9k.info,  Node: Hacking the Parser,  Prev: Adding Other,  Up: Style Files
+File: doc0nEGKy.info,  Node: Hacking the Parser,  Prev: Adding Other,  Up: Style Files
 
 5.6.5 Automatic Extraction of New Things
 ----------------------------------------
@@ -6291,7 +5657,7 @@ symbols found.
      List of functions to be called after parsing a TeX file.
 
 
-File: doc6f4j9k.info,  Node: Appendices,  Next: Indices,  Prev: Customization,  Up: Top
+File: doc0nEGKy.info,  Node: Appendices,  Next: Indices,  Prev: Customization,  Up: Top
 
 Appendix A Copying, Changes, Development, FAQ, Texinfo Mode
 ***********************************************************
@@ -6305,15 +5671,15 @@ Appendix A Copying, Changes, Development, FAQ, Texinfo Mode
 * Texinfo mode::
 
 
-File: doc6f4j9k.info,  Node: Copying this Manual,  Next: Changes,  Up: Appendices
+File: doc0nEGKy.info,  Node: Copying this Manual,  Next: Changes,  Up: Appendices
 
 A.1 Copying this Manual
 =======================
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.0.6.2024-08-11_13:25:23 from
-2024-08-11_13:25:23), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.0.6.2024-08-12_12:36:20 from
+2024-08-12_12:36:20), a sophisticated TeX environment for Emacs.
 
    Copyright (C) 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -6332,7 +5698,7 @@ Foundation, Inc.
 * GNU Free Documentation License:: License for copying this manual.
 
 
-File: doc6f4j9k.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
+File: doc0nEGKy.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
 
 A.1.1 GNU Free Documentation License
 ------------------------------------
@@ -6814,7 +6180,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: doc6f4j9k.info,  Node: Changes,  Next: Development,  Prev: Copying this Manual,  Up: Appendices
+File: doc0nEGKy.info,  Node: Changes,  Next: Development,  Prev: Copying this Manual,  Up: Appendices
 
 A.2 Changes and New Features
 ============================
@@ -7925,7 +7291,7 @@ News in 11.82
      change 'tex-mik.el' does not load 'tex-site.el' anymore.  That
      means if you used only '(require 'tex-mik)' in order to activate
      AUCTeX, you have to add '(load "auctex.el" nil t t)' before the
-     latter statement.  *Note Loading the package::.
+     latter statement.  *Note Activating the package::.
 
    * Handling of verbatim constructs was consolidated across AUCTeX.
      This resulted in the font-latex-specific variables
@@ -8268,8 +7634,7 @@ News in 11.50
 
    * The build process was enhanced and is now based on 'autoconf'
      making installing AUCTeX a mostly automatic process.  See *note
-     Installation:: and *note Installation under MS Windows:: for
-     details.
+     Installation::for details.
 
 News in 11.14
 -------------
@@ -8344,7 +7709,7 @@ Older versions
 See the file 'history.texi' for older changes.
 
 
-File: doc6f4j9k.info,  Node: Development,  Next: FAQ,  Prev: Changes,  Up: Appendices
+File: doc0nEGKy.info,  Node: Development,  Next: FAQ,  Prev: Changes,  Up: Appendices
 
 A.3 Future Development
 ======================
@@ -8364,7 +7729,7 @@ on the mailing list of AUCTeX first.
 * Bugs::
 
 
-File: doc6f4j9k.info,  Node: Mid-term Goals,  Next: Wishlist,  Up: Development
+File: doc0nEGKy.info,  Node: Mid-term Goals,  Next: Wishlist,  Up: Development
 
 A.3.1 Mid-term Goals
 --------------------
@@ -8435,7 +7800,7 @@ A.3.1 Mid-term Goals
         - Usage of ConTeXt mode
 
 
-File: doc6f4j9k.info,  Node: Wishlist,  Next: Bugs,  Prev: Mid-term Goals,  Up: Development
+File: doc0nEGKy.info,  Node: Wishlist,  Next: Bugs,  Prev: Mid-term Goals,  Up: Development
 
 A.3.2 Wishlist
 --------------
@@ -8601,7 +7966,7 @@ A.3.2 Wishlist
    * Hook up the letter environment with 'bbdb.el'.
 
 
-File: doc6f4j9k.info,  Node: Bugs,  Prev: Wishlist,  Up: Development
+File: doc0nEGKy.info,  Node: Bugs,  Prev: Wishlist,  Up: Development
 
 A.3.3 Bugs
 ----------
@@ -8632,7 +7997,7 @@ A.3.3 Bugs
    * Correct indentation for tabbing, table, and math environments.
 
 
-File: doc6f4j9k.info,  Node: FAQ,  Next: Texinfo mode,  Prev: Development,  Up: Appendices
+File: doc0nEGKy.info,  Node: FAQ,  Next: Texinfo mode,  Prev: Development,  Up: Appendices
 
 A.4 Frequently Asked Questions
 ==============================
@@ -8645,12 +8010,10 @@ A.4 Frequently Asked Questions
 
      Well, you might have guessed it, the first place to look is in the
      available documentation packaged with AUCTeX.  This could be the
-     release notes (in the 'RELEASE' file) or the news section of the
-     manual in case you are experiencing problems after an upgrade, the
-     'INSTALL' file in case you are having problems with the
-     installation, the section about bugs in the manual in case you
-     encountered a bug or the relevant sections in the manual for other
-     related problems.
+     'README' file or 'NEWS.org' file in case you are experiencing
+     problems after an upgrade, the section about bugs in the manual in
+     case you encountered a bug or the relevant sections in the manual
+     for other related problems.
 
      If this did not help, you can send a bug report to the AUCTeX bug
      reporting list by using the command 'M-x TeX-submit-bug-report
@@ -8673,18 +8036,13 @@ A.4 Frequently Asked Questions
      Second, you can try to figure out if something in your personal or
      site configuration triggers the error by starting Emacs without
      such customizations.  You can do this by invoking Emacs with the
-     following command line, depending on the installation scheme of
-     AUCTeX and your OS:
-        * If you installed AUCTeX from ELPA, use 'emacs -q -no-site-file
-          --eval "(progn (setq package-load-list '((auctex t)))
-          (package-initialize))"'.  The '--eval' option activates only
-          AUCTeX among all installed ELPA packages.
-        * If you installed AUCTeX via traditional 'configure'-'make'
-          scheme, use 'emacs -q -no-site-file -l auctex'.  The '-l'
-          option loads 'auctex.el' which you normally do in your init
-          file.
-        * In both above cases, use 'runemacs' instead of 'emacs' on
-          windows.
+     following command line:
+          emacs -q -no-site-file --eval "(progn (setq package-load-list '((auctex
+          t))) (package-initialize))"
+     Use 'runemacs' instead of 'emacs' on MS Windows.
+
+     The '--eval' option activates only AUCTeX among all installed ELPA
+     packages.
 
      After you have started Emacs like this, you can load the file
      triggering the error.  If everything is working now, you know that
@@ -8730,15 +8088,7 @@ A.4 Frequently Asked Questions
      AUCTeX was tested with GNU Emacs 27.1.  Older versions may work but
      are unsupported.
 
-  4. What should I do when './configure' does not find programs like
-     'latex'?
-
-     This is problem often encountered on Windows.  Make sure that the
-     'PATH' environment variable includes the directories containing the
-     relevant programs, as described in *note (auctex)Installation under
-     MS Windows::.
-
-  5. Why doesn't the completion, style file, or multifile stuff work?
+  4. Why doesn't the completion, style file, or multifile stuff work?
 
      It must be enabled first, insert this in your init file:
 
@@ -8749,18 +8099,18 @@ A.4 Frequently Asked Questions
      Read also the chapters about parsing and multifile documents in the
      manual.  *Note Parsing Files:: and *note Multifile::.
 
-  6. Why doesn't 'TeX-save-document' work?
+  5. Why doesn't 'TeX-save-document' work?
 
      'TeX-check-path' has to contain "'./'" somewhere.
 
-  7. Why is the information in 'foo.tex' forgotten when I save
+  6. Why is the information in 'foo.tex' forgotten when I save
      'foo.bib'?
 
      For various reasons, AUCTeX ignores the extension when it stores
      information about a file, so you should use unique base names for
      your files.  E.g. rename 'foo.bib' to 'foob.bib'.
 
-  8. Why doesn't AUCTeX signal when processing a document is done?
+  7. Why doesn't AUCTeX signal when processing a document is done?
 
      If the message in the minibuffer stays "Type 'C-c C-l' to display
      results of compilation.", you probably have a misconfiguration in
@@ -8772,7 +8122,7 @@ A.4 Frequently Asked Questions
      The information in the debugging buffer can help you find the cause
      of the error in your init file.
 
-  9. Why does 'TeX-next-error' ('C-c `') fail?
+  8. Why does 'TeX-next-error' ('C-c `') fail?
 
      If 'TeX-file-line-error' is set to 'nil' (not the default), these
      sort of failures might be related to the the fact that when writing
@@ -8789,14 +8139,14 @@ A.4 Frequently Asked Questions
      manual to see where this is) or by simply keeping the variable
      'TeX-file-line-error' to the default value of non-'nil'.
 
-  10. What does 'AUC' stand for?
+  9. What does 'AUC' stand for?
 
      AUCTeX came into being at Aalborg University in Denmark.  Back then
      the Danish name of the university was Aalborg Universitetscenter;
      'AUC' for short.
 
 
-File: doc6f4j9k.info,  Node: Texinfo mode,  Prev: FAQ,  Up: Appendices
+File: doc0nEGKy.info,  Node: Texinfo mode,  Prev: FAQ,  Up: Appendices
 
 A.5 Features specific to AUCTeX's Texinfo major mode
 ====================================================
@@ -8822,7 +8172,7 @@ commands.
 * Unbinding::                   Which native mode key bindings are missing
 
 
-File: doc6f4j9k.info,  Node: Exploiting,  Next: Superseding,  Up: Texinfo mode
+File: doc0nEGKy.info,  Node: Exploiting,  Next: Superseding,  Up: Texinfo mode
 
 A.5.1 How AUCTeX and the native mode work together
 --------------------------------------------------
@@ -8842,7 +8192,7 @@ mode is as follows:
      otherwise.
 
 
-File: doc6f4j9k.info,  Node: Superseding,  Next: Mapping,  Prev: Exploiting,  Up: Texinfo mode
+File: doc0nEGKy.info,  Node: Superseding,  Next: Mapping,  Prev: Exploiting,  Up: Texinfo mode
 
 A.5.2 Where the native mode is superseded
 -----------------------------------------
@@ -8939,7 +8289,7 @@ Kill jobs
      superseded by 'C-c C-k' ('TeX-kill-job') in AUCTeX.
 
 
-File: doc6f4j9k.info,  Node: Mapping,  Next: Unbinding,  Prev: Superseding,  Up: Texinfo mode
+File: doc0nEGKy.info,  Node: Mapping,  Next: Unbinding,  Prev: Superseding,  Up: Texinfo mode
 
 A.5.3 Where key bindings are mapped to the native mode
 ------------------------------------------------------
@@ -8983,7 +8333,7 @@ Update menus
      C-d' in AUCTeX instead.
 
 
-File: doc6f4j9k.info,  Node: Unbinding,  Prev: Mapping,  Up: Texinfo mode
+File: doc0nEGKy.info,  Node: Unbinding,  Prev: Mapping,  Up: Texinfo mode
 
 A.5.4 Which native mode key bindings are missing
 ------------------------------------------------
@@ -8998,7 +8348,7 @@ Show the section structure
      AUCTeX for inserting '@node'.
 
 
-File: doc6f4j9k.info,  Node: Indices,  Prev: Appendices,  Up: Top
+File: doc0nEGKy.info,  Node: Indices,  Prev: Appendices,  Up: Top
 
 Indices
 *******
@@ -9011,7 +8361,7 @@ Indices
 * Concept Index::
 
 
-File: doc6f4j9k.info,  Node: Key Index,  Next: Function Index,  Up: Indices
+File: doc0nEGKy.info,  Node: Key Index,  Next: Function Index,  Up: Indices
 
 Key Index
 =========
@@ -9130,7 +8480,7 @@ Key Index
 * TAB:                                   Indenting.           (line  74)
 
 
-File: doc6f4j9k.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Indices
+File: doc0nEGKy.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Indices
 
 Function Index
 ==============
@@ -9311,7 +8661,7 @@ Function Index
 * turn-on-auto-fill:                     Filling.             (line   6)
 
 
-File: doc6f4j9k.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
+File: doc0nEGKy.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
 
 Variable Index
 ==============
@@ -9632,7 +8982,8 @@ Variable Index
 * TeX-master <2>:                        Multifile.           (line  39)
 * TeX-math-input-method-off-regexp:      Mathematics.         (line  76)
 * TeX-mode-hook:                         Modes and Hooks.     (line  22)
-* TeX-modes:                             Loading the package. (line  40)
+* TeX-modes:                             Activating the package.
+                                                              (line  21)
 * TeX-newline-function:                  Indenting.           (line  29)
 * TeX-newline-function <1>:              Indenting.           (line 107)
 * TeX-Omega-command:                     Processor Options.   (line 121)
@@ -9681,7 +9032,7 @@ Variable Index
                                                               (line   6)
 
 
-File: doc6f4j9k.info,  Node: Concept Index,  Prev: Variable Index,  Up: Indices
+File: doc0nEGKy.info,  Node: Concept Index,  Prev: Variable Index,  Up: Indices
 
 Concept Index
 =============
@@ -9689,8 +9040,6 @@ Concept Index
  [index ]
 * Menu:
 
-* .emacs:                                Loading the package.
-                                                             (line    6)
 * \begin:                                Environments.       (line    6)
 * \chapter:                              Editing Facilities. (line   24)
 * \chapter <1>:                          Sectioning.         (line    6)
@@ -9741,8 +9090,6 @@ Concept Index
 * Adding other information:              Adding Other.       (line    6)
 * Adding support for completion of package/class options: Adding Other.
                                                              (line    6)
-* Adding to PATH in Windows:             Installation under MS Windows.
-                                                             (line   42)
 * align.el:                              Indenting.          (line   58)
 * amsmath:                               Equations.          (line    6)
 * amsmath <1>:                           Tabular-like.       (line    6)
@@ -9750,9 +9097,7 @@ Concept Index
 * ASCII pTeX:                            Internationalization.
                                                              (line    6)
 * ASCII pTeX <1>:                        Japanese.           (line    6)
-* auctex.el:                             Loading the package.
-                                                             (line   10)
-* auctex.el <1>:                         Changes.            (line 1106)
+* auctex.el:                             Changes.            (line 1106)
 * auto directories.:                     Automatic.          (line    6)
 * auto-fill-mode:                        Indenting.          (line   29)
 * Auto-Reveal:                           Folding.            (line    6)
@@ -9881,13 +9226,9 @@ Concept Index
 * Indentation:                           Indenting.          (line    6)
 * Indenting:                             Indenting.          (line    6)
 * Indexing:                              Commands.           (line    6)
-* init.el:                               Loading the package.
-                                                             (line    6)
 * Initialization:                        Customizing.        (line    6)
 * input method:                          Mathematics.        (line   73)
 * Inputing:                              Multifile.          (line    6)
-* Installation:                          Build/install and uninstall.
-                                                             (line    6)
 * Internationalization:                  Internationalization.
                                                              (line    6)
 * Inverse search:                        I/O Correlation.    (line    6)
@@ -9931,8 +9272,6 @@ Concept Index
 * macro.el:                              Hacking the Parser. (line    6)
 * macro.tex:                             Hacking the Parser. (line    6)
 * Macros, adding:                        Adding Macros.      (line    6)
-* Make:                                  Build/install and uninstall.
-                                                             (line    6)
 * makeindex:                             Commands.           (line    6)
 * Making a bibliography:                 Commands.           (line    6)
 * Making an index:                       Commands.           (line    6)
@@ -9965,8 +9304,6 @@ Concept Index
 * Parsing TeX:                           Parsing Files.      (line    6)
 * Parsing TeX <1>:                       Automatic.          (line    6)
 * Parsing TeX output:                    Debugging.          (line    6)
-* PATH in Windows:                       Installation under MS Windows.
-                                                             (line   42)
 * PDF mode:                              Processor Options.  (line   16)
 * PDFSync:                               Processor Options.  (line   36)
 * PDFSync <1>:                           I/O Correlation.    (line    6)
@@ -9979,7 +9316,6 @@ Concept Index
 * Portuguese:                            European.           (line   51)
 * Prefix for labels:                     Sectioning.         (line  111)
 * Prefix for labels <1>:                 Floats.             (line   32)
-* preview-install-styles:                Configure.          (line   85)
 * Previewing:                            Viewing.            (line    6)
 * Printing:                              Commands.           (line    6)
 * Private directories:                   Automatic Private.  (line    6)
@@ -10059,17 +9395,11 @@ Concept Index
 * TeX:                                   Commands.           (line    6)
 * TeX parsing:                           Automatic.          (line    6)
 * tex-jp.el:                             Japanese.           (line    6)
-* tex-mik.el:                            Installation under MS Windows.
-                                                             (line  252)
-* tex-site.el:                           Loading the package.
-                                                             (line   10)
-* tex-site.el <1>:                       Customizing.        (line    6)
-* tex-site.el <2>:                       Changes.            (line 1106)
+* tex-site.el:                           Customizing.        (line    6)
+* tex-site.el <1>:                       Changes.            (line 1106)
 * tool bar, toolbar:                     Processing.         (line   11)
 * Trailer:                               Commands.           (line    6)
 * Underfull boxes:                       Debugging.          (line    6)
-* Uninstallation:                        Build/install and uninstall.
-                                                             (line    6)
 * Untabify:                              Parsing Files.      (line    6)
 * Updating style hooks:                  Automatic Local.    (line    6)
 * upLaTeX:                               Japanese.           (line    6)
@@ -10090,101 +9420,97 @@ Node: Top949
 Node: Copying7408
 Node: Introduction9356
 Node: Summary9629
-Node: Installation12365
-Node: Prerequisites14212
-Node: Configure16414
-Node: Build/install and uninstall20996
-Node: Loading the package21752
-Node: Advice for package providers24659
-Node: Advice for non-privileged users27651
-Node: Installation under MS Windows33000
-Node: Customizing46625
-Node: Quick Start48211
-Ref: Quick Start-Footnote-150331
-Node: Editing Facilities50425
-Node: Processing Facilities55125
-Node: Editing59861
-Node: Quotes61194
-Node: Font Specifiers69789
-Node: Sectioning71864
-Node: Environments76398
-Node: Equations81877
-Node: Floats82472
-Node: Itemize-like84479
-Node: Tabular-like85310
-Node: Customizing Environments87127
-Node: Mathematics87370
-Node: Completion90815
-Node: Marking98851
-Node: Marking (LaTeX)99478
-Node: Marking (Texinfo)100425
-Node: Commenting102041
-Node: Indenting103369
-Node: Filling111831
-Node: Display117704
-Node: Font Locking120202
-Node: Fontification of macros122284
-Node: Fontification of quotes131995
-Node: Fontification of math133494
-Node: Verbatim content137166
-Node: Faces137943
-Node: Known problems138443
-Node: Folding139443
-Node: Outline152008
-Node: Narrowing153290
-Node: Prettifying154362
-Node: Processing155643
-Node: Commands156974
-Node: Starting a Command157533
-Node: Selecting a Command162771
-Node: Processor Options171857
-Node: Viewing182824
-Node: Starting Viewers183201
-Node: I/O Correlation188858
-Ref: I/O Correlation-Footnote-1194539
-Node: Debugging194789
-Node: Ignoring warnings197426
-Node: Error overview199492
-Node: Checking201413
-Node: Control203345
-Node: Cleaning205459
-Node: Documentation206823
-Node: Customization207923
-Node: Modes and Hooks208419
-Node: Multifile210491
-Node: Parsing Files215238
-Node: Internationalization220230
-Node: European221582
-Node: Japanese229071
-Node: Automatic234143
-Node: Automatic Global236641
-Node: Automatic Private237778
-Node: Automatic Local239117
-Node: Style Files240358
-Node: Simple Style241167
-Node: Adding Macros244891
-Node: Adding Environments254399
-Node: Adding Other259643
-Node: Hacking the Parser264248
-Node: Appendices268239
-Node: Copying this Manual268538
-Node: GNU Free Documentation License269453
-Node: Changes294576
-Node: Development361899
-Node: Mid-term Goals362548
-Node: Wishlist365364
-Node: Bugs371350
-Node: FAQ372433
-Node: Texinfo mode379944
-Node: Exploiting381081
-Node: Superseding381902
-Node: Mapping386456
-Node: Unbinding388294
-Node: Indices388833
-Node: Key Index388999
-Node: Function Index397042
-Node: Variable Index409680
-Node: Concept Index435845
+Node: Installation12327
+Node: Prerequisites13359
+Node: Activating the package14867
+Node: Advice for package providers16837
+Node: Using AUCTeX from local Git repo17844
+Node: Customizing19104
+Node: Quick Start20692
+Node: Editing Facilities22202
+Node: Processing Facilities26902
+Node: Editing31638
+Node: Quotes32971
+Node: Font Specifiers41566
+Node: Sectioning43641
+Node: Environments48175
+Node: Equations53654
+Node: Floats54249
+Node: Itemize-like56256
+Node: Tabular-like57087
+Node: Customizing Environments58904
+Node: Mathematics59147
+Node: Completion62592
+Node: Marking70628
+Node: Marking (LaTeX)71255
+Node: Marking (Texinfo)72202
+Node: Commenting73818
+Node: Indenting75146
+Node: Filling83608
+Node: Display89481
+Node: Font Locking91979
+Node: Fontification of macros94061
+Node: Fontification of quotes103772
+Node: Fontification of math105271
+Node: Verbatim content108943
+Node: Faces109720
+Node: Known problems110220
+Node: Folding111220
+Node: Outline123785
+Node: Narrowing125067
+Node: Prettifying126139
+Node: Processing127420
+Node: Commands128751
+Node: Starting a Command129310
+Node: Selecting a Command134548
+Node: Processor Options143634
+Node: Viewing154601
+Node: Starting Viewers154978
+Node: I/O Correlation160635
+Ref: I/O Correlation-Footnote-1166316
+Node: Debugging166566
+Node: Ignoring warnings169203
+Node: Error overview171269
+Node: Checking173190
+Node: Control175122
+Node: Cleaning177236
+Node: Documentation178600
+Node: Customization179700
+Node: Modes and Hooks180196
+Node: Multifile182268
+Node: Parsing Files187015
+Node: Internationalization192007
+Node: European193359
+Node: Japanese200848
+Node: Automatic205920
+Node: Automatic Global208418
+Node: Automatic Private209555
+Node: Automatic Local210894
+Node: Style Files212135
+Node: Simple Style212944
+Node: Adding Macros216668
+Node: Adding Environments226176
+Node: Adding Other231420
+Node: Hacking the Parser236025
+Node: Appendices240016
+Node: Copying this Manual240315
+Node: GNU Free Documentation License241230
+Node: Changes266353
+Node: Development333631
+Node: Mid-term Goals334280
+Node: Wishlist337096
+Node: Bugs343082
+Node: FAQ344165
+Node: Texinfo mode350858
+Node: Exploiting351995
+Node: Superseding352816
+Node: Mapping357370
+Node: Unbinding359208
+Node: Indices359747
+Node: Key Index359913
+Node: Function Index367956
+Node: Variable Index380594
+Node: Concept Index406824
 
 End Tag Table
 
