@@ -76,7 +76,9 @@ TeX-auto-* (automatically generated lisp).")
   "The directory where the AUCTeX non-Lisp data is located.")
 
 (defcustom TeX-auto-global
-  (if (file-writable-p "/usr/local/var/auctex") "/usr/local/var/auctex" "~/.emacs.d/auctex")
+  (if (file-writable-p "/usr/local/var/auctex/")
+      "/usr/local/var/auctex/"
+    (concat user-emacs-directory "auctex/"))
   "Directory containing automatically generated information.
 
 For storing automatic extracted information about the TeX macros
@@ -193,11 +195,11 @@ Otherwise, restore AUCTeX definition saved in the symbol property
   (if (featurep 'tex-site)
       (TeX--alias-overlapped-modes t)))
 
-(defconst AUCTeX-version "14.0.6.2024-08-15_20:43:12"
+(defconst AUCTeX-version "14.0.6.2024-08-16_16:26:07"
   "AUCTeX version.
 If not a regular release, the date of the last change.")
 
-(defconst AUCTeX-date "2024-08-15_20:43:12"
+(defconst AUCTeX-date "2024-08-16_16:26:07"
   "AUCTeX release date using the ISO 8601 format, yyyy-mm-dd.")
 
 ;; Store bibitems when saving a BibTeX buffer
