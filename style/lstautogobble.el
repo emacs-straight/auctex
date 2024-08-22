@@ -1,10 +1,10 @@
-;;; truncate.el --- AUCTeX style for `truncate.sty'  -*- lexical-binding: t; -*-
+;;; lstautogobble.el --- AUCTeX style for `lstautogobble.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2021--2024 Free Software Foundation, Inc.
+;; Copyright (C) 2024 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
-;; Created: 2021-01-31
+;; Created: 2024-08-21
 ;; Keywords: tex
 
 ;; This file is part of AUCTeX.
@@ -26,34 +26,19 @@
 
 ;;; Commentary:
 
-;; This file adds support for `truncate.sty' v3.6 from 2001-08-20.
+;; This file adds support for `lstautogobble.sty' v0.1 from 2012-05-03.
 
 ;;; Code:
 
 (require 'tex)
 
-;; Silence the compiler:
-(declare-function font-latex-add-keywords
-                  "font-latex"
-                  (keywords class))
-
 (TeX-add-style-hook
- "truncate"
+ "lstautogobble"
  (lambda ()
-
-   (TeX-add-symbols
-    '("truncate" [ "Marker" ] (TeX-arg-length "Width") "Text")
-    '("TruncateMarker" 0))
-
-   ;; Fontification
-   (when (and (featurep 'font-latex)
-              (eq TeX-install-font-lock 'font-latex-setup))
-     (font-latex-add-keywords '(("truncate"   "[{{"))
-                              'textual)))
+   (TeX-run-style-hooks "listings"))
  TeX-dialect)
 
-(defvar LaTeX-truncate-package-options
-  '("breakwords" "breakall" "hyphenate" "fit")
-  "Package options for the truncate package.")
+(defvar LaTeX-lstautogobble-package-options nil
+  "Package options for the lstautogobble package.")
 
-;;; truncate.el ends here
+;;; lstautogobble.el ends here
