@@ -94,8 +94,6 @@ shared by all users of a site."
     (doctex-mode . docTeX-mode))
   "Alist of built-in TeX modes and their counterparts in AUCTeX.")
 
-(defalias 'TeX-load-hack #'ignore)
-
 (defun tex-site-unload-function ()
   (TeX-modes-set 'TeX-modes nil)
 
@@ -195,11 +193,11 @@ Otherwise, restore AUCTeX definition saved in the symbol property
   (if (featurep 'tex-site)
       (TeX--alias-overlapped-modes t)))
 
-(defconst AUCTeX-version "14.0.6.2024-08-21_11:36:01"
+(defconst AUCTeX-version "14.0.6.2024-08-22_14:14:29"
   "AUCTeX version.
 If not a regular release, the date of the last change.")
 
-(defconst AUCTeX-date "2024-08-21_11:36:01"
+(defconst AUCTeX-date "2024-08-22_14:14:29"
   "AUCTeX release date using the ISO 8601 format, yyyy-mm-dd.")
 
 ;; Store bibitems when saving a BibTeX buffer
