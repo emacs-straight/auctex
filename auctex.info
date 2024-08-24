@@ -1,8 +1,8 @@
-This is docfGewIp.info, produced by makeinfo version 6.8 from
+This is docDTqaK0.info, produced by makeinfo version 6.8 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.0.6.2024-08-22_14:14:29 from
-2024-08-22_14:14:29), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.0.6.2024-08-23_21:10:01 from
+2024-08-23_21:10:01), a sophisticated TeX environment for Emacs.
 
    Copyright (C) 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -24,7 +24,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: docfGewIp.info,  Node: Top,  Next: Copying,  Up: (dir)
+File: docDTqaK0.info,  Node: Top,  Next: Copying,  Up: (dir)
 
 AUCTeX
 ******
@@ -197,7 +197,7 @@ Indices
 
 
 
-File: docfGewIp.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
+File: docDTqaK0.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
 
 Copying
 *******
@@ -236,7 +236,7 @@ that accompany them.  This manual specifically is covered by the GNU
 Free Documentation License (*note Copying this Manual::).
 
 
-File: docfGewIp.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: Top
+File: docDTqaK0.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: Top
 
 1 Introduction
 **************
@@ -248,7 +248,7 @@ File: docfGewIp.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: 
 * Quick Start::                 Quick Start
 
 
-File: docfGewIp.info,  Node: Summary,  Next: Installation,  Up: Introduction
+File: docDTqaK0.info,  Node: Summary,  Next: Installation,  Up: Introduction
 
 1.1 Overview of AUCTeX
 ======================
@@ -310,7 +310,7 @@ developers of AUCTeX themselves with technical issues, they can be found
 on the discussion list <auctex-devel@gnu.org>.
 
 
-File: docfGewIp.info,  Node: Installation,  Next: Quick Start,  Prev: Summary,  Up: Introduction
+File: docDTqaK0.info,  Node: Installation,  Next: Quick Start,  Prev: Summary,  Up: Introduction
 
 1.2 Installing AUCTeX
 =====================
@@ -348,7 +348,7 @@ Quick Start::.
 * Customizing::
 
 
-File: docfGewIp.info,  Node: Prerequisites,  Next: Activating the package,  Up: Installation
+File: docDTqaK0.info,  Node: Prerequisites,  Next: Activating the package,  Up: Installation
 
 1.2.1 Prerequisites
 -------------------
@@ -389,7 +389,7 @@ File: docfGewIp.info,  Node: Prerequisites,  Next: Activating the package,  Up: 
 (preview-latex)Known problems::.
 
 
-File: docfGewIp.info,  Node: Activating the package,  Next: Advice for package providers,  Prev: Prerequisites,  Up: Installation
+File: docDTqaK0.info,  Node: Activating the package,  Next: Advice for package providers,  Prev: Prerequisites,  Up: Installation
 
 1.2.2 Activating the package
 ----------------------------
@@ -432,8 +432,13 @@ in your early init file (*note (emacs)Early Init File::).  (We recommend
 this treatment over setting 'TeX-modes' to 'nil', because it doesn't
 leave unused autoloads persisted.)
 
+   It is no longer possible to disable the site-wide installation by
+     (unload-feature 'tex-site)
+, so don't use it.  This was the instruction described in former
+versions of this document, but now it causes error.
+
 
-File: docfGewIp.info,  Node: Advice for package providers,  Next: Using AUCTeX from ELPA-devel,  Prev: Activating the package,  Up: Installation
+File: docDTqaK0.info,  Node: Advice for package providers,  Next: Using AUCTeX from ELPA-devel,  Prev: Activating the package,  Up: Installation
 
 1.2.3 Providing AUCTeX as a package
 -----------------------------------
@@ -455,7 +460,7 @@ is therefore a good choice.
 'package-directory-list' to have site-wide default.
 
 
-File: docfGewIp.info,  Node: Using AUCTeX from ELPA-devel,  Next: Using AUCTeX from local Git repo,  Prev: Advice for package providers,  Up: Installation
+File: docDTqaK0.info,  Node: Using AUCTeX from ELPA-devel,  Next: Using AUCTeX from local Git repo,  Prev: Advice for package providers,  Up: Installation
 
 1.2.4 Using AUCTeX from ELPA-devel
 ----------------------------------
@@ -480,7 +485,7 @@ regular archive, and instructs Emacs to fetch only AUCTeX from the new
 archive and don't bother with other packages installed.
 
 
-File: docfGewIp.info,  Node: Using AUCTeX from local Git repo,  Next: Customizing,  Prev: Using AUCTeX from ELPA-devel,  Up: Installation
+File: docDTqaK0.info,  Node: Using AUCTeX from local Git repo,  Next: Customizing,  Prev: Using AUCTeX from ELPA-devel,  Up: Installation
 
 1.2.5 Using AUCTeX from local Git repo
 --------------------------------------
@@ -513,7 +518,7 @@ and you're finished.
                       "~/development/auctex/doc")))
 
 
-File: docfGewIp.info,  Node: Customizing,  Prev: Using AUCTeX from local Git repo,  Up: Installation
+File: docDTqaK0.info,  Node: Customizing,  Prev: Using AUCTeX from local Git repo,  Up: Installation
 
 1.2.6 Customizing
 -----------------
@@ -551,7 +556,7 @@ accessible directly by typing 'M-x customize-option <RET> OPTION <RET>'.
      <https://lists.gnu.org/r/auctex/2021-01/msg00037.html>.
 
 
-File: docfGewIp.info,  Node: Quick Start,  Prev: Installation,  Up: Introduction
+File: docDTqaK0.info,  Node: Quick Start,  Prev: Installation,  Up: Introduction
 
 1.3 Quick Start
 ===============
@@ -589,7 +594,7 @@ ask you for a master file.
 * Processing Facilities::       Creating and viewing output, debugging
 
 
-File: docfGewIp.info,  Node: Editing Facilities,  Next: Processing Facilities,  Up: Quick Start
+File: docDTqaK0.info,  Node: Editing Facilities,  Next: Processing Facilities,  Up: Quick Start
 
 1.3.1 Functions for editing TeX files
 -------------------------------------
@@ -708,7 +713,7 @@ outline mode is provided as well.  And there's more, but this is beyond
 the scope of this Quick Start Guide.
 
 
-File: docfGewIp.info,  Node: Processing Facilities,  Prev: Editing Facilities,  Up: Quick Start
+File: docDTqaK0.info,  Node: Processing Facilities,  Prev: Editing Facilities,  Up: Quick Start
 
 1.3.2 Creating and viewing output, debugging
 --------------------------------------------
@@ -815,7 +820,7 @@ run 'latex' only on the current buffer, using the preamble from the
 master file.
 
 
-File: docfGewIp.info,  Node: Editing,  Next: Display,  Prev: Introduction,  Up: Top
+File: docDTqaK0.info,  Node: Editing,  Next: Display,  Prev: Introduction,  Up: Top
 
 2 Editing the Document Source
 *****************************
@@ -844,7 +849,7 @@ by indenting and filling and for navigating through the document.
 * Filling::                     Automatic and manual line breaking
 
 
-File: docfGewIp.info,  Node: Quotes,  Next: Font Specifiers,  Up: Editing
+File: docDTqaK0.info,  Node: Quotes,  Next: Font Specifiers,  Up: Editing
 
 2.1 Insertion of Quotes, Dollars, and Braces
 ============================================
@@ -1051,7 +1056,7 @@ when typing '(', '{' and '['.
      completion.
 
 
-File: docfGewIp.info,  Node: Font Specifiers,  Next: Sectioning,  Prev: Quotes,  Up: Editing
+File: docDTqaK0.info,  Node: Font Specifiers,  Next: Sectioning,  Prev: Quotes,  Up: Editing
 
 2.2 Inserting Font Specifiers
 =============================
@@ -1124,7 +1129,7 @@ inserted.
      structure as 'TeX-font-list'.
 
 
-File: docfGewIp.info,  Node: Sectioning,  Next: Environments,  Prev: Font Specifiers,  Up: Editing
+File: docDTqaK0.info,  Node: Sectioning,  Next: Environments,  Prev: Font Specifiers,  Up: Editing
 
 2.3 Inserting chapters, sections, etc.
 ======================================
@@ -1239,7 +1244,7 @@ label will be prefixed by the value specified in 'LaTeX-section-hook'.
      inserted for other types of sections.
 
 
-File: docfGewIp.info,  Node: Environments,  Next: Mathematics,  Prev: Sectioning,  Up: Editing
+File: docDTqaK0.info,  Node: Environments,  Next: Mathematics,  Prev: Sectioning,  Up: Editing
 
 2.4 Inserting Environment Templates
 ===================================
@@ -1367,7 +1372,7 @@ and to the end of the current environment.
      calls 'LaTeX-find-matching-end'.
 
 
-File: docfGewIp.info,  Node: Equations,  Next: Floats,  Up: Environments
+File: docDTqaK0.info,  Node: Equations,  Next: Floats,  Up: Environments
 
 2.4.1 Equations
 ---------------
@@ -1387,7 +1392,7 @@ default prefix, which is controlled by the following variables:
      'gather'.
 
 
-File: docfGewIp.info,  Node: Floats,  Next: Itemize-like,  Prev: Equations,  Up: Environments
+File: docDTqaK0.info,  Node: Floats,  Next: Itemize-like,  Prev: Equations,  Up: Environments
 
 2.4.2 Floats
 ------------
@@ -1442,7 +1447,7 @@ environment.
      caption.
 
 
-File: docfGewIp.info,  Node: Itemize-like,  Next: Tabular-like,  Prev: Floats,  Up: Environments
+File: docDTqaK0.info,  Node: Itemize-like,  Next: Tabular-like,  Prev: Floats,  Up: Environments
 
 2.4.3 Itemize-like Environments
 -------------------------------
@@ -1462,7 +1467,7 @@ if the key binding is still available.
      Otherwise, you will be asked only in description environments.
 
 
-File: docfGewIp.info,  Node: Tabular-like,  Next: Customizing Environments,  Prev: Itemize-like,  Up: Environments
+File: docDTqaK0.info,  Node: Tabular-like,  Next: Customizing Environments,  Prev: Itemize-like,  Up: Environments
 
 2.4.4 Tabular-like Environments
 -------------------------------
@@ -1505,7 +1510,7 @@ or 'M-<RET>' in these environments.  It recognizes the current
 environment and does the appropriate job depending on the context.
 
 
-File: docfGewIp.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up: Environments
+File: docDTqaK0.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up: Environments
 
 2.4.5 Customizing Environments
 ------------------------------
@@ -1514,7 +1519,7 @@ File: docfGewIp.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up:
 environments.
 
 
-File: docfGewIp.info,  Node: Mathematics,  Next: Completion,  Prev: Environments,  Up: Editing
+File: docDTqaK0.info,  Node: Mathematics,  Next: Completion,  Prev: Environments,  Up: Editing
 
 2.5 Entering Mathematics
 ========================
@@ -1595,7 +1600,7 @@ characters, when you begin to enter math constructs.
      by 'C-c C-e' ('LaTeX-environment').
 
 
-File: docfGewIp.info,  Node: Completion,  Next: Marking,  Prev: Mathematics,  Up: Editing
+File: docDTqaK0.info,  Node: Completion,  Next: Marking,  Prev: Mathematics,  Up: Editing
 
 2.6 Completion
 ==============
@@ -1778,7 +1783,7 @@ after you enabled automatic parsing on save, and that the basename of
 the BibTeX file does not conflict with the basename of one of TeX files.
 
 
-File: docfGewIp.info,  Node: Marking,  Next: Commenting,  Prev: Completion,  Up: Editing
+File: docDTqaK0.info,  Node: Marking,  Next: Commenting,  Prev: Completion,  Up: Editing
 
 2.7 Marking Environments, Sections, or Texinfo Nodes
 ====================================================
@@ -1797,7 +1802,7 @@ mark to its end.
 * Marking (Texinfo):: Texinfo Commands for Marking Environments, Sections, and Nodes
 
 
-File: docfGewIp.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Marking
+File: docDTqaK0.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Marking
 
 2.7.1 LaTeX Commands for Marking Environments and Sections
 ----------------------------------------------------------
@@ -1821,7 +1826,7 @@ File: docfGewIp.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Mar
      environments.
 
 
-File: docfGewIp.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Marking
+File: docDTqaK0.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Marking
 
 2.7.2 Texinfo Commands for Marking Environments and Sections
 ------------------------------------------------------------
@@ -1860,7 +1865,7 @@ File: docfGewIp.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Mar
      '@node' or '@bye'.
 
 
-File: docfGewIp.info,  Node: Commenting,  Next: Indenting,  Prev: Marking,  Up: Editing
+File: docDTqaK0.info,  Node: Commenting,  Next: Indenting,  Prev: Marking,  Up: Editing
 
 2.8 Commenting
 ==============
@@ -1888,7 +1893,7 @@ single '%' respectively.
      starting with a '%', until the first non-comment line.
 
 
-File: docfGewIp.info,  Node: Indenting,  Next: Filling,  Prev: Commenting,  Up: Editing
+File: docDTqaK0.info,  Node: Indenting,  Next: Filling,  Prev: Commenting,  Up: Editing
 
 2.9 Indenting
 =============
@@ -2081,7 +2086,7 @@ behavior can be controlled by setting the variable
      option is disabled by default.
 
 
-File: docfGewIp.info,  Node: Filling,  Prev: Indenting,  Up: Editing
+File: docDTqaK0.info,  Node: Filling,  Prev: Indenting,  Up: Editing
 
 2.10 Filling
 ============
@@ -2219,7 +2224,7 @@ inside the comment, AUCTeX will report an error.
      }
 
 
-File: docfGewIp.info,  Node: Display,  Next: Processing,  Prev: Editing,  Up: Top
+File: docDTqaK0.info,  Node: Display,  Next: Processing,  Prev: Editing,  Up: Top
 
 3 Controlling Screen Display
 ****************************
@@ -2277,7 +2282,7 @@ together.
 * Prettifying::                 Displaying Greek and math macros as Unicode characters
 
 
-File: docfGewIp.info,  Node: Font Locking,  Next: Folding,  Up: Display
+File: docDTqaK0.info,  Node: Font Locking,  Next: Folding,  Up: Display
 
 3.1 Font Locking
 ================
@@ -2322,7 +2327,7 @@ description the various options are explained in conceptional groups.
 * Known problems::              Known fontification problems
 
 
-File: docfGewIp.info,  Node: Fontification of macros,  Next: Fontification of quotes,  Up: Font Locking
+File: docDTqaK0.info,  Node: Fontification of macros,  Next: Fontification of quotes,  Up: Font Locking
 
 3.1.1 Fontification of macros
 -----------------------------
@@ -2543,7 +2548,7 @@ variable 'font-latex-user-keyword-classes'.
      above.
 
 
-File: docfGewIp.info,  Node: Fontification of quotes,  Next: Fontification of math,  Prev: Fontification of macros,  Up: Font Locking
+File: docDTqaK0.info,  Node: Fontification of quotes,  Next: Fontification of math,  Prev: Fontification of macros,  Up: Font Locking
 
 3.1.2 Fontification of quotes
 -----------------------------
@@ -2575,7 +2580,7 @@ properties.
      fontified.
 
 
-File: docfGewIp.info,  Node: Fontification of math,  Next: Verbatim content,  Prev: Fontification of quotes,  Up: Font Locking
+File: docDTqaK0.info,  Node: Fontification of math,  Next: Verbatim content,  Prev: Fontification of quotes,  Up: Font Locking
 
 3.1.3 Fontification of mathematical constructs
 ----------------------------------------------
@@ -2648,7 +2653,7 @@ an own face named 'font-latex-script-char-face'.
      Other Display Specifications: (elisp)Other Display Specs.
 
 
-File: docfGewIp.info,  Node: Verbatim content,  Next: Faces,  Prev: Fontification of math,  Up: Font Locking
+File: docDTqaK0.info,  Node: Verbatim content,  Next: Faces,  Prev: Fontification of math,  Up: Font Locking
 
 3.1.4 Verbatim macros and environments
 --------------------------------------
@@ -2666,7 +2671,7 @@ environments are recognized is controlled by the variables
 respectively.
 
 
-File: docfGewIp.info,  Node: Faces,  Next: Known problems,  Prev: Verbatim content,  Up: Font Locking
+File: docDTqaK0.info,  Node: Faces,  Next: Known problems,  Prev: Verbatim content,  Up: Font Locking
 
 3.1.5 Faces used by font-latex
 ------------------------------
@@ -2678,7 +2683,7 @@ font-latex are accessible through a customization group by typing 'M-x
 customize-group <RET> font-latex-highlighting-faces <RET>'.
 
 
-File: docfGewIp.info,  Node: Known problems,  Prev: Faces,  Up: Font Locking
+File: docDTqaK0.info,  Node: Known problems,  Prev: Faces,  Up: Font Locking
 
 3.1.6 Known fontification problems
 ----------------------------------
@@ -2699,7 +2704,7 @@ workaround.  In docTeX documents, '^^A$' is also available for similar
 purpose.
 
 
-File: docfGewIp.info,  Node: Folding,  Next: Outline,  Prev: Font Locking,  Up: Display
+File: docDTqaK0.info,  Node: Folding,  Next: Outline,  Prev: Font Locking,  Up: Display
 
 3.2 Folding Macros and Environments
 ===================================
@@ -2967,7 +2972,7 @@ variable 'TeX-fold-help-echo-max-length'.
      binding.
 
 
-File: docfGewIp.info,  Node: Outline,  Next: Narrowing,  Prev: Folding,  Up: Display
+File: docDTqaK0.info,  Node: Outline,  Next: Narrowing,  Prev: Folding,  Up: Display
 
 3.3 Outlining the Document
 ==========================
@@ -3004,7 +3009,7 @@ better outline support.  It is available from your favorite emacs lisp
 archive.
 
 
-File: docfGewIp.info,  Node: Narrowing,  Next: Prettifying,  Prev: Outline,  Up: Display
+File: docDTqaK0.info,  Node: Narrowing,  Next: Prettifying,  Prev: Outline,  Up: Display
 
 3.4 Narrowing
 =============
@@ -3030,7 +3035,7 @@ the option of enabling them; if you enable the commands, confirmation
 will no longer be required for them.
 
 
-File: docfGewIp.info,  Node: Prettifying,  Prev: Narrowing,  Up: Display
+File: docDTqaK0.info,  Node: Prettifying,  Prev: Narrowing,  Up: Display
 
 3.5 Prettifying
 ===============
@@ -3061,7 +3066,7 @@ this variable is part of Emacs' stock 'tex-mode.el' and used by that and
 AUCTeX.
 
 
-File: docfGewIp.info,  Node: Processing,  Next: Customization,  Prev: Display,  Up: Top
+File: docDTqaK0.info,  Node: Processing,  Next: Customization,  Prev: Display,  Up: Top
 
 4 Starting Processors, Viewers and Other Programs
 *************************************************
@@ -3090,7 +3095,7 @@ can also customize the buttons by the options 'TeX-bar-TeX-buttons',
 * Documentation::               Documentation about macros and packages.
 
 
-File: docfGewIp.info,  Node: Commands,  Next: Viewing,  Up: Processing
+File: docDTqaK0.info,  Node: Commands,  Next: Viewing,  Up: Processing
 
 4.1 Executing Commands
 ======================
@@ -3107,7 +3112,7 @@ external command.
 * Processor Options::           Options for TeX Processors
 
 
-File: docfGewIp.info,  Node: Starting a Command,  Next: Selecting a Command,  Up: Commands
+File: docDTqaK0.info,  Node: Starting a Command,  Next: Selecting a Command,  Up: Commands
 
 4.1.1 Starting a Command on a Document or Region
 ------------------------------------------------
@@ -3216,7 +3221,7 @@ when you are editing multiple documents in parallel.  This limitation
 applies for preview by preview-latex as well.
 
 
-File: docfGewIp.info,  Node: Selecting a Command,  Next: Processor Options,  Prev: Starting a Command,  Up: Commands
+File: docDTqaK0.info,  Node: Selecting a Command,  Next: Processor Options,  Prev: Starting a Command,  Up: Commands
 
 4.1.2 Selecting and Executing a Command
 ---------------------------------------
@@ -3399,7 +3404,7 @@ verbatim macros like '\Verb' from 'fancyvrb.sty' or '\mintinline' from
      avoided as they are not recognized by 'font-latex.el'.
 
 
-File: docfGewIp.info,  Node: Processor Options,  Prev: Selecting a Command,  Up: Commands
+File: docDTqaK0.info,  Node: Processor Options,  Prev: Selecting a Command,  Up: Commands
 
 4.1.3 Options for TeX Processors
 --------------------------------
@@ -3616,7 +3621,7 @@ is controlled by 'ConTeXt-Mark-version' option.
      basis, by specifying it as a file variable.
 
 
-File: docfGewIp.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
+File: docDTqaK0.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
 
 4.2 Viewing the Formatted Output
 ================================
@@ -3630,7 +3635,7 @@ formatted output of your document.
 * I/O Correlation::             Forward and inverse search
 
 
-File: docfGewIp.info,  Node: Starting Viewers,  Next: I/O Correlation,  Up: Viewing
+File: docDTqaK0.info,  Node: Starting Viewers,  Next: I/O Correlation,  Up: Viewing
 
 4.2.1 Starting Viewers
 ----------------------
@@ -3736,7 +3741,7 @@ the variable in place.  In addition, the use of a function in
 'TeX-command-list' makes use of the hook 'TeX-run-discard-or-function'.
 
 
-File: docfGewIp.info,  Node: I/O Correlation,  Prev: Starting Viewers,  Up: Viewing
+File: docDTqaK0.info,  Node: I/O Correlation,  Prev: Starting Viewers,  Up: Viewing
 
 4.2.2 Forward and Inverse Search
 --------------------------------
@@ -3856,7 +3861,7 @@ implemented as minor mode map of 'TeX-source-correlate-mode', in order
 that its bindings don't affect buffers outside of AUCTeX.
 
 
-File: docfGewIp.info,  Node: Debugging,  Next: Checking,  Prev: Viewing,  Up: Processing
+File: docDTqaK0.info,  Node: Debugging,  Next: Checking,  Prev: Viewing,  Up: Processing
 
 4.3 Catching the errors
 =======================
@@ -3916,7 +3921,7 @@ error reported by TeX along with the documentation.  There is however an
 * Error overview::            List of all errors and warnings
 
 
-File: docfGewIp.info,  Node: Ignoring warnings,  Next: Error overview,  Up: Debugging
+File: docDTqaK0.info,  Node: Ignoring warnings,  Next: Error overview,  Up: Debugging
 
 4.3.1 Controlling warnings to be reported
 -----------------------------------------
@@ -3964,7 +3969,7 @@ options.
      'nil', all warnings are hidden in any case.
 
 
-File: docfGewIp.info,  Node: Error overview,  Prev: Ignoring warnings,  Up: Debugging
+File: docDTqaK0.info,  Node: Error overview,  Prev: Ignoring warnings,  Up: Debugging
 
 4.3.2 List of all errors and warnings
 -------------------------------------
@@ -4009,7 +4014,7 @@ default, but you can change this behavior by customizing the option
      be used regardless of the value of this variable.
 
 
-File: docfGewIp.info,  Node: Checking,  Next: Control,  Prev: Debugging,  Up: Processing
+File: docDTqaK0.info,  Node: Checking,  Next: Control,  Prev: Debugging,  Up: Processing
 
 4.4 Checking for problems
 =========================
@@ -4048,7 +4053,7 @@ before using them.  You can get 'lacheck' from
 <https://www.ctan.org/pkg/chktex>.  TeX Live contains both.
 
 
-File: docfGewIp.info,  Node: Control,  Next: Cleaning,  Prev: Checking,  Up: Processing
+File: docDTqaK0.info,  Node: Control,  Next: Cleaning,  Prev: Checking,  Up: Processing
 
 4.5 Controlling the output
 ==========================
@@ -4101,7 +4106,7 @@ separate directory.
      'TEXINPUTS' and 'BIBINPUTS'.
 
 
-File: docfGewIp.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up: Processing
+File: docDTqaK0.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up: Processing
 
 4.6 Cleaning intermediate and output files
 ==========================================
@@ -4136,7 +4141,7 @@ File: docfGewIp.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up
      deleting files.
 
 
-File: docfGewIp.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
+File: docDTqaK0.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
 
 4.7 Documentation about macros and packages
 ===========================================
@@ -4161,7 +4166,7 @@ File: docfGewIp.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
      Thus it isn't sure whether this command works for MiKTeX or not.
 
 
-File: docfGewIp.info,  Node: Customization,  Next: Appendices,  Prev: Processing,  Up: Top
+File: docDTqaK0.info,  Node: Customization,  Next: Appendices,  Prev: Processing,  Up: Top
 
 5 Customization and Extension
 *****************************
@@ -4176,7 +4181,7 @@ File: docfGewIp.info,  Node: Customization,  Next: Appendices,  Prev: Processing
 * Style Files::                 Writing Your Own Style Support
 
 
-File: docfGewIp.info,  Node: Modes and Hooks,  Next: Multifile,  Up: Customization
+File: docDTqaK0.info,  Node: Modes and Hooks,  Next: Multifile,  Up: Customization
 
 5.1 Modes and Hooks
 ===================
@@ -4221,7 +4226,7 @@ mode and runs 'plain-TeX-mode-hook' as well.
      added to the hook for this purpose.
 
 
-File: docfGewIp.info,  Node: Multifile,  Next: Parsing Files,  Prev: Modes and Hooks,  Up: Customization
+File: docDTqaK0.info,  Node: Multifile,  Next: Parsing Files,  Prev: Modes and Hooks,  Up: Customization
 
 5.2 Multifile Documents
 =======================
@@ -4327,7 +4332,7 @@ master file.  *Note Automatic Local::.
      'TeX-save-document'.
 
 
-File: docfGewIp.info,  Node: Parsing Files,  Next: Internationalization,  Prev: Multifile,  Up: Customization
+File: docDTqaK0.info,  Node: Parsing Files,  Next: Internationalization,  Prev: Multifile,  Up: Customization
 
 5.3 Automatic Parsing of TeX Files
 ==================================
@@ -4457,7 +4462,7 @@ these before loading AUCTeX by quoting them, as in the example above.
      Parse all TeX and LaTeX commands that AUCTeX can use.
 
 
-File: docfGewIp.info,  Node: Internationalization,  Next: Automatic,  Prev: Parsing Files,  Up: Customization
+File: docDTqaK0.info,  Node: Internationalization,  Next: Automatic,  Prev: Parsing Files,  Up: Customization
 
 5.4 Language Support
 ====================
@@ -4488,7 +4493,7 @@ for supporting CJK scripts in a standard LaTeX document.
 * Japanese::                    Using AUCTeX with Japanese
 
 
-File: docfGewIp.info,  Node: European,  Next: Japanese,  Up: Internationalization
+File: docDTqaK0.info,  Node: European,  Next: Japanese,  Up: Internationalization
 
 5.4.1 Using AUCTeX with European Languages
 ------------------------------------------
@@ -4670,7 +4675,7 @@ respectively.
      second key press.  If 'nil' do it the other way round.
 
 
-File: docfGewIp.info,  Node: Japanese,  Prev: European,  Up: Internationalization
+File: docDTqaK0.info,  Node: Japanese,  Prev: European,  Up: Internationalization
 
 5.4.2 Using AUCTeX with Japanese TeX
 ------------------------------------
@@ -4795,7 +4800,7 @@ won't matter in buffers with other engines.
    See 'tex-jp.el' for more information.
 
 
-File: docfGewIp.info,  Node: Automatic,  Next: Style Files,  Prev: Internationalization,  Up: Customization
+File: docDTqaK0.info,  Node: Automatic,  Next: Style Files,  Prev: Internationalization,  Up: Customization
 
 5.5 Automatic Customization
 ===========================
@@ -4853,7 +4858,7 @@ and 'CVS'.
      for TeX files in a directory.
 
 
-File: docfGewIp.info,  Node: Automatic Global,  Next: Automatic Private,  Up: Automatic
+File: docDTqaK0.info,  Node: Automatic Global,  Next: Automatic Private,  Up: Automatic
 
 5.5.1 Automatic Customization for the Site
 ------------------------------------------
@@ -4883,7 +4888,7 @@ the variable 'TeX-auto-global' to 'nil'.
      shared by all users of a site.
 
 
-File: docfGewIp.info,  Node: Automatic Private,  Next: Automatic Local,  Prev: Automatic Global,  Up: Automatic
+File: docDTqaK0.info,  Node: Automatic Private,  Next: Automatic Local,  Prev: Automatic Global,  Up: Automatic
 
 5.5.2 Automatic Customization for a User
 ----------------------------------------
@@ -4915,7 +4920,7 @@ directories listed in 'TeX-auto-private'
      These correspond to the personal TeX macros.
 
 
-File: docfGewIp.info,  Node: Automatic Local,  Prev: Automatic Private,  Up: Automatic
+File: docDTqaK0.info,  Node: Automatic Local,  Prev: Automatic Private,  Up: Automatic
 
 5.5.3 Automatic Customization for a Directory
 ---------------------------------------------
@@ -4948,7 +4953,7 @@ set 'TeX-auto-local' to 'nil'.
      Subdirectory name is actually taken from 'TeX-auto-local'.
 
 
-File: docfGewIp.info,  Node: Style Files,  Prev: Automatic,  Up: Customization
+File: docDTqaK0.info,  Node: Style Files,  Prev: Automatic,  Up: Customization
 
 5.6 Writing Your Own Style Support
 ==================================
@@ -4970,7 +4975,7 @@ directories instead of 'auto' directories.
 send it to us.
 
 
-File: docfGewIp.info,  Node: Simple Style,  Next: Adding Macros,  Up: Style Files
+File: docDTqaK0.info,  Node: Simple Style,  Next: Adding Macros,  Up: Style Files
 
 5.6.1 A Simple Style File
 -------------------------
@@ -5057,7 +5062,7 @@ DIALECT-EXPR to pass constant 'TeX-dialect' currently defined to
      file, or any mode derived thereof.
 
 
-File: docfGewIp.info,  Node: Adding Macros,  Next: Adding Environments,  Prev: Simple Style,  Up: Style Files
+File: docDTqaK0.info,  Node: Adding Macros,  Next: Adding Environments,  Prev: Simple Style,  Up: Style Files
 
 5.6.2 Adding Support for Macros
 -------------------------------
@@ -5335,7 +5340,7 @@ users.  Those should be marked as expert macros using
      'TeX-complete-expert-commands'.
 
 
-File: docfGewIp.info,  Node: Adding Environments,  Next: Adding Other,  Prev: Adding Macros,  Up: Style Files
+File: docDTqaK0.info,  Node: Adding Environments,  Next: Adding Other,  Prev: Adding Macros,  Up: Style Files
 
 5.6.3 Adding Support for Environments
 -------------------------------------
@@ -5481,7 +5486,7 @@ non-expert users.  Those should be marked as expert environments using
      'TeX-complete-expert-commands'.
 
 
-File: docfGewIp.info,  Node: Adding Other,  Next: Hacking the Parser,  Prev: Adding Environments,  Up: Style Files
+File: docDTqaK0.info,  Node: Adding Other,  Next: Hacking the Parser,  Prev: Adding Environments,  Up: Style Files
 
 5.6.4 Adding or Examining Other Information
 -------------------------------------------
@@ -5591,7 +5596,7 @@ can provide completion support for the optional arguments.
      Which see.
 
 
-File: docfGewIp.info,  Node: Hacking the Parser,  Prev: Adding Other,  Up: Style Files
+File: docDTqaK0.info,  Node: Hacking the Parser,  Prev: Adding Other,  Up: Style Files
 
 5.6.5 Automatic Extraction of New Things
 ----------------------------------------
@@ -5694,7 +5699,7 @@ symbols found.
      List of functions to be called after parsing a TeX file.
 
 
-File: docfGewIp.info,  Node: Appendices,  Next: Indices,  Prev: Customization,  Up: Top
+File: docDTqaK0.info,  Node: Appendices,  Next: Indices,  Prev: Customization,  Up: Top
 
 Appendix A Copying, Changes, Development, FAQ, Texinfo Mode
 ***********************************************************
@@ -5708,15 +5713,15 @@ Appendix A Copying, Changes, Development, FAQ, Texinfo Mode
 * Texinfo mode::
 
 
-File: docfGewIp.info,  Node: Copying this Manual,  Next: Changes,  Up: Appendices
+File: docDTqaK0.info,  Node: Copying this Manual,  Next: Changes,  Up: Appendices
 
 A.1 Copying this Manual
 =======================
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.0.6.2024-08-22_14:14:29 from
-2024-08-22_14:14:29), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.0.6.2024-08-23_21:10:01 from
+2024-08-23_21:10:01), a sophisticated TeX environment for Emacs.
 
    Copyright (C) 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -5735,7 +5740,7 @@ Foundation, Inc.
 * GNU Free Documentation License:: License for copying this manual.
 
 
-File: docfGewIp.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
+File: docDTqaK0.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
 
 A.1.1 GNU Free Documentation License
 ------------------------------------
@@ -6217,7 +6222,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: docfGewIp.info,  Node: Changes,  Next: Development,  Prev: Copying this Manual,  Up: Appendices
+File: docDTqaK0.info,  Node: Changes,  Next: Development,  Prev: Copying this Manual,  Up: Appendices
 
 A.2 Changes and New Features
 ============================
@@ -6236,7 +6241,7 @@ See the file 'history.texi' for older changes.  It is available at 'doc'
 subdirectory of ELPA AUCTeX contents directory.
 
 
-File: docfGewIp.info,  Node: Development,  Next: FAQ,  Prev: Changes,  Up: Appendices
+File: docDTqaK0.info,  Node: Development,  Next: FAQ,  Prev: Changes,  Up: Appendices
 
 A.3 Future Development
 ======================
@@ -6256,7 +6261,7 @@ on the mailing list of AUCTeX first.
 * Bugs::
 
 
-File: docfGewIp.info,  Node: Mid-term Goals,  Next: Wishlist,  Up: Development
+File: docDTqaK0.info,  Node: Mid-term Goals,  Next: Wishlist,  Up: Development
 
 A.3.1 Mid-term Goals
 --------------------
@@ -6327,7 +6332,7 @@ A.3.1 Mid-term Goals
         - Usage of ConTeXt mode
 
 
-File: docfGewIp.info,  Node: Wishlist,  Next: Bugs,  Prev: Mid-term Goals,  Up: Development
+File: docDTqaK0.info,  Node: Wishlist,  Next: Bugs,  Prev: Mid-term Goals,  Up: Development
 
 A.3.2 Wishlist
 --------------
@@ -6493,7 +6498,7 @@ A.3.2 Wishlist
    * Hook up the letter environment with 'bbdb.el'.
 
 
-File: docfGewIp.info,  Node: Bugs,  Prev: Wishlist,  Up: Development
+File: docDTqaK0.info,  Node: Bugs,  Prev: Wishlist,  Up: Development
 
 A.3.3 Bugs
 ----------
@@ -6524,7 +6529,7 @@ A.3.3 Bugs
    * Correct indentation for tabbing, table, and math environments.
 
 
-File: docfGewIp.info,  Node: FAQ,  Next: Texinfo mode,  Prev: Development,  Up: Appendices
+File: docDTqaK0.info,  Node: FAQ,  Next: Texinfo mode,  Prev: Development,  Up: Appendices
 
 A.4 Frequently Asked Questions
 ==============================
@@ -6673,7 +6678,7 @@ A.4 Frequently Asked Questions
      'AUC' for short.
 
 
-File: docfGewIp.info,  Node: Texinfo mode,  Prev: FAQ,  Up: Appendices
+File: docDTqaK0.info,  Node: Texinfo mode,  Prev: FAQ,  Up: Appendices
 
 A.5 Features specific to AUCTeX's Texinfo major mode
 ====================================================
@@ -6699,7 +6704,7 @@ commands.
 * Unbinding::                   Which native mode key bindings are missing
 
 
-File: docfGewIp.info,  Node: Exploiting,  Next: Superseding,  Up: Texinfo mode
+File: docDTqaK0.info,  Node: Exploiting,  Next: Superseding,  Up: Texinfo mode
 
 A.5.1 How AUCTeX and the native mode work together
 --------------------------------------------------
@@ -6719,7 +6724,7 @@ mode is as follows:
      otherwise.
 
 
-File: docfGewIp.info,  Node: Superseding,  Next: Mapping,  Prev: Exploiting,  Up: Texinfo mode
+File: docDTqaK0.info,  Node: Superseding,  Next: Mapping,  Prev: Exploiting,  Up: Texinfo mode
 
 A.5.2 Where the native mode is superseded
 -----------------------------------------
@@ -6816,7 +6821,7 @@ Kill jobs
      superseded by 'C-c C-k' ('TeX-kill-job') in AUCTeX.
 
 
-File: docfGewIp.info,  Node: Mapping,  Next: Unbinding,  Prev: Superseding,  Up: Texinfo mode
+File: docDTqaK0.info,  Node: Mapping,  Next: Unbinding,  Prev: Superseding,  Up: Texinfo mode
 
 A.5.3 Where key bindings are mapped to the native mode
 ------------------------------------------------------
@@ -6860,7 +6865,7 @@ Update menus
      C-d' in AUCTeX instead.
 
 
-File: docfGewIp.info,  Node: Unbinding,  Prev: Mapping,  Up: Texinfo mode
+File: docDTqaK0.info,  Node: Unbinding,  Prev: Mapping,  Up: Texinfo mode
 
 A.5.4 Which native mode key bindings are missing
 ------------------------------------------------
@@ -6875,7 +6880,7 @@ Show the section structure
      AUCTeX for inserting '@node'.
 
 
-File: docfGewIp.info,  Node: Indices,  Prev: Appendices,  Up: Top
+File: docDTqaK0.info,  Node: Indices,  Prev: Appendices,  Up: Top
 
 Indices
 *******
@@ -6888,7 +6893,7 @@ Indices
 * Concept Index::
 
 
-File: docfGewIp.info,  Node: Key Index,  Next: Function Index,  Up: Indices
+File: docDTqaK0.info,  Node: Key Index,  Next: Function Index,  Up: Indices
 
 Key Index
 =========
@@ -7007,7 +7012,7 @@ Key Index
 * TAB:                                   Indenting.           (line  74)
 
 
-File: docfGewIp.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Indices
+File: docDTqaK0.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Indices
 
 Function Index
 ==============
@@ -7188,7 +7193,7 @@ Function Index
 * turn-on-auto-fill:                     Filling.             (line   6)
 
 
-File: docfGewIp.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
+File: docDTqaK0.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
 
 Variable Index
 ==============
@@ -7559,7 +7564,7 @@ Variable Index
                                                               (line   6)
 
 
-File: docfGewIp.info,  Node: Concept Index,  Prev: Variable Index,  Up: Indices
+File: docDTqaK0.info,  Node: Concept Index,  Prev: Variable Index,  Up: Indices
 
 Concept Index
 =============
@@ -7942,95 +7947,95 @@ Node: Summary9629
 Node: Installation12551
 Node: Prerequisites13751
 Node: Activating the package15259
-Node: Advice for package providers17229
-Node: Using AUCTeX from ELPA-devel18232
-Node: Using AUCTeX from local Git repo19390
-Node: Customizing20649
-Node: Quick Start22481
-Node: Editing Facilities23991
-Node: Processing Facilities28691
-Node: Editing33427
-Node: Quotes34760
-Node: Font Specifiers43355
-Node: Sectioning45430
-Node: Environments49964
-Node: Equations55443
-Node: Floats56038
-Node: Itemize-like58045
-Node: Tabular-like58876
-Node: Customizing Environments60693
-Node: Mathematics60936
-Node: Completion64381
-Node: Marking72417
-Node: Marking (LaTeX)73044
-Node: Marking (Texinfo)73991
-Node: Commenting75607
-Node: Indenting76935
-Node: Filling85397
-Node: Display91270
-Node: Font Locking93768
-Node: Fontification of macros95850
-Node: Fontification of quotes105561
-Node: Fontification of math107060
-Node: Verbatim content110732
-Node: Faces111509
-Node: Known problems112009
-Node: Folding113009
-Node: Outline125574
-Node: Narrowing126856
-Node: Prettifying127928
-Node: Processing129209
-Node: Commands130540
-Node: Starting a Command131099
-Node: Selecting a Command136337
-Node: Processor Options145423
-Node: Viewing156390
-Node: Starting Viewers156767
-Node: I/O Correlation162424
-Ref: I/O Correlation-Footnote-1168105
-Node: Debugging168355
-Node: Ignoring warnings170992
-Node: Error overview173058
-Node: Checking174979
-Node: Control176911
-Node: Cleaning179025
-Node: Documentation180389
-Node: Customization181489
-Node: Modes and Hooks181985
-Node: Multifile184057
-Node: Parsing Files188804
-Node: Internationalization193796
-Node: European195148
-Node: Japanese202637
-Node: Automatic207709
-Node: Automatic Global210207
-Node: Automatic Private211344
-Node: Automatic Local212683
-Node: Style Files213924
-Node: Simple Style214733
-Node: Adding Macros218457
-Node: Adding Environments227965
-Node: Adding Other233209
-Node: Hacking the Parser237814
-Node: Appendices241805
-Node: Copying this Manual242104
-Node: GNU Free Documentation License243019
-Node: Changes268142
-Node: Development268761
-Node: Mid-term Goals269410
-Node: Wishlist272226
-Node: Bugs278212
-Node: FAQ279295
-Node: Texinfo mode285988
-Node: Exploiting287125
-Node: Superseding287946
-Node: Mapping292500
-Node: Unbinding294338
-Node: Indices294877
-Node: Key Index295043
-Node: Function Index303086
-Node: Variable Index315724
-Node: Concept Index341954
+Node: Advice for package providers17448
+Node: Using AUCTeX from ELPA-devel18451
+Node: Using AUCTeX from local Git repo19609
+Node: Customizing20868
+Node: Quick Start22700
+Node: Editing Facilities24210
+Node: Processing Facilities28910
+Node: Editing33646
+Node: Quotes34979
+Node: Font Specifiers43574
+Node: Sectioning45649
+Node: Environments50183
+Node: Equations55662
+Node: Floats56257
+Node: Itemize-like58264
+Node: Tabular-like59095
+Node: Customizing Environments60912
+Node: Mathematics61155
+Node: Completion64600
+Node: Marking72636
+Node: Marking (LaTeX)73263
+Node: Marking (Texinfo)74210
+Node: Commenting75826
+Node: Indenting77154
+Node: Filling85616
+Node: Display91489
+Node: Font Locking93987
+Node: Fontification of macros96069
+Node: Fontification of quotes105780
+Node: Fontification of math107279
+Node: Verbatim content110951
+Node: Faces111728
+Node: Known problems112228
+Node: Folding113228
+Node: Outline125793
+Node: Narrowing127075
+Node: Prettifying128147
+Node: Processing129428
+Node: Commands130759
+Node: Starting a Command131318
+Node: Selecting a Command136556
+Node: Processor Options145642
+Node: Viewing156609
+Node: Starting Viewers156986
+Node: I/O Correlation162643
+Ref: I/O Correlation-Footnote-1168324
+Node: Debugging168574
+Node: Ignoring warnings171211
+Node: Error overview173277
+Node: Checking175198
+Node: Control177130
+Node: Cleaning179244
+Node: Documentation180608
+Node: Customization181708
+Node: Modes and Hooks182204
+Node: Multifile184276
+Node: Parsing Files189023
+Node: Internationalization194015
+Node: European195367
+Node: Japanese202856
+Node: Automatic207928
+Node: Automatic Global210426
+Node: Automatic Private211563
+Node: Automatic Local212902
+Node: Style Files214143
+Node: Simple Style214952
+Node: Adding Macros218676
+Node: Adding Environments228184
+Node: Adding Other233428
+Node: Hacking the Parser238033
+Node: Appendices242024
+Node: Copying this Manual242323
+Node: GNU Free Documentation License243238
+Node: Changes268361
+Node: Development268980
+Node: Mid-term Goals269629
+Node: Wishlist272445
+Node: Bugs278431
+Node: FAQ279514
+Node: Texinfo mode286207
+Node: Exploiting287344
+Node: Superseding288165
+Node: Mapping292719
+Node: Unbinding294557
+Node: Indices295096
+Node: Key Index295262
+Node: Function Index303305
+Node: Variable Index315943
+Node: Concept Index342173
 
 End Tag Table
 
