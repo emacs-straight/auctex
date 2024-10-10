@@ -7,6 +7,16 @@
 # License: GNU General Public License 3
 # The format is based on [[https://keepachangelog.com/en/1.1.0/][Keep a Changelog]]
 
+* [Unreleased]
+
+** Added
+
+- Add new custom option ~TeX-fold-alert-color~ which determines the
+  color used when folding the ~\alert~ macro, defaults to ~red~.
+
+- Add new support file =style/minted2.el= (=style/minted.el= is updated
+  to package v3.1.2).
+
 * [14.0.7] - 2024-10-05
 
 ** Added
