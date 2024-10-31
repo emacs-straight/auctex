@@ -1,8 +1,8 @@
-This is doc0lCzv9.info, produced by makeinfo version 6.8 from
+This is docwpQ94K.info, produced by makeinfo version 6.8 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.0.7.2024-10-29_15:52:26 from
-2024-10-29_15:52:26), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.0.7.2024-10-30_13:32:37 from
+2024-10-30_13:32:37), a sophisticated TeX environment for Emacs.
 
    Copyright (C) 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -24,7 +24,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: doc0lCzv9.info,  Node: Top,  Next: Copying,  Up: (dir)
+File: docwpQ94K.info,  Node: Top,  Next: Copying,  Up: (dir)
 
 AUCTeX
 ******
@@ -197,7 +197,7 @@ Indices
 
 
 
-File: doc0lCzv9.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
+File: docwpQ94K.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
 
 Copying
 *******
@@ -236,7 +236,7 @@ that accompany them.  This manual specifically is covered by the GNU
 Free Documentation License (*note Copying this Manual::).
 
 
-File: doc0lCzv9.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: Top
+File: docwpQ94K.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: Top
 
 1 Introduction
 **************
@@ -248,7 +248,7 @@ File: doc0lCzv9.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: 
 * Quick Start::                 Quick Start
 
 
-File: doc0lCzv9.info,  Node: Summary,  Next: Installation,  Up: Introduction
+File: docwpQ94K.info,  Node: Summary,  Next: Installation,  Up: Introduction
 
 1.1 Overview of AUCTeX
 ======================
@@ -310,7 +310,7 @@ developers of AUCTeX themselves with technical issues, they can be found
 on the discussion list <auctex-devel@gnu.org>.
 
 
-File: doc0lCzv9.info,  Node: Installation,  Next: Quick Start,  Prev: Summary,  Up: Introduction
+File: docwpQ94K.info,  Node: Installation,  Next: Quick Start,  Prev: Summary,  Up: Introduction
 
 1.2 Installing AUCTeX
 =====================
@@ -348,7 +348,7 @@ Quick Start::.
 * Customizing::
 
 
-File: doc0lCzv9.info,  Node: Prerequisites,  Next: Activating the package,  Up: Installation
+File: docwpQ94K.info,  Node: Prerequisites,  Next: Activating the package,  Up: Installation
 
 1.2.1 Prerequisites
 -------------------
@@ -389,7 +389,7 @@ File: doc0lCzv9.info,  Node: Prerequisites,  Next: Activating the package,  Up: 
 (preview-latex)Known problems::.
 
 
-File: doc0lCzv9.info,  Node: Activating the package,  Next: Advice for package providers,  Prev: Prerequisites,  Up: Installation
+File: docwpQ94K.info,  Node: Activating the package,  Next: Advice for package providers,  Prev: Prerequisites,  Up: Installation
 
 1.2.2 Activating the package
 ----------------------------
@@ -438,7 +438,7 @@ leave unused autoloads persisted.)
 versions of this document, but now it causes error.
 
 
-File: doc0lCzv9.info,  Node: Advice for package providers,  Next: Using AUCTeX from ELPA-devel,  Prev: Activating the package,  Up: Installation
+File: docwpQ94K.info,  Node: Advice for package providers,  Next: Using AUCTeX from ELPA-devel,  Prev: Activating the package,  Up: Installation
 
 1.2.3 Providing AUCTeX as a package
 -----------------------------------
@@ -460,7 +460,7 @@ is therefore a good choice.
 'package-directory-list' to have site-wide default.
 
 
-File: doc0lCzv9.info,  Node: Using AUCTeX from ELPA-devel,  Next: Using AUCTeX from local Git repo,  Prev: Advice for package providers,  Up: Installation
+File: docwpQ94K.info,  Node: Using AUCTeX from ELPA-devel,  Next: Using AUCTeX from local Git repo,  Prev: Advice for package providers,  Up: Installation
 
 1.2.4 Using AUCTeX from ELPA-devel
 ----------------------------------
@@ -485,7 +485,7 @@ regular archive, and instructs Emacs to fetch only AUCTeX from the new
 archive and don't bother with other packages installed.
 
 
-File: doc0lCzv9.info,  Node: Using AUCTeX from local Git repo,  Next: Customizing,  Prev: Using AUCTeX from ELPA-devel,  Up: Installation
+File: docwpQ94K.info,  Node: Using AUCTeX from local Git repo,  Next: Customizing,  Prev: Using AUCTeX from ELPA-devel,  Up: Installation
 
 1.2.5 Using AUCTeX from local Git repo
 --------------------------------------
@@ -518,7 +518,7 @@ and you're finished.
                       "~/development/auctex/doc")))
 
 
-File: doc0lCzv9.info,  Node: Customizing,  Prev: Using AUCTeX from local Git repo,  Up: Installation
+File: docwpQ94K.info,  Node: Customizing,  Prev: Using AUCTeX from local Git repo,  Up: Installation
 
 1.2.6 Customizing
 -----------------
@@ -556,7 +556,7 @@ accessible directly by typing 'M-x customize-option <RET> OPTION <RET>'.
      <https://lists.gnu.org/r/auctex/2021-01/msg00037.html>.
 
 
-File: doc0lCzv9.info,  Node: Quick Start,  Prev: Installation,  Up: Introduction
+File: docwpQ94K.info,  Node: Quick Start,  Prev: Installation,  Up: Introduction
 
 1.3 Quick Start
 ===============
@@ -594,7 +594,7 @@ ask you for a master file.
 * Processing Facilities::       Creating and viewing output, debugging
 
 
-File: doc0lCzv9.info,  Node: Editing Facilities,  Next: Processing Facilities,  Up: Quick Start
+File: docwpQ94K.info,  Node: Editing Facilities,  Next: Processing Facilities,  Up: Quick Start
 
 1.3.1 Functions for editing TeX files
 -------------------------------------
@@ -713,7 +713,7 @@ outline mode is provided as well.  And there's more, but this is beyond
 the scope of this Quick Start Guide.
 
 
-File: doc0lCzv9.info,  Node: Processing Facilities,  Prev: Editing Facilities,  Up: Quick Start
+File: docwpQ94K.info,  Node: Processing Facilities,  Prev: Editing Facilities,  Up: Quick Start
 
 1.3.2 Creating and viewing output, debugging
 --------------------------------------------
@@ -820,7 +820,7 @@ run 'latex' only on the current buffer, using the preamble from the
 master file.
 
 
-File: doc0lCzv9.info,  Node: Editing,  Next: Display,  Prev: Introduction,  Up: Top
+File: docwpQ94K.info,  Node: Editing,  Next: Display,  Prev: Introduction,  Up: Top
 
 2 Editing the Document Source
 *****************************
@@ -849,7 +849,7 @@ by indenting and filling and for navigating through the document.
 * Filling::                     Automatic and manual line breaking
 
 
-File: doc0lCzv9.info,  Node: Quotes,  Next: Font Specifiers,  Up: Editing
+File: docwpQ94K.info,  Node: Quotes,  Next: Font Specifiers,  Up: Editing
 
 2.1 Insertion of Quotes, Dollars, and Braces
 ============================================
@@ -1056,7 +1056,7 @@ when typing '(', '{' and '['.
      completion.
 
 
-File: doc0lCzv9.info,  Node: Font Specifiers,  Next: Sectioning,  Prev: Quotes,  Up: Editing
+File: docwpQ94K.info,  Node: Font Specifiers,  Next: Sectioning,  Prev: Quotes,  Up: Editing
 
 2.2 Inserting Font Specifiers
 =============================
@@ -1129,7 +1129,7 @@ inserted.
      structure as 'TeX-font-list'.
 
 
-File: doc0lCzv9.info,  Node: Sectioning,  Next: Environments,  Prev: Font Specifiers,  Up: Editing
+File: docwpQ94K.info,  Node: Sectioning,  Next: Environments,  Prev: Font Specifiers,  Up: Editing
 
 2.3 Inserting chapters, sections, etc.
 ======================================
@@ -1244,7 +1244,7 @@ label will be prefixed by the value specified in 'LaTeX-section-hook'.
      inserted for other types of sections.
 
 
-File: doc0lCzv9.info,  Node: Environments,  Next: Mathematics,  Prev: Sectioning,  Up: Editing
+File: docwpQ94K.info,  Node: Environments,  Next: Mathematics,  Prev: Sectioning,  Up: Editing
 
 2.4 Inserting Environment Templates
 ===================================
@@ -1372,7 +1372,7 @@ and to the end of the current environment.
      calls 'LaTeX-find-matching-end'.
 
 
-File: doc0lCzv9.info,  Node: Equations,  Next: Floats,  Up: Environments
+File: docwpQ94K.info,  Node: Equations,  Next: Floats,  Up: Environments
 
 2.4.1 Equations
 ---------------
@@ -1392,7 +1392,7 @@ default prefix, which is controlled by the following variables:
      'gather'.
 
 
-File: doc0lCzv9.info,  Node: Floats,  Next: Itemize-like,  Prev: Equations,  Up: Environments
+File: docwpQ94K.info,  Node: Floats,  Next: Itemize-like,  Prev: Equations,  Up: Environments
 
 2.4.2 Floats
 ------------
@@ -1447,7 +1447,7 @@ environment.
      caption.
 
 
-File: doc0lCzv9.info,  Node: Itemize-like,  Next: Tabular-like,  Prev: Floats,  Up: Environments
+File: docwpQ94K.info,  Node: Itemize-like,  Next: Tabular-like,  Prev: Floats,  Up: Environments
 
 2.4.3 Itemize-like Environments
 -------------------------------
@@ -1467,7 +1467,7 @@ if the key binding is still available.
      Otherwise, you will be asked only in description environments.
 
 
-File: doc0lCzv9.info,  Node: Tabular-like,  Next: Customizing Environments,  Prev: Itemize-like,  Up: Environments
+File: docwpQ94K.info,  Node: Tabular-like,  Next: Customizing Environments,  Prev: Itemize-like,  Up: Environments
 
 2.4.4 Tabular-like Environments
 -------------------------------
@@ -1510,7 +1510,7 @@ or 'M-<RET>' in these environments.  It recognizes the current
 environment and does the appropriate job depending on the context.
 
 
-File: doc0lCzv9.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up: Environments
+File: docwpQ94K.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up: Environments
 
 2.4.5 Customizing Environments
 ------------------------------
@@ -1519,7 +1519,7 @@ File: doc0lCzv9.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up:
 environments.
 
 
-File: doc0lCzv9.info,  Node: Mathematics,  Next: Completion,  Prev: Environments,  Up: Editing
+File: docwpQ94K.info,  Node: Mathematics,  Next: Completion,  Prev: Environments,  Up: Editing
 
 2.5 Entering Mathematics
 ========================
@@ -1600,7 +1600,7 @@ characters, when you begin to enter math constructs.
      by 'C-c C-e' ('LaTeX-environment').
 
 
-File: doc0lCzv9.info,  Node: Completion,  Next: Marking,  Prev: Mathematics,  Up: Editing
+File: docwpQ94K.info,  Node: Completion,  Next: Marking,  Prev: Mathematics,  Up: Editing
 
 2.6 Completion
 ==============
@@ -1783,7 +1783,7 @@ after you enabled automatic parsing on save, and that the basename of
 the BibTeX file does not conflict with the basename of one of TeX files.
 
 
-File: doc0lCzv9.info,  Node: Marking,  Next: Commenting,  Prev: Completion,  Up: Editing
+File: docwpQ94K.info,  Node: Marking,  Next: Commenting,  Prev: Completion,  Up: Editing
 
 2.7 Marking Environments, Sections, or Texinfo Nodes
 ====================================================
@@ -1802,7 +1802,7 @@ mark to its end.
 * Marking (Texinfo):: Texinfo Commands for Marking Environments, Sections, and Nodes
 
 
-File: doc0lCzv9.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Marking
+File: docwpQ94K.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Marking
 
 2.7.1 LaTeX Commands for Marking Environments and Sections
 ----------------------------------------------------------
@@ -1826,7 +1826,7 @@ File: doc0lCzv9.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Mar
      environments.
 
 
-File: doc0lCzv9.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Marking
+File: docwpQ94K.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Marking
 
 2.7.2 Texinfo Commands for Marking Environments and Sections
 ------------------------------------------------------------
@@ -1865,7 +1865,7 @@ File: doc0lCzv9.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Mar
      '@node' or '@bye'.
 
 
-File: doc0lCzv9.info,  Node: Commenting,  Next: Indenting,  Prev: Marking,  Up: Editing
+File: docwpQ94K.info,  Node: Commenting,  Next: Indenting,  Prev: Marking,  Up: Editing
 
 2.8 Commenting
 ==============
@@ -1893,7 +1893,7 @@ single '%' respectively.
      starting with a '%', until the first non-comment line.
 
 
-File: doc0lCzv9.info,  Node: Indenting,  Next: Filling,  Prev: Commenting,  Up: Editing
+File: docwpQ94K.info,  Node: Indenting,  Next: Filling,  Prev: Commenting,  Up: Editing
 
 2.9 Indenting
 =============
@@ -2086,7 +2086,7 @@ behavior can be controlled by setting the variable
      option is disabled by default.
 
 
-File: doc0lCzv9.info,  Node: Filling,  Prev: Indenting,  Up: Editing
+File: docwpQ94K.info,  Node: Filling,  Prev: Indenting,  Up: Editing
 
 2.10 Filling
 ============
@@ -2224,7 +2224,7 @@ inside the comment, AUCTeX will report an error.
      }
 
 
-File: doc0lCzv9.info,  Node: Display,  Next: Processing,  Prev: Editing,  Up: Top
+File: docwpQ94K.info,  Node: Display,  Next: Processing,  Prev: Editing,  Up: Top
 
 3 Controlling Screen Display
 ****************************
@@ -2282,7 +2282,7 @@ together.
 * Prettifying::                 Displaying Greek and math macros as Unicode characters
 
 
-File: doc0lCzv9.info,  Node: Font Locking,  Next: Folding,  Up: Display
+File: docwpQ94K.info,  Node: Font Locking,  Next: Folding,  Up: Display
 
 3.1 Font Locking
 ================
@@ -2327,7 +2327,7 @@ description the various options are explained in conceptional groups.
 * Known problems::              Known fontification problems
 
 
-File: doc0lCzv9.info,  Node: Fontification of macros,  Next: Fontification of quotes,  Up: Font Locking
+File: docwpQ94K.info,  Node: Fontification of macros,  Next: Fontification of quotes,  Up: Font Locking
 
 3.1.1 Fontification of macros
 -----------------------------
@@ -2548,7 +2548,7 @@ variable 'font-latex-user-keyword-classes'.
      above.
 
 
-File: doc0lCzv9.info,  Node: Fontification of quotes,  Next: Fontification of math,  Prev: Fontification of macros,  Up: Font Locking
+File: docwpQ94K.info,  Node: Fontification of quotes,  Next: Fontification of math,  Prev: Fontification of macros,  Up: Font Locking
 
 3.1.2 Fontification of quotes
 -----------------------------
@@ -2580,7 +2580,7 @@ properties.
      fontified.
 
 
-File: doc0lCzv9.info,  Node: Fontification of math,  Next: Verbatim content,  Prev: Fontification of quotes,  Up: Font Locking
+File: docwpQ94K.info,  Node: Fontification of math,  Next: Verbatim content,  Prev: Fontification of quotes,  Up: Font Locking
 
 3.1.3 Fontification of mathematical constructs
 ----------------------------------------------
@@ -2653,7 +2653,7 @@ an own face named 'font-latex-script-char-face'.
      Other Display Specifications: (elisp)Other Display Specs.
 
 
-File: doc0lCzv9.info,  Node: Verbatim content,  Next: Faces,  Prev: Fontification of math,  Up: Font Locking
+File: docwpQ94K.info,  Node: Verbatim content,  Next: Faces,  Prev: Fontification of math,  Up: Font Locking
 
 3.1.4 Verbatim macros and environments
 --------------------------------------
@@ -2671,7 +2671,7 @@ environments are recognized is controlled by the variables
 respectively.
 
 
-File: doc0lCzv9.info,  Node: Faces,  Next: Known problems,  Prev: Verbatim content,  Up: Font Locking
+File: docwpQ94K.info,  Node: Faces,  Next: Known problems,  Prev: Verbatim content,  Up: Font Locking
 
 3.1.5 Faces used by font-latex
 ------------------------------
@@ -2683,7 +2683,7 @@ font-latex are accessible through a customization group by typing 'M-x
 customize-group <RET> font-latex-highlighting-faces <RET>'.
 
 
-File: doc0lCzv9.info,  Node: Known problems,  Prev: Faces,  Up: Font Locking
+File: docwpQ94K.info,  Node: Known problems,  Prev: Faces,  Up: Font Locking
 
 3.1.6 Known fontification problems
 ----------------------------------
@@ -2704,7 +2704,7 @@ workaround.  In docTeX documents, '^^A$' is also available for similar
 purpose.
 
 
-File: doc0lCzv9.info,  Node: Folding,  Next: Outline,  Prev: Font Locking,  Up: Display
+File: docwpQ94K.info,  Node: Folding,  Next: Outline,  Prev: Font Locking,  Up: Display
 
 3.2 Folding Macros and Environments
 ===================================
@@ -2791,7 +2791,8 @@ and show macros, environments and comments:
  -- User Option: TeX-fold-region-functions
      This variable is a list of functions which allow the user, or
      external packages, to fold additional LaTeX constructs beyond those
-     supported by default.
+     supported by default.  By default, it is configured to support
+     folding for verbatim environments and quotes.
 
  -- Command: TeX-fold-region
      ('C-c C-o C-r') Hide all configured macros in the marked region.
@@ -3035,15 +3036,28 @@ variable 'TeX-fold-help-echo-max-length'.
  -- User Option: TeX-fold-bib-file
      The default folding behavior for '\cite{...}' macros that point to
      a BibTeX entry is to replace them with a string of the form
-     [XYZ99], formed using the authors' last names and the publication
+     '[XYZ99]', formed using the authors' last names and the publication
      year.  If AUCTeX cannot find the required BibTeX entries in any bib
      files included in the current document, then, as a backup, it
      searches the files specified in 'TeX-fold-bib-file'.  This may be
      useful when using '\thebibliography{...}' rather than BibTeX, or
      when working in non-file buffers.
 
+ -- User Option: TeX-fold-open-quote
+     Folded version of opening quote.  This string is used to replace
+     opening quotes when folding LaTeX quotes.
+
+ -- User Option: TeX-fold-close-quote
+     Folded version of closing quote.  This string is used to replace
+     closing quotes when folding LaTeX quotes.
+
+ -- User Option: TeX-fold-quotes-on-insert
+     If non-'nil', automatically fold LaTeX quotes when they are
+     inserted.  This option is consulted by 'TeX-insert-quote' when
+     determining whether to fold newly inserted quotes.
+
 
-File: doc0lCzv9.info,  Node: Outline,  Next: Narrowing,  Prev: Folding,  Up: Display
+File: docwpQ94K.info,  Node: Outline,  Next: Narrowing,  Prev: Folding,  Up: Display
 
 3.3 Outlining the Document
 ==========================
@@ -3080,7 +3094,7 @@ better outline support.  It is available from your favorite emacs lisp
 archive.
 
 
-File: doc0lCzv9.info,  Node: Narrowing,  Next: Prettifying,  Prev: Outline,  Up: Display
+File: docwpQ94K.info,  Node: Narrowing,  Next: Prettifying,  Prev: Outline,  Up: Display
 
 3.4 Narrowing
 =============
@@ -3106,7 +3120,7 @@ the option of enabling them; if you enable the commands, confirmation
 will no longer be required for them.
 
 
-File: doc0lCzv9.info,  Node: Prettifying,  Prev: Narrowing,  Up: Display
+File: docwpQ94K.info,  Node: Prettifying,  Prev: Narrowing,  Up: Display
 
 3.5 Prettifying
 ===============
@@ -3137,7 +3151,7 @@ this variable is part of Emacs' stock 'tex-mode.el' and used by that and
 AUCTeX.
 
 
-File: doc0lCzv9.info,  Node: Processing,  Next: Customization,  Prev: Display,  Up: Top
+File: docwpQ94K.info,  Node: Processing,  Next: Customization,  Prev: Display,  Up: Top
 
 4 Starting Processors, Viewers and Other Programs
 *************************************************
@@ -3166,7 +3180,7 @@ can also customize the buttons by the options 'TeX-bar-TeX-buttons',
 * Documentation::               Documentation about macros and packages.
 
 
-File: doc0lCzv9.info,  Node: Commands,  Next: Viewing,  Up: Processing
+File: docwpQ94K.info,  Node: Commands,  Next: Viewing,  Up: Processing
 
 4.1 Executing Commands
 ======================
@@ -3183,7 +3197,7 @@ external command.
 * Processor Options::           Options for TeX Processors
 
 
-File: doc0lCzv9.info,  Node: Starting a Command,  Next: Selecting a Command,  Up: Commands
+File: docwpQ94K.info,  Node: Starting a Command,  Next: Selecting a Command,  Up: Commands
 
 4.1.1 Starting a Command on a Document or Region
 ------------------------------------------------
@@ -3292,7 +3306,7 @@ when you are editing multiple documents in parallel.  This limitation
 applies for preview by preview-latex as well.
 
 
-File: doc0lCzv9.info,  Node: Selecting a Command,  Next: Processor Options,  Prev: Starting a Command,  Up: Commands
+File: docwpQ94K.info,  Node: Selecting a Command,  Next: Processor Options,  Prev: Starting a Command,  Up: Commands
 
 4.1.2 Selecting and Executing a Command
 ---------------------------------------
@@ -3475,7 +3489,7 @@ verbatim macros like '\Verb' from 'fancyvrb.sty' or '\mintinline' from
      avoided as they are not recognized by 'font-latex.el'.
 
 
-File: doc0lCzv9.info,  Node: Processor Options,  Prev: Selecting a Command,  Up: Commands
+File: docwpQ94K.info,  Node: Processor Options,  Prev: Selecting a Command,  Up: Commands
 
 4.1.3 Options for TeX Processors
 --------------------------------
@@ -3692,7 +3706,7 @@ is controlled by 'ConTeXt-Mark-version' option.
      basis, by specifying it as a file variable.
 
 
-File: doc0lCzv9.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
+File: docwpQ94K.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
 
 4.2 Viewing the Formatted Output
 ================================
@@ -3706,7 +3720,7 @@ formatted output of your document.
 * I/O Correlation::             Forward and inverse search
 
 
-File: doc0lCzv9.info,  Node: Starting Viewers,  Next: I/O Correlation,  Up: Viewing
+File: docwpQ94K.info,  Node: Starting Viewers,  Next: I/O Correlation,  Up: Viewing
 
 4.2.1 Starting Viewers
 ----------------------
@@ -3812,7 +3826,7 @@ the variable in place.  In addition, the use of a function in
 'TeX-command-list' makes use of the hook 'TeX-run-discard-or-function'.
 
 
-File: doc0lCzv9.info,  Node: I/O Correlation,  Prev: Starting Viewers,  Up: Viewing
+File: docwpQ94K.info,  Node: I/O Correlation,  Prev: Starting Viewers,  Up: Viewing
 
 4.2.2 Forward and Inverse Search
 --------------------------------
@@ -3932,7 +3946,7 @@ implemented as minor mode map of 'TeX-source-correlate-mode', in order
 that its bindings don't affect buffers outside of AUCTeX.
 
 
-File: doc0lCzv9.info,  Node: Debugging,  Next: Checking,  Prev: Viewing,  Up: Processing
+File: docwpQ94K.info,  Node: Debugging,  Next: Checking,  Prev: Viewing,  Up: Processing
 
 4.3 Catching the errors
 =======================
@@ -3992,7 +4006,7 @@ error reported by TeX along with the documentation.  There is however an
 * Error overview::            List of all errors and warnings
 
 
-File: doc0lCzv9.info,  Node: Ignoring warnings,  Next: Error overview,  Up: Debugging
+File: docwpQ94K.info,  Node: Ignoring warnings,  Next: Error overview,  Up: Debugging
 
 4.3.1 Controlling warnings to be reported
 -----------------------------------------
@@ -4040,7 +4054,7 @@ options.
      'nil', all warnings are hidden in any case.
 
 
-File: doc0lCzv9.info,  Node: Error overview,  Prev: Ignoring warnings,  Up: Debugging
+File: docwpQ94K.info,  Node: Error overview,  Prev: Ignoring warnings,  Up: Debugging
 
 4.3.2 List of all errors and warnings
 -------------------------------------
@@ -4085,7 +4099,7 @@ default, but you can change this behavior by customizing the option
      be used regardless of the value of this variable.
 
 
-File: doc0lCzv9.info,  Node: Checking,  Next: Control,  Prev: Debugging,  Up: Processing
+File: docwpQ94K.info,  Node: Checking,  Next: Control,  Prev: Debugging,  Up: Processing
 
 4.4 Checking for problems
 =========================
@@ -4124,7 +4138,7 @@ before using them.  You can get 'lacheck' from
 <https://www.ctan.org/pkg/chktex>.  TeX Live contains both.
 
 
-File: doc0lCzv9.info,  Node: Control,  Next: Cleaning,  Prev: Checking,  Up: Processing
+File: docwpQ94K.info,  Node: Control,  Next: Cleaning,  Prev: Checking,  Up: Processing
 
 4.5 Controlling the output
 ==========================
@@ -4177,7 +4191,7 @@ separate directory.
      'TEXINPUTS' and 'BIBINPUTS'.
 
 
-File: doc0lCzv9.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up: Processing
+File: docwpQ94K.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up: Processing
 
 4.6 Cleaning intermediate and output files
 ==========================================
@@ -4212,7 +4226,7 @@ File: doc0lCzv9.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up
      deleting files.
 
 
-File: doc0lCzv9.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
+File: docwpQ94K.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
 
 4.7 Documentation about macros and packages
 ===========================================
@@ -4237,7 +4251,7 @@ File: doc0lCzv9.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
      Thus it isn't sure whether this command works for MiKTeX or not.
 
 
-File: doc0lCzv9.info,  Node: Customization,  Next: Appendices,  Prev: Processing,  Up: Top
+File: docwpQ94K.info,  Node: Customization,  Next: Appendices,  Prev: Processing,  Up: Top
 
 5 Customization and Extension
 *****************************
@@ -4252,7 +4266,7 @@ File: doc0lCzv9.info,  Node: Customization,  Next: Appendices,  Prev: Processing
 * Style Files::                 Writing Your Own Style Support
 
 
-File: doc0lCzv9.info,  Node: Modes and Hooks,  Next: Multifile,  Up: Customization
+File: docwpQ94K.info,  Node: Modes and Hooks,  Next: Multifile,  Up: Customization
 
 5.1 Modes and Hooks
 ===================
@@ -4297,7 +4311,7 @@ mode and runs 'plain-TeX-mode-hook' as well.
      added to the hook for this purpose.
 
 
-File: doc0lCzv9.info,  Node: Multifile,  Next: Parsing Files,  Prev: Modes and Hooks,  Up: Customization
+File: docwpQ94K.info,  Node: Multifile,  Next: Parsing Files,  Prev: Modes and Hooks,  Up: Customization
 
 5.2 Multifile Documents
 =======================
@@ -4403,7 +4417,7 @@ master file.  *Note Automatic Local::.
      'TeX-save-document'.
 
 
-File: doc0lCzv9.info,  Node: Parsing Files,  Next: Internationalization,  Prev: Multifile,  Up: Customization
+File: docwpQ94K.info,  Node: Parsing Files,  Next: Internationalization,  Prev: Multifile,  Up: Customization
 
 5.3 Automatic Parsing of TeX Files
 ==================================
@@ -4533,7 +4547,7 @@ these before loading AUCTeX by quoting them, as in the example above.
      Parse all TeX and LaTeX commands that AUCTeX can use.
 
 
-File: doc0lCzv9.info,  Node: Internationalization,  Next: Automatic,  Prev: Parsing Files,  Up: Customization
+File: docwpQ94K.info,  Node: Internationalization,  Next: Automatic,  Prev: Parsing Files,  Up: Customization
 
 5.4 Language Support
 ====================
@@ -4564,7 +4578,7 @@ for supporting CJK scripts in a standard LaTeX document.
 * Japanese::                    Using AUCTeX with Japanese
 
 
-File: doc0lCzv9.info,  Node: European,  Next: Japanese,  Up: Internationalization
+File: docwpQ94K.info,  Node: European,  Next: Japanese,  Up: Internationalization
 
 5.4.1 Using AUCTeX with European Languages
 ------------------------------------------
@@ -4746,7 +4760,7 @@ respectively.
      second key press.  If 'nil' do it the other way round.
 
 
-File: doc0lCzv9.info,  Node: Japanese,  Prev: European,  Up: Internationalization
+File: docwpQ94K.info,  Node: Japanese,  Prev: European,  Up: Internationalization
 
 5.4.2 Using AUCTeX with Japanese TeX
 ------------------------------------
@@ -4871,7 +4885,7 @@ won't matter in buffers with other engines.
    See 'tex-jp.el' for more information.
 
 
-File: doc0lCzv9.info,  Node: Automatic,  Next: Style Files,  Prev: Internationalization,  Up: Customization
+File: docwpQ94K.info,  Node: Automatic,  Next: Style Files,  Prev: Internationalization,  Up: Customization
 
 5.5 Automatic Customization
 ===========================
@@ -4929,7 +4943,7 @@ and 'CVS'.
      for TeX files in a directory.
 
 
-File: doc0lCzv9.info,  Node: Automatic Global,  Next: Automatic Private,  Up: Automatic
+File: docwpQ94K.info,  Node: Automatic Global,  Next: Automatic Private,  Up: Automatic
 
 5.5.1 Automatic Customization for the Site
 ------------------------------------------
@@ -4959,7 +4973,7 @@ the variable 'TeX-auto-global' to 'nil'.
      shared by all users of a site.
 
 
-File: doc0lCzv9.info,  Node: Automatic Private,  Next: Automatic Local,  Prev: Automatic Global,  Up: Automatic
+File: docwpQ94K.info,  Node: Automatic Private,  Next: Automatic Local,  Prev: Automatic Global,  Up: Automatic
 
 5.5.2 Automatic Customization for a User
 ----------------------------------------
@@ -4991,7 +5005,7 @@ directories listed in 'TeX-auto-private'
      These correspond to the personal TeX macros.
 
 
-File: doc0lCzv9.info,  Node: Automatic Local,  Prev: Automatic Private,  Up: Automatic
+File: docwpQ94K.info,  Node: Automatic Local,  Prev: Automatic Private,  Up: Automatic
 
 5.5.3 Automatic Customization for a Directory
 ---------------------------------------------
@@ -5024,7 +5038,7 @@ set 'TeX-auto-local' to 'nil'.
      Subdirectory name is actually taken from 'TeX-auto-local'.
 
 
-File: doc0lCzv9.info,  Node: Style Files,  Prev: Automatic,  Up: Customization
+File: docwpQ94K.info,  Node: Style Files,  Prev: Automatic,  Up: Customization
 
 5.6 Writing Your Own Style Support
 ==================================
@@ -5046,7 +5060,7 @@ directories instead of 'auto' directories.
 send it to us.
 
 
-File: doc0lCzv9.info,  Node: Simple Style,  Next: Adding Macros,  Up: Style Files
+File: docwpQ94K.info,  Node: Simple Style,  Next: Adding Macros,  Up: Style Files
 
 5.6.1 A Simple Style File
 -------------------------
@@ -5133,7 +5147,7 @@ DIALECT-EXPR to pass constant 'TeX-dialect' currently defined to
      file, or any mode derived thereof.
 
 
-File: doc0lCzv9.info,  Node: Adding Macros,  Next: Adding Environments,  Prev: Simple Style,  Up: Style Files
+File: docwpQ94K.info,  Node: Adding Macros,  Next: Adding Environments,  Prev: Simple Style,  Up: Style Files
 
 5.6.2 Adding Support for Macros
 -------------------------------
@@ -5411,7 +5425,7 @@ users.  Those should be marked as expert macros using
      'TeX-complete-expert-commands'.
 
 
-File: doc0lCzv9.info,  Node: Adding Environments,  Next: Adding Other,  Prev: Adding Macros,  Up: Style Files
+File: docwpQ94K.info,  Node: Adding Environments,  Next: Adding Other,  Prev: Adding Macros,  Up: Style Files
 
 5.6.3 Adding Support for Environments
 -------------------------------------
@@ -5557,7 +5571,7 @@ non-expert users.  Those should be marked as expert environments using
      'TeX-complete-expert-commands'.
 
 
-File: doc0lCzv9.info,  Node: Adding Other,  Next: Hacking the Parser,  Prev: Adding Environments,  Up: Style Files
+File: docwpQ94K.info,  Node: Adding Other,  Next: Hacking the Parser,  Prev: Adding Environments,  Up: Style Files
 
 5.6.4 Adding or Examining Other Information
 -------------------------------------------
@@ -5667,7 +5681,7 @@ can provide completion support for the optional arguments.
      Which see.
 
 
-File: doc0lCzv9.info,  Node: Hacking the Parser,  Prev: Adding Other,  Up: Style Files
+File: docwpQ94K.info,  Node: Hacking the Parser,  Prev: Adding Other,  Up: Style Files
 
 5.6.5 Automatic Extraction of New Things
 ----------------------------------------
@@ -5770,7 +5784,7 @@ symbols found.
      List of functions to be called after parsing a TeX file.
 
 
-File: doc0lCzv9.info,  Node: Appendices,  Next: Indices,  Prev: Customization,  Up: Top
+File: docwpQ94K.info,  Node: Appendices,  Next: Indices,  Prev: Customization,  Up: Top
 
 Appendix A Copying, Changes, Development, FAQ, Texinfo Mode
 ***********************************************************
@@ -5784,15 +5798,15 @@ Appendix A Copying, Changes, Development, FAQ, Texinfo Mode
 * Texinfo mode::
 
 
-File: doc0lCzv9.info,  Node: Copying this Manual,  Next: Changes,  Up: Appendices
+File: docwpQ94K.info,  Node: Copying this Manual,  Next: Changes,  Up: Appendices
 
 A.1 Copying this Manual
 =======================
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.0.7.2024-10-29_15:52:26 from
-2024-10-29_15:52:26), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.0.7.2024-10-30_13:32:37 from
+2024-10-30_13:32:37), a sophisticated TeX environment for Emacs.
 
    Copyright (C) 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -5811,7 +5825,7 @@ Foundation, Inc.
 * GNU Free Documentation License:: License for copying this manual.
 
 
-File: doc0lCzv9.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
+File: docwpQ94K.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
 
 A.1.1 GNU Free Documentation License
 ------------------------------------
@@ -6293,7 +6307,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: doc0lCzv9.info,  Node: Changes,  Next: Development,  Prev: Copying this Manual,  Up: Appendices
+File: docwpQ94K.info,  Node: Changes,  Next: Development,  Prev: Copying this Manual,  Up: Appendices
 
 A.2 Changes and New Features
 ============================
@@ -6333,7 +6347,7 @@ Yurchenko, Tony Zorman (Please accept our apologies if we forgot
 somebody).
 
 
-File: doc0lCzv9.info,  Node: Development,  Next: FAQ,  Prev: Changes,  Up: Appendices
+File: docwpQ94K.info,  Node: Development,  Next: FAQ,  Prev: Changes,  Up: Appendices
 
 A.3 Future Development
 ======================
@@ -6353,7 +6367,7 @@ on the mailing list of AUCTeX first.
 * Bugs::
 
 
-File: doc0lCzv9.info,  Node: Mid-term Goals,  Next: Wishlist,  Up: Development
+File: docwpQ94K.info,  Node: Mid-term Goals,  Next: Wishlist,  Up: Development
 
 A.3.1 Mid-term Goals
 --------------------
@@ -6424,7 +6438,7 @@ A.3.1 Mid-term Goals
         - Usage of ConTeXt mode
 
 
-File: doc0lCzv9.info,  Node: Wishlist,  Next: Bugs,  Prev: Mid-term Goals,  Up: Development
+File: docwpQ94K.info,  Node: Wishlist,  Next: Bugs,  Prev: Mid-term Goals,  Up: Development
 
 A.3.2 Wishlist
 --------------
@@ -6590,7 +6604,7 @@ A.3.2 Wishlist
    * Hook up the letter environment with 'bbdb.el'.
 
 
-File: doc0lCzv9.info,  Node: Bugs,  Prev: Wishlist,  Up: Development
+File: docwpQ94K.info,  Node: Bugs,  Prev: Wishlist,  Up: Development
 
 A.3.3 Bugs
 ----------
@@ -6621,7 +6635,7 @@ A.3.3 Bugs
    * Correct indentation for tabbing, table, and math environments.
 
 
-File: doc0lCzv9.info,  Node: FAQ,  Next: Texinfo mode,  Prev: Development,  Up: Appendices
+File: docwpQ94K.info,  Node: FAQ,  Next: Texinfo mode,  Prev: Development,  Up: Appendices
 
 A.4 Frequently Asked Questions
 ==============================
@@ -6770,7 +6784,7 @@ A.4 Frequently Asked Questions
      'AUC' for short.
 
 
-File: doc0lCzv9.info,  Node: Texinfo mode,  Prev: FAQ,  Up: Appendices
+File: docwpQ94K.info,  Node: Texinfo mode,  Prev: FAQ,  Up: Appendices
 
 A.5 Features specific to AUCTeX's Texinfo major mode
 ====================================================
@@ -6795,7 +6809,7 @@ commands.
 * Unbinding::                   Which native mode key bindings are missing
 
 
-File: doc0lCzv9.info,  Node: Exploiting,  Next: Superseding,  Up: Texinfo mode
+File: docwpQ94K.info,  Node: Exploiting,  Next: Superseding,  Up: Texinfo mode
 
 A.5.1 How AUCTeX and the native mode work together
 --------------------------------------------------
@@ -6815,7 +6829,7 @@ mode is as follows:
      otherwise.
 
 
-File: doc0lCzv9.info,  Node: Superseding,  Next: Mapping,  Prev: Exploiting,  Up: Texinfo mode
+File: docwpQ94K.info,  Node: Superseding,  Next: Mapping,  Prev: Exploiting,  Up: Texinfo mode
 
 A.5.2 Where the native mode is superseded
 -----------------------------------------
@@ -6912,7 +6926,7 @@ Kill jobs
      superseded by 'C-c C-k' ('TeX-kill-job') in AUCTeX.
 
 
-File: doc0lCzv9.info,  Node: Mapping,  Next: Unbinding,  Prev: Superseding,  Up: Texinfo mode
+File: docwpQ94K.info,  Node: Mapping,  Next: Unbinding,  Prev: Superseding,  Up: Texinfo mode
 
 A.5.3 Where key bindings are mapped to the native mode
 ------------------------------------------------------
@@ -6956,7 +6970,7 @@ Update menus
      C-d' in AUCTeX instead.
 
 
-File: doc0lCzv9.info,  Node: Unbinding,  Prev: Mapping,  Up: Texinfo mode
+File: docwpQ94K.info,  Node: Unbinding,  Prev: Mapping,  Up: Texinfo mode
 
 A.5.4 Which native mode key bindings are missing
 ------------------------------------------------
@@ -6971,7 +6985,7 @@ Show the section structure
      AUCTeX for inserting '@node'.
 
 
-File: doc0lCzv9.info,  Node: Indices,  Prev: Appendices,  Up: Top
+File: docwpQ94K.info,  Node: Indices,  Prev: Appendices,  Up: Top
 
 Indices
 *******
@@ -6984,7 +6998,7 @@ Indices
 * Concept Index::
 
 
-File: doc0lCzv9.info,  Node: Key Index,  Next: Function Index,  Up: Indices
+File: docwpQ94K.info,  Node: Key Index,  Next: Function Index,  Up: Indices
 
 Key Index
 =========
@@ -7042,20 +7056,20 @@ Key Index
 * C-c C-l:                               Control.             (line  14)
 * C-c C-m:                               Completion.          (line  89)
 * C-c C-n:                               Parsing Files.       (line  45)
-* C-c C-o b:                             Folding.             (line 130)
+* C-c C-o b:                             Folding.             (line 131)
 * C-c C-o C-b:                           Folding.             (line  43)
-* C-c C-o C-c:                           Folding.             (line 127)
-* C-c C-o C-e:                           Folding.             (line 111)
+* C-c C-o C-c:                           Folding.             (line 128)
+* C-c C-o C-e:                           Folding.             (line 112)
 * C-c C-o C-f:                           Folding.             (line  31)
-* C-c C-o C-m:                           Folding.             (line 102)
-* C-c C-o C-o:                           Folding.             (line 153)
-* C-c C-o C-p:                           Folding.             (line  94)
-* C-c C-o C-r:                           Folding.             (line  91)
-* C-c C-o C-s:                           Folding.             (line  98)
-* C-c C-o i:                             Folding.             (line 146)
-* C-c C-o p:                             Folding.             (line 138)
-* C-c C-o r:                             Folding.             (line 134)
-* C-c C-o s:                             Folding.             (line 142)
+* C-c C-o C-m:                           Folding.             (line 103)
+* C-c C-o C-o:                           Folding.             (line 154)
+* C-c C-o C-p:                           Folding.             (line  95)
+* C-c C-o C-r:                           Folding.             (line  92)
+* C-c C-o C-s:                           Folding.             (line  99)
+* C-c C-o i:                             Folding.             (line 147)
+* C-c C-o p:                             Folding.             (line 139)
+* C-c C-o r:                             Folding.             (line 135)
+* C-c C-o s:                             Folding.             (line 143)
 * C-c C-q C-e:                           Filling.             (line  90)
 * C-c C-q C-p:                           Filling.             (line  84)
 * C-c C-q C-r:                           Filling.             (line  99)
@@ -7103,7 +7117,7 @@ Key Index
 * TAB:                                   Indenting.           (line  74)
 
 
-File: doc0lCzv9.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Indices
+File: docwpQ94K.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Indices
 
 Function Index
 ==============
@@ -7228,20 +7242,20 @@ Function Index
 * TeX-electric-macro:                    Completion.          (line 127)
 * TeX-error-overview:                    Error overview.      (line  10)
 * TeX-fold-buffer:                       Folding.             (line  42)
-* TeX-fold-clearout-buffer:              Folding.             (line 129)
-* TeX-fold-clearout-item:                Folding.             (line 145)
-* TeX-fold-clearout-paragraph:           Folding.             (line 137)
-* TeX-fold-clearout-region:              Folding.             (line 133)
-* TeX-fold-clearout-section:             Folding.             (line 141)
-* TeX-fold-comment:                      Folding.             (line 126)
-* TeX-fold-dwim:                         Folding.             (line 152)
-* TeX-fold-env:                          Folding.             (line 110)
-* TeX-fold-macro:                        Folding.             (line 101)
-* TeX-fold-math:                         Folding.             (line 117)
+* TeX-fold-clearout-buffer:              Folding.             (line 130)
+* TeX-fold-clearout-item:                Folding.             (line 146)
+* TeX-fold-clearout-paragraph:           Folding.             (line 138)
+* TeX-fold-clearout-region:              Folding.             (line 134)
+* TeX-fold-clearout-section:             Folding.             (line 142)
+* TeX-fold-comment:                      Folding.             (line 127)
+* TeX-fold-dwim:                         Folding.             (line 153)
+* TeX-fold-env:                          Folding.             (line 111)
+* TeX-fold-macro:                        Folding.             (line 102)
+* TeX-fold-math:                         Folding.             (line 118)
 * TeX-fold-mode:                         Folding.             (line  31)
-* TeX-fold-paragraph:                    Folding.             (line  93)
-* TeX-fold-region:                       Folding.             (line  90)
-* TeX-fold-section:                      Folding.             (line  97)
+* TeX-fold-paragraph:                    Folding.             (line  94)
+* TeX-fold-region:                       Folding.             (line  91)
+* TeX-fold-section:                      Folding.             (line  98)
 * TeX-font:                              Font Specifiers.     (line  54)
 * TeX-home-buffer:                       Control.             (line  17)
 * TeX-insert-braces:                     Quotes.              (line 128)
@@ -7284,7 +7298,7 @@ Function Index
 * turn-on-auto-fill:                     Filling.             (line   6)
 
 
-File: doc0lCzv9.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
+File: docwpQ94K.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
 
 Variable Index
 ==============
@@ -7432,9 +7446,9 @@ Variable Index
 * LaTeX-float:                           Floats.              (line  14)
 * LaTeX-float <1>:                       Floats.              (line  39)
 * LaTeX-flymake-chktex-options:          Checking.            (line  27)
-* LaTeX-fold-env-spec-list:              Folding.             (line 213)
-* LaTeX-fold-macro-spec-list:            Folding.             (line 213)
-* LaTeX-fold-math-spec-list:             Folding.             (line 213)
+* LaTeX-fold-env-spec-list:              Folding.             (line 214)
+* LaTeX-fold-macro-spec-list:            Folding.             (line 214)
+* LaTeX-fold-math-spec-list:             Folding.             (line 214)
 * LaTeX-font-list:                       Font Specifiers.     (line  69)
 * LaTeX-indent-environment-check:        Indenting.           (line  51)
 * LaTeX-indent-environment-list:         Indenting.           (line  37)
@@ -7550,25 +7564,28 @@ Variable Index
 * TeX-expand-list:                       Selecting a Command. (line  14)
 * TeX-file-line-error:                   Processor Options.   (line 204)
 * TeX-file-recurse:                      Automatic.           (line  44)
-* TeX-fold-alert-color:                  Folding.             (line 268)
+* TeX-fold-alert-color:                  Folding.             (line 269)
 * TeX-fold-auto:                         Folding.             (line  70)
-* TeX-fold-auto-reveal:                  Folding.             (line 245)
-* TeX-fold-auto-reveal-commands:         Folding.             (line 262)
-* TeX-fold-begin-end-spec-list:          Folding.             (line 273)
-* TeX-fold-bib-file:                     Folding.             (line 329)
-* TeX-fold-command-prefix:               Folding.             (line 158)
-* TeX-fold-env-spec-list:                Folding.             (line 203)
+* TeX-fold-auto-reveal:                  Folding.             (line 246)
+* TeX-fold-auto-reveal-commands:         Folding.             (line 263)
+* TeX-fold-begin-end-spec-list:          Folding.             (line 274)
+* TeX-fold-bib-file:                     Folding.             (line 330)
+* TeX-fold-close-quote:                  Folding.             (line 344)
+* TeX-fold-command-prefix:               Folding.             (line 159)
+* TeX-fold-env-spec-list:                Folding.             (line 204)
 * TeX-fold-force-fontify:                Folding.             (line  62)
-* TeX-fold-help-echo-max-length:         Folding.             (line 240)
-* TeX-fold-macro-spec-list:              Folding.             (line 167)
-* TeX-fold-math-spec-list:               Folding.             (line 210)
+* TeX-fold-help-echo-max-length:         Folding.             (line 241)
+* TeX-fold-macro-spec-list:              Folding.             (line 168)
+* TeX-fold-math-spec-list:               Folding.             (line 211)
+* TeX-fold-open-quote:                   Folding.             (line 340)
 * TeX-fold-preserve-comments:            Folding.             (line  75)
+* TeX-fold-quotes-on-insert:             Folding.             (line 348)
 * TeX-fold-region-functions:             Folding.             (line  85)
 * TeX-fold-type-list:                    Folding.             (line  57)
 * TeX-fold-unfold-around-mark:           Folding.             (line  81)
-* TeX-fold-unspec-env-display-string:    Folding.             (line 223)
-* TeX-fold-unspec-macro-display-string:  Folding.             (line 219)
-* TeX-fold-unspec-use-name:              Folding.             (line 227)
+* TeX-fold-unspec-env-display-string:    Folding.             (line 224)
+* TeX-fold-unspec-macro-display-string:  Folding.             (line 220)
+* TeX-fold-unspec-use-name:              Folding.             (line 228)
 * TeX-font-list:                         Font Specifiers.     (line  60)
 * TeX-header-end:                        Starting a Command.  (line  32)
 * TeX-header-end <1>:                    Starting a Command.  (line  74)
@@ -7658,7 +7675,7 @@ Variable Index
                                                               (line   6)
 
 
-File: doc0lCzv9.info,  Node: Concept Index,  Prev: Variable Index,  Up: Indices
+File: docwpQ94K.info,  Node: Concept Index,  Prev: Variable Index,  Up: Indices
 
 Concept Index
 =============
@@ -8075,61 +8092,61 @@ Node: Verbatim content110959
 Node: Faces111736
 Node: Known problems112236
 Node: Folding113236
-Node: Outline128852
-Node: Narrowing130134
-Node: Prettifying131207
-Node: Processing132487
-Node: Commands133818
-Node: Starting a Command134377
-Node: Selecting a Command139615
-Node: Processor Options148701
-Node: Viewing159668
-Node: Starting Viewers160045
-Node: I/O Correlation165702
-Ref: I/O Correlation-Footnote-1171382
-Node: Debugging171632
-Node: Ignoring warnings174269
-Node: Error overview176335
-Node: Checking178256
-Node: Control180189
-Node: Cleaning182303
-Node: Documentation183667
-Node: Customization184767
-Node: Modes and Hooks185263
-Node: Multifile187335
-Node: Parsing Files192082
-Node: Internationalization197074
-Node: European198426
-Node: Japanese205916
-Node: Automatic210988
-Node: Automatic Global213486
-Node: Automatic Private214623
-Node: Automatic Local215962
-Node: Style Files217203
-Node: Simple Style218012
-Node: Adding Macros221736
-Node: Adding Environments231244
-Node: Adding Other236488
-Node: Hacking the Parser241087
-Node: Appendices245078
-Node: Copying this Manual245377
-Node: GNU Free Documentation License246292
-Node: Changes271415
-Node: Development273198
-Node: Mid-term Goals273847
-Node: Wishlist276663
-Node: Bugs282649
-Node: FAQ283732
-Node: Texinfo mode290425
-Node: Exploiting291562
-Node: Superseding292383
-Node: Mapping296937
-Node: Unbinding298775
-Node: Indices299314
-Node: Key Index299480
-Node: Function Index307523
-Node: Variable Index320161
-Node: Concept Index346610
+Node: Outline129490
+Node: Narrowing130772
+Node: Prettifying131845
+Node: Processing133125
+Node: Commands134456
+Node: Starting a Command135015
+Node: Selecting a Command140253
+Node: Processor Options149339
+Node: Viewing160306
+Node: Starting Viewers160683
+Node: I/O Correlation166340
+Ref: I/O Correlation-Footnote-1172020
+Node: Debugging172270
+Node: Ignoring warnings174907
+Node: Error overview176973
+Node: Checking178894
+Node: Control180827
+Node: Cleaning182941
+Node: Documentation184305
+Node: Customization185405
+Node: Modes and Hooks185901
+Node: Multifile187973
+Node: Parsing Files192720
+Node: Internationalization197712
+Node: European199064
+Node: Japanese206554
+Node: Automatic211626
+Node: Automatic Global214124
+Node: Automatic Private215261
+Node: Automatic Local216600
+Node: Style Files217841
+Node: Simple Style218650
+Node: Adding Macros222374
+Node: Adding Environments231882
+Node: Adding Other237126
+Node: Hacking the Parser241725
+Node: Appendices245716
+Node: Copying this Manual246015
+Node: GNU Free Documentation License246930
+Node: Changes272053
+Node: Development273836
+Node: Mid-term Goals274485
+Node: Wishlist277301
+Node: Bugs283287
+Node: FAQ284370
+Node: Texinfo mode291063
+Node: Exploiting292200
+Node: Superseding293021
+Node: Mapping297575
+Node: Unbinding299413
+Node: Indices299952
+Node: Key Index300118
+Node: Function Index308161
+Node: Variable Index320799
+Node: Concept Index347467
 
 End Tag Table
 
