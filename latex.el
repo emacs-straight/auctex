@@ -66,12 +66,14 @@ A comma-seperated list of strings."
 
 (make-variable-buffer-local 'LaTeX-default-options)
 
-(defcustom LaTeX-insert-into-comments t
+(defcustom LaTeX-insert-into-comments nil
   "Whether insertion commands stay in comments.
-This allows using the insertion commands even when
-the lines are outcommented, like in dtx files."
+This allows using the insertion commands even when the lines are
+outcommented, like in dtx files."
   :group 'LaTeX-environment
-  :type 'boolean)
+  :type 'boolean
+  :safe #'booleanp
+  :package-version '(auctex . "14.0.8"))
 
 (defcustom docTeX-indent-across-comments nil
   "If non-nil, indentation in docTeX is done across comments."
@@ -1533,7 +1535,18 @@ You may use `LaTeX-item-list' to change the routines used to insert the item."
     (when (and (TeX-active-mark)
                (> (point) (mark)))
       (exchange-point-and-mark))
-    (unless (bolp) (LaTeX-newline))
+    (if (save-excursion
+          ;; If the current line has only whitespace characters, put
+          ;; the new \item on this line, not creating a new line
+          ;; below.
+          (goto-char (line-beginning-position))
+          (if LaTeX-insert-into-comments
+              (re-search-forward
+               (concat "\\=" TeX-comment-start-regexp "+")
+               (line-end-position) t))
+          (looking-at "[ \t]*$"))
+        (delete-region (match-beginning 0) (match-end 0))
+      (LaTeX-newline))
     (if (assoc environment LaTeX-item-list)
         (funcall (cdr (assoc environment LaTeX-item-list)))
       (TeX-insert-macro "item"))
