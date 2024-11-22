@@ -6133,6 +6133,11 @@ List of optional arguments available for the class.
 Which see.
 @end defun
 
+In case the utility function @code{TeX-read-key-val} is used, the variable
+containing the key-value pair(s) should be called
+@code{LaTeX-@var{packagename}-package-options-list} or
+@code{LaTeX-@var{classname}-class-options-list} accordingly.
+
 @node Hacking the Parser
 @subsection Automatic Extraction of New Things
 @cindex Parsing new macros
@@ -6150,8 +6155,8 @@ For example, in the file @file{macro.tex} I define the following macro.
 
 @example
 \newcommand@{\newmacro@}[5]@{%
-\def#1@{#3\index@{#4@@#5~cite@{#4@}@}\nocite@{#4@}@}%
-\def#2@{#5\index@{#4@@#5~cite@{#4@}@}\nocite@{#4@}@}%
+  \def#1@{#3\index@{#4@@#5~cite@{#4@}@}\nocite@{#4@}@}%
+  \def#2@{#5\index@{#4@@#5~cite@{#4@}@}\nocite@{#4@}@}%
 @}
 @end example
 
