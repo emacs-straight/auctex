@@ -3688,6 +3688,17 @@ Used for specifying extra syntax for a macro.  The compatibility
 argument OPTIONAL is ignored."
   (apply #'insert args))
 
+(defun TeX-arg-space (_optional &optional how-many)
+  "Ignore OPTIONAL and insert 1 or HOW-MANY spaces.
+
+This function is equivalent to
+  (TeX-arg-literal \" \")
+when HOW-MANY is omitted."
+  (insert (make-string (or how-many 1) ?\s)))
+
+(defun TeX-arg-set-exit-mark (_optional &optional pos)
+  "Ignore OPTIONAL and set `TeX-exit-mark' to POS or current point."
+  (set-marker TeX-exit-mark (or pos (point))))
 
 ;;; Font Locking
 
@@ -3895,7 +3906,7 @@ Run after mode hooks and file local variables application."
   ;; Symbol & length completion.
   (or (local-variable-p 'TeX-complete-list)
       (setq-local TeX-complete-list
-                  (list (list "\\\\\\([a-zA-Z]*\\)"
+                  (list (list "\\\\\\([a-zA-Z@:_]*\\)"
                               1
                               (lambda ()
                                 (append
