@@ -3028,7 +3028,7 @@ Mode, , Outline Mode, emacs, GNU Emacs Manual}.
 You can add your own headings by setting the variable
 @code{TeX-outline-extra}.
 
-@defvar TeX-outline-extra
+@defopt TeX-outline-extra
 List of extra @TeX{} outline levels.
 
 Each element is a list with two entries.  The first entry is the regular
@@ -3038,7 +3038,7 @@ list, so they must match text at the beginning of the line.
 
 See @code{LaTeX-section-list} or @code{ConTeXt-@var{interface}-section-list}
 for existing header levels.
-@end defvar
+@end defopt
 
 The following example add @samp{\item} and @samp{\bibliography} headers,
 with @samp{\bibliography} at the same outline level as @samp{\section},
@@ -3049,11 +3049,6 @@ and @samp{\item} being below @samp{\subparagraph}.
       '(("[ \t]*\\\\\\(bib\\)?item\\b" 7)
         ("\\\\bibliography\\b" 2)))
 @end lisp
-
-@c FIXME: Isn't this much outdated?
-You may want to check out the unbundled @file{out-xtra} package for even
-better outline support.  It is available from your favorite emacs lisp
-archive.
 
 @node Narrowing
 @section Narrowing
