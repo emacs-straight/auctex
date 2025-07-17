@@ -1,8 +1,8 @@
-This is docxgUbmd.info, produced by makeinfo version 6.8 from
+This is docSPiJUD.info, produced by makeinfo version 6.8 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.1.0.2025-07-14_23:27:17 from
-2025-07-14_23:27:17), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.0.2025-07-16_09:51:49 from
+2025-07-16_09:51:49), a sophisticated TeX environment for Emacs.
 
    Copyright (C) 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -24,7 +24,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: docxgUbmd.info,  Node: Top,  Next: Copying,  Up: (dir)
+File: docSPiJUD.info,  Node: Top,  Next: Copying,  Up: (dir)
 
 AUCTeX
 ******
@@ -197,7 +197,7 @@ Indices
 
 
 
-File: docxgUbmd.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
+File: docSPiJUD.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
 
 Copying
 *******
@@ -236,7 +236,7 @@ that accompany them.  This manual specifically is covered by the GNU
 Free Documentation License (*note Copying this Manual::).
 
 
-File: docxgUbmd.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: Top
+File: docSPiJUD.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: Top
 
 1 Introduction
 **************
@@ -248,7 +248,7 @@ File: docxgUbmd.info,  Node: Introduction,  Next: Editing,  Prev: Copying,  Up: 
 * Quick Start::                 Quick Start
 
 
-File: docxgUbmd.info,  Node: Summary,  Next: Installation,  Up: Introduction
+File: docSPiJUD.info,  Node: Summary,  Next: Installation,  Up: Introduction
 
 1.1 Overview of AUCTeX
 ======================
@@ -310,7 +310,7 @@ developers of AUCTeX themselves with technical issues, they can be found
 on the discussion list <auctex-devel@gnu.org>.
 
 
-File: docxgUbmd.info,  Node: Installation,  Next: Quick Start,  Prev: Summary,  Up: Introduction
+File: docSPiJUD.info,  Node: Installation,  Next: Quick Start,  Prev: Summary,  Up: Introduction
 
 1.2 Installing AUCTeX
 =====================
@@ -348,7 +348,7 @@ Quick Start::.
 * Customizing::
 
 
-File: docxgUbmd.info,  Node: Prerequisites,  Next: Activating the package,  Up: Installation
+File: docSPiJUD.info,  Node: Prerequisites,  Next: Activating the package,  Up: Installation
 
 1.2.1 Prerequisites
 -------------------
@@ -389,7 +389,7 @@ File: docxgUbmd.info,  Node: Prerequisites,  Next: Activating the package,  Up: 
 (preview-latex)Known problems::.
 
 
-File: docxgUbmd.info,  Node: Activating the package,  Next: Advice for package providers,  Prev: Prerequisites,  Up: Installation
+File: docSPiJUD.info,  Node: Activating the package,  Next: Advice for package providers,  Prev: Prerequisites,  Up: Installation
 
 1.2.2 Activating the package
 ----------------------------
@@ -438,7 +438,7 @@ leave unused autoloads persisted.)
 versions of this document, but now it causes error.
 
 
-File: docxgUbmd.info,  Node: Advice for package providers,  Next: Using AUCTeX from ELPA-devel,  Prev: Activating the package,  Up: Installation
+File: docSPiJUD.info,  Node: Advice for package providers,  Next: Using AUCTeX from ELPA-devel,  Prev: Activating the package,  Up: Installation
 
 1.2.3 Providing AUCTeX as a package
 -----------------------------------
@@ -460,7 +460,7 @@ is therefore a good choice.
 'package-directory-list' to have site-wide default.
 
 
-File: docxgUbmd.info,  Node: Using AUCTeX from ELPA-devel,  Next: Using AUCTeX from local Git repo,  Prev: Advice for package providers,  Up: Installation
+File: docSPiJUD.info,  Node: Using AUCTeX from ELPA-devel,  Next: Using AUCTeX from local Git repo,  Prev: Advice for package providers,  Up: Installation
 
 1.2.4 Using AUCTeX from ELPA-devel
 ----------------------------------
@@ -485,7 +485,7 @@ regular archive, and instructs Emacs to fetch only AUCTeX from the new
 archive and don't bother with other packages installed.
 
 
-File: docxgUbmd.info,  Node: Using AUCTeX from local Git repo,  Next: Customizing,  Prev: Using AUCTeX from ELPA-devel,  Up: Installation
+File: docSPiJUD.info,  Node: Using AUCTeX from local Git repo,  Next: Customizing,  Prev: Using AUCTeX from ELPA-devel,  Up: Installation
 
 1.2.5 Using AUCTeX from local Git repo
 --------------------------------------
@@ -518,7 +518,7 @@ and you're finished.
                       "~/development/auctex/doc")))
 
 
-File: docxgUbmd.info,  Node: Customizing,  Prev: Using AUCTeX from local Git repo,  Up: Installation
+File: docSPiJUD.info,  Node: Customizing,  Prev: Using AUCTeX from local Git repo,  Up: Installation
 
 1.2.6 Customizing
 -----------------
@@ -556,7 +556,7 @@ accessible directly by typing 'M-x customize-option <RET> OPTION <RET>'.
      <https://lists.gnu.org/r/auctex/2021-01/msg00037.html>.
 
 
-File: docxgUbmd.info,  Node: Quick Start,  Prev: Installation,  Up: Introduction
+File: docSPiJUD.info,  Node: Quick Start,  Prev: Installation,  Up: Introduction
 
 1.3 Quick Start
 ===============
@@ -594,7 +594,7 @@ ask you for a master file.
 * Processing Facilities::       Creating and viewing output, debugging
 
 
-File: docxgUbmd.info,  Node: Editing Facilities,  Next: Processing Facilities,  Up: Quick Start
+File: docSPiJUD.info,  Node: Editing Facilities,  Next: Processing Facilities,  Up: Quick Start
 
 1.3.1 Functions for editing TeX files
 -------------------------------------
@@ -713,7 +713,7 @@ outline mode is provided as well.  And there's more, but this is beyond
 the scope of this Quick Start Guide.
 
 
-File: docxgUbmd.info,  Node: Processing Facilities,  Prev: Editing Facilities,  Up: Quick Start
+File: docSPiJUD.info,  Node: Processing Facilities,  Prev: Editing Facilities,  Up: Quick Start
 
 1.3.2 Creating and viewing output, debugging
 --------------------------------------------
@@ -820,7 +820,7 @@ run 'latex' only on the current buffer, using the preamble from the
 master file.
 
 
-File: docxgUbmd.info,  Node: Editing,  Next: Display,  Prev: Introduction,  Up: Top
+File: docSPiJUD.info,  Node: Editing,  Next: Display,  Prev: Introduction,  Up: Top
 
 2 Editing the Document Source
 *****************************
@@ -849,7 +849,7 @@ by indenting and filling and for navigating through the document.
 * Filling::                     Automatic and manual line breaking
 
 
-File: docxgUbmd.info,  Node: Quotes,  Next: Font Specifiers,  Up: Editing
+File: docSPiJUD.info,  Node: Quotes,  Next: Font Specifiers,  Up: Editing
 
 2.1 Insertion of Quotes, Dollars, and Braces
 ============================================
@@ -1067,7 +1067,7 @@ when typing '(', '{' and '['.
      completion.
 
 
-File: docxgUbmd.info,  Node: Font Specifiers,  Next: Sectioning,  Prev: Quotes,  Up: Editing
+File: docSPiJUD.info,  Node: Font Specifiers,  Next: Sectioning,  Prev: Quotes,  Up: Editing
 
 2.2 Inserting Font Specifiers
 =============================
@@ -1140,7 +1140,7 @@ inserted.
      structure as 'TeX-font-list'.
 
 
-File: docxgUbmd.info,  Node: Sectioning,  Next: Environments,  Prev: Font Specifiers,  Up: Editing
+File: docSPiJUD.info,  Node: Sectioning,  Next: Environments,  Prev: Font Specifiers,  Up: Editing
 
 2.3 Inserting chapters, sections, etc.
 ======================================
@@ -1255,7 +1255,7 @@ label will be prefixed by the value specified in 'LaTeX-section-hook'.
      inserted for other types of sections.
 
 
-File: docxgUbmd.info,  Node: Environments,  Next: Mathematics,  Prev: Sectioning,  Up: Editing
+File: docSPiJUD.info,  Node: Environments,  Next: Mathematics,  Prev: Sectioning,  Up: Editing
 
 2.4 Inserting Environment Templates
 ===================================
@@ -1383,7 +1383,7 @@ and to the end of the current environment.
      calls 'LaTeX-find-matching-end'.
 
 
-File: docxgUbmd.info,  Node: Equations,  Next: Floats,  Up: Environments
+File: docSPiJUD.info,  Node: Equations,  Next: Floats,  Up: Environments
 
 2.4.1 Equations
 ---------------
@@ -1403,7 +1403,7 @@ default prefix, which is controlled by the following variables:
      'gather'.
 
 
-File: docxgUbmd.info,  Node: Floats,  Next: Itemize-like,  Prev: Equations,  Up: Environments
+File: docSPiJUD.info,  Node: Floats,  Next: Itemize-like,  Prev: Equations,  Up: Environments
 
 2.4.2 Floats
 ------------
@@ -1467,7 +1467,7 @@ listing environments like in 'lstlisting' environment provided by the
      Prefix to use for listing labels.
 
 
-File: docxgUbmd.info,  Node: Itemize-like,  Next: Tabular-like,  Prev: Floats,  Up: Environments
+File: docSPiJUD.info,  Node: Itemize-like,  Next: Tabular-like,  Prev: Floats,  Up: Environments
 
 2.4.3 Itemize-like Environments
 -------------------------------
@@ -1487,7 +1487,7 @@ if the key binding is still available.
      Otherwise, you will be asked only in description environments.
 
 
-File: docxgUbmd.info,  Node: Tabular-like,  Next: Customizing Environments,  Prev: Itemize-like,  Up: Environments
+File: docSPiJUD.info,  Node: Tabular-like,  Next: Customizing Environments,  Prev: Itemize-like,  Up: Environments
 
 2.4.4 Tabular-like Environments
 -------------------------------
@@ -1530,7 +1530,7 @@ or 'M-<RET>' in these environments.  It recognizes the current
 environment and does the appropriate job depending on the context.
 
 
-File: docxgUbmd.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up: Environments
+File: docSPiJUD.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up: Environments
 
 2.4.5 Customizing Environments
 ------------------------------
@@ -1539,7 +1539,7 @@ File: docxgUbmd.info,  Node: Customizing Environments,  Prev: Tabular-like,  Up:
 environments.
 
 
-File: docxgUbmd.info,  Node: Mathematics,  Next: Completion,  Prev: Environments,  Up: Editing
+File: docSPiJUD.info,  Node: Mathematics,  Next: Completion,  Prev: Environments,  Up: Editing
 
 2.5 Entering Mathematics
 ========================
@@ -1706,7 +1706,7 @@ e.g. by adding the following to your init file:
 that converts display constructs to inline math.
 
 
-File: docxgUbmd.info,  Node: Completion,  Next: Marking,  Prev: Mathematics,  Up: Editing
+File: docSPiJUD.info,  Node: Completion,  Next: Marking,  Prev: Mathematics,  Up: Editing
 
 2.6 Completion
 ==============
@@ -1889,7 +1889,7 @@ after you enabled automatic parsing on save, and that the basename of
 the BibTeX file does not conflict with the basename of one of TeX files.
 
 
-File: docxgUbmd.info,  Node: Marking,  Next: Commenting,  Prev: Completion,  Up: Editing
+File: docSPiJUD.info,  Node: Marking,  Next: Commenting,  Prev: Completion,  Up: Editing
 
 2.7 Marking Environments, Sections, or Texinfo Nodes
 ====================================================
@@ -1908,7 +1908,7 @@ mark to its end.
 * Marking (Texinfo):: Texinfo Commands for Marking Environments, Sections, and Nodes
 
 
-File: docxgUbmd.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Marking
+File: docSPiJUD.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Marking
 
 2.7.1 LaTeX Commands for Marking Environments and Sections
 ----------------------------------------------------------
@@ -1932,7 +1932,7 @@ File: docxgUbmd.info,  Node: Marking (LaTeX),  Next: Marking (Texinfo),  Up: Mar
      environments.
 
 
-File: docxgUbmd.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Marking
+File: docSPiJUD.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Marking
 
 2.7.2 Texinfo Commands for Marking Environments and Sections
 ------------------------------------------------------------
@@ -1971,7 +1971,7 @@ File: docxgUbmd.info,  Node: Marking (Texinfo),  Prev: Marking (LaTeX),  Up: Mar
      '@node' or '@bye'.
 
 
-File: docxgUbmd.info,  Node: Commenting,  Next: Indenting,  Prev: Marking,  Up: Editing
+File: docSPiJUD.info,  Node: Commenting,  Next: Indenting,  Prev: Marking,  Up: Editing
 
 2.8 Commenting
 ==============
@@ -2013,7 +2013,7 @@ controlled by 'LaTeX-insert-into-comments'.
      docTeX mode.
 
 
-File: docxgUbmd.info,  Node: Indenting,  Next: Filling,  Prev: Commenting,  Up: Editing
+File: docSPiJUD.info,  Node: Indenting,  Next: Filling,  Prev: Commenting,  Up: Editing
 
 2.9 Indenting
 =============
@@ -2206,7 +2206,7 @@ behavior can be controlled by setting the variable
      option is disabled by default.
 
 
-File: docxgUbmd.info,  Node: Filling,  Prev: Indenting,  Up: Editing
+File: docSPiJUD.info,  Node: Filling,  Prev: Indenting,  Up: Editing
 
 2.10 Filling
 ============
@@ -2344,7 +2344,7 @@ inside the comment, AUCTeX will report an error.
      }
 
 
-File: docxgUbmd.info,  Node: Display,  Next: Processing,  Prev: Editing,  Up: Top
+File: docSPiJUD.info,  Node: Display,  Next: Processing,  Prev: Editing,  Up: Top
 
 3 Controlling Screen Display
 ****************************
@@ -2402,7 +2402,7 @@ together.
 * Prettifying::                 Displaying Greek and math macros as Unicode characters
 
 
-File: docxgUbmd.info,  Node: Font Locking,  Next: Folding,  Up: Display
+File: docSPiJUD.info,  Node: Font Locking,  Next: Folding,  Up: Display
 
 3.1 Font Locking
 ================
@@ -2448,7 +2448,7 @@ description the various options are explained in conceptional groups.
 * Known problems::              Known fontification problems
 
 
-File: docxgUbmd.info,  Node: Fontification of macros,  Next: Fontification of quotes,  Up: Font Locking
+File: docSPiJUD.info,  Node: Fontification of macros,  Next: Fontification of quotes,  Up: Font Locking
 
 3.1.1 Fontification of macros
 -----------------------------
@@ -2669,7 +2669,7 @@ variable 'font-latex-user-keyword-classes'.
      above.
 
 
-File: docxgUbmd.info,  Node: Fontification of quotes,  Next: Fontification of math,  Prev: Fontification of macros,  Up: Font Locking
+File: docSPiJUD.info,  Node: Fontification of quotes,  Next: Fontification of math,  Prev: Fontification of macros,  Up: Font Locking
 
 3.1.2 Fontification of quotes
 -----------------------------
@@ -2701,7 +2701,7 @@ properties.
      fontified.
 
 
-File: docxgUbmd.info,  Node: Fontification of math,  Next: Verbatim content,  Prev: Fontification of quotes,  Up: Font Locking
+File: docSPiJUD.info,  Node: Fontification of math,  Next: Verbatim content,  Prev: Fontification of quotes,  Up: Font Locking
 
 3.1.3 Fontification of mathematical constructs
 ----------------------------------------------
@@ -2774,7 +2774,7 @@ an own face named 'font-latex-script-char-face'.
      Other Display Specifications: (elisp)Other Display Specs.
 
 
-File: docxgUbmd.info,  Node: Verbatim content,  Next: Faces,  Prev: Fontification of math,  Up: Font Locking
+File: docSPiJUD.info,  Node: Verbatim content,  Next: Faces,  Prev: Fontification of math,  Up: Font Locking
 
 3.1.4 Verbatim macros and environments
 --------------------------------------
@@ -2792,7 +2792,7 @@ environments are recognized is controlled by the variables
 respectively.
 
 
-File: docxgUbmd.info,  Node: Faces,  Next: Known problems,  Prev: Verbatim content,  Up: Font Locking
+File: docSPiJUD.info,  Node: Faces,  Next: Known problems,  Prev: Verbatim content,  Up: Font Locking
 
 3.1.5 Faces used by font-latex
 ------------------------------
@@ -2804,7 +2804,7 @@ font-latex are accessible through a customization group by typing 'M-x
 customize-group <RET> font-latex-highlighting-faces <RET>'.
 
 
-File: docxgUbmd.info,  Node: Known problems,  Prev: Faces,  Up: Font Locking
+File: docSPiJUD.info,  Node: Known problems,  Prev: Faces,  Up: Font Locking
 
 3.1.6 Known fontification problems
 ----------------------------------
@@ -2825,7 +2825,7 @@ workaround.  In docTeX documents, '^^A$' is also available for similar
 purpose.
 
 
-File: docxgUbmd.info,  Node: Folding,  Next: Outline,  Prev: Font Locking,  Up: Display
+File: docSPiJUD.info,  Node: Folding,  Next: Outline,  Prev: Font Locking,  Up: Display
 
 3.2 Folding Macros and Environments
 ===================================
@@ -3178,7 +3178,7 @@ variable 'TeX-fold-help-echo-max-length'.
      determining whether to fold newly inserted quotes.
 
 
-File: docxgUbmd.info,  Node: Outline,  Next: Narrowing,  Prev: Folding,  Up: Display
+File: docSPiJUD.info,  Node: Outline,  Next: Narrowing,  Prev: Folding,  Up: Display
 
 3.3 Outlining the Document
 ==========================
@@ -3211,7 +3211,7 @@ being below '\subparagraph'.
              ("\\\\bibliography\\b" 2)))
 
 
-File: docxgUbmd.info,  Node: Narrowing,  Next: Prettifying,  Prev: Outline,  Up: Display
+File: docSPiJUD.info,  Node: Narrowing,  Next: Prettifying,  Prev: Outline,  Up: Display
 
 3.4 Narrowing
 =============
@@ -3237,7 +3237,7 @@ the option of enabling them; if you enable the commands, confirmation
 will no longer be required for them.
 
 
-File: docxgUbmd.info,  Node: Prettifying,  Prev: Narrowing,  Up: Display
+File: docSPiJUD.info,  Node: Prettifying,  Prev: Narrowing,  Up: Display
 
 3.5 Prettifying
 ===============
@@ -3268,7 +3268,7 @@ this variable is part of Emacs' stock 'tex-mode.el' and used by that and
 AUCTeX.
 
 
-File: docxgUbmd.info,  Node: Processing,  Next: Customization,  Prev: Display,  Up: Top
+File: docSPiJUD.info,  Node: Processing,  Next: Customization,  Prev: Display,  Up: Top
 
 4 Starting Processors, Viewers and Other Programs
 *************************************************
@@ -3297,7 +3297,7 @@ can also customize the buttons by the options 'TeX-bar-TeX-buttons',
 * Documentation::               Documentation about macros and packages.
 
 
-File: docxgUbmd.info,  Node: Commands,  Next: Viewing,  Up: Processing
+File: docSPiJUD.info,  Node: Commands,  Next: Viewing,  Up: Processing
 
 4.1 Executing Commands
 ======================
@@ -3314,7 +3314,7 @@ external command.
 * Processor Options::           Options for TeX Processors
 
 
-File: docxgUbmd.info,  Node: Starting a Command,  Next: Selecting a Command,  Up: Commands
+File: docSPiJUD.info,  Node: Starting a Command,  Next: Selecting a Command,  Up: Commands
 
 4.1.1 Starting a Command on a Document or Region
 ------------------------------------------------
@@ -3423,7 +3423,7 @@ when you are editing multiple documents in parallel.  This limitation
 applies for preview by preview-latex as well.
 
 
-File: docxgUbmd.info,  Node: Selecting a Command,  Next: Processor Options,  Prev: Starting a Command,  Up: Commands
+File: docSPiJUD.info,  Node: Selecting a Command,  Next: Processor Options,  Prev: Starting a Command,  Up: Commands
 
 4.1.2 Selecting and Executing a Command
 ---------------------------------------
@@ -3606,7 +3606,7 @@ verbatim macros like '\Verb' from 'fancyvrb.sty' or '\mintinline' from
      avoided as they are not recognized by 'font-latex.el'.
 
 
-File: docxgUbmd.info,  Node: Processor Options,  Prev: Selecting a Command,  Up: Commands
+File: docSPiJUD.info,  Node: Processor Options,  Prev: Selecting a Command,  Up: Commands
 
 4.1.3 Options for TeX Processors
 --------------------------------
@@ -3823,7 +3823,7 @@ is controlled by 'ConTeXt-Mark-version' option.
      basis, by specifying it as a file variable.
 
 
-File: docxgUbmd.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
+File: docSPiJUD.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
 
 4.2 Viewing the Formatted Output
 ================================
@@ -3837,7 +3837,7 @@ formatted output of your document.
 * I/O Correlation::             Forward and inverse search
 
 
-File: docxgUbmd.info,  Node: Starting Viewers,  Next: I/O Correlation,  Up: Viewing
+File: docSPiJUD.info,  Node: Starting Viewers,  Next: I/O Correlation,  Up: Viewing
 
 4.2.1 Starting Viewers
 ----------------------
@@ -3943,7 +3943,7 @@ the variable in place.  In addition, the use of a function in
 'TeX-command-list' makes use of the hook 'TeX-run-discard-or-function'.
 
 
-File: docxgUbmd.info,  Node: I/O Correlation,  Prev: Starting Viewers,  Up: Viewing
+File: docSPiJUD.info,  Node: I/O Correlation,  Prev: Starting Viewers,  Up: Viewing
 
 4.2.2 Forward and Inverse Search
 --------------------------------
@@ -4063,7 +4063,7 @@ implemented as minor mode map of 'TeX-source-correlate-mode', in order
 that its bindings don't affect buffers outside of AUCTeX.
 
 
-File: docxgUbmd.info,  Node: Debugging,  Next: Checking,  Prev: Viewing,  Up: Processing
+File: docSPiJUD.info,  Node: Debugging,  Next: Checking,  Prev: Viewing,  Up: Processing
 
 4.3 Catching the errors
 =======================
@@ -4123,7 +4123,7 @@ error reported by TeX along with the documentation.  There is however an
 * Error overview::            List of all errors and warnings
 
 
-File: docxgUbmd.info,  Node: Ignoring warnings,  Next: Error overview,  Up: Debugging
+File: docSPiJUD.info,  Node: Ignoring warnings,  Next: Error overview,  Up: Debugging
 
 4.3.1 Controlling warnings to be reported
 -----------------------------------------
@@ -4171,7 +4171,7 @@ options.
      'nil', all warnings are hidden in any case.
 
 
-File: docxgUbmd.info,  Node: Error overview,  Prev: Ignoring warnings,  Up: Debugging
+File: docSPiJUD.info,  Node: Error overview,  Prev: Ignoring warnings,  Up: Debugging
 
 4.3.2 List of all errors and warnings
 -------------------------------------
@@ -4216,7 +4216,7 @@ default, but you can change this behavior by customizing the option
      be used regardless of the value of this variable.
 
 
-File: docxgUbmd.info,  Node: Checking,  Next: Control,  Prev: Debugging,  Up: Processing
+File: docSPiJUD.info,  Node: Checking,  Next: Control,  Prev: Debugging,  Up: Processing
 
 4.4 Checking for problems
 =========================
@@ -4255,7 +4255,7 @@ before using them.  You can get 'lacheck' from
 <https://www.ctan.org/pkg/chktex>.  TeX Live contains both.
 
 
-File: docxgUbmd.info,  Node: Control,  Next: Cleaning,  Prev: Checking,  Up: Processing
+File: docSPiJUD.info,  Node: Control,  Next: Cleaning,  Prev: Checking,  Up: Processing
 
 4.5 Controlling the output
 ==========================
@@ -4308,7 +4308,7 @@ separate directory.
      'TEXINPUTS' and 'BIBINPUTS'.
 
 
-File: docxgUbmd.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up: Processing
+File: docSPiJUD.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up: Processing
 
 4.6 Cleaning intermediate and output files
 ==========================================
@@ -4343,7 +4343,7 @@ File: docxgUbmd.info,  Node: Cleaning,  Next: Documentation,  Prev: Control,  Up
      deleting files.
 
 
-File: docxgUbmd.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
+File: docSPiJUD.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
 
 4.7 Documentation about macros and packages
 ===========================================
@@ -4368,7 +4368,7 @@ File: docxgUbmd.info,  Node: Documentation,  Prev: Cleaning,  Up: Processing
      Thus it isn't sure whether this command works for MiKTeX or not.
 
 
-File: docxgUbmd.info,  Node: Customization,  Next: Appendices,  Prev: Processing,  Up: Top
+File: docSPiJUD.info,  Node: Customization,  Next: Appendices,  Prev: Processing,  Up: Top
 
 5 Customization and Extension
 *****************************
@@ -4383,7 +4383,7 @@ File: docxgUbmd.info,  Node: Customization,  Next: Appendices,  Prev: Processing
 * Style Files::                 Writing Your Own Style Support
 
 
-File: docxgUbmd.info,  Node: Modes and Hooks,  Next: Multifile,  Up: Customization
+File: docSPiJUD.info,  Node: Modes and Hooks,  Next: Multifile,  Up: Customization
 
 5.1 Modes and Hooks
 ===================
@@ -4428,7 +4428,7 @@ mode and runs 'plain-TeX-mode-hook' as well.
      added to the hook for this purpose.
 
 
-File: docxgUbmd.info,  Node: Multifile,  Next: Parsing Files,  Prev: Modes and Hooks,  Up: Customization
+File: docSPiJUD.info,  Node: Multifile,  Next: Parsing Files,  Prev: Modes and Hooks,  Up: Customization
 
 5.2 Multifile Documents
 =======================
@@ -4534,7 +4534,7 @@ master file.  *Note Automatic Local::.
      'TeX-save-document'.
 
 
-File: docxgUbmd.info,  Node: Parsing Files,  Next: Internationalization,  Prev: Multifile,  Up: Customization
+File: docSPiJUD.info,  Node: Parsing Files,  Next: Internationalization,  Prev: Multifile,  Up: Customization
 
 5.3 Automatic Parsing of TeX Files
 ==================================
@@ -4664,7 +4664,7 @@ these before loading AUCTeX by quoting them, as in the example above.
      Parse all TeX and LaTeX commands that AUCTeX can use.
 
 
-File: docxgUbmd.info,  Node: Internationalization,  Next: Automatic,  Prev: Parsing Files,  Up: Customization
+File: docSPiJUD.info,  Node: Internationalization,  Next: Automatic,  Prev: Parsing Files,  Up: Customization
 
 5.4 Language Support
 ====================
@@ -4695,7 +4695,7 @@ for supporting CJK scripts in a standard LaTeX document.
 * Japanese::                    Using AUCTeX with Japanese
 
 
-File: docxgUbmd.info,  Node: European,  Next: Japanese,  Up: Internationalization
+File: docSPiJUD.info,  Node: European,  Next: Japanese,  Up: Internationalization
 
 5.4.1 Using AUCTeX with European Languages
 ------------------------------------------
@@ -4877,7 +4877,7 @@ respectively.
      second key press.  If 'nil' do it the other way round.
 
 
-File: docxgUbmd.info,  Node: Japanese,  Prev: European,  Up: Internationalization
+File: docSPiJUD.info,  Node: Japanese,  Prev: European,  Up: Internationalization
 
 5.4.2 Using AUCTeX with Japanese TeX
 ------------------------------------
@@ -5002,7 +5002,7 @@ won't matter in buffers with other engines.
    See 'tex-jp.el' for more information.
 
 
-File: docxgUbmd.info,  Node: Automatic,  Next: Style Files,  Prev: Internationalization,  Up: Customization
+File: docSPiJUD.info,  Node: Automatic,  Next: Style Files,  Prev: Internationalization,  Up: Customization
 
 5.5 Automatic Customization
 ===========================
@@ -5060,7 +5060,7 @@ and 'CVS'.
      for TeX files in a directory.
 
 
-File: docxgUbmd.info,  Node: Automatic Global,  Next: Automatic Private,  Up: Automatic
+File: docSPiJUD.info,  Node: Automatic Global,  Next: Automatic Private,  Up: Automatic
 
 5.5.1 Automatic Customization for the Site
 ------------------------------------------
@@ -5090,7 +5090,7 @@ the variable 'TeX-auto-global' to 'nil'.
      shared by all users of a site.
 
 
-File: docxgUbmd.info,  Node: Automatic Private,  Next: Automatic Local,  Prev: Automatic Global,  Up: Automatic
+File: docSPiJUD.info,  Node: Automatic Private,  Next: Automatic Local,  Prev: Automatic Global,  Up: Automatic
 
 5.5.2 Automatic Customization for a User
 ----------------------------------------
@@ -5122,7 +5122,7 @@ directories listed in 'TeX-auto-private'
      These correspond to the personal TeX macros.
 
 
-File: docxgUbmd.info,  Node: Automatic Local,  Prev: Automatic Private,  Up: Automatic
+File: docSPiJUD.info,  Node: Automatic Local,  Prev: Automatic Private,  Up: Automatic
 
 5.5.3 Automatic Customization for a Directory
 ---------------------------------------------
@@ -5155,7 +5155,7 @@ set 'TeX-auto-local' to 'nil'.
      Subdirectory name is actually taken from 'TeX-auto-local'.
 
 
-File: docxgUbmd.info,  Node: Style Files,  Prev: Automatic,  Up: Customization
+File: docSPiJUD.info,  Node: Style Files,  Prev: Automatic,  Up: Customization
 
 5.6 Writing Your Own Style Support
 ==================================
@@ -5177,7 +5177,7 @@ directories instead of 'auto' directories.
 send it to us.
 
 
-File: docxgUbmd.info,  Node: Simple Style,  Next: Adding Macros,  Up: Style Files
+File: docSPiJUD.info,  Node: Simple Style,  Next: Adding Macros,  Up: Style Files
 
 5.6.1 A Simple Style File
 -------------------------
@@ -5264,7 +5264,7 @@ DIALECT-EXPR to pass constant 'TeX-dialect' currently defined to
      file, or any mode derived thereof.
 
 
-File: docxgUbmd.info,  Node: Adding Macros,  Next: Adding Environments,  Prev: Simple Style,  Up: Style Files
+File: docSPiJUD.info,  Node: Adding Macros,  Next: Adding Environments,  Prev: Simple Style,  Up: Style Files
 
 5.6.2 Adding Support for Macros
 -------------------------------
@@ -5548,7 +5548,7 @@ users.  Those should be marked as expert macros using
      'TeX-complete-expert-commands'.
 
 
-File: docxgUbmd.info,  Node: Adding Environments,  Next: Adding Other,  Prev: Adding Macros,  Up: Style Files
+File: docSPiJUD.info,  Node: Adding Environments,  Next: Adding Other,  Prev: Adding Macros,  Up: Style Files
 
 5.6.3 Adding Support for Environments
 -------------------------------------
@@ -5694,7 +5694,7 @@ non-expert users.  Those should be marked as expert environments using
      'TeX-complete-expert-commands'.
 
 
-File: docxgUbmd.info,  Node: Adding Other,  Next: Hacking the Parser,  Prev: Adding Environments,  Up: Style Files
+File: docSPiJUD.info,  Node: Adding Other,  Next: Hacking the Parser,  Prev: Adding Environments,  Up: Style Files
 
 5.6.4 Adding or Examining Other Information
 -------------------------------------------
@@ -5809,7 +5809,7 @@ containing the key-value pair(s) should be called
 'LaTeX-CLASSNAME-class-options-list' accordingly.
 
 
-File: docxgUbmd.info,  Node: Hacking the Parser,  Prev: Adding Other,  Up: Style Files
+File: docSPiJUD.info,  Node: Hacking the Parser,  Prev: Adding Other,  Up: Style Files
 
 5.6.5 Automatic Extraction of New Things
 ----------------------------------------
@@ -5912,7 +5912,7 @@ symbols found.
      List of functions to be called after parsing a TeX file.
 
 
-File: docxgUbmd.info,  Node: Appendices,  Next: Indices,  Prev: Customization,  Up: Top
+File: docSPiJUD.info,  Node: Appendices,  Next: Indices,  Prev: Customization,  Up: Top
 
 Appendix A Copying, Changes, Development, FAQ, Texinfo Mode
 ***********************************************************
@@ -5926,15 +5926,15 @@ Appendix A Copying, Changes, Development, FAQ, Texinfo Mode
 * Texinfo mode::
 
 
-File: docxgUbmd.info,  Node: Copying this Manual,  Next: Changes,  Up: Appendices
+File: docSPiJUD.info,  Node: Copying this Manual,  Next: Changes,  Up: Appendices
 
 A.1 Copying this Manual
 =======================
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.0.2025-07-14_23:27:17 from
-2025-07-14_23:27:17), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.0.2025-07-16_09:51:49 from
+2025-07-16_09:51:49), a sophisticated TeX environment for Emacs.
 
    Copyright (C) 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -5953,7 +5953,7 @@ Foundation, Inc.
 * GNU Free Documentation License:: License for copying this manual.
 
 
-File: docxgUbmd.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
+File: docSPiJUD.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
 
 A.1.1 GNU Free Documentation License
 ------------------------------------
@@ -6435,7 +6435,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: docxgUbmd.info,  Node: Changes,  Next: Development,  Prev: Copying this Manual,  Up: Appendices
+File: docSPiJUD.info,  Node: Changes,  Next: Development,  Prev: Copying this Manual,  Up: Appendices
 
 A.2 Changes and New Features
 ============================
@@ -6475,7 +6475,7 @@ Yurchenko, Tony Zorman (Please accept our apologies if we forgot
 somebody).
 
 
-File: docxgUbmd.info,  Node: Development,  Next: FAQ,  Prev: Changes,  Up: Appendices
+File: docSPiJUD.info,  Node: Development,  Next: FAQ,  Prev: Changes,  Up: Appendices
 
 A.3 Future Development
 ======================
@@ -6495,7 +6495,7 @@ on the mailing list of AUCTeX first.
 * Bugs::
 
 
-File: docxgUbmd.info,  Node: Mid-term Goals,  Next: Wishlist,  Up: Development
+File: docSPiJUD.info,  Node: Mid-term Goals,  Next: Wishlist,  Up: Development
 
 A.3.1 Mid-term Goals
 --------------------
@@ -6565,7 +6565,7 @@ A.3.1 Mid-term Goals
         - Usage of ConTeXt mode
 
 
-File: docxgUbmd.info,  Node: Wishlist,  Next: Bugs,  Prev: Mid-term Goals,  Up: Development
+File: docSPiJUD.info,  Node: Wishlist,  Next: Bugs,  Prev: Mid-term Goals,  Up: Development
 
 A.3.2 Wishlist
 --------------
@@ -6731,7 +6731,7 @@ A.3.2 Wishlist
    * Hook up the letter environment with 'bbdb.el'.
 
 
-File: docxgUbmd.info,  Node: Bugs,  Prev: Wishlist,  Up: Development
+File: docSPiJUD.info,  Node: Bugs,  Prev: Wishlist,  Up: Development
 
 A.3.3 Bugs
 ----------
@@ -6762,7 +6762,7 @@ A.3.3 Bugs
    * Correct indentation for tabbing, table, and math environments.
 
 
-File: docxgUbmd.info,  Node: FAQ,  Next: Texinfo mode,  Prev: Development,  Up: Appendices
+File: docSPiJUD.info,  Node: FAQ,  Next: Texinfo mode,  Prev: Development,  Up: Appendices
 
 A.4 Frequently Asked Questions
 ==============================
@@ -6911,7 +6911,7 @@ A.4 Frequently Asked Questions
      'AUC' for short.
 
 
-File: docxgUbmd.info,  Node: Texinfo mode,  Prev: FAQ,  Up: Appendices
+File: docSPiJUD.info,  Node: Texinfo mode,  Prev: FAQ,  Up: Appendices
 
 A.5 Features specific to AUCTeX's Texinfo major mode
 ====================================================
@@ -6936,7 +6936,7 @@ commands.
 * Unbinding::                   Which native mode key bindings are missing
 
 
-File: docxgUbmd.info,  Node: Exploiting,  Next: Superseding,  Up: Texinfo mode
+File: docSPiJUD.info,  Node: Exploiting,  Next: Superseding,  Up: Texinfo mode
 
 A.5.1 How AUCTeX and the native mode work together
 --------------------------------------------------
@@ -6956,7 +6956,7 @@ mode is as follows:
      otherwise.
 
 
-File: docxgUbmd.info,  Node: Superseding,  Next: Mapping,  Prev: Exploiting,  Up: Texinfo mode
+File: docSPiJUD.info,  Node: Superseding,  Next: Mapping,  Prev: Exploiting,  Up: Texinfo mode
 
 A.5.2 Where the native mode is superseded
 -----------------------------------------
@@ -7053,7 +7053,7 @@ Kill jobs
      superseded by 'C-c C-k' ('TeX-kill-job') in AUCTeX.
 
 
-File: docxgUbmd.info,  Node: Mapping,  Next: Unbinding,  Prev: Superseding,  Up: Texinfo mode
+File: docSPiJUD.info,  Node: Mapping,  Next: Unbinding,  Prev: Superseding,  Up: Texinfo mode
 
 A.5.3 Where key bindings are mapped to the native mode
 ------------------------------------------------------
@@ -7097,7 +7097,7 @@ Update menus
      C-d' in AUCTeX instead.
 
 
-File: docxgUbmd.info,  Node: Unbinding,  Prev: Mapping,  Up: Texinfo mode
+File: docSPiJUD.info,  Node: Unbinding,  Prev: Mapping,  Up: Texinfo mode
 
 A.5.4 Which native mode key bindings are missing
 ------------------------------------------------
@@ -7112,7 +7112,7 @@ Show the section structure
      AUCTeX for inserting '@node'.
 
 
-File: docxgUbmd.info,  Node: Indices,  Prev: Appendices,  Up: Top
+File: docSPiJUD.info,  Node: Indices,  Prev: Appendices,  Up: Top
 
 Indices
 *******
@@ -7125,7 +7125,7 @@ Indices
 * Concept Index::
 
 
-File: docxgUbmd.info,  Node: Key Index,  Next: Function Index,  Up: Indices
+File: docSPiJUD.info,  Node: Key Index,  Next: Function Index,  Up: Indices
 
 Key Index
 =========
@@ -7244,7 +7244,7 @@ Key Index
 * TAB:                                   Indenting.           (line  74)
 
 
-File: docxgUbmd.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Indices
+File: docSPiJUD.info,  Node: Function Index,  Next: Variable Index,  Prev: Key Index,  Up: Indices
 
 Function Index
 ==============
@@ -7431,7 +7431,7 @@ Function Index
 * turn-on-auto-fill:                     Filling.             (line   6)
 
 
-File: docxgUbmd.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
+File: docSPiJUD.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
 
 Variable Index
 ==============
@@ -7811,7 +7811,7 @@ Variable Index
                                                               (line   6)
 
 
-File: docxgUbmd.info,  Node: Concept Index,  Prev: Variable Index,  Up: Indices
+File: docSPiJUD.info,  Node: Concept Index,  Prev: Variable Index,  Up: Indices
 
 Concept Index
 =============
