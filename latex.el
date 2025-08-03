@@ -9566,7 +9566,11 @@ no caption key is found, an error is issued.  See also the docstring of
              "\\)")))
     (save-excursion
       (while (re-search-forward re nil t)
-        (replace-match "")))))
+        (replace-match "")
+        (when (save-excursion (beginning-of-line)
+                              (looking-at "[ \t]*$"))
+          ;; Delete current line if it is empty.
+          (delete-region (line-beginning-position 1) (line-beginning-position 2)))))))
 
 (defun LaTeX--modify-math-1 (open close inline new-open new-close new-inline pos)
   "Helper function for `LaTeX-modify-math'.
