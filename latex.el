@@ -6729,7 +6729,8 @@ char."
                                                             "Accents")))
                                   submenu)))
                       (when (and (stringp tex-token) (integerp uchar) noargp)
-                        `(,(char-to-string uchar) (,tex-token)))))
+                        ;; Each of these macros accepts 0 total arguments.
+                        `((,(char-to-string uchar) . 0) (,tex-token)))))
                   `((nil "to" "" 8594)
                     (nil "gets" "" 8592)
                     ,@LaTeX-math-default)))
@@ -9647,6 +9648,11 @@ marker that keeps track of cursor position."
         (insert new-close)
         ;; Indent, including one line past the modified region.
         (widen)
+        (when sentence-end-double-space
+          (when (looking-at-p "[.?!]")
+            (save-excursion
+              (forward-char)
+              (insert " "))))
         (end-of-line 2)
         (indent-region start (point))))))
 
@@ -9764,6 +9770,59 @@ trailing punctuation outside the math delimiters."
    (if TeX-electric-math
        (cons TeX-electric-math 'inline)
      "$")))
+
+(defun LaTeX-repeat-recent-math (&optional n)
+  "Insert a copy of the Nth most recent top-level math construct.
+N should be a positive integer.  The recognized constructs are
+\"\\=\\[ ... \\]\", \"$$ ... $$\" and \"\\begin{ENV} ... \\end{ENV}\"
+with ENV a math environment detected by `texmathp'.  Any
+\"\\label{...}\" macros inside the copied region are stripped."
+  (interactive "*p")
+  (setq n (or n 1))
+  (unless (> n 0) (user-error "N must be positive"))
+  (let* ((env-re (concat (regexp-quote TeX-esc) "begin"
+                         TeX-grop
+                         "\\(" (regexp-opt (LaTeX--math-environment-list)) "\\)"
+                         TeX-grcl))
+         (search-re (concat env-re "\\|"
+                            "\\(" (regexp-quote "$$") "\\|"
+                            (regexp-quote (concat TeX-esc "[")) "\\)"))
+         beg end)
+    (save-excursion
+      (catch 'found
+        (while (re-search-backward search-re nil t)
+          (unless (nth 4 (syntax-ppss))
+            (let ((open (match-string-no-properties 0)))
+              (when (save-excursion
+                      (goto-char (match-end 0))
+                      (texmathp))
+                (cl-decf n)
+                (when (zerop n)
+                  (setq beg (point))
+                  (goto-char (match-end 0))
+                  (let ((end-re
+                         (let ((type (if (string-match env-re open)
+                                         (match-string-no-properties 1 open)
+                                       open)))
+                           (regexp-quote (LaTeX--closing type)))))
+                    (re-search-forward end-re))
+                  (setq end (point))
+                  (throw 'found t))))))))
+    (unless (and beg end)
+      (user-error "Nth most recent top-level math construct not found"))
+    (let ((contents (buffer-substring-no-properties beg end)))
+      (beginning-of-line)
+      (if (looking-at-p "[[:blank:]]*$")
+          (delete-region (point) (line-end-position))
+        (end-of-line)
+        (delete-horizontal-space)
+        (insert "\n"))
+      (save-excursion (insert contents))
+      (save-restriction
+        (narrow-to-region (point) (+ (point) (length contents)))
+        (indent-region (point-min) (point-max))
+        (save-excursion (LaTeX--strip-labels))
+        (forward-line)))))
 
 (provide 'latex)
 

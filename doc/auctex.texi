@@ -1406,6 +1406,35 @@ e.g.@: by adding the following to your init file:
 @xref{Quotes,,LaTeX-make-inline}, for a built-in convenience wrapper that
 converts display constructs to inline math.
 
+@subheading Repeating recent math
+
+@cindex LaTeX-repeat-recent-math
+@cindex Math, repeating
+@cindex Environments, repeating
+
+Sometimes you want the next equation to be a slight modification of a
+previous one.  The command @code{LaTeX-repeat-recent-math} looks backward
+for a recent top-level display math construct and inserts a copy.
+
+@deffn Command LaTeX-repeat-recent-math @var{n}
+Search backward for the @var{n}th most recent outer-level math construct
+(@samp{\[...\]}, @samp{$$...$$}, or any math environment recognized by
+@code{texmathp}, such as @code{equation}, @code{align*}, @dots{}).  Copy
+that construct to the current line, indent it, and strip any labels.
+
+With no prefix argument, @var{n} defaults to @code{1} (the most recent
+construct).
+@end deffn
+
+We can bind this command to a key, as follows:
+
+@lisp
+(keymap-set LaTeX-mode-map "C-c r" #'LaTeX-repeat-recent-math)
+@end lisp
+
+Then @kbd{C-c r} duplicates the last equation, @kbd{C-2 C-c r} duplicates
+the second-to-last equation, and so on.
+
 @node Completion
 @section Completion
 @cindex Completion
@@ -2930,6 +2959,23 @@ the beginning of the macro.  The result of the function call will be used
 as a replacement for the macro.  Such functions typically return a string,
 but may also return the symbol @code{abort} to indicate that the macro
 should not be folded.
+
+Each specifier may instead be a cons cell @code{(@var{spec} . @var{sig})},
+where @var{spec} is as above and @var{sig} controls how many arguments are
+considered part of the macro to fold:
+@itemize @bullet
+@item
+@code{nil}: no limit (default).
+@item
+Integer @var{n}: stop after @var{n} total arguments.
+@item
+Cons @code{(@var{p} . @var{q})}: stop after @var{p} optional and @var{q}
+mandatory arguments.
+@item
+Predicate function: called repeatedly with the list of argument blocks
+encountered thus far.  Returns non-@code{nil} to terminate scanning early.
+See the doc string of @code{TeX-find-macro-boundaries} for details.
+@end itemize
 
 The placeholder is made by copying the text from the buffer together with
 its properties, i.e.@: its face as well.  If fontification has not
