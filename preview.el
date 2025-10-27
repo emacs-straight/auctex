@@ -167,10 +167,10 @@ Suitable spec is chosen from `preview-icon-specs'.")
   :prefix "preview-")
 
 (defcustom preview-image-creators
-  '((dvipng
-     (open preview-gs-open preview-dvipng-process-setup)
+  '((dvi*
+     (open preview-gs-open preview-dvi*-process-setup)
      (place preview-gs-place)
-     (close preview-dvipng-close))
+     (close preview-dvi*-close))
     (png (open preview-gs-open)
          (place preview-gs-place)
          (close preview-gs-close))
@@ -209,12 +209,12 @@ function args" :inline t sexp))
 
 (defcustom preview-gs-image-type-alist
   '((png png "-sDEVICE=png16m")
-    (dvipng png "-sDEVICE=png16m")
+    (dvi* png "-sDEVICE=png16m")
     (jpeg jpeg "-sDEVICE=jpeg")
     (pnm pbm "-sDEVICE=pnmraw")
     (tiff tiff "-sDEVICE=tiff12nc"))
   "Alist of image types and corresponding Ghostscript options.
-The `dvipng' and `postscript' (don't use) entries really specify
+The `dvi*' and `postscript' (don't use) entries really specify
 a fallback device when images can't be processed by the requested
 method, like when PDFTeX was used."
   :group 'preview-gs
@@ -237,6 +237,11 @@ for the image type `preview-image-type' and calls the
 hook function given there with the arguments specified there
 followed by REST.  If such a function is specified in there,
 that is."
+  (when (eq preview-image-type 'dvipng)
+    (message "Using `dvipng' for `preview-image-type' is obsolete.  Use `dvi*' \
+and set `preview-dvi*-image-type' instead.")
+    (setq preview-image-type 'dvi*))
+
   (let ((hook (cdr (assq symbol
                     (cdr (assq preview-image-type
                                preview-image-creators))))))
@@ -508,25 +513,69 @@ cons cell with a separator string in the CAR, and either
 an explicit list of elements in the CDR, or a symbol to
 be consulted recursively.")
 
-(defcustom preview-dvipng-command
+(define-obsolete-variable-alias
+  'preview-dvipng-command 'preview-dvi*-command "14.2")
+(defcustom preview-dvi*-command
   "dvipng -picky -noghostscript %d -o %m/prev%%03d.png"
   "Command used for converting to separate PNG images.
 
+If it is a string, it is used as the command.  Otherwise, the value is
+expected to be a function that returns the command as a string.
+
 You might specify options for converting to other image types,
-but then you'll need to adapt `preview-dvipng-image-type'."
+but then you'll need to adapt `preview-dvi*-image-type'."
   :group 'preview-latex
-  :type 'string)
+  :type '(choice string function))
 
-(defcustom preview-dvipng-image-type
+(define-obsolete-variable-alias
+  'preview-dvipng-image-type 'preview-dvi*-image-type "14.2")
+(defcustom preview-dvi*-image-type
   'png
-  "Image type that dvipng produces.
+  "Image type that dvi conversion produces.
 
-You'll need to change `preview-dvipng-command' too,
-if you customize this."
+You'll need to change the variable `preview-dvi*-command' too, if you
+customize this."
   :group 'preview-latex
   :type '(choice (const png)
                  (const gif)
                  (symbol :tag "Other" :value png)))
+
+(defun preview-dvipng-command (&optional cmd)
+  "Return a shell command for running dvipng.
+CMD can be used to override the command line which is used as a basis."
+  (let* ((res (/ (* (car preview-resolution)
+                    (preview-hook-enquiry preview-scale))
+                 (preview-get-magnification)))
+         (resolution  (format " -D%d " res))
+         (colors (preview-dvipng-color-string preview-colors res)))
+    (with-current-buffer TeX-command-buffer
+      (concat (TeX-command-expand
+               (or cmd "dvipng -picky -noghostscript %d -o %m/prev%%03d.png"))
+              " " colors resolution))))
+
+;; Silence compiler.
+(eval-when-compile
+  (defvar text-scale-mode-step)
+  (defvar text-scale-mode-amount))
+(defun preview-dvisvgm-command (&optional cmd)
+  "Return a shell command for running dvisvgm.
+CMD can be used to override the command line which is used as a basis.
+
+You may set the variable `preview-dvi*-command' to
+`preview-dvisvgm-command' and set `preview-dvi*-image-type' to
+`svg' to produce svg images instead of png ones."
+  (let* ((scale (* (/ (preview-hook-enquiry preview-scale)
+                      (preview-get-magnification))
+                   (with-current-buffer TeX-command-buffer
+                     (if (bound-and-true-p text-scale-mode)
+                         (expt text-scale-mode-step text-scale-mode-amount)
+                       1.0)))))
+    (with-current-buffer TeX-command-buffer
+      (concat
+       (TeX-command-expand
+        (or cmd
+            "dvisvgm --no-fonts %d --page=- --output=\"%m/prev%%3p.svg\""))
+       (format " --scale=%g " scale)))))
 
 (defcustom preview-dvips-command
   "dvips -Pwww -i -E %d -o %m/preview.000"
@@ -880,26 +929,10 @@ Pure borderless black-on-white will return an empty string."
   "Check if IMAGETYPE is supported."
   (image-type-available-p imagetype))
 
-(defun preview-gs-dvips-process-setup ()
-  "Set up Dvips process for conversions via gs."
-  (unless (preview-supports-image-type preview-gs-image-type)
-    (error "preview-image-type setting '%s unsupported by this Emacs"
-           preview-gs-image-type))
-  (setq preview-gs-command-line (append
-                                 preview-gs-command-line
-                                 (list (preview-gs-resolution
-                                        (preview-hook-enquiry preview-scale)
-                                        (car preview-resolution)
-                                        (cdr preview-resolution)))))
-  (if preview-parsed-pdfoutput
-      (preview-pdf2dsc-process-setup)
-      (setq TeX-sentinel-function #'preview-gs-dvips-sentinel)
-    (list (preview-start-dvips preview-fast-conversion) (current-buffer)
-          TeX-active-tempdir preview-ps-file
-          preview-gs-image-type)))
-
-(defun preview-dvipng-process-setup ()
-  "Set up dvipng process for conversion."
+(defun preview-dvi*-process-setup-1 (img-type start sentinel)
+  "Setup process of a DVI converter to IMG-TYPE.
+START is the function that actually starts the process with
+`TeX-sentinel-function' set to SENTINEL."
   (setq preview-gs-command-line (append
                                  preview-gs-command-line
                                  (list (preview-gs-resolution
@@ -909,18 +942,35 @@ Pure borderless black-on-white will return an empty string."
   (if preview-parsed-pdfoutput
       (if (preview-supports-image-type preview-gs-image-type)
           (preview-pdf2dsc-process-setup)
-        (error "preview-image-type setting '%s unsupported by this Emacs"
+        (error "preview-gs-image-type setting '%s unsupported by this Emacs"
                preview-gs-image-type))
-    (unless (preview-supports-image-type preview-dvipng-image-type)
-      (error "preview-dvipng-image-type setting '%s unsupported by this Emacs"
-             preview-dvipng-image-type))
-      (setq TeX-sentinel-function #'preview-dvipng-sentinel)
-    (list (preview-start-dvipng) (current-buffer) TeX-active-tempdir t
-          preview-dvipng-image-type)))
+    (unless (preview-supports-image-type img-type)
+      (error "Image type setting '%s unsupported by this Emacs" img-type))
+    (setq TeX-sentinel-function sentinel)
+    (list (funcall start)
+          (current-buffer)
+          TeX-active-tempdir t
+          img-type)))
 
+(defun preview-gs-dvips-process-setup ()
+  "Set up Dvips process for conversions via gs."
+  (preview-dvi*-process-setup-1
+   preview-gs-image-type
+   (lambda ()
+     (preview-start-dvips preview-fast-conversion))
+   #'preview-gs-dvips-sentinel))
+
+(defun preview-dvi*-process-setup ()
+  "Set up dvi conversion process."
+  (preview-dvi*-process-setup-1
+   preview-dvi*-image-type
+   #'preview-start-dvi*
+   #'preview-dvi*-sentinel))
+(define-obsolete-function-alias
+  'preview-dvipng-process-setup #'preview-dvi*-process-setup "14.2")
 
 (defun preview-pdf2dsc-process-setup ()
-    (setq TeX-sentinel-function #'preview-pdf2dsc-sentinel)
+  (setq TeX-sentinel-function #'preview-pdf2dsc-sentinel)
   (list (preview-start-pdf2dsc) (current-buffer) TeX-active-tempdir
         preview-ps-file preview-gs-image-type))
 
@@ -947,8 +997,10 @@ Pure borderless black-on-white will return an empty string."
     (unless (>= (nth 2 TeX-active-tempdir) 1)
       (delete-directory (nth 0 TeX-active-tempdir)))))
 
-(defalias 'preview-dvipng-abort #'preview-dvips-abort)
-;  "Abort a DviPNG run.")
+(defalias 'preview-dvi*-abort #'preview-dvips-abort)
+;  "Abort a dvi conversion run.")
+(define-obsolete-function-alias
+  'preview-dvipng-abort #'preview-dvi*-abort "14.2")
 
 (defun preview-gs-dvips-sentinel (process _command &optional gsstart)
   "Sentinel function for indirect rendering DviPS process.
@@ -1036,13 +1088,13 @@ The usual PROCESS and COMMAND arguments for
                           (funcall fun process command t)))))
             (TeX-synchronous-sentinel "Preview-DviPS" (cdr preview-gs-file)
                                       process))
-    ;; pathological case: no previews although we sure thought so.
+        ;; pathological case: no previews although we sure thought so.
         (delete-process process)
         (unless (eq (process-status process) 'signal)
           (preview-dvips-abort)))))
 
-(defun preview-dvipng-sentinel (process _command &optional placeall)
-  "Sentinel function for indirect rendering DviPNG process.
+(defun preview-dvi*-sentinel (process _command &optional placeall)
+  "Sentinel function for indirect rendering Dvi conversing process.
 The usual PROCESS and COMMAND arguments for
 `TeX-sentinel-function' apply.  Places all snippets if PLACEALL is set."
   (condition-case err
@@ -1051,14 +1103,16 @@ The usual PROCESS and COMMAND arguments for
                (delete-process process)
                (setq TeX-sentinel-function nil)
                (when placeall
-                 (preview-dvipng-place-all)))
+                 (preview-dvi*-place-all)))
               ((eq status 'signal)
                (delete-process process)
-               (preview-dvipng-abort))))
-    (error (preview-log-error err "DviPNG sentinel" process)))
+               (preview-dvi*-abort))))
+    (error (preview-log-error err "Dvi conversion sentinel" process)))
   (preview-reraise-error process))
+(define-obsolete-function-alias
+  'preview-dvipng-sentinel #'preview-dvi*-sentinel "14.2")
 
-(defun preview-dvipng-close (process closedata)
+(defun preview-dvi*-close (process closedata)
   "Clean up after PROCESS and set up queue accumulated in CLOSEDATA."
   (if preview-parsed-pdfoutput
       (preview-gs-close process closedata)
@@ -1069,18 +1123,20 @@ The usual PROCESS and COMMAND arguments for
                 (if (and (eq (process-status process) 'exit)
                          (null TeX-sentinel-function))
                     ;; Process has already finished and run sentinel
-                    (preview-dvipng-place-all)
+                    (preview-dvi*-place-all)
                   (setq TeX-sentinel-function (lambda (process command)
-                                                (preview-dvipng-sentinel
+                                                (preview-dvi*-sentinel
                                                  process
                                                  command
                                                  t))))
-              (TeX-synchronous-sentinel "Preview-DviPNG" (cdr preview-gs-file)
+              (TeX-synchronous-sentinel "Preview-Dvi*" (cdr preview-gs-file)
                                         process))
           ;; pathological case: no previews although we sure thought so.
           (delete-process process)
           (unless (eq (process-status process) 'signal)
-            (preview-dvipng-abort))))))
+            (preview-dvi*-abort))))))
+(define-obsolete-function-alias
+  'preview-dvipng-close #'preview-dvi*-close "14.2")
 
 (defun preview-dsc-parse (file)
   "Parse DSC comments of FILE.
@@ -2532,8 +2588,8 @@ is already selected and unnarrowed."
          (goto-char (overlay-start ov))
          (if (bolp) "\n" ""))))))
 
-(defun preview-dvipng-place-all ()
-  "Place all images dvipng has created, if any.
+(defun preview-dvi*-place-all ()
+  "Place all images that the dvi convertion process has created, if any.
 Deletes the dvi file when finished."
   (let (filename queued oldfiles snippet)
     (dolist (ov (prog1 preview-gs-queue (setq preview-gs-queue nil)))
@@ -2541,7 +2597,7 @@ Deletes the dvi file when finished."
                  (setq snippet (aref (overlay-get ov 'queued) 2))
                  (setq filename (preview-make-filename
                                  (format "prev%03d.%s"
-                                         snippet preview-dvipng-image-type)
+                                         snippet preview-dvi*-image-type)
                                  TeX-active-tempdir)))
         (if (file-exists-p (car filename))
             (progn
@@ -2552,7 +2608,7 @@ Deletes the dvi file when finished."
               (preview-replace-active-icon
                ov
                (preview-create-icon (car filename)
-                                    preview-dvipng-image-type
+                                    preview-dvi*-image-type
                                     (preview-ascent-from-bb
                                      (aref queued 0))
                                     (aref preview-colors 2)))
@@ -2600,6 +2656,8 @@ Deletes the dvi file when finished."
       (condition-case nil
           (preview-delete-file filename)
         (file-error nil)))))
+(define-obsolete-function-alias
+  'preview-dvipng-place-all #'preview-dvi*-place-all "14.2")
 
 (defun preview-active-string (ov)
   "Generate before-string for active image overlay OV."
@@ -3839,83 +3897,57 @@ The fourth value is the transparent border thickness."
       (setq mask nil))
     (vector bg fg mask preview-transparent-border)))
 
-(defun preview-start-dvipng ()
-  "Start a DviPNG process.."
-  (let* (;; (file preview-gs-file)
-         tempdir
-         (res (/ (* (car preview-resolution)
-                    (preview-hook-enquiry preview-scale))
-                 (preview-get-magnification)))
-         (resolution  (format " -D%d " res))
-         (colors (preview-dvipng-color-string preview-colors res))
-         (command (with-current-buffer TeX-command-buffer
-                    (prog1
-                        (concat (TeX-command-expand preview-dvipng-command)
-                                " " colors resolution)
-                      (setq tempdir TeX-active-tempdir))))
-         (name "Preview-DviPNG"))
-    (setq TeX-active-tempdir tempdir)
-    (goto-char (point-max))
-    (insert-before-markers "Running `" name "' with ``" command "''\n")
-    (setq mode-name name)
-    (if TeX-process-asynchronous
-        (let ((process (start-process name (current-buffer) TeX-shell
-                                      TeX-shell-command-option
-                                      command)))
-          (if TeX-after-start-process-function
-              (funcall TeX-after-start-process-function process))
-          (TeX-command-mode-line process)
-          (set-process-filter process #'TeX-command-filter)
-          (set-process-sentinel process #'TeX-command-sentinel)
-          (set-marker (process-mark process) (point-max))
-          (push process compilation-in-progress)
-          (sit-for 0)
-          process)
-      (setq mode-line-process ": run")
-      (force-mode-line-update)
-      (call-process TeX-shell nil (current-buffer) nil
-                    TeX-shell-command-option
-                    command))))
+(defun preview-start-process (name command)
+  (setq TeX-active-tempdir (buffer-local-value 'TeX-active-tempdir
+                                               TeX-command-buffer))
+  (goto-char (point-max))
+  (insert-before-markers "Running `" name "' with ``" command "''\n")
+  (setq mode-name name)
+  (if TeX-process-asynchronous
+      (let ((process (start-process name (current-buffer) TeX-shell
+                                    TeX-shell-command-option
+                                    command)))
+        (if TeX-after-start-process-function
+            (funcall TeX-after-start-process-function process))
+        (TeX-command-mode-line process)
+        (set-process-filter process #'TeX-command-filter)
+        (set-process-sentinel process #'TeX-command-sentinel)
+        (set-marker (process-mark process) (point-max))
+        (push process compilation-in-progress)
+        (sit-for 0)
+        process)
+    (setq mode-line-process ": run")
+    (force-mode-line-update)
+    (call-process TeX-shell nil (current-buffer) nil
+                  TeX-shell-command-option
+                  command)))
+
+(defun preview-start-dvi* ()
+  "Start a Dvi conversion process.."
+  (preview-start-process
+   "Preview-Dvi*"
+   (if (stringp preview-dvi*-command) ;; Assume it's dvipng
+       (preview-dvipng-command preview-dvi*-command)
+     (funcall preview-dvi*-command))))
+(define-obsolete-function-alias
+  'preview-start-dvipng #'preview-start-dvi* "14.2")
 
 (defun preview-start-dvips (&optional fast)
   "Start a DviPS process.
 If FAST is set, do a fast conversion."
-  (let* (;; (file preview-gs-file)
-         tempdir
+  (let* (tempdir
          (command (with-current-buffer TeX-command-buffer
                     (prog1
                         (TeX-command-expand (if fast
                                                 preview-fast-dvips-command
                                               preview-dvips-command))
-                      (setq tempdir TeX-active-tempdir))))
-         (name "Preview-DviPS"))
-    (setq TeX-active-tempdir tempdir)
+                      (setq tempdir TeX-active-tempdir)))))
     (setq preview-ps-file (and fast
                                (preview-make-filename
                                 (preview-make-filename
                                  "preview.ps" tempdir)
                                 tempdir)))
-    (goto-char (point-max))
-    (insert-before-markers "Running `" name "' with ``" command "''\n")
-    (setq mode-name name)
-    (if TeX-process-asynchronous
-        (let ((process (start-process name (current-buffer) TeX-shell
-                                      TeX-shell-command-option
-                                      command)))
-          (if TeX-after-start-process-function
-              (funcall TeX-after-start-process-function process))
-          (TeX-command-mode-line process)
-          (set-process-filter process #'TeX-command-filter)
-          (set-process-sentinel process #'TeX-command-sentinel)
-          (set-marker (process-mark process) (point-max))
-          (push process compilation-in-progress)
-          (sit-for 0)
-          process)
-      (setq mode-line-process ": run")
-      (force-mode-line-update)
-      (call-process TeX-shell nil (current-buffer) nil
-                    TeX-shell-command-option
-                    command))))
+    (preview-start-process "Preview-DviPS" command)))
 
 (defun preview-start-pdf2dsc ()
   "Start a PDF2DSC process."
@@ -3926,36 +3958,14 @@ If FAST is set, do a fast conversion."
                     (prog1
                         (TeX-command-expand preview-pdf2dsc-command)
                       (setq tempdir TeX-active-tempdir
-                            pdfsource (funcall (car file) "pdf" t)))))
-         (name "Preview-PDF2DSC"))
-    (setq TeX-active-tempdir tempdir)
+                            pdfsource (funcall (car file) "pdf" t))))))
     (setq preview-ps-file (preview-attach-filename
                            pdfsource
                            (preview-make-filename
                             (preview-make-filename
                              "preview.dsc" tempdir)
                             tempdir)))
-    (goto-char (point-max))
-    (insert-before-markers "Running `" name "' with ``" command "''\n")
-    (setq mode-name name)
-    (if TeX-process-asynchronous
-        (let ((process (start-process name (current-buffer) TeX-shell
-                                      TeX-shell-command-option
-                                      command)))
-          (if TeX-after-start-process-function
-              (funcall TeX-after-start-process-function process))
-          (TeX-command-mode-line process)
-          (set-process-filter process #'TeX-command-filter)
-          (set-process-sentinel process #'TeX-command-sentinel)
-          (set-marker (process-mark process) (point-max))
-          (push process compilation-in-progress)
-          (sit-for 0)
-          process)
-      (setq mode-line-process ": run")
-      (force-mode-line-update)
-      (call-process TeX-shell nil (current-buffer) nil
-                    TeX-shell-command-option
-                    command))))
+    (preview-start-process "Preview-PDF2DSC" command)))
 
 (defvar-local preview-abort-flag nil
   "Cause ongoing preview generation to abort.
@@ -4422,8 +4432,8 @@ If not a regular release, the date of the last change.")
             image-types
             preview-image-type
             preview-image-creators
-            preview-dvipng-image-type
-            preview-dvipng-command
+            preview-dvi*-image-type
+            preview-dvi*-command
             preview-pdf2dsc-command
             preview-gs-command
             preview-gs-options
