@@ -1,8 +1,8 @@
-This is dockDjmsc.info, produced by makeinfo version 6.8 from
+This is docuvIu05.info, produced by makeinfo version 6.8 from
 preview-latex.texi.
 
 This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 14.1.0.2025-10-27_12:06:30 from 2025-10-27_12:06:30).
+(version 14.1.0.2025-10-28_10:14:25 from 2025-10-28_10:14:25).
 
    Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2017-2019, 2021
 Free Software Foundation, Inc.
@@ -24,7 +24,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: dockDjmsc.info,  Node: Top,  Prev: (dir),  Up: (dir)
+File: docuvIu05.info,  Node: Top,  Prev: (dir),  Up: (dir)
 
 preview-latex
 *************
@@ -57,7 +57,7 @@ font to visually offset it.
 * Index::                       A menu of many topics.
 
 
-File: dockDjmsc.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
+File: docuvIu05.info,  Node: Copying,  Next: Introduction,  Prev: Top,  Up: Top
 
 Copying
 *******
@@ -71,7 +71,7 @@ General Public Licenses accompanying them and the explanatory section in
 License (*note Copying this Manual::).
 
 
-File: dockDjmsc.info,  Node: Introduction,  Next: Installation,  Prev: Copying,  Up: Top
+File: docuvIu05.info,  Node: Introduction,  Next: Installation,  Prev: Copying,  Up: Top
 
 1 Introduction
 **************
@@ -95,7 +95,7 @@ between source and image representation.
 * Contacts::
 
 
-File: dockDjmsc.info,  Node: What use is it?,  Next: Activating preview-latex,  Prev: Introduction,  Up: Introduction
+File: docuvIu05.info,  Node: What use is it?,  Next: Activating preview-latex,  Prev: Introduction,  Up: Introduction
 
 1.1 What use is it?
 ===================
@@ -115,12 +115,12 @@ does this only when told, and then right in the source code.  Switching
 back and forth between the source and preview is easy and natural and
 can be done for each image independently.  Behind the scenes of
 preview-latex, a sophisticated framework of other programs like
-'dvipng', Dvips and Ghostscript are employed together with a special
-LaTeX style file for extracting the material of interest in the
+'dvipng', 'dvisvgm', Dvips and Ghostscript are employed together with a
+special LaTeX style file for extracting the material of interest in the
 background and providing fast interactive response.
 
 
-File: dockDjmsc.info,  Node: Activating preview-latex,  Next: Getting started,  Prev: What use is it?,  Up: Introduction
+File: docuvIu05.info,  Node: Activating preview-latex,  Next: Getting started,  Prev: What use is it?,  Up: Introduction
 
 1.2 Activating preview-latex
 ============================
@@ -134,7 +134,7 @@ are duplicate Lisp files that might be detectable with 'M-x
 list-load-path-shadows <RET>'.
 
 
-File: dockDjmsc.info,  Node: Getting started,  Next: Basic modes of operation,  Prev: Activating preview-latex,  Up: Introduction
+File: docuvIu05.info,  Node: Getting started,  Next: Basic modes of operation,  Prev: Activating preview-latex,  Up: Introduction
 
 1.3 Getting started
 ===================
@@ -170,7 +170,7 @@ edited text).
 session to the next as long as you don't kill your buffer.
 
 
-File: dockDjmsc.info,  Node: Basic modes of operation,  Next: More documentation,  Prev: Getting started,  Up: Introduction
+File: docuvIu05.info,  Node: Basic modes of operation,  Next: More documentation,  Prev: Getting started,  Up: Introduction
 
 1.4 Basic modes of operation
 ============================
@@ -194,7 +194,7 @@ than the combination of Dvips and Ghostscript.  'dvipng' is included in
 standard TeX Live distribution.
 
 
-File: dockDjmsc.info,  Node: More documentation,  Next: Availability,  Prev: Basic modes of operation,  Up: Introduction
+File: docuvIu05.info,  Node: More documentation,  Next: Availability,  Prev: Basic modes of operation,  Up: Introduction
 
 1.5 More documentation
 ======================
@@ -221,7 +221,7 @@ installation; on typical TeX Live-based systems,
 will display it.
 
 
-File: dockDjmsc.info,  Node: Availability,  Next: Contacts,  Prev: More documentation,  Up: Introduction
+File: docuvIu05.info,  Node: Availability,  Next: Contacts,  Prev: More documentation,  Up: Introduction
 
 1.6 Availability
 ================
@@ -235,7 +235,7 @@ the repository (https://git.savannah.gnu.org/cgit/auctex.git) via web
 interface.
 
 
-File: dockDjmsc.info,  Node: Contacts,  Prev: Availability,  Up: Introduction
+File: docuvIu05.info,  Node: Contacts,  Prev: Availability,  Up: Introduction
 
 1.7 Contacts
 ============
@@ -262,7 +262,7 @@ for service contracts or for added functionality.  Take a look at the
 *note ToDo:: list for suggestions in that area.
 
 
-File: dockDjmsc.info,  Node: Installation,  Next: Keys and lisp,  Prev: Introduction,  Up: Top
+File: docuvIu05.info,  Node: Installation,  Next: Keys and lisp,  Prev: Introduction,  Up: Top
 
 2 Installation
 **************
@@ -270,7 +270,7 @@ File: dockDjmsc.info,  Node: Installation,  Next: Keys and lisp,  Prev: Introduc
 Installation is now being covered in *note (auctex)Installation::.
 
 
-File: dockDjmsc.info,  Node: Keys and lisp,  Next: Simple customization,  Prev: Installation,  Up: Top
+File: docuvIu05.info,  Node: Keys and lisp,  Next: Simple customization,  Prev: Installation,  Up: Top
 
 3 Key bindings and user-level lisp functions
 ********************************************
@@ -443,7 +443,7 @@ LaTeX/TeX Output/Kill Job
      preview-latex may be confused and place the previews wrong.
 
 
-File: dockDjmsc.info,  Node: Simple customization,  Next: Known problems,  Prev: Keys and lisp,  Up: Top
+File: docuvIu05.info,  Node: Simple customization,  Next: Known problems,  Prev: Keys and lisp,  Up: Top
 
 4 Simple customization
 **********************
@@ -561,7 +561,7 @@ in *note For advanced users::), but some are:
      'preview-default-option-list' by customizing this variable.
 
 
-File: dockDjmsc.info,  Node: Known problems,  Next: For advanced users,  Prev: Simple customization,  Up: Top
+File: docuvIu05.info,  Node: Known problems,  Next: For advanced users,  Prev: Simple customization,  Up: Top
 
 5 Known problems
 ****************
@@ -585,7 +585,7 @@ information interesting to us and send it to the <bug-auctex@gnu.org>
 list.  Please use the bug reporting commands if at all possible.
 
 
-File: dockDjmsc.info,  Node: Font problems with Dvips,  Next: Too small bounding boxes,  Up: Known problems
+File: docuvIu05.info,  Node: Font problems with Dvips,  Next: Too small bounding boxes,  Up: Known problems
 
 5.1 Font problems with Dvips
 ============================
@@ -611,7 +611,7 @@ a long-standing bug in its implementation fixed (only very recent
 versions of Dvips have).
 
 
-File: dockDjmsc.info,  Node: Too small bounding boxes,  Next: x-symbol interoperation,  Prev: Font problems with Dvips,  Up: Known problems
+File: docuvIu05.info,  Node: Too small bounding boxes,  Next: x-symbol interoperation,  Prev: Font problems with Dvips,  Up: Known problems
 
 5.2 Too small bounding boxes
 ============================
@@ -639,7 +639,7 @@ convenient for _pure_ PostScript stuff like that created by PSTricks,
 which Dvips would otherwise reserve no space for.
 
 
-File: dockDjmsc.info,  Node: x-symbol interoperation,  Next: Middle-clicks paste instead of toggling,  Prev: Too small bounding boxes,  Up: Known problems
+File: docuvIu05.info,  Node: x-symbol interoperation,  Next: Middle-clicks paste instead of toggling,  Prev: Too small bounding boxes,  Up: Known problems
 
 5.3 x-symbol interoperation
 ===========================
@@ -667,7 +667,7 @@ environment or, as a last resort, customize the variable
 -translate-file=cp8bit'.
 
 
-File: dockDjmsc.info,  Node: Middle-clicks paste instead of toggling,  Next: No images are displayed with gs 9.27 and earlier,  Prev: x-symbol interoperation,  Up: Known problems
+File: docuvIu05.info,  Node: Middle-clicks paste instead of toggling,  Next: No images are displayed with gs 9.27 and earlier,  Prev: x-symbol interoperation,  Up: Known problems
 
 5.4 Middle-clicks paste instead of toggling
 ===========================================
@@ -680,7 +680,7 @@ afterwards.  Since previews over the current match will auto-open,
 anyway, this should not be much of a problem in practice.
 
 
-File: dockDjmsc.info,  Node: No images are displayed with gs 9.27 and earlier,  Next: Black texts are too hard to read on dark background,  Prev: Middle-clicks paste instead of toggling,  Up: Known problems
+File: docuvIu05.info,  Node: No images are displayed with gs 9.27 and earlier,  Next: Black texts are too hard to read on dark background,  Prev: Middle-clicks paste instead of toggling,  Up: Known problems
 
 5.5 No images are displayed with gs 9.27 and earlier
 ====================================================
@@ -733,7 +733,7 @@ option 'preview-pdf-adjust-color-method'.
      Ghostscript 9.50 was released but now is 't'.
 
 
-File: dockDjmsc.info,  Node: Black texts are too hard to read on dark background,  Prev: No images are displayed with gs 9.27 and earlier,  Up: Known problems
+File: docuvIu05.info,  Node: Black texts are too hard to read on dark background,  Prev: No images are displayed with gs 9.27 and earlier,  Up: Known problems
 
 5.6 Black texts are too hard to read on dark background
 =======================================================
@@ -746,7 +746,7 @@ like dark background in Emacs frame should customize
 'preview-pdf-adjust-color-method' to 'nil'.
 
 
-File: dockDjmsc.info,  Node: For advanced users,  Next: ToDo,  Prev: Known problems,  Up: Top
+File: docuvIu05.info,  Node: For advanced users,  Next: ToDo,  Prev: Known problems,  Up: Top
 
 6 For advanced users
 ********************
@@ -763,7 +763,7 @@ Emacs-lisp part integrating the thing into Emacs (aided by AUCTeX).
 * Misplaced previews::
 
 
-File: dockDjmsc.info,  Node: The LaTeX style file,  Next: The Emacs interface,  Prev: For advanced users,  Up: For advanced users
+File: docuvIu05.info,  Node: The LaTeX style file,  Next: The Emacs interface,  Prev: For advanced users,  Up: For advanced users
 
 6.1 The LaTeX style file
 ========================
@@ -822,7 +822,7 @@ usually speed up the process significantly.
 * Provided commands::
 
 
-File: dockDjmsc.info,  Node: Package options,  Next: Provided commands,  Prev: The LaTeX style file,  Up: The LaTeX style file
+File: docuvIu05.info,  Node: Package options,  Next: Provided commands,  Prev: The LaTeX style file,  Up: The LaTeX style file
 
 6.1.1 Package options
 ---------------------
@@ -1039,7 +1039,7 @@ and similar to the corresponding TeX commands they allude to:
      may reset them if you don't like that.
 
 
-File: dockDjmsc.info,  Node: Provided commands,  Prev: Package options,  Up: The LaTeX style file
+File: docuvIu05.info,  Node: Provided commands,  Prev: Package options,  Up: The LaTeX style file
 
 6.1.2 Provided commands
 -----------------------
@@ -1194,7 +1194,7 @@ File: dockDjmsc.info,  Node: Provided commands,  Prev: Package options,  Up: The
      the conditional '\ifPreview' together with '\else' and '\fi'.
 
 
-File: dockDjmsc.info,  Node: The Emacs interface,  Next: The preview images,  Prev: The LaTeX style file,  Up: For advanced users
+File: docuvIu05.info,  Node: The Emacs interface,  Next: The preview images,  Prev: The LaTeX style file,  Up: For advanced users
 
 6.2 The Emacs interface
 =======================
@@ -1226,7 +1226,8 @@ together in making preview-latex work as intended.
      'preview-LaTeX-disable-pdfoutput'.  Since preview-latex can work
      with PDF files by now, there is little incentive for using this
      option, anymore (for projects not requiring PDF output, the added
-     speed of 'dvipng' might make this somewhat attractive).
+     speed of 'dvipng' or 'dvisvgm' might make this somewhat
+     attractive).
 
 'preview-required-option-list'
      'preview-LaTeX-command' uses 'preview-required-option-list' in
@@ -1372,7 +1373,7 @@ together in making preview-latex work as intended.
      flicker in the appearance.
 
 
-File: dockDjmsc.info,  Node: The preview images,  Next: Misplaced previews,  Prev: The Emacs interface,  Up: For advanced users
+File: docuvIu05.info,  Node: The preview images,  Next: Misplaced previews,  Prev: The Emacs interface,  Up: For advanced users
 
 6.3 The preview images
 ======================
@@ -1406,29 +1407,34 @@ File: dockDjmsc.info,  Node: The preview images,  Next: Misplaced previews,  Pre
      options customizable concerning aspects of that operation, see the
      customization group 'Preview Gs' for this.
 
-     Another noteworthy setting of 'preview-image-type' is 'dvipng': in
-     this case, the 'dvipng' program will get run on DVI output (see
-     below for PDF).  This is in general much faster than Dvips and
-     Ghostscript.  In that case, the option
+     Another noteworthy setting of 'preview-image-type' is 'dvi*': in
+     this case, a DVI conversion process will be run (for example
+     'dvipng' or 'dvisvgm') on the DVI output (see below for PDF).  This
+     is in general much faster than Dvips and Ghostscript.  In that
+     case, the option
 
-'preview-dvipng-command'
-     will get run for doing the conversion, and it is expected that
+'preview-dvi*-command'
+     will determine the command to run for the conversion, and it is
+     expected that
 
-'preview-dvipng-image-type'
-     images get produced ('dvipng' might be configured for other image
-     types as well).  You will notice that 'preview-gs-image-type-alist'
-     contains an entry for 'dvipng': this actually has nothing to with
-     'dvipng' itself but specifies the image type and Ghostscript device
-     option to use when 'dvipng' can't be used.  This will obviously be
-     the case for PDF output by PDFLaTeX, but it will also happen if the
-     DVI file contains PostScript specials in which case the affected
-     images will get run through Dvips and Ghostscript once 'dvipng'
-     finishes.
+'preview-dvi*-image-type'
+     images get produced ('dvipng' might be configured for PNG or other
+     image and 'dvisvgm' produces SVG images that you can use if your
+     Emacs supports them).  You will notice that
+     'preview-gs-image-type-alist' contains an entry for 'dvi*': this
+     actually has nothing to do with the DVI conversion itself but
+     specifies the image type and Ghostscript device option to use when
+     such conversion can't be done.  This will obviously be the case for
+     PDF output by PDFLaTeX, but it will also happen if the DVI file
+     contains PostScript specials in which case the affected images will
+     get run through Dvips and Ghostscript once the DVI conversion
+     process finishes.
 
-     Note for pLaTeX and upLaTeX users: It is known that 'dvipng' is not
-     compatible with pLaTeX and upLaTeX.  If 'preview-image-type' is set
-     to 'dvipng' and (u)pLaTeX is used, 'dvipng' just fails and
-     preview-latex falls back on Dvips and Ghostscript.
+     Note for pLaTeX and upLaTeX users: It is known that 'dvipng' and
+     'dvisvgm' are not compatible with pLaTeX and upLaTeX.  If
+     'preview-image-type' is set to 'dvi*' and (u)pLaTeX is used, the
+     DVI conversion process just fails and preview-latex falls back on
+     Dvips and Ghostscript.
 
 'preview-gs-options'
      Most interesting to the user perhaps is the setting of this
@@ -1446,7 +1452,7 @@ guarantee that jumping around in the document will encounter only
 prerendered images.
 
 
-File: dockDjmsc.info,  Node: Misplaced previews,  Prev: The preview images,  Up: For advanced users
+File: docuvIu05.info,  Node: Misplaced previews,  Prev: The preview images,  Up: For advanced users
 
 6.4 Misplaced previews
 ======================
@@ -1511,7 +1517,7 @@ your favorite macro in 'preview-default-preamble', which is customizable
 in the 'Preview Latex' group.
 
 
-File: dockDjmsc.info,  Node: ToDo,  Next: Frequently Asked Questions,  Prev: For advanced users,  Up: Top
+File: docuvIu05.info,  Node: ToDo,  Next: Frequently Asked Questions,  Prev: For advanced users,  Up: Top
 
 Appendix A ToDo
 ***************
@@ -1625,7 +1631,7 @@ Appendix A ToDo
      when this library is available, since it has been optimized for it.
 
 
-File: dockDjmsc.info,  Node: Frequently Asked Questions,  Next: Copying this Manual,  Prev: ToDo,  Up: Top
+File: docuvIu05.info,  Node: Frequently Asked Questions,  Next: Copying this Manual,  Prev: ToDo,  Up: Top
 
 Appendix B Frequently Asked Questions
 *************************************
@@ -1640,7 +1646,7 @@ Appendix B Frequently Asked Questions
 * Other formats::
 
 
-File: dockDjmsc.info,  Node: Introduction to FAQ,  Next: Requirements,  Prev: Frequently Asked Questions,  Up: Frequently Asked Questions
+File: docuvIu05.info,  Node: Introduction to FAQ,  Next: Requirements,  Prev: Frequently Asked Questions,  Up: Frequently Asked Questions
 
 B.1 Introduction
 ================
@@ -1653,7 +1659,7 @@ Send an email with the subject:
    to <auctex-devel@gnu.org>.
 
 
-File: dockDjmsc.info,  Node: Requirements,  Next: Installation Trouble,  Prev: Introduction to FAQ,  Up: Frequently Asked Questions
+File: docuvIu05.info,  Node: Requirements,  Next: Installation Trouble,  Prev: Introduction to FAQ,  Up: Frequently Asked Questions
 
 B.2 Requirements
 ================
@@ -1678,9 +1684,9 @@ from.
 B.2.3 I have trouble with the display format...
 -----------------------------------------------
 
-We recommend keeping the variable 'preview-image-type' set to 'dvipng'
-(if you have it installed) or 'png'.  This is the default and can be set
-via the 'Preview/Customize' menu.
+We recommend keeping the variable 'preview-image-type' set to 'dvi*' (if
+you have 'dvipng' or 'dvisvgm' installed) or 'png'.  This is the default
+and can be set via the 'Preview/Customize' menu.
 
    All other formats are known to have inconveniences, either in file
 size or quality.  There are some Emacs versions around not supporting
@@ -1704,7 +1710,7 @@ work with preview-latex.  In that case, use TeX Live
 (https://tug.org/texlive/) instead.
 
 
-File: dockDjmsc.info,  Node: Installation Trouble,  Next: Customization,  Prev: Requirements,  Up: Frequently Asked Questions
+File: docuvIu05.info,  Node: Installation Trouble,  Next: Customization,  Prev: Requirements,  Up: Frequently Asked Questions
 
 B.3 Installation Trouble
 ========================
@@ -1751,7 +1757,7 @@ An outdated 'preview' installation
      gets found is the correct one.
 
 
-File: dockDjmsc.info,  Node: Customization,  Next: Troubleshooting,  Prev: Installation Trouble,  Up: Frequently Asked Questions
+File: docuvIu05.info,  Node: Customization,  Next: Troubleshooting,  Prev: Installation Trouble,  Up: Frequently Asked Questions
 
 B.4 Customization
 =================
@@ -1847,7 +1853,7 @@ back into the main file as figures with the '\includegraphics' macro.
 In this case, previewing of inline math will work as usual.
 
 
-File: dockDjmsc.info,  Node: Troubleshooting,  Next: Other formats,  Prev: Customization,  Up: Frequently Asked Questions
+File: docuvIu05.info,  Node: Troubleshooting,  Next: Other formats,  Prev: Customization,  Up: Frequently Asked Questions
 
 B.5 Troubleshooting
 ===================
@@ -1902,7 +1908,7 @@ message about the file being corrupted or the display of all the preview
 images instead of your typeset document.  (Also *note Customization::.)
 
 
-File: dockDjmsc.info,  Node: Other formats,  Prev: Troubleshooting,  Up: Frequently Asked Questions
+File: docuvIu05.info,  Node: Other formats,  Prev: Troubleshooting,  Up: Frequently Asked Questions
 
 B.6 preview-latex when not using LaTeX
 ======================================
@@ -1944,7 +1950,7 @@ file looking like the following:
      \end{document}
 
 
-File: dockDjmsc.info,  Node: Copying this Manual,  Next: Index,  Prev: Frequently Asked Questions,  Up: Top
+File: docuvIu05.info,  Node: Copying this Manual,  Next: Index,  Prev: Frequently Asked Questions,  Up: Top
 
 Appendix C Copying this Manual
 ******************************
@@ -1952,7 +1958,7 @@ Appendix C Copying this Manual
 The copyright notice for this manual is:
 
    This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 14.1.0.2025-10-27_12:06:30 from 2025-10-27_12:06:30).
+(version 14.1.0.2025-10-28_10:14:25 from 2025-10-28_10:14:25).
 
    Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2017-2019, 2021
 Free Software Foundation, Inc.
@@ -1971,7 +1977,7 @@ Free Software Foundation, Inc.
 * GNU Free Documentation License:: License for copying this manual.
 
 
-File: dockDjmsc.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
+File: docuvIu05.info,  Node: GNU Free Documentation License,  Up: Copying this Manual
 
 C.1 GNU Free Documentation License
 ==================================
@@ -2453,7 +2459,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: dockDjmsc.info,  Node: Index,  Prev: Copying this Manual,  Up: Top
+File: docuvIu05.info,  Node: Index,  Prev: Copying this Manual,  Up: Top
 
 Index
 *****
@@ -2505,7 +2511,7 @@ Index
 * Menu entries:                          Keys and lisp.       (line   6)
 * Philosophy of preview-latex:           What use is it?.     (line   6)
 * preview-at-point:                      Keys and lisp.       (line  23)
-* preview-auctex-font-size:              The Emacs interface. (line  99)
+* preview-auctex-font-size:              The Emacs interface. (line 100)
 * preview-auto-cache-preamble:           Simple customization.
                                                               (line  59)
 * preview-buffer:                        Keys and lisp.       (line  89)
@@ -2517,57 +2523,57 @@ Index
 * preview-clearout-document:             Keys and lisp.       (line 105)
 * preview-clearout-document <1>:         Keys and lisp.       (line 121)
 * preview-copy-region-as-mml:            Keys and lisp.       (line  45)
-* preview-default-document-pt:           The Emacs interface. (line  82)
+* preview-default-document-pt:           The Emacs interface. (line  83)
 * preview-default-option-list:           Simple customization.
                                                               (line  30)
 * preview-default-option-list <1>:       Simple customization.
                                                               (line  77)
 * preview-default-option-list <2>:       Simple customization.
                                                               (line 110)
-* preview-default-option-list <3>:       The Emacs interface. (line  53)
+* preview-default-option-list <3>:       The Emacs interface. (line  54)
 * preview-default-preamble:              Simple customization.
                                                               (line  77)
-* preview-default-preamble <1>:          The Emacs interface. (line  54)
+* preview-default-preamble <1>:          The Emacs interface. (line  55)
 * preview-default-preamble <2>:          Misplaced previews.  (line  61)
 * preview-default-preamble <3>:          Misplaced previews.  (line  62)
 * preview-document:                      Keys and lisp.       (line  94)
-* preview-document-pt:                   The Emacs interface. (line  96)
-* preview-document-pt-list:              The Emacs interface. (line  81)
-* preview-dvipng-command:                The preview images.  (line  40)
-* preview-dvipng-image-type:             The preview images.  (line  43)
-* preview-dvips-command:                 The Emacs interface. (line 124)
+* preview-document-pt:                   The Emacs interface. (line  97)
+* preview-document-pt-list:              The Emacs interface. (line  82)
+* preview-dvi*-command:                  The preview images.  (line  41)
+* preview-dvi*-image-type:               The preview images.  (line  45)
+* preview-dvips-command:                 The Emacs interface. (line 125)
 * preview-environment:                   Keys and lisp.       (line  74)
-* preview-error-icon-specs:              The Emacs interface. (line 150)
-* preview-fast-conversion:               The Emacs interface. (line  60)
-* preview-fast-dvips-command:            The Emacs interface. (line 123)
+* preview-error-icon-specs:              The Emacs interface. (line 151)
+* preview-fast-conversion:               The Emacs interface. (line  61)
+* preview-fast-dvips-command:            The Emacs interface. (line 124)
 * preview-goto-info-page:                Keys and lisp.       (line 155)
 * preview-gs-image-type-alist:           The preview images.  (line   8)
-* preview-gs-options:                    The preview images.  (line  59)
-* preview-icon-specs:                    The Emacs interface. (line 151)
+* preview-gs-options:                    The preview images.  (line  64)
+* preview-icon-specs:                    The Emacs interface. (line 152)
 * preview-image-creators:                The preview images.  (line   7)
 * preview-image-type:                    Basic modes of operation.
                                                               (line  16)
 * preview-image-type <1>:                The preview images.  (line   6)
-* preview-inner-environments:            The Emacs interface. (line 156)
+* preview-inner-environments:            The Emacs interface. (line 157)
 * preview-LaTeX-command:                 The Emacs interface. (line  11)
 * preview-LaTeX-command-replacements:    The Emacs interface. (line  25)
-* preview-leave-open-previews-visible:   The Emacs interface. (line 168)
-* preview-nonready-icon-specs:           The Emacs interface. (line 143)
-* preview-parsed-font-size:              The Emacs interface. (line  99)
+* preview-leave-open-previews-visible:   The Emacs interface. (line 169)
+* preview-nonready-icon-specs:           The Emacs interface. (line 144)
+* preview-parsed-font-size:              The Emacs interface. (line 100)
 * preview-pdf-adjust-color-method:       No images are displayed with gs 9.27 and earlier.
                                                               (line  15)
-* preview-prefer-TeX-bb:                 The Emacs interface. (line  69)
+* preview-prefer-TeX-bb:                 The Emacs interface. (line  70)
 * preview-preserve-counters:             Simple customization.
                                                               (line  63)
-* preview-preserve-counters <1>:         The Emacs interface. (line  47)
-* preview-protect-point:                 The Emacs interface. (line 163)
-* preview-reference-face:                The Emacs interface. (line  80)
+* preview-preserve-counters <1>:         The Emacs interface. (line  48)
+* preview-protect-point:                 The Emacs interface. (line 164)
+* preview-reference-face:                The Emacs interface. (line  81)
 * preview-region:                        Keys and lisp.       (line  84)
 * preview-report-bug:                    Keys and lisp.       (line 160)
 * preview-required-option-list:          Simple customization.
                                                               (line  63)
-* preview-required-option-list <1>:      The Emacs interface. (line  35)
-* preview-scale-function:                The Emacs interface. (line  79)
+* preview-required-option-list <1>:      The Emacs interface. (line  36)
+* preview-scale-function:                The Emacs interface. (line  80)
 * preview-section:                       Keys and lisp.       (line  79)
 * preview-transparent-border:            Keys and lisp.       (line  55)
 * Readme:                                Introduction.        (line   6)
@@ -2586,40 +2592,40 @@ Node: Top984
 Node: Copying2252
 Node: Introduction2702
 Node: What use is it?3372
-Node: Activating preview-latex4757
-Node: Getting started5253
-Node: Basic modes of operation7142
-Node: More documentation8257
-Node: Availability9122
-Node: Contacts9634
-Node: Installation10909
-Node: Keys and lisp11106
-Node: Simple customization18177
-Node: Known problems23988
-Node: Font problems with Dvips24866
-Node: Too small bounding boxes26032
-Node: x-symbol interoperation27424
-Node: Middle-clicks paste instead of toggling28808
-Node: No images are displayed with gs 9.27 and earlier29489
-Node: Black texts are too hard to read on dark background32187
-Node: For advanced users32828
-Node: The LaTeX style file33283
-Node: Package options35841
-Node: Provided commands46741
-Node: The Emacs interface54082
-Node: The preview images63418
-Node: Misplaced previews67171
-Node: ToDo70641
-Node: Frequently Asked Questions75414
-Node: Introduction to FAQ75733
-Node: Requirements76068
-Node: Installation Trouble78006
-Node: Customization80266
-Node: Troubleshooting84441
-Node: Other formats86947
-Node: Copying this Manual88258
-Node: GNU Free Documentation License89229
-Node: Index114348
+Node: Activating preview-latex4768
+Node: Getting started5264
+Node: Basic modes of operation7153
+Node: More documentation8268
+Node: Availability9133
+Node: Contacts9645
+Node: Installation10920
+Node: Keys and lisp11117
+Node: Simple customization18188
+Node: Known problems23999
+Node: Font problems with Dvips24877
+Node: Too small bounding boxes26043
+Node: x-symbol interoperation27435
+Node: Middle-clicks paste instead of toggling28819
+Node: No images are displayed with gs 9.27 and earlier29500
+Node: Black texts are too hard to read on dark background32198
+Node: For advanced users32839
+Node: The LaTeX style file33294
+Node: Package options35852
+Node: Provided commands46752
+Node: The Emacs interface54093
+Node: The preview images63447
+Node: Misplaced previews67416
+Node: ToDo70886
+Node: Frequently Asked Questions75659
+Node: Introduction to FAQ75978
+Node: Requirements76313
+Node: Installation Trouble78268
+Node: Customization80528
+Node: Troubleshooting84703
+Node: Other formats87209
+Node: Copying this Manual88520
+Node: GNU Free Documentation License89491
+Node: Index114610
 
 End Tag Table
 

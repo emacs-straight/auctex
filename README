@@ -98,8 +98,8 @@ does this only when told, and then right in the source code.  Switching
 back and forth between the source and preview is easy and natural and
 can be done for each image independently.  Behind the scenes of
 preview-latex, a sophisticated framework of other programs like
-'dvipng', Dvips and Ghostscript are employed together with a special
-LaTeX style file for extracting the material of interest in the
+'dvipng', 'dvisvgm', Dvips and Ghostscript are employed together with a
+special LaTeX style file for extracting the material of interest in the
 background and providing fast interactive response.
 
 2 Activating preview-latex
