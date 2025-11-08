@@ -1,2 +1,2 @@
 ;; Generated package description from auctex.el  -*- mode: lisp-data; no-byte-compile: t -*-
-(define-package "auctex" "14.1.0.0.20251104.85000" "Integrated environment for *TeX*" '((emacs "28.1")) :commit "4ee443c6b19f054db4ff598dd63b573fd0642fb3" :maintainer '(nil . "auctex-devel@gnu.org") :keywords '("tex" "latex" "texinfo" "context" "doctex" "preview-latex") :url "https://www.gnu.org/software/auctex/")
+(define-package "auctex" "14.1.0.0.20251105.140431" "Integrated environment for *TeX*" '((emacs "28.1")) :commit "d062de9bae705ede27a77e1e3062da0d44ebb2f8" :maintainer '(nil . "auctex-devel@gnu.org") :keywords '("tex" "latex" "texinfo" "context" "doctex" "preview-latex") :url "https://www.gnu.org/software/auctex/")
