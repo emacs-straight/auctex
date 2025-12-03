@@ -1,6 +1,6 @@
 ;;; dinbrief.el --- Special code for LaTeX-Style dinbrief.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 1994-2024  Free Software Foundation, Inc.
+;; Copyright (C) 1994-2025 Free Software Foundation, Inc.
 
 ;; Author: Werner Fink <werner@suse.de>
 ;; Maintainer: auctex-devel@gnu.org
@@ -31,9 +31,7 @@
 (require 'latex)
 
 ;; Silence the compiler:
-(declare-function font-latex-add-keywords
-                  "font-latex"
-                  (keywords class))
+(declare-function font-latex-add-keywords "font-latex" (keywords class))
 
 (defvar LaTeX-dinbrief-class-options
   '("10pt" "11pt" "12pt" "norm" "a4paper" "a5paper" "b5paper"
@@ -45,8 +43,8 @@
  "dinbrief"
  (lambda ()
    (LaTeX-add-environments
-    '("letter" LaTeX-dinbrief-env-recipient)
-    "dinquote")
+    '("dinquote")
+    '("letter" LaTeX-dinbrief-env-recipient))
    (add-hook 'LaTeX-document-style-hook
              #'LaTeX-dinbrief-style)
    (setq LaTeX-default-document-environment "letter")
@@ -119,7 +117,7 @@
         (address (LaTeX-dinbrief-recipient))
         (date (TeX-read-string "Datum: " (LaTeX-dinbrief-today)))
         (postremark (TeX-read-string "Postvermerk: "))
-        (fenster (TeX-read-string "Fenster (ja/nein): "))
+        (fenster (y-or-n-p "Fenster: "))
         (vermerk (TeX-read-string "Behandlungsvermerk: "))
         (verteil (TeX-read-string "Verteiler: "))
         (betreff (TeX-read-string "Betreff: "))
@@ -127,7 +125,7 @@
         (closing (TeX-read-string "Schluss: "))
         (signature (TeX-read-string "Unterschrift: "))
         (anlage (TeX-read-string "Anlagen: ")))
-    (if (string= fenster "ja")
+    (if fenster
         (progn
           (LaTeX-dinbrief-insert TeX-esc "enabledraftstandard")
           (newline-and-indent)
