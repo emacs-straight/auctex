@@ -7,7 +7,7 @@
 # License: GNU General Public License 3
 # The format is based on [[https://keepachangelog.com/en/1.1.0/][Keep a Changelog]]
 
-* [Unreleased]
+* [14.1.1] - 2026-01-12
 
 ** Added
 
@@ -38,6 +38,12 @@
 
 - Change the setting of ~preview-image-creators~ and
   ~preview-gs-image-type-alist~ to use ~dvi*~ instead of ~dvipng~.
+
+** Fixed
+
+- Ignore the (non-error) "ignored error" messages emitted by the
+  typesetting engine and don't abort the re-compilation when necessary.
+  It fixes this [[https://github.com/latex3/latex2e/issues/1907][LaTeX report]].
 
 * [14.1.0] - 2025-07-11
 
