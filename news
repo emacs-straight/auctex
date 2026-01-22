@@ -1,0 +1,146 @@
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                  AUCTEX NEWS – HISTORY OF NOTABLE AND
+                          USER-VISIBLE CHANGES
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+[14.1.2] - 2026-01-14
+═════════════════════
+
+Fixed
+─────
+
+  • Recognize and ignore non-error messages emitted by LuaTeX which are
+    different from what pdfTeX does.
+
+
+[14.1.1] - 2026-01-12
+═════════════════════
+
+Added
+─────
+
+  • Add new command `LaTeX-repeat-recent-math' which looks backward for
+    a recent top-level display math construct and inserts a copy to the
+    current line.
+
+  • Add new support files `style/floatflt.el', `style/fontawesome7.el'
+    and `style/ltx-talk.el'.
+
+  • Add new function `preview-dvisvgm-command' to generate SVG images in
+    preview.
+
+
+Changed
+───────
+
+  • Change the format of the value stored in `preview-dumped-alist'.
+    Add a new optional argument to the function
+    `preview-watch-preamble'.
+
+  • Respect the value of `font-latex-fontify-sectioning' when fontifying
+    macros as `slide-title'.  This affects macros provided by
+    `style/beamer.el' and `style/ltx-talk.el'.
+
+  • Change the name of `preview-dvipng-command' to
+    `preview-dvi*-command'.  Also make it accept a function symbol
+    returning the full command.
+
+  • Change the name of `preview-dvipng-image-type' to
+    `preview-dvi*-image-type'.
+
+  • Change the setting of `preview-image-creators' and
+    `preview-gs-image-type-alist' to use `dvi*' instead of `dvipng'.
+
+
+Fixed
+─────
+
+  • Ignore the (non-error) "ignored error" messages emitted by the
+    typesetting engine and don't abort the re-compilation when
+    necessary.  It fixes this [LaTeX report].
+
+
+[LaTeX report] <https://github.com/latex3/latex2e/issues/1907>
+
+
+[14.1.0] - 2025-07-11
+═════════════════════
+
+Added
+─────
+
+  • Add new commands `LaTeX-make-inline' which converts the display math
+    environment at point to inline math and the more general
+    `LaTeX-modify-math' which converts the mathematical construct at
+    point into one with different kind of delimiter or another
+    environment.
+  • Add new support files `style/embedfile.el',
+    `style/figureversions.el', `style/needspace.el',
+    `style/tablericons.el' and `style/wrapstuff.el'.
+
+
+Changed
+───────
+
+  • AUCTeX now requires GNU Emacs 28.1 or higher.
+  • Replace `$..$' with `\[..\]' in LaTeX mode and any derived mode when
+    hitting `$' repeatedly where `TeX-electric-math' is non-`nil'.
+
+
+Fixed
+─────
+
+  • Fix unwanted expansion of abbrevs during filling when `abbrev-mode'
+    is enabled.
+  • Fix the command-line options passed to latexmk when processing files
+    with xetex in order to run the viewer correctly.
+  • Fix removing of stale verbatim entries in auto-parsed file once the
+    corresponding package isn't used in the .tex file anymore.  Complete
+    removal may require two invocations of `C-u C-c C-n'.
+
+
+[14.0.9] - 2025-02-25
+═════════════════════
+
+Added
+─────
+
+  • Add new support files `style/csthm.el', `style/elsarticle.el',
+    `style/enumerate.el', `style/keytheorems.el' and
+    `style/marginalia.el'.
+
+
+[14.0.8] - 2024-12-11
+═════════════════════
+
+Added
+─────
+
+  • Improve support for folding of citations macros.  The current
+    folding `[c]' is changed to a more descriptive version, using author
+    names and publication years, like `[Ne21]' or `[ABC99]'.  These are
+    extracted from any bib files referenced in the document or specified
+    by the user option `TeX-fold-bib-file'.
+
+  • Add support for folding of `\begin{env}' and `\end{env}' macros.
+    The replacement specifiers are controlled by the custom option
+    `TeX-fold-begin-end-spec-list'.
+
+  • Add new custom option `TeX-fold-alert-color' which determines the
+    color used when folding the `\alert' macro, defaults to `red'.
+
+  • Add new support files `style/glossaries-extra.el',
+    `style/glossaries.el', `style/inlinegraphicx.el', `style/minted2.el'
+    (`style/minted.el' is updated to package v3.1.2) and
+    `style/stocksize.el'.
+
+  • Add preliminary support for parsing `\graphicspath' in
+    `style/graphicx.el'.
+
+
+Changed
+───────
+
+  • Change the default value of `LaTeX-insert-into-comments' from `t' to
+  …  …
