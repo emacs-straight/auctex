@@ -1,8 +1,8 @@
 This is auctex.info, produced by makeinfo version 7.1.1 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.1.2.2026-01-22_20:57:07 from
-2026-01-22_20:57:07), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.2.2026-01-28_20:12:47 from
+2026-01-28_20:12:47), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -4818,6 +4818,19 @@ will for example choose a Danish dictionary for documents including
      ‘\og’ and ‘\fg’ depending on context.  Note that the language name
      for customizing ‘TeX-quote-language-alist’ is ‘french’.
 
+‘austrian’
+‘german-at’
+‘german-austria’
+‘german-at-1901’
+‘german-austria-1901’
+‘german-ch-1901’
+‘german-ch’
+‘german-de’
+‘german-germany’
+‘german-de-1901’
+‘german-germany-1901’
+‘german-switzerland’
+‘german-switzerland-1901’
 ‘german’
 ‘ngerman’
      Runs style hook ‘TeX-language-de-hook’.  Gives ‘"’ word syntax,
@@ -5968,8 +5981,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.2.2026-01-22_20:57:07 from
-2026-01-22_20:57:07), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.2.2026-01-28_20:12:47 from
+2026-01-28_20:12:47), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -7581,9 +7594,9 @@ Variable Index
 * LaTeX-auto-pagestyle-regexp-list:      Parsing Files.       (line 109)
 * LaTeX-auto-regexp-list:                Parsing Files.       (line 121)
 * LaTeX-auto-savebox-regexp-list:        Parsing Files.       (line 118)
-* LaTeX-babel-hyphen:                    European.            (line 168)
-* LaTeX-babel-hyphen-after-hyphen:       European.            (line 176)
-* LaTeX-babel-hyphen-language-alist:     European.            (line 155)
+* LaTeX-babel-hyphen:                    European.            (line 181)
+* LaTeX-babel-hyphen-after-hyphen:       European.            (line 189)
+* LaTeX-babel-hyphen-language-alist:     European.            (line 168)
 * LaTeX-begin-regexp:                    Indenting.           (line 119)
 * LaTeX-biblatex-use-Biber:              Selecting a Command. (line  52)
 * LaTeX-CLASSNAME-class-options:         Adding Other.        (line 104)
@@ -7812,7 +7825,7 @@ Variable Index
 * TeX-PDF-from-DVI:                      Processor Options.   (line  71)
 * TeX-PDF-mode:                          Processor Options.   (line  16)
 * TeX-quote-after-quote:                 Quotes.              (line  29)
-* TeX-quote-language-alist:              European.            (line 142)
+* TeX-quote-language-alist:              European.            (line 155)
 * TeX-raise-frame-function:              I/O Correlation.     (line  85)
 * TeX-refuse-unmatched-dollar:           Quotes.              (line 106)
 * TeX-region:                            Starting a Command.  (line  32)
@@ -8295,36 +8308,36 @@ Node: Multifile199795
 Node: Parsing Files204651
 Node: Internationalization209688
 Node: European211041
-Node: Japanese218988
-Node: Automatic224261
-Node: Automatic Global226800
-Node: Automatic Private227942
-Node: Automatic Local229306
-Node: Style Files230580
-Node: Simple Style231394
-Node: Adding Macros235187
-Node: Adding Environments245153
-Node: Adding Other250522
-Node: Hacking the Parser255432
-Node: Appendices259448
-Node: Copying this Manual259744
-Node: GNU Free Documentation License260655
-Node: Changes285778
-Node: Development287578
-Node: Mid-term Goals288224
-Node: Wishlist291074
-Node: Bugs297263
-Node: FAQ298399
-Node: Texinfo mode305231
-Node: Exploiting306365
-Node: Superseding307187
-Node: Mapping312002
-Node: Unbinding313945
-Node: Indices314493
-Node: Key Index314656
-Node: Function Index322696
-Node: Variable Index335842
-Node: Concept Index362726
+Node: Japanese219263
+Node: Automatic224536
+Node: Automatic Global227075
+Node: Automatic Private228217
+Node: Automatic Local229581
+Node: Style Files230855
+Node: Simple Style231669
+Node: Adding Macros235462
+Node: Adding Environments245428
+Node: Adding Other250797
+Node: Hacking the Parser255707
+Node: Appendices259723
+Node: Copying this Manual260019
+Node: GNU Free Documentation License260930
+Node: Changes286053
+Node: Development287853
+Node: Mid-term Goals288499
+Node: Wishlist291349
+Node: Bugs297538
+Node: FAQ298674
+Node: Texinfo mode305506
+Node: Exploiting306640
+Node: Superseding307462
+Node: Mapping312277
+Node: Unbinding314220
+Node: Indices314768
+Node: Key Index314931
+Node: Function Index322971
+Node: Variable Index336117
+Node: Concept Index363001
 
 End Tag Table
 
