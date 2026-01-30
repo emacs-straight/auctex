@@ -4,6 +4,15 @@
            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
+[Unreleased]
+════════════
+
+Changed
+───────
+
+  • Support new language names provided by babel-german v2.99.
+
+
 [14.1.2] - 2026-01-14
 ═════════════════════
 
@@ -136,11 +145,4 @@ Added
     `style/stocksize.el'.
 
   • Add preliminary support for parsing `\graphicspath' in
-    `style/graphicx.el'.
-
-
-Changed
-───────
-
-  • Change the default value of `LaTeX-insert-into-comments' from `t' to
   …  …
