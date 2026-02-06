@@ -7,6 +7,12 @@
 [Unreleased]
 ════════════
 
+Added
+─────
+
+  • Add new support file `style/lua-unicode-math.el'.
+
+
 Changed
 ───────
 
@@ -142,7 +148,4 @@ Added
   • Add new support files `style/glossaries-extra.el',
     `style/glossaries.el', `style/inlinegraphicx.el', `style/minted2.el'
     (`style/minted.el' is updated to package v3.1.2) and
-    `style/stocksize.el'.
-
-  • Add preliminary support for parsing `\graphicspath' in
   …  …
