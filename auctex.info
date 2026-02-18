@@ -1,7 +1,7 @@
 This is auctex.info, produced by makeinfo version 7.2 from auctex.texi.
 
-This manual is for AUCTeX (version 14.1.2.2026-02-07_06:34:55 from
-2026-02-07_06:34:55), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.2.2026-02-17_14:16:51 from
+2026-02-17_14:16:51), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -2238,12 +2238,12 @@ will be inserted automatically if ‘auto-fill-mode’ is enabled.  In this
 case the source is not only filled but also indented automatically as
 you write it.
 
-   ‘auto-fill-mode’ can be enabled for AUCTeX by calling
-‘turn-on-auto-fill’ in one of the hooks AUCTeX is running.  *Note Modes
-and Hooks::.  As an example, if you want to enable ‘auto-fill-mode’ in
+   ‘auto-fill-mode’ can be enabled for AUCTeX by calling the command
+‘auto-fill-mode’ in one of the hooks AUCTeX is running.  *Note Modes and
+Hooks::.  As an example, if you want to enable ‘auto-fill-mode’ in
 ‘LaTeX-mode’, put the following into your init file:
 
-     (add-hook 'LaTeX-mode-hook #'turn-on-auto-fill)
+     (add-hook 'LaTeX-mode-hook #'auto-fill-mode)
 
    You can manually fill explicitly marked regions, paragraphs,
 environments, complete sections, or the whole buffer.  (Note that manual
@@ -5979,8 +5979,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.2.2026-02-07_06:34:55 from
-2026-02-07_06:34:55), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.2.2026-02-17_14:16:51 from
+2026-02-17_14:16:51), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -7475,7 +7475,6 @@ Function Index
 * Texinfo-mark-node:                     Marking (Texinfo).   (line  33)
 * Texinfo-mark-section:                  Marking (Texinfo).   (line   6)
 * Texinfo-mode:                          Modes and Hooks.     (line  22)
-* turn-on-auto-fill:                     Filling.             (line   6)
 
 
 File: auctex.info,  Node: Variable Index,  Next: Concept Index,  Prev: Function Index,  Up: Indices
@@ -8271,70 +8270,70 @@ Node: Marking (Texinfo)81849
 Node: Commenting83498
 Node: Indenting85525
 Node: Filling94252
-Node: Display100270
-Node: Font Locking102781
-Node: Fontification of macros104946
-Node: Fontification of quotes114962
-Node: Fontification of math116506
-Node: Verbatim content120288
-Node: Faces121078
-Node: Known problems121583
-Node: Folding122592
-Node: Outline139946
-Node: Narrowing141116
-Node: Prettifying142194
-Node: Processing143511
-Node: Commands144871
-Node: Starting a Command145435
-Node: Selecting a Command150810
-Node: Processor Options160157
-Node: Viewing171433
-Node: Starting Viewers171807
-Node: I/O Correlation177617
-Ref: I/O Correlation-Footnote-1183374
-Node: Debugging183636
-Node: Ignoring warnings186338
-Node: Error overview188457
-Node: Checking190403
-Node: Control192425
-Node: Cleaning194576
-Node: Documentation196029
-Node: Customization197150
-Node: Modes and Hooks197643
-Node: Multifile199792
-Node: Parsing Files204648
-Node: Internationalization209685
-Node: European211038
-Node: Japanese219260
-Node: Automatic224533
-Node: Automatic Global227072
-Node: Automatic Private228214
-Node: Automatic Local229578
-Node: Style Files230852
-Node: Simple Style231666
-Node: Adding Macros235459
-Node: Adding Environments245425
-Node: Adding Other250794
-Node: Hacking the Parser255704
-Node: Appendices259720
-Node: Copying this Manual260016
-Node: GNU Free Documentation License260927
-Node: Changes286050
-Node: Development287850
-Node: Mid-term Goals288496
-Node: Wishlist291346
-Node: Bugs297535
-Node: FAQ298671
-Node: Texinfo mode305503
-Node: Exploiting306637
-Node: Superseding307459
-Node: Mapping312274
-Node: Unbinding314217
-Node: Indices314765
-Node: Key Index314928
-Node: Function Index322968
-Node: Variable Index336114
-Node: Concept Index362998
+Node: Display100276
+Node: Font Locking102787
+Node: Fontification of macros104952
+Node: Fontification of quotes114968
+Node: Fontification of math116512
+Node: Verbatim content120294
+Node: Faces121084
+Node: Known problems121589
+Node: Folding122598
+Node: Outline139952
+Node: Narrowing141122
+Node: Prettifying142200
+Node: Processing143517
+Node: Commands144877
+Node: Starting a Command145441
+Node: Selecting a Command150816
+Node: Processor Options160163
+Node: Viewing171439
+Node: Starting Viewers171813
+Node: I/O Correlation177623
+Ref: I/O Correlation-Footnote-1183380
+Node: Debugging183642
+Node: Ignoring warnings186344
+Node: Error overview188463
+Node: Checking190409
+Node: Control192431
+Node: Cleaning194582
+Node: Documentation196035
+Node: Customization197156
+Node: Modes and Hooks197649
+Node: Multifile199798
+Node: Parsing Files204654
+Node: Internationalization209691
+Node: European211044
+Node: Japanese219266
+Node: Automatic224539
+Node: Automatic Global227078
+Node: Automatic Private228220
+Node: Automatic Local229584
+Node: Style Files230858
+Node: Simple Style231672
+Node: Adding Macros235465
+Node: Adding Environments245431
+Node: Adding Other250800
+Node: Hacking the Parser255710
+Node: Appendices259726
+Node: Copying this Manual260022
+Node: GNU Free Documentation License260933
+Node: Changes286056
+Node: Development287856
+Node: Mid-term Goals288502
+Node: Wishlist291352
+Node: Bugs297541
+Node: FAQ298677
+Node: Texinfo mode305509
+Node: Exploiting306643
+Node: Superseding307465
+Node: Mapping312280
+Node: Unbinding314223
+Node: Indices314771
+Node: Key Index314934
+Node: Function Index322974
+Node: Variable Index336047
+Node: Concept Index362931
 
 End Tag Table
 

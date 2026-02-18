@@ -2034,7 +2034,6 @@ option is disabled by default.
 @cindex Reformatting
 @cindex Refilling
 @findex auto-fill-mode
-@findex turn-on-auto-fill
 @vindex fill-column
 
 Filling deals with the insertion of line breaks to prevent lines from
@@ -2043,14 +2042,14 @@ linebreaks will be inserted automatically if @code{auto-fill-mode} is
 enabled.  In this case the source is not only filled but also indented
 automatically as you write it.
 
-@code{auto-fill-mode} can be enabled for @AUCTeX{} by calling
-@code{turn-on-auto-fill} in one of the hooks @AUCTeX{} is running.
+@code{auto-fill-mode} can be enabled for @AUCTeX{} by calling the command
+@code{auto-fill-mode} in one of the hooks @AUCTeX{} is running.
 @xref{Modes and Hooks}.  As an example, if you want to enable
 @code{auto-fill-mode} in @code{LaTeX-mode}, put the following into your
 init file:
 
 @lisp
-(add-hook 'LaTeX-mode-hook #'turn-on-auto-fill)
+(add-hook 'LaTeX-mode-hook #'auto-fill-mode)
 @end lisp
 
 You can manually fill explicitly marked regions, paragraphs,
