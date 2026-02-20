@@ -958,11 +958,16 @@ START is the function that actually starts the process with
 
 (defun preview-gs-dvips-process-setup ()
   "Set up Dvips process for conversions via gs."
-  (preview-dvi*-process-setup-1
-   preview-gs-image-type
-   (lambda ()
-     (preview-start-dvips preview-fast-conversion))
-   #'preview-gs-dvips-sentinel))
+  (let ((ret
+         (preview-dvi*-process-setup-1
+          preview-gs-image-type
+          (lambda ()
+            (preview-start-dvips preview-fast-conversion))
+          #'preview-gs-dvips-sentinel)))
+    ;; Override the dvi* sentinel value t with the actual file, set by
+    ;; `preview-start-dvips' in `preview-ps-file'.
+    (setf (nth 3 ret) preview-ps-file)
+    ret))
 
 (defun preview-dvi*-process-setup ()
   "Set up dvi conversion process."
