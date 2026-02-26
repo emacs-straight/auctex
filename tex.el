@@ -8572,7 +8572,12 @@ errors or warnings to show."
       (if (with-current-buffer TeX-command-buffer
             (and TeX-PDF-mode (setq dvi2pdf (TeX-PDF-from-DVI))))
           (setq TeX-command-next dvi2pdf)
-        (setq TeX-command-next TeX-command-Show)))))
+        (setq TeX-command-next TeX-command-Show))))
+  (unless TeX-error-list
+    (run-hook-with-args 'TeX-after-compilation-finished-functions
+                        (with-current-buffer TeX-command-buffer
+                          (expand-file-name
+			   (TeX-active-master (TeX-output-extension)))))))
 
 (defun TeX-current-pages ()
   "Return string indicating the number of pages formatted."
