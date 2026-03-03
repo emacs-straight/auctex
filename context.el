@@ -1412,6 +1412,26 @@ else.  There might be text before point."
                                        (ConTeXt-environment-start-name)
                                        ConTeXt-text)))) ; other environments?
          (+ indent (current-column) ConTeXt-indent-basic))
+        ;; This code correctly indents the initial brace of a macro with
+        ;; arguments when the brace is on the following line.
+        ;; JD note: It is unclear to me what the code in the 't' case
+        ;; below is trying to accomplish; modifying it to not
+        ;; incorrectly indent an open brace following the \def line of a
+        ;; macro with argument(s) seems likely to break something else
+        ;; (also for \define).
+        ;; Therefore handle \def and \define with this specific case.
+        ;; Note that \def might be preceded by various combinations of
+        ;; the following modifiers (LMTX):
+        ((or (looking-at-p
+              (concat "\\(?:\\\\"
+                      (regexp-opt '("enforced" "expandafter" "frozen"
+                                    "global" "instance" "immutable"
+                                    "mutable" "noaligned" "noexpand"
+                                    "overloaded" "permanent" "protected"
+                                    "tolerant" "untraced"))
+                      "\\)*\\\\def\\\\"))
+             (looking-at-p "\\\\define[[\\]"))
+         (current-column))
         (t
          (let ((col (current-column)))
            (if (not (and char (eq (char-syntax char) ?\()))
