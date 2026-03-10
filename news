@@ -10,13 +10,21 @@
 Added
 ─────
 
-  • Add new support file `style/lua-unicode-math.el'.
+  • Add new support files `style/lua-unicode-math.el',
+    `style/sourcesans.el' and `style/sourceserif.el'.
 
 
 Changed
 ───────
 
   • Support new language names provided by babel-german v2.99.
+  • Remove `--jobname' argument from default LuaLaTeX invocation.  If
+    this causes trouble for you, we first recommend to update your (very
+    old) TeX distribution.  But if you can't do that for some reason,
+    add the following entry to the customize option `TeX-engine-alist':
+    ┌────
+    │ (luatex "LuaTeX" "luatex" "lualatex --jobname=%(s-filename-only)" "luatex")
+    └────
 
 
 [14.1.2] - 2026-01-14
@@ -139,13 +147,5 @@ Added
     by the user option `TeX-fold-bib-file'.
 
   • Add support for folding of `\begin{env}' and `\end{env}' macros.
-    The replacement specifiers are controlled by the custom option
-    `TeX-fold-begin-end-spec-list'.
-
-  • Add new custom option `TeX-fold-alert-color' which determines the
-    color used when folding the `\alert' macro, defaults to `red'.
-
-  • Add new support files `style/glossaries-extra.el',
-    `style/glossaries.el', `style/inlinegraphicx.el', `style/minted2.el'
-    (`style/minted.el' is updated to package v3.1.2) and
+    The
   …  …
