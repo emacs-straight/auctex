@@ -2,7 +2,7 @@ This is preview-latex.info, produced by makeinfo version 7.2 from
 preview-latex.texi.
 
 This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 14.1.2.2026-03-10_17:07:43 from 2026-03-10_17:07:43).
+(version 14.1.2.2026-03-11_02:48:39 from 2026-03-11_02:48:39).
 
    Copyright © 2001, 2002, 2003, 2004, 2005, 2006, 2017-2019, 2021 Free
 Software Foundation, Inc.
@@ -559,6 +559,46 @@ in *note For advanced users::), but some are:
      preview-latex's, you can turn off inline math previews.  In the
      ‘Preview Latex’ group, remove ‘textmath’ from
      ‘preview-default-option-list’ by customizing this variable.
+
+   • Customize where previews are shown
+
+     Set ‘preview-visibility-style’ to control when previews appear:
+
+     ‘off-point’
+          Previews replace the source when point is elsewhere.  When a
+          preview is opened to show the source, the preview is replaced
+          by an icon.  This is the default value.
+
+     ‘at-point’
+          Previews never obscure the source.  In this mode, preview
+          visibility is inverted: previews are hidden when they would
+          normally be closed and made visible when they would normally
+          be opened.  The value of ‘preview-auto-reveal’ controls when a
+          preview is considered opened (e.g., set to ‘t’ to open a
+          preview whenever the cursor enters the preview's source).
+
+     ‘always’
+          Previews are always visible when available.  Away from point
+          they replace the source; when opened they remain displayed
+          alongside the source.
+
+     The placement of previews when shown with their source is
+     controlled with ‘preview-at-point-placement’, which can take these
+     values:
+
+     ‘before-string’
+          Show the preview before the source (default).
+
+     ‘after-string’
+          Show the preview after the source.
+
+     ‘buframe’
+          Show the preview in a side frame adjacent to point.  Requires
+          the ‘buframe’ package (available on ELPA). Only one frame is
+          used, showing the preview whose source is at point.  If
+          ‘preview-visibility-style’ is set to ‘off-point’ or ‘always’,
+          a preview opened away from point is shown only when point is
+          on its source.
 
 
 File: preview-latex.info,  Node: Known problems,  Next: For advanced users,  Prev: Simple customization,  Up: Top
@@ -1357,20 +1397,11 @@ together in making preview-latex work as intended.
      ‘\begin{equation}\begin{split}...\end{split}\end{equation}’, and
      accordingly ‘split’ is one entry in ‘preview-inner-environments’.
 
-‘preview-protect-point’
-     This boolean variable determines whether previews generated on top
-     of the current point should be temporarily opened.  Default value
-     is ‘nil’.
-
-‘preview-leave-open-previews-visible’
-     This boolean variable determines whether to leave preview images
-     visible when they are opened.
-
-     There is a side effect in enabling this option.  The preview image
-     doesn't turn into construction sign temporarily when you edit the
-     underlying LaTeX code and regenerate the preview; it is just
-     replaced by updated image when ready.  This behavior suppresses
-     flicker in the appearance.
+‘preview-keep-stale-images’
+     This boolean variable determines whether to retain preview images
+     whose source is modified or replace them with icons until
+     regenerated.  Retaining images is not compatible with
+     ‘preview-visibility-style’ being set to ‘off-point’.
 
 
 File: preview-latex.info,  Node: The preview images,  Next: Misplaced previews,  Prev: The Emacs interface,  Up: For advanced users
@@ -1958,7 +1989,7 @@ Appendix C Copying this Manual
 The copyright notice for this manual is:
 
    This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 14.1.2.2026-03-10_17:07:43 from 2026-03-10_17:07:43).
+(version 14.1.2.2026-03-11_02:48:39 from 2026-03-11_02:48:39).
 
    Copyright © 2001, 2002, 2003, 2004, 2005, 2006, 2017-2019, 2021 Free
 Software Foundation, Inc.
@@ -2555,9 +2586,9 @@ Index
                                                               (line  16)
 * preview-image-type <1>:                The preview images.  (line   6)
 * preview-inner-environments:            The Emacs interface. (line 157)
+* preview-keep-stale-images:             The Emacs interface. (line 164)
 * preview-LaTeX-command:                 The Emacs interface. (line  11)
 * preview-LaTeX-command-replacements:    The Emacs interface. (line  25)
-* preview-leave-open-previews-visible:   The Emacs interface. (line 169)
 * preview-nonready-icon-specs:           The Emacs interface. (line 144)
 * preview-parsed-font-size:              The Emacs interface. (line 100)
 * preview-pdf-adjust-color-method:       No images are displayed with gs 9.27 and earlier.
@@ -2566,7 +2597,6 @@ Index
 * preview-preserve-counters:             Simple customization.
                                                               (line  63)
 * preview-preserve-counters <1>:         The Emacs interface. (line  48)
-* preview-protect-point:                 The Emacs interface. (line 164)
 * preview-reference-face:                The Emacs interface. (line  81)
 * preview-region:                        Keys and lisp.       (line  84)
 * preview-report-bug:                    Keys and lisp.       (line 160)
@@ -2600,31 +2630,31 @@ Node: Contacts9788
 Node: Installation11071
 Node: Keys and lisp11272
 Node: Simple customization18543
-Node: Known problems24524
-Node: Font problems with Dvips25410
-Node: Too small bounding boxes26616
-Node: x-symbol interoperation28036
-Node: Middle-clicks paste instead of toggling29456
-Node: No images are displayed with gs 9.27 and earlier30153
-Node: Black texts are too hard to read on dark background32899
-Node: For advanced users33552
-Node: The LaTeX style file34011
-Node: Package options36589
-Node: Provided commands47797
-Node: The Emacs interface55398
-Node: The preview images65012
-Node: Misplaced previews69105
-Node: ToDo72647
-Node: Frequently Asked Questions77476
-Node: Introduction to FAQ77799
-Node: Requirements78138
-Node: Installation Trouble80121
-Node: Customization82413
-Node: Troubleshooting86660
-Node: Other formats89174
-Node: Copying this Manual90521
-Node: GNU Free Documentation License91495
-Node: Index116621
+Node: Known problems26211
+Node: Font problems with Dvips27097
+Node: Too small bounding boxes28303
+Node: x-symbol interoperation29723
+Node: Middle-clicks paste instead of toggling31143
+Node: No images are displayed with gs 9.27 and earlier31840
+Node: Black texts are too hard to read on dark background34586
+Node: For advanced users35239
+Node: The LaTeX style file35698
+Node: Package options38276
+Node: Provided commands49484
+Node: The Emacs interface57085
+Node: The preview images66341
+Node: Misplaced previews70434
+Node: ToDo73976
+Node: Frequently Asked Questions78805
+Node: Introduction to FAQ79128
+Node: Requirements79467
+Node: Installation Trouble81450
+Node: Customization83742
+Node: Troubleshooting87989
+Node: Other formats90503
+Node: Copying this Manual91850
+Node: GNU Free Documentation License92824
+Node: Index117950
 
 End Tag Table
 
