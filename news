@@ -27,6 +27,13 @@ Changed
     └────
 
 
+Fixed
+─────
+
+  • Fix parsing of error messages for ConTeXt LMTX.
+  • Fix indentation for macros with arguments in ConTeXt mode.
+
+
 [14.1.2] - 2026-01-14
 ═════════════════════
 
@@ -143,9 +150,5 @@ Added
   • Improve support for folding of citations macros.  The current
     folding `[c]' is changed to a more descriptive version, using author
     names and publication years, like `[Ne21]' or `[ABC99]'.  These are
-    extracted from any bib files referenced in the document or specified
-    by the user option `TeX-fold-bib-file'.
-
-  • Add support for folding of `\begin{env}' and `\end{env}' macros.
-    The
+    extracted
   …  …
