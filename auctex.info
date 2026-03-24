@@ -1,7 +1,7 @@
 This is auctex.info, produced by makeinfo version 7.2 from auctex.texi.
 
-This manual is for AUCTeX (version 14.1.2.2026-03-17_07:29:52 from
-2026-03-17_07:29:52), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.2.2026-03-23_06:01:10 from
+2026-03-23_06:01:10), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -5979,8 +5979,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.2.2026-03-17_07:29:52 from
-2026-03-17_07:29:52), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.2.2026-03-23_06:01:10 from
+2026-03-23_06:01:10), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -6506,18 +6506,18 @@ The following people have contributed to AUCTeX (in alphabetical order):
 Ivan Andrus, Ralf Angeli, Masayuki Ataka, Mohammad Hossein Bateni,
 Fabrice Ben Hamouda, Thomas Baumann, Vincent Belaïche, Berend de Boer,
 Alex Branham, Uwe Brauer, Ken Brown, Joshua Buhl, Jean-François Burnol,
-Patrice Dumas, Arash Esbati, Vangelis Evangelou, Werner Fink, Miguel
-Frasson, David Fussner, Peter S. Galbraith, Mosè Giordano, Andrea
-Greselin, Patrick Gundlach, Abdul-Lateef Haji-Ali, Jobst Hoffmann,
-Tassilo Horn, Yvon Hevel, Orlando Iovino, Mads Jensen, Arne Jørgensen,
-Philip Kaludercic, David Kastrup, Ikumi Keita, Philip Kime, Oleh Krehel,
-Joost Kremers, Frank Küster, Jan-Åke Larsson, Matthew Leach, Brian
-Leung, Antoine Levitt, Leo Liu, Vladimir Lomov, Stefan Monnier, Paul
-Nelson, Dan Nicolaescu, Piet van Oostrum, Pieter Pareit, Nicolas
-Richard, Florent Rougon, Santiago Saavedra, Davide G. M. Salvetti,
-Rüdiger Sonderfeld, Holger Sparr, Mike Sperber, Reiner Steib, Christian
-Schlauer, Augusto Ritter Stoffel, Shiro Takeda, Mark Trettin, Artem
-Yurchenko, Tony Zorman (Please accept our apologies if we forgot
+Jim Diamond, Patrice Dumas, Arash Esbati, Vangelis Evangelou, Werner
+Fink, Miguel Frasson, David Fussner, Peter S. Galbraith, Mosè Giordano,
+Andrea Greselin, Patrick Gundlach, Abdul-Lateef Haji-Ali, Jobst
+Hoffmann, Tassilo Horn, Yvon Hevel, Orlando Iovino, Mads Jensen, Arne
+Jørgensen, Philip Kaludercic, David Kastrup, Ikumi Keita, Philip Kime,
+Oleh Krehel, Joost Kremers, Frank Küster, Jan-Åke Larsson, Matthew
+Leach, Brian Leung, Antoine Levitt, Leo Liu, Vladimir Lomov, Stefan
+Monnier, Paul Nelson, Dan Nicolaescu, Piet van Oostrum, Pieter Pareit,
+Nicolas Richard, Florent Rougon, Santiago Saavedra, Davide G. M.
+Salvetti, Rüdiger Sonderfeld, Holger Sparr, Mike Sperber, Reiner Steib,
+Christian Schlauer, Augusto Ritter Stoffel, Shiro Takeda, Mark Trettin,
+Artem Yurchenko, Tony Zorman (Please accept our apologies if we forgot
 somebody).
 
 
@@ -8319,21 +8319,21 @@ Node: Appendices259726
 Node: Copying this Manual260022
 Node: GNU Free Documentation License260933
 Node: Changes286056
-Node: Development287856
-Node: Mid-term Goals288502
-Node: Wishlist291352
-Node: Bugs297541
-Node: FAQ298677
-Node: Texinfo mode305509
-Node: Exploiting306643
-Node: Superseding307465
-Node: Mapping312280
-Node: Unbinding314223
-Node: Indices314771
-Node: Key Index314934
-Node: Function Index322974
-Node: Variable Index336047
-Node: Concept Index362931
+Node: Development287869
+Node: Mid-term Goals288515
+Node: Wishlist291365
+Node: Bugs297554
+Node: FAQ298690
+Node: Texinfo mode305522
+Node: Exploiting306656
+Node: Superseding307478
+Node: Mapping312293
+Node: Unbinding314236
+Node: Indices314784
+Node: Key Index314947
+Node: Function Index322987
+Node: Variable Index336060
+Node: Concept Index362944
 
 End Tag Table
 
