@@ -1,7 +1,7 @@
 This is auctex.info, produced by makeinfo version 7.2 from auctex.texi.
 
-This manual is for AUCTeX (version 14.1.2.2026-05-11_20:17:07 from
-2026-05-11_20:17:07), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.2.2026-05-14_15:29:07 from
+2026-05-14_15:29:07), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -5979,8 +5979,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.2.2026-05-11_20:17:07 from
-2026-05-11_20:17:07), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.2.2026-05-14_15:29:07 from
+2026-05-14_15:29:07), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2024 Free Software
 Foundation, Inc.
@@ -6848,8 +6848,8 @@ A.4 Frequently Asked Questions
      site configuration triggers the error by starting Emacs without
      such customizations.  You can do this by invoking Emacs with the
      following command line:
-          emacs -q -no-site-file --eval "(progn (setq package-load-list '((auctex
-          t))) (package-initialize))"
+          emacs -q -no-site-file --eval "(progn (package-initialize t)
+          (package-activate 'auctex))"
      Use ‘runemacs’ instead of ‘emacs’ on MS Windows.
 
      The ‘--eval’ option activates only AUCTeX among all installed ELPA
@@ -8324,16 +8324,16 @@ Node: Mid-term Goals288515
 Node: Wishlist291365
 Node: Bugs297554
 Node: FAQ298690
-Node: Texinfo mode305522
-Node: Exploiting306656
-Node: Superseding307478
-Node: Mapping312293
-Node: Unbinding314236
-Node: Indices314784
-Node: Key Index314947
-Node: Function Index322987
-Node: Variable Index336060
-Node: Concept Index362944
+Node: Texinfo mode305512
+Node: Exploiting306646
+Node: Superseding307468
+Node: Mapping312283
+Node: Unbinding314226
+Node: Indices314774
+Node: Key Index314937
+Node: Function Index322977
+Node: Variable Index336050
+Node: Concept Index362934
 
 End Tag Table
 
