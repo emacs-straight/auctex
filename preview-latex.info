@@ -2,7 +2,7 @@ This is preview-latex.info, produced by makeinfo version 7.1.1 from
 preview-latex.texi.
 
 This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 14.1.2.2026-06-02_17:23:38 from 2026-06-02_17:23:38).
+(version 14.1.2.2026-06-08_18:50:21 from 2026-06-08_18:50:21).
 
    Copyright © 2001, 2002, 2003, 2004, 2005, 2006, 2017-2019, 2021 Free
 Software Foundation, Inc.
@@ -614,6 +614,7 @@ newer versions of the problematic software or by simple patches.
 
 * Font problems with Dvips::
 * Too small bounding boxes::
+* autonum and display math shortcuts::
 * x-symbol interoperation::
 * Middle-clicks paste instead of toggling::
 * No images are displayed with gs 9.27 and earlier::
@@ -651,7 +652,7 @@ a long-standing bug in its implementation fixed (only very recent
 versions of Dvips have).
 
 
-File: preview-latex.info,  Node: Too small bounding boxes,  Next: x-symbol interoperation,  Prev: Font problems with Dvips,  Up: Known problems
+File: preview-latex.info,  Node: Too small bounding boxes,  Next: autonum and display math shortcuts,  Prev: Font problems with Dvips,  Up: Known problems
 
 5.2 Too small bounding boxes
 ============================
@@ -679,9 +680,24 @@ convenient for _pure_ PostScript stuff like that created by PSTricks,
 which Dvips would otherwise reserve no space for.
 
 
-File: preview-latex.info,  Node: x-symbol interoperation,  Next: Middle-clicks paste instead of toggling,  Prev: Too small bounding boxes,  Up: Known problems
+File: preview-latex.info,  Node: autonum and display math shortcuts,  Next: x-symbol interoperation,  Prev: Too small bounding boxes,  Up: Known problems
 
-5.3 x-symbol interoperation
+5.3 ‘autonum’ and display math shortcuts
+========================================
+
+The ‘autonum’ package redefines the ‘\[...\]’ display math shortcut as a
+delimited macro.  This prevents preview-latex from seeing the closing
+‘\]’ command.  As a result, the preview can extend past the displayed
+formula, sometimes to the end of the document.
+
+   In documents using ‘autonum’, use an explicit ‘\begin{equation}’ ...
+‘\end{equation}’ environment instead of ‘\[...\]’ for displayed
+formulas.
+
+
+File: preview-latex.info,  Node: x-symbol interoperation,  Next: Middle-clicks paste instead of toggling,  Prev: autonum and display math shortcuts,  Up: Known problems
+
+5.4 x-symbol interoperation
 ===========================
 
 Thanks to the work of Christoph Wedler, starting with version
@@ -709,7 +725,7 @@ environment or, as a last resort, customize the variable
 
 File: preview-latex.info,  Node: Middle-clicks paste instead of toggling,  Next: No images are displayed with gs 9.27 and earlier,  Prev: x-symbol interoperation,  Up: Known problems
 
-5.4 Middle-clicks paste instead of toggling
+5.5 Middle-clicks paste instead of toggling
 ===========================================
 
 This is probably the fault of your favorite package.  ‘isearch.el’ is
@@ -722,7 +738,7 @@ anyway, this should not be much of a problem in practice.
 
 File: preview-latex.info,  Node: No images are displayed with gs 9.27 and earlier,  Next: Black texts are too hard to read on dark background,  Prev: Middle-clicks paste instead of toggling,  Up: Known problems
 
-5.5 No images are displayed with gs 9.27 and earlier
+5.6 No images are displayed with gs 9.27 and earlier
 ====================================================
 
 preview-latex tries to adjust the foreground and background colors of
@@ -775,7 +791,7 @@ option ‘preview-pdf-adjust-color-method’.
 
 File: preview-latex.info,  Node: Black texts are too hard to read on dark background,  Prev: No images are displayed with gs 9.27 and earlier,  Up: Known problems
 
-5.6 Black texts are too hard to read on dark background
+5.7 Black texts are too hard to read on dark background
 =======================================================
 
 Unfortunately, foreground color adjustment discussed in the previous
@@ -1989,7 +2005,7 @@ Appendix C Copying this Manual
 The copyright notice for this manual is:
 
    This manual is for preview-latex, a LaTeX preview mode for AUCTeX
-(version 14.1.2.2026-06-02_17:23:38 from 2026-06-02_17:23:38).
+(version 14.1.2.2026-06-08_18:50:21 from 2026-06-08_18:50:21).
 
    Copyright © 2001, 2002, 2003, 2004, 2005, 2006, 2017-2019, 2021 Free
 Software Foundation, Inc.
@@ -2502,6 +2518,8 @@ Index
 * \PreviewMacro:                         Provided commands.   (line  25)
 * Activation:                            Activating preview-latex.
                                                               (line   6)
+* autonum package:                       autonum and display math shortcuts.
+                                                              (line   6)
 * C-c C-k:                               Keys and lisp.       (line 168)
 * C-c C-m P:                             Keys and lisp.       (line  62)
 * C-c C-p C-b:                           Keys and lisp.       (line  89)
@@ -2524,6 +2542,8 @@ Index
 * Contacts:                              Contacts.            (line   6)
 * Copying:                               Copying.             (line   6)
 * Copyright:                             Copying.             (line   6)
+* display math shortcuts:                autonum and display math shortcuts.
+                                                              (line   6)
 * Distribution:                          Copying.             (line   6)
 * Download:                              Availability.        (line   6)
 * FDL, GNU Free Documentation License:   GNU Free Documentation License.
@@ -2632,30 +2652,31 @@ Node: Installation11073
 Node: Keys and lisp11274
 Node: Simple customization18545
 Node: Known problems26213
-Node: Font problems with Dvips27099
-Node: Too small bounding boxes28305
-Node: x-symbol interoperation29725
-Node: Middle-clicks paste instead of toggling31145
-Node: No images are displayed with gs 9.27 and earlier31842
-Node: Black texts are too hard to read on dark background34588
-Node: For advanced users35241
-Node: The LaTeX style file35700
-Node: Package options38278
-Node: Provided commands49486
-Node: The Emacs interface57087
-Node: The preview images66343
-Node: Misplaced previews70436
-Node: ToDo73978
-Node: Frequently Asked Questions78807
-Node: Introduction to FAQ79130
-Node: Requirements79469
-Node: Installation Trouble81452
-Node: Customization83744
-Node: Troubleshooting87991
-Node: Other formats90505
-Node: Copying this Manual91852
-Node: GNU Free Documentation License92826
-Node: Index117952
+Node: Font problems with Dvips27138
+Node: Too small bounding boxes28344
+Node: autonum and display math shortcuts29775
+Node: x-symbol interoperation30455
+Node: Middle-clicks paste instead of toggling31885
+Node: No images are displayed with gs 9.27 and earlier32582
+Node: Black texts are too hard to read on dark background35328
+Node: For advanced users35981
+Node: The LaTeX style file36440
+Node: Package options39018
+Node: Provided commands50226
+Node: The Emacs interface57827
+Node: The preview images67083
+Node: Misplaced previews71176
+Node: ToDo74718
+Node: Frequently Asked Questions79547
+Node: Introduction to FAQ79870
+Node: Requirements80209
+Node: Installation Trouble82192
+Node: Customization84484
+Node: Troubleshooting88731
+Node: Other formats91245
+Node: Copying this Manual92592
+Node: GNU Free Documentation License93566
+Node: Index118692
 
 End Tag Table
 

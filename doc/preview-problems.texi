@@ -10,6 +10,7 @@ newer versions of the problematic software or by simple patches.
 @menu
 * Font problems with Dvips::    
 * Too small bounding boxes::    
+* autonum and display math shortcuts::
 * x-symbol interoperation::     
 * Middle-clicks paste instead of toggling::  
 * No images are displayed with gs 9.27 and earlier::
@@ -78,6 +79,20 @@ the @code{psfixbb} package option to preview
 which will tag the corners of the included @TeX{} box.  This will mostly
 be convenient for @emph{pure} PostScript stuff like that created by
 PSTricks, which Dvips would otherwise reserve no space for.
+
+@node autonum and display math shortcuts
+@section @code{autonum} and display math shortcuts
+@cindex @code{autonum} package
+@cindex display math shortcuts
+
+The @code{autonum} package redefines the @code{\[@dots{}\]} display math
+shortcut as a delimited macro.  This prevents @previewlatex{} from seeing
+the closing @code{\]} command.  As a result, the preview can extend past
+the displayed formula, sometimes to the end of the document.
+
+In documents using @code{autonum}, use an explicit
+@code{\begin@{equation@}} @dots{} @code{\end@{equation@}} environment
+instead of @code{\[@dots{}\]} for displayed formulas.
 
 @c FIXME: It seems that x-symbol is much outdated.
 @node x-symbol interoperation
