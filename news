@@ -10,8 +10,9 @@
 Added
 ─────
 
-  • Add new support files `style/lua-unicode-math.el',
-    `style/sourcesans.el' and `style/sourceserif.el'.
+  • Add new support files `style/lineno.el',
+    `style/lua-unicode-math.el', `style/sourcesans.el' and
+    `style/sourceserif.el'.
 
 
 Changed
