@@ -1,6 +1,6 @@
-;;; ltugboat.el --- AUCTeX style for `ltugboat.cls' (v2.28)  -*- lexical-binding: t; -*-
+;;; ltugboat.el --- AUCTeX style for `ltugboat.cls' (v2.37)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2019--2024 Free Software Foundation, Inc.
+;; Copyright (C) 2019--2026 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; This file adds support for `ltugboat.cls' (v2.28) from 2023/01/16.
+;; This file adds support for `ltugboat.cls' (v2.37) from 2026-06-14.
 ;; `ltugboat.cls' is part of TeXLive.
 
 ;;; Code:
@@ -143,6 +143,7 @@
     "Hawaii"
     "HTML"
     "HTTP"
+    "HTTPS"
     "iOS"
     "IDE"
     "IEEE"
@@ -154,6 +155,7 @@
     "JoT"
     "KOMAScript"
     "LAMSTeX"
+    "LMTX"
     "LuaHBTeX"
     "LuaHBLaTeX"
     "LuaLaTeX"
@@ -164,8 +166,10 @@
     "MathML"
     "mf"
     "MFB"
+    "MiKTeX"
     "MkIV"
     "mp"
+    "mtex"
     "NTG"
     "NTS"
     "OMEGA"
@@ -181,6 +185,7 @@
     "pdflatex"
     "pdftex"
     "PDF"
+    "PDFUA"
     "PGF"
     "PHP"
     "PiCTeX"
@@ -189,6 +194,7 @@
     "POBox"
     "PS"
     "PSTricks"
+    "RIT"
     "RTF"
     "SC"
     "SGML"
@@ -202,6 +208,7 @@
     "TIFF"
     "TP"
     "TeXhax"
+    "TeXLive"
     "TeXMaG"
     "TeXtures"
     "Textures"
@@ -221,6 +228,7 @@
     "VnTeX"
     "VorTeX"
     "XML"
+    "XMP"
     "WEB"
     "WEAVE"
     "WYSIWYG"
@@ -230,6 +238,7 @@
     "XSL"
     "XSLFO"
     "XSLT"
+    "YAML"
 
     ;; 10.2 Other special typesetting
     "Dash"
