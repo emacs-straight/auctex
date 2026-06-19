@@ -1,6 +1,6 @@
 ;;; font-latex.el --- LaTeX fontification for Font Lock mode.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 1996-2025  Free Software Foundation, Inc.
+;; Copyright (C) 1996-2026  Free Software Foundation, Inc.
 
 ;; Authors:    Peter S. Galbraith <psg@debian.org>
 ;;             Simon Marshall <Simon.Marshall@esrin.esa.it>
@@ -1091,6 +1091,10 @@ have changed."
       (add-to-list
        'font-latex-syntactic-keywords
        `(,(concat "\\\\\\(?:" verb-macros-with-delims "\\)"
+                  ;; Since LaTeX release 2020-10-01, spaces after \verb
+                  ;; macro are gobbled like with other macros (see
+                  ;; ltnews32.pdf), so deal with them:
+                  "[ \t]*"
                   ;; Some macros take an optional argument.  This is
                   ;; the same line as above for environments.
                   "\\(?:\\[[^][]*\\(?:\\[[^][]*\\][^][]*\\)*\\]\\)?"
@@ -1109,6 +1113,8 @@ have changed."
       (add-to-list
        'font-latex-syntactic-keywords
        `(,(concat "\\\\\\(?:" verb-macros-with-braces "\\)"
+                  ;; Spaces are allowed after macros as usual:
+                  "[ \t]*"
                   ;; Some macros take an optional argument.  This is
                   ;; the same line as above for environments.
                   "\\(?:\\[[^][]*\\(?:\\[[^][]*\\][^][]*\\)*\\]\\)?"
