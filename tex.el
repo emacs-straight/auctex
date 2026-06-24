@@ -9642,8 +9642,9 @@ displaying the issue.
 Return non-nil if an error or warning is found."
   (let ((regexp
          (concat
-          ;; TeX error: grab (1) filename:line-number and (2) filename:
-          "^\\(!\\|\\(.+?\\):[0-9]+:\\) \\|"
+          ;; TeX error: (1) or
+          ;; LaTeX error: grab (2) filename
+          "^\\(! \\)\\|^\\(.+?\\):[0-9]+: \\|"
           ;; New file (or parenthesized comment): match 3
           "(\n?\\([^\n()]+\\)\\|"
           ;; End of file (or comment): "match" 4
@@ -9675,21 +9676,28 @@ Return non-nil if an error or warning is found."
             (beep)
             (TeX-pop-to-buffer old))
           nil)
-         ;; TeX/LaTeX (1) or ConTeXt LMTX (9) error:
-         ((or (match-beginning 1) (match-beginning 9))
-          (if (or ;; Ignore non-error warning. (bug#55065)
-                  (file-exists-p (TeX-match-buffer 2))
-                  (file-exists-p (TeX-match-buffer 10)))
+         ;; TeX (1), LaTeX (2) or ConTeXt LMTX (9) error:
+         ((or (match-beginning 1) (match-beginning 2) (match-beginning 9))
+          (if (or
+               ;; When we have "! " at BOL, treat it as an error
+               ;; unconditionally.
+               (match-beginning 1)
+               ;; Ignore non-error warning. (bug#55065)
+               (file-exists-p (TeX-match-buffer
+                               (if (match-beginning 2)
+                                   2 10))))
               (progn
-                (unless TeX-error-file
-                  (push nil TeX-error-file)
-                  (push nil TeX-error-offset))
-                (unless (car TeX-error-offset)
-                  ;; match 2 or 10 is the .tex file name.
-                  (rplaca TeX-error-file
-                    (if (match-beginning 2)
-                      (TeX-match-buffer 2)
-                      (TeX-match-buffer 10))))
+                (when (or (match-beginning 2)
+                          (match-beginning 10))
+                  (unless TeX-error-file
+                    (push nil TeX-error-file)
+                    (push nil TeX-error-offset))
+                  (unless (car TeX-error-offset)
+                    ;; match 2 or 10 is the .tex file name.
+                    (rplaca TeX-error-file
+                            (TeX-match-buffer
+                             (if (match-beginning 2)
+                                 2 10)))))
                 (setq error-found t)
                 (if (looking-at "Preview ")
                     t
@@ -9697,7 +9705,8 @@ Return non-nil if an error or warning is found."
                   nil))
             ;; This wasn't an actual TeX error.  Go to the least
             ;; possible point to search again.
-            (goto-char (1+ (match-beginning 1)))
+            (goto-char (1+ (or (match-beginning 2)
+                               (match-beginning 9))))
             t))
          ;; LaTeX bad box
          ((match-beginning 7)
@@ -9940,7 +9949,7 @@ information in `TeX-error-list' instead of displaying the error."
          ;; This regexp deals with this problem.
          (string (progn
                    (beginning-of-line)
-                   (re-search-forward " \\(\\([^ \t\n\r]*$\\)\\|\\($\\)\\)")
+                   (re-search-forward " \\(\\([^ \t]*$\\)\\|\\($\\)\\)")
                    (TeX-match-buffer 1)))
 
          ;; (point) is now positioned at the end of the input line

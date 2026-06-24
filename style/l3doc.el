@@ -1,6 +1,6 @@
 ;;; l3doc.el --- AUCTeX style for `l3doc.cls'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022--2025 Free Software Foundation, Inc.
+;; Copyright (C) 2022--2026 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; This file adds support for `l3doc.cls' dated 2022/02/24.
+;; This file adds support for `l3doc.cls' dated 2026-06-18.
 
 ;;; Code:
 
@@ -238,14 +238,25 @@ For syntax environment from l3doc class."
                               'function)))
  TeX-dialect)
 
-(defvar LaTeX-l3doc-class-options
+(defvar LaTeX-l3doc-class-options-list
   (progn
     (TeX-load-style "article")
-    (append (remove "a5paper" LaTeX-article-class-options)
-            '("full" "onlydoc" "check" "nocheck" "checktest"
-              "nochecktest" "kernel" "stdmodule" "cm-default"
-              "lm-default" "cs-break-off" "cs-break-nohyphen"
-              "show-notes" "hide-notes")))
+    (append (mapcar #'list (remove "a5paper" LaTeX-article-class-options))
+            '(("full") ("onlydoc")
+              ("lm-default" ("true" "false"))
+              ("kernel" ("true" "false"))
+              ("check" ("true" "false"))
+              ("checktest" ("true" "false"))
+              ("stdmodule" ("true" "false"))
+              ("cs-break" ("true" "false"))
+              ("cs-break-nohyphen" ("true" "false"))
+              ("show-notes" ("true" "false"))
+              ("hide-notes" ("true" "false"))
+              ("base-date"))))
   "Class options for the l3doc class.")
+
+(defun LaTeX-l3doc-class-options ()
+  "Read the l3doc class options from the user."
+  (TeX-read-key-val t LaTeX-l3doc-class-options-list))
 
 ;;; l3doc.el ends here
