@@ -1,6 +1,6 @@
 ;; bib-cite.el - Display \cite, \ref or \label / Extract refs from BiBTeX file. -*- lexical-binding: t; -*-
 
-;; Copyright (C) 1994-1999, 2001, 2003-2005, 2014-2024 Free Software Foundation, Inc.
+;; Copyright (C) 1994-1999, 2001, 2003-2005, 2014-2026 Free Software Foundation, Inc.
 
 ;; Author:    Peter S. Galbraith <psg@debian.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -593,6 +593,8 @@
 (declare-function reftex-view-crossref "ext:reftex-dcr"
                   (&optional arg auto-how fail-quietly))
 (declare-function outline-show-entry "ext:outline" ())
+(declare-function xref-quit-and-pop-marker-stack "xref" ())
+(declare-function xref-quit-and-goto-xref "xref" ())
 
 (defgroup bib-cite nil
   "bib-cite, LaTeX minor-mode to display \\cite, \\ref and \\label commands."
@@ -929,7 +931,81 @@ A TAGS file is created and used for multi-file documents under auctex."
       (bib-find-label)))))
 
 (defvar bib-cite-search-ring nil
-  "Bib-cite intenal variable to hold last \\ref or \\eqref find.")
+  "Bib-cite internal variable to hold last \\ref or \\eqref find.")
+
+(defun bib-cite--next-ref (str &optional bkwd)
+  "Find the next or previous \\ref to a given \\label.
+
+STR comes from the variable `last-tag' which the command `bib-find'
+sets.  Any non-nil PREV-P argument to `bib-find-next' sets BKWD here,
+producing a backward search.  The search itself follows the order in the
+*xref* buffer produced by `xref-find-apropos'."
+  (if str
+      (let* (notag
+	     (lino (concat (number-to-string (line-number-at-pos nil t)) ":"))
+	     (file (buffer-file-name))
+	     (tag (substring-no-properties str))
+	     (xrtag (seq-subseq tag (1+ (seq-position tag ?{))
+				(seq-position tag ?})))
+	     (re (concat bib-ref-regexpc xrtag "}"))
+	     (buf (xref-find-apropos xrtag)))
+	(if bkwd
+	    (with-current-buffer buf
+	      (search-forward file nil t)
+	      (re-search-forward "^[^[:digit:][:space:][:cntrl:]]" nil 1)
+	      (beginning-of-line)
+	      (condition-case nil
+		  (search-backward lino)
+		(error (progn
+                         (while
+			     (and
+			      (re-search-backward
+			       (concat
+			        "\\(?1:^[^[:digit:][:space:][:cntrl:]]\\)\\|"
+			        "^[[:space:]]*\\(?1:[[:digit:]]+:\\)")
+			       nil 1)
+			      (string-match
+			       "[[:digit:]]+:"
+			       (match-string-no-properties 1) nil t)
+			      (setq notag t)
+			      (string-version-lessp
+			       lino (match-string-no-properties 1))
+			      (setq notag 1)))
+                         (end-of-line))))
+	      (unless (or (re-search-backward re nil 1) (eq notag t) (bobp))
+		(forward-line -1))
+	      (condition-case nil
+		  (xref-quit-and-goto-xref)
+		(user-error (progn
+			      (xref-quit-and-pop-marker-stack)
+			      (message "No previous occurrence of %s" re)))))
+	  (with-current-buffer buf
+	    (search-forward file nil t)
+	    (condition-case nil
+		(search-forward lino)
+	      (error (progn
+		       (setq notag t)
+		       (while
+			   (and
+			    (re-search-forward
+			     (concat
+			      "\\(?1:^[^[:digit:][:space:][:cntrl:]]\\)\\|"
+			      "^[[:space:]]*\\(?1:[[:digit:]]+:\\)")
+			     nil 1)
+			    (string-match
+			     "[[:digit:]]+:"
+			     (match-string-no-properties 1) nil t)
+			    (string-version-lessp
+			     (match-string-no-properties 1) lino))))))
+	    (unless notag
+	      (forward-line))
+	    (re-search-forward re nil 1)
+	    (condition-case nil
+		(xref-quit-and-goto-xref)
+	      (user-error (progn
+			    (xref-quit-and-pop-marker-stack)
+			    (message "No next occurrence of %s" re)))))))
+    (message "Sorry, no previous reference to find.  Use bib-find?")))
 
 (defun bib-find-next (&optional prev-p)
   "Find next occurrence of a \\ref or \\eqref.
@@ -938,9 +1014,7 @@ documents, and the Emacs command `find-tag' doesn't allow to interactively
 find the next occurrence of a regexp."
   (interactive "P")
   (if (bib-master-file)                 ;Multi-file document
-      ;; FIXME: `find-tag' is replaced by `xref-find-definitions' in
-      ;; Emacs 25.1.  AUCTeX should track this change, sometime ...
-      (find-tag t (if prev-p '- t) t)
+      (bib-cite--next-ref (if (boundp 'last-tag) last-tag nil) prev-p)
     (if bib-cite-search-ring
         ;;FIXME: Should first make sure I move off initial \ref{}.
         (let ((regexp (concat bib-ref-regexpc bib-cite-search-ring "}")))

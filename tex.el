@@ -64,6 +64,7 @@
 (declare-function comint-mode "ext:comint" nil)
 (declare-function tex--prettify-symbols-compose-p "ext:tex-mode"
                   (start end match))
+(declare-function tex--xref-backend "ext:tex-mode" nil)
 (declare-function gnuserv-start "ext:gnuserv"
                   (&optional leave-dead) t)
 
@@ -3870,6 +3871,10 @@ Not intended for direct use for user."
   (setq-local prettify-symbols-alist tex--prettify-symbols-alist)
   (add-function :override (local 'prettify-symbols-compose-predicate)
                 #'TeX--prettify-symbols-compose-p)
+
+  ;; Activate new xref backend introduced in Emacs 31:
+  (when (>= emacs-major-version 31)
+    (add-hook 'xref-backend-functions #'tex--xref-backend nil t))
 
   ;; Standard Emacs completion-at-point support
   (add-hook 'completion-at-point-functions
