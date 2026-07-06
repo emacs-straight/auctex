@@ -10,6 +10,8 @@
 Added
 ─────
 
+  • Activate new TeX xref backend (`tex-etags') provided by Emacs 31.
+
   • Add new support files `style/lineno.el',
     `style/lua-unicode-math.el', `style/sourcesans.el' and
     `style/sourceserif.el'.
@@ -150,6 +152,5 @@ Added
 
   • Improve support for folding of citations macros.  The current
     folding `[c]' is changed to a more descriptive version, using author
-    names and publication years, like `[Ne21]' or `[ABC99]'.  These are
-    extracted
+    names and
   …  …
