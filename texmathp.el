@@ -1,6 +1,6 @@
 ;;; texmathp.el -- Code to check if point is inside LaTeX math environment  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 1998-2024  Free Software Foundation, Inc.
+;; Copyright (C) 1998-2026  Free Software Foundation, Inc.
 
 ;; Author: Carsten Dominik <dominik@strw.LeidenUniv.nl>
 ;; Maintainer: auctex-devel@gnu.org
@@ -395,6 +395,9 @@ Limit searches to BOUND.  The return value is like (\"\\macro\" . (point))."
           (save-restriction
             (save-excursion
               (set-syntax-table texmathp-syntax-table)
+              ;; `syntax-propertize' can't widen so make sure it won't
+              ;; need to (Emacs bug#81035).
+              (syntax-propertize (max 1 bound))
               (narrow-to-region (max 1 bound) (point))
               ;; Move back out of the current parenthesis
               (while (condition-case nil (progn (up-list -1) t) (error nil))
