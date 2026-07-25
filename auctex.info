@@ -1,10 +1,10 @@
 This is auctex.info, produced by makeinfo version 7.1.1 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.1.2.2026-07-10_09:53:42 from
-2026-07-10_09:53:42), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.2.2026-07-17_16:07:58 from
+2026-07-17_16:07:58), a sophisticated TeX environment for Emacs.
 
-   Copyright © 1992-1995, 2001, 2002, 2004-2024 Free Software
+   Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
 
      Permission is granted to copy, distribute and/or modify this
@@ -2880,8 +2880,7 @@ a certain buffer by typing the command ‘M-x TeX-fold-mode <RET>’ or
 using the keyboard shortcut ‘C-c C-o C-f’.  If you want to use it every
 time you edit a LaTeX document, add it to a hook:
 
-     (add-hook 'LaTeX-mode-hook (lambda ()
-                                  (TeX-fold-mode 1)))
+     (add-hook 'LaTeX-mode-hook #'TeX-fold-mode)
 
    If it should be activated in all AUCTeX modes, use ‘TeX-mode-hook’
 instead of ‘LaTeX-mode-hook’.
@@ -5981,10 +5980,10 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.2.2026-07-10_09:53:42 from
-2026-07-10_09:53:42), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.2.2026-07-17_16:07:58 from
+2026-07-17_16:07:58), a sophisticated TeX environment for Emacs.
 
-   Copyright © 1992-1995, 2001, 2002, 2004-2024 Free Software
+   Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
 
      Permission is granted to copy, distribute and/or modify this
@@ -7237,20 +7236,20 @@ Key Index
 * C-c C-l:                               Control.             (line  14)
 * C-c C-m:                               Completion.          (line  89)
 * C-c C-n:                               Parsing Files.       (line  45)
-* C-c C-o b:                             Folding.             (line 131)
-* C-c C-o C-b:                           Folding.             (line  43)
-* C-c C-o C-c:                           Folding.             (line 128)
-* C-c C-o C-e:                           Folding.             (line 112)
+* C-c C-o b:                             Folding.             (line 130)
+* C-c C-o C-b:                           Folding.             (line  42)
+* C-c C-o C-c:                           Folding.             (line 127)
+* C-c C-o C-e:                           Folding.             (line 111)
 * C-c C-o C-f:                           Folding.             (line  31)
-* C-c C-o C-m:                           Folding.             (line 103)
-* C-c C-o C-o:                           Folding.             (line 154)
-* C-c C-o C-p:                           Folding.             (line  95)
-* C-c C-o C-r:                           Folding.             (line  92)
-* C-c C-o C-s:                           Folding.             (line  99)
-* C-c C-o i:                             Folding.             (line 147)
-* C-c C-o p:                             Folding.             (line 139)
-* C-c C-o r:                             Folding.             (line 135)
-* C-c C-o s:                             Folding.             (line 143)
+* C-c C-o C-m:                           Folding.             (line 102)
+* C-c C-o C-o:                           Folding.             (line 153)
+* C-c C-o C-p:                           Folding.             (line  94)
+* C-c C-o C-r:                           Folding.             (line  91)
+* C-c C-o C-s:                           Folding.             (line  98)
+* C-c C-o i:                             Folding.             (line 146)
+* C-c C-o p:                             Folding.             (line 138)
+* C-c C-o r:                             Folding.             (line 134)
+* C-c C-o s:                             Folding.             (line 142)
 * C-c C-q C-e:                           Filling.             (line  90)
 * C-c C-q C-p:                           Filling.             (line  84)
 * C-c C-q C-r:                           Filling.             (line  99)
@@ -7422,21 +7421,21 @@ Function Index
 * TeX-documentation-texdoc:              Documentation.       (line   6)
 * TeX-electric-macro:                    Completion.          (line 127)
 * TeX-error-overview:                    Error overview.      (line  10)
-* TeX-fold-buffer:                       Folding.             (line  42)
-* TeX-fold-clearout-buffer:              Folding.             (line 130)
-* TeX-fold-clearout-item:                Folding.             (line 146)
-* TeX-fold-clearout-paragraph:           Folding.             (line 138)
-* TeX-fold-clearout-region:              Folding.             (line 134)
-* TeX-fold-clearout-section:             Folding.             (line 142)
-* TeX-fold-comment:                      Folding.             (line 127)
-* TeX-fold-dwim:                         Folding.             (line 153)
-* TeX-fold-env:                          Folding.             (line 111)
-* TeX-fold-macro:                        Folding.             (line 102)
-* TeX-fold-math:                         Folding.             (line 118)
+* TeX-fold-buffer:                       Folding.             (line  41)
+* TeX-fold-clearout-buffer:              Folding.             (line 129)
+* TeX-fold-clearout-item:                Folding.             (line 145)
+* TeX-fold-clearout-paragraph:           Folding.             (line 137)
+* TeX-fold-clearout-region:              Folding.             (line 133)
+* TeX-fold-clearout-section:             Folding.             (line 141)
+* TeX-fold-comment:                      Folding.             (line 126)
+* TeX-fold-dwim:                         Folding.             (line 152)
+* TeX-fold-env:                          Folding.             (line 110)
+* TeX-fold-macro:                        Folding.             (line 101)
+* TeX-fold-math:                         Folding.             (line 117)
 * TeX-fold-mode:                         Folding.             (line  31)
-* TeX-fold-paragraph:                    Folding.             (line  94)
-* TeX-fold-region:                       Folding.             (line  91)
-* TeX-fold-section:                      Folding.             (line  98)
+* TeX-fold-paragraph:                    Folding.             (line  93)
+* TeX-fold-region:                       Folding.             (line  90)
+* TeX-fold-section:                      Folding.             (line  97)
 * TeX-font:                              Font Specifiers.     (line  54)
 * tex-font-setup:                        Font Locking.        (line  21)
 * TeX-home-buffer:                       Control.             (line  17)
@@ -7627,9 +7626,9 @@ Variable Index
 * LaTeX-float:                           Floats.              (line  14)
 * LaTeX-float <1>:                       Floats.              (line  39)
 * LaTeX-flymake-chktex-options:          Checking.            (line  27)
-* LaTeX-fold-env-spec-list:              Folding.             (line 226)
-* LaTeX-fold-macro-spec-list:            Folding.             (line 226)
-* LaTeX-fold-math-spec-list:             Folding.             (line 226)
+* LaTeX-fold-env-spec-list:              Folding.             (line 225)
+* LaTeX-fold-macro-spec-list:            Folding.             (line 225)
+* LaTeX-fold-math-spec-list:             Folding.             (line 225)
 * LaTeX-font-list:                       Font Specifiers.     (line  69)
 * LaTeX-indent-environment-check:        Indenting.           (line  51)
 * LaTeX-indent-environment-list:         Indenting.           (line  37)
@@ -7748,28 +7747,28 @@ Variable Index
 * TeX-expand-list:                       Selecting a Command. (line  14)
 * TeX-file-line-error:                   Processor Options.   (line 204)
 * TeX-file-recurse:                      Automatic.           (line  44)
-* TeX-fold-alert-color:                  Folding.             (line 281)
-* TeX-fold-auto:                         Folding.             (line  70)
-* TeX-fold-auto-reveal:                  Folding.             (line 258)
-* TeX-fold-auto-reveal-commands:         Folding.             (line 275)
-* TeX-fold-begin-end-spec-list:          Folding.             (line 286)
-* TeX-fold-bib-file:                     Folding.             (line 342)
-* TeX-fold-close-quote:                  Folding.             (line 356)
-* TeX-fold-command-prefix:               Folding.             (line 159)
-* TeX-fold-env-spec-list:                Folding.             (line 216)
-* TeX-fold-force-fontify:                Folding.             (line  62)
-* TeX-fold-help-echo-max-length:         Folding.             (line 253)
-* TeX-fold-macro-spec-list:              Folding.             (line 168)
-* TeX-fold-math-spec-list:               Folding.             (line 223)
-* TeX-fold-open-quote:                   Folding.             (line 352)
-* TeX-fold-preserve-comments:            Folding.             (line  75)
-* TeX-fold-quotes-on-insert:             Folding.             (line 360)
-* TeX-fold-region-functions:             Folding.             (line  85)
-* TeX-fold-type-list:                    Folding.             (line  57)
-* TeX-fold-unfold-around-mark:           Folding.             (line  81)
-* TeX-fold-unspec-env-display-string:    Folding.             (line 236)
-* TeX-fold-unspec-macro-display-string:  Folding.             (line 232)
-* TeX-fold-unspec-use-name:              Folding.             (line 240)
+* TeX-fold-alert-color:                  Folding.             (line 280)
+* TeX-fold-auto:                         Folding.             (line  69)
+* TeX-fold-auto-reveal:                  Folding.             (line 257)
+* TeX-fold-auto-reveal-commands:         Folding.             (line 274)
+* TeX-fold-begin-end-spec-list:          Folding.             (line 285)
+* TeX-fold-bib-file:                     Folding.             (line 341)
+* TeX-fold-close-quote:                  Folding.             (line 355)
+* TeX-fold-command-prefix:               Folding.             (line 158)
+* TeX-fold-env-spec-list:                Folding.             (line 215)
+* TeX-fold-force-fontify:                Folding.             (line  61)
+* TeX-fold-help-echo-max-length:         Folding.             (line 252)
+* TeX-fold-macro-spec-list:              Folding.             (line 167)
+* TeX-fold-math-spec-list:               Folding.             (line 222)
+* TeX-fold-open-quote:                   Folding.             (line 351)
+* TeX-fold-preserve-comments:            Folding.             (line  74)
+* TeX-fold-quotes-on-insert:             Folding.             (line 359)
+* TeX-fold-region-functions:             Folding.             (line  84)
+* TeX-fold-type-list:                    Folding.             (line  56)
+* TeX-fold-unfold-around-mark:           Folding.             (line  80)
+* TeX-fold-unspec-env-display-string:    Folding.             (line 235)
+* TeX-fold-unspec-macro-display-string:  Folding.             (line 231)
+* TeX-fold-unspec-use-name:              Folding.             (line 239)
 * TeX-font-list:                         Font Specifiers.     (line  60)
 * TeX-header-end:                        Starting a Command.  (line  32)
 * TeX-header-end <1>:                    Starting a Command.  (line  74)
@@ -8282,61 +8281,61 @@ Node: Verbatim content120297
 Node: Faces121087
 Node: Known problems121592
 Node: Folding122601
-Node: Outline139955
-Node: Narrowing141125
-Node: Prettifying142203
-Node: Processing143520
-Node: Commands144880
-Node: Starting a Command145444
-Node: Selecting a Command150819
-Node: Processor Options160166
-Node: Viewing171442
-Node: Starting Viewers171816
-Node: I/O Correlation177626
-Ref: I/O Correlation-Footnote-1183383
-Node: Debugging183645
-Node: Ignoring warnings186347
-Node: Error overview188466
-Node: Checking190412
-Node: Control192434
-Node: Cleaning194585
-Node: Documentation196038
-Node: Customization197159
-Node: Modes and Hooks197652
-Node: Multifile199801
-Node: Parsing Files204657
-Node: Internationalization209694
-Node: European211047
-Node: Japanese219269
-Node: Automatic224542
-Node: Automatic Global227081
-Node: Automatic Private228223
-Node: Automatic Local229587
-Node: Style Files230861
-Node: Simple Style231675
-Node: Adding Macros235468
-Node: Adding Environments245434
-Node: Adding Other250803
-Node: Hacking the Parser255713
-Node: Appendices259729
-Node: Copying this Manual260025
-Node: GNU Free Documentation License260936
-Node: Changes286059
-Node: Development287872
-Node: Mid-term Goals288518
-Node: Wishlist291368
-Node: Bugs297557
-Node: FAQ298693
-Node: Texinfo mode305515
-Node: Exploiting306649
-Node: Superseding307471
-Node: Mapping312286
-Node: Unbinding314229
-Node: Indices314777
-Node: Key Index314940
-Node: Function Index322980
-Node: Variable Index336053
-Node: Concept Index362937
+Node: Outline139907
+Node: Narrowing141077
+Node: Prettifying142155
+Node: Processing143472
+Node: Commands144832
+Node: Starting a Command145396
+Node: Selecting a Command150771
+Node: Processor Options160118
+Node: Viewing171394
+Node: Starting Viewers171768
+Node: I/O Correlation177578
+Ref: I/O Correlation-Footnote-1183335
+Node: Debugging183597
+Node: Ignoring warnings186299
+Node: Error overview188418
+Node: Checking190364
+Node: Control192386
+Node: Cleaning194537
+Node: Documentation195990
+Node: Customization197111
+Node: Modes and Hooks197604
+Node: Multifile199753
+Node: Parsing Files204609
+Node: Internationalization209646
+Node: European210999
+Node: Japanese219221
+Node: Automatic224494
+Node: Automatic Global227033
+Node: Automatic Private228175
+Node: Automatic Local229539
+Node: Style Files230813
+Node: Simple Style231627
+Node: Adding Macros235420
+Node: Adding Environments245386
+Node: Adding Other250755
+Node: Hacking the Parser255665
+Node: Appendices259681
+Node: Copying this Manual259977
+Node: GNU Free Documentation License260888
+Node: Changes286011
+Node: Development287824
+Node: Mid-term Goals288470
+Node: Wishlist291320
+Node: Bugs297509
+Node: FAQ298645
+Node: Texinfo mode305467
+Node: Exploiting306601
+Node: Superseding307423
+Node: Mapping312238
+Node: Unbinding314181
+Node: Indices314729
+Node: Key Index314892
+Node: Function Index322932
+Node: Variable Index336005
+Node: Concept Index362889
 
 End Tag Table
 
