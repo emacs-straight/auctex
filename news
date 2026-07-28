@@ -28,6 +28,9 @@ Changed
     ┌────
     │ (luatex "LuaTeX" "luatex" "lualatex --jobname=%(s-filename-only)" "luatex")
     └────
+  • Change default value of `ConTeXt-Mark-version' to `LMTX' which is
+    the current ConTeXt version.  Internally, there is no difference for
+    LMTX and Mark IV behavior.
 
 
 Fixed
@@ -141,16 +144,4 @@ Added
 
   • Add new support files `style/csthm.el', `style/elsarticle.el',
     `style/enumerate.el', `style/keytheorems.el' and
-    `style/marginalia.el'.
-
-
-[14.0.8] - 2024-12-11
-═════════════════════
-
-Added
-─────
-
-  • Improve support for folding of citations macros.  The current
-    folding `[c]' is changed to a more descriptive version, using author
-    names and
   …  …
