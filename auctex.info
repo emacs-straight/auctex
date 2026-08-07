@@ -1,8 +1,8 @@
 This is auctex.info, produced by makeinfo version 7.1.1 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.1.2.2026-08-03_16:50:59 from
-2026-08-03_16:50:59), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.2.2026-08-06_12:51:44 from
+2026-08-06_12:51:44), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -5396,41 +5396,46 @@ argument.  It is up to the hook to determine what to do with the
 remaining arguments, if any.  Typically the next argument is used to
 overwrite the default prompt.
 
+‘LaTeX-arg-author’
+     Prompt for document author, using ‘LaTeX-default-author’ as initial
+     input.
+
+‘TeX-arg-bibliography’
+     Prompt for BibTeX database files completing with all databases
+     available on your system.
+
+‘TeX-arg-bibstyle’
+     Prompt for a BibTeX style file completing with all style available
+     on your system.
+
+‘TeX-arg-cite’
+     Prompt for a BibTeX citation.  If the variable
+     ‘TeX-arg-cite-note-p’ is non-‘nil’, ask also for optional note in
+     citations.
+
+‘TeX-arg-completing-read’
+     Prompt for a value from a list of options and insert it as a TeX
+     macro argument.
+
+‘TeX-arg-completing-read-multiple’
+     Prompt for a comma-separated list of values from a list of options
+     and insert it as a TeX macro argument.
+
 ‘TeX-arg-conditional’
      Implements if EXPR THEN ELSE.  If EXPR evaluates to true, parse
      THEN as an argument list, else parse ELSE as an argument list.
 
-‘TeX-arg-literal’
-     Insert its arguments into the buffer.  Used for specifying extra
-     syntax for a macro.
+‘TeX-arg-coordinate’
+     Insert x and y coordinates as a pair.  No arguments.
 
-‘TeX-arg-free’
-     Parse its arguments but use no braces when they are inserted.
+‘TeX-arg-corner’
+     Prompt for a LaTeX side or corner position with completion.
 
-‘TeX-arg-eval’
-     Evaluate arguments and insert the result in the buffer.
+‘TeX-arg-counter’
+     Prompt for a LaTeX counter completing with known counters.
 
-‘TeX-arg-label’
-     Prompt for a label completing with known labels.  If RefTeX is
-     active, prompt for the reference format.
-
-‘TeX-arg-ref’
-     Prompt for a label completing with known labels.  If RefTeX is
-     active, do not prompt for the reference format.  Usually, reference
-     macros should use this function instead of ‘TeX-arg-label’.
-
-‘TeX-arg-index-tag’
-     Prompt for an index tag.  This is the name of an index, not the
-     entry.
-
-‘TeX-arg-index’
-     Prompt for an index entry completing with known entries.
-
-‘TeX-arg-length’
-     Prompt for a LaTeX length completing with known lengths.
-
-‘TeX-arg-macro’
-     Prompt for a TeX macro with completion.
+‘TeX-arg-define-counter’
+     Prompt for a LaTeX counter.
 
 ‘TeX-arg-date’
      Prompt for a date, defaulting to the current date.  The format of
@@ -5439,23 +5444,24 @@ overwrite the default prompt.
      specific language, set ‘TeX-date-format’ inside the appropriate
      language hook (for details *note European::).
 
-‘TeX-arg-version’
-     Prompt for the version of a file, using as initial input the
-     current date.
+‘TeX-arg-document’
+     Prompt for a LaTeX document class, using ‘LaTeX-default-style’ as
+     default value and ‘LaTeX-default-options’ as default list of
+     options.  If the variable ‘TeX-arg-input-file-search’ is ‘t’, you
+     will be able to complete with all LaTeX classes available on your
+     system, otherwise classes listed in the variable ‘LaTeX-style-list’
+     will be used for completion.  It is also provided completion for
+     options of many common classes.
 
 ‘TeX-arg-environment’
      Prompt for a LaTeX environment with completion.
 
-‘TeX-arg-cite’
-     Prompt for a BibTeX citation.  If the variable
-     ‘TeX-arg-cite-note-p’ is non-‘nil’, ask also for optional note in
-     citations.
+‘TeX-arg-define-environment’
+     Prompt for a LaTeX environment with completion.  Add environment to
+     list of defined environments.
 
-‘TeX-arg-counter’
-     Prompt for a LaTeX counter completing with known counters.
-
-‘TeX-arg-savebox’
-     Prompt for a LaTeX savebox completing with known saveboxes.
+‘TeX-arg-eval’
+     Evaluate arguments and insert the result in the buffer.
 
 ‘TeX-arg-file’
      Prompt for a filename in the current directory, and use it with the
@@ -5469,6 +5475,22 @@ overwrite the default prompt.
      Prompt for a filename and use as initial input the name of the file
      being visited in the current buffer, without extension.
 
+‘TeX-arg-free’
+     Parse its arguments but use no braces when they are inserted.
+
+‘TeX-arg-hook’
+     Prompt for a LaTeX hook and insert it as a TeX macro argument.
+
+‘TeX-read-hook’
+     Prompt for a LaTeX hook and return it.
+
+‘TeX-arg-index’
+     Prompt for an index entry completing with known entries.
+
+‘TeX-arg-index-tag’
+     Prompt for an index tag.  This is the name of an index, not the
+     entry.
+
 ‘TeX-arg-input-file’
      Prompt for the name of an input file in TeX's search path, and use
      it without the extension.  Run the style hooks for the file.  (Note
@@ -5476,65 +5498,81 @@ overwrite the default prompt.
      function can be controlled by the variable
      ‘TeX-arg-input-file-search’.)
 
+‘TeX-arg-key-val’
+     Prompt for a ‘key=value’ list of options and insert it as a TeX
+     macro argument.
+
+‘TeX-read-key-val’
+     Prompt for a ‘key=value’ list of options and return them.
+
+‘TeX-arg-label’
+     Prompt for a label completing with known labels.  If RefTeX is
+     active, prompt for the reference format.  ‘TeX-arg-ref’ should be
+     preferred over this function.
+
 ‘TeX-arg-define-label’
      Prompt for a label completing with known labels.  Add label to list
      of defined labels.
+
+‘TeX-arg-length’
+     Prompt for a LaTeX length completing with known lengths.
 
 ‘TeX-arg-define-length’
      Prompt for a LaTeX length completing with known lengths.  Add
      length to list of defined lengths.
 
+‘TeX-arg-literal’
+     Insert its arguments into the buffer.  Used for specifying extra
+     syntax for a macro.
+
+‘TeX-arg-lr’
+     Prompt for a LaTeX side with completion.
+
+‘TeX-arg-macro’
+     Prompt for a TeX macro with completion.
+
 ‘TeX-arg-define-macro’
      Prompt for a TeX macro with completion.  Add macro to list of
      defined macros.
 
-‘TeX-arg-define-environment’
-     Prompt for a LaTeX environment with completion.  Add environment to
-     list of defined environments.
+‘TeX-arg-pagestyle’
+     Prompt for a LaTeX pagestyle with completion.
 
-‘TeX-arg-define-cite’
-     Prompt for a BibTeX citation.
+‘TeX-arg-pair’
+     Insert a pair of numbers, use arguments for prompt.  The numbers
+     are surrounded by parentheses and separated with a comma.
 
-‘TeX-arg-define-counter’
-     Prompt for a LaTeX counter.
+‘TeX-arg-ref’
+     Prompt for a label completing with known labels.  If RefTeX is
+     active, do not prompt for the reference format.  Usually, reference
+     macros should use this function instead of ‘TeX-arg-label’.
+
+‘TeX-arg-savebox’
+     Prompt for a LaTeX savebox completing with known saveboxes.
 
 ‘TeX-arg-define-savebox’
      Prompt for a LaTeX savebox.
 
-‘TeX-arg-document’
-     Prompt for a LaTeX document class, using ‘LaTeX-default-style’ as
-     default value and ‘LaTeX-default-options’ as default list of
-     options.  If the variable ‘TeX-arg-input-file-search’ is ‘t’, you
-     will be able to complete with all LaTeX classes available on your
-     system, otherwise classes listed in the variable ‘LaTeX-style-list’
-     will be used for completion.  It is also provided completion for
-     options of many common classes.
+‘TeX-arg-set-exit-mark’
+     Set ‘TeX-exit-mark’ to current point or a given position.
+
+‘TeX-arg-size’
+     Insert width and height as a pair.  No arguments.
+
+‘TeX-arg-space’
+     Insert one or more spaces.
+
+‘TeX-arg-string’
+     Insert a string.
+
+‘TeX-arg-tb’
+     Prompt for a LaTeX side with completion.
 
 ‘LaTeX-arg-usepackage’
      Prompt for LaTeX packages.  If the variable
      ‘TeX-arg-input-file-search’ is ‘t’, you will be able to complete
      with all LaTeX packages available on your system.  It is also
      provided completion for options of many common packages.
-
-‘TeX-arg-bibstyle’
-     Prompt for a BibTeX style file completing with all style available
-     on your system.
-
-‘TeX-arg-bibliography’
-     Prompt for BibTeX database files completing with all databases
-     available on your system.
-
-‘TeX-arg-corner’
-     Prompt for a LaTeX side or corner position with completion.
-
-‘TeX-arg-lr’
-     Prompt for a LaTeX side with completion.
-
-‘TeX-arg-tb’
-     Prompt for a LaTeX side with completion.
-
-‘TeX-arg-pagestyle’
-     Prompt for a LaTeX pagestyle with completion.
 
 ‘TeX-arg-verb’
      Prompt for delimiter and text.
@@ -5544,38 +5582,9 @@ overwrite the default prompt.
      ‘TeX-arg-verb’, but is intended for macros which take their
      argument enclosed in delimiters or in braces.
 
-‘TeX-arg-pair’
-     Insert a pair of numbers, use arguments for prompt.  The numbers
-     are surrounded by parentheses and separated with a comma.
-
-‘TeX-arg-size’
-     Insert width and height as a pair.  No arguments.
-
-‘TeX-arg-coordinate’
-     Insert x and y coordinates as a pair.  No arguments.
-
-‘LaTeX-arg-author’
-     Prompt for document author, using ‘LaTeX-default-author’ as initial
-     input.
-
-‘TeX-read-hook’
-     Prompt for a LaTeX hook and return it.
-
-‘TeX-arg-hook’
-     Prompt for a LaTeX hook and insert it as a TeX macro argument.
-
-‘TeX-read-key-val’
-     Prompt for a ‘key=value’ list of options and return them.
-
-‘TeX-arg-key-val’
-     Prompt for a ‘key=value’ list of options and insert it as a TeX
-     macro argument.
-
-‘TeX-arg-space’
-     Insert one or more spaces.
-
-‘TeX-arg-set-exit-mark’
-     Set ‘TeX-exit-mark’ to current point or a given position.
+‘TeX-arg-version’
+     Prompt for the version of a file, using as initial input the
+     current date.
 
    If you add new hooks, you can assume that point is placed directly
 after the previous argument, or after the macro name if this is the
@@ -5980,8 +5989,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.2.2026-08-03_16:50:59 from
-2026-08-03_16:50:59), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.2.2026-08-06_12:51:44 from
+2026-08-06_12:51:44), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -7312,8 +7321,8 @@ Function Index
 * LaTeX-add-bibliographies:              Adding Other.        (line  13)
 * LaTeX-add-environments:                Adding Environments. (line  66)
 * LaTeX-add-labels:                      Adding Other.        (line  16)
-* LaTeX-arg-author:                      Adding Macros.       (line 244)
-* LaTeX-arg-usepackage:                  Adding Macros.       (line 200)
+* LaTeX-arg-author:                      Adding Macros.       (line  86)
+* LaTeX-arg-usepackage:                  Adding Macros.       (line 258)
 * LaTeX-CLASSNAME-class-options:         Adding Other.        (line 107)
 * LaTeX-close-environment:               Environments.        (line 101)
 * LaTeX-command-section:                 Starting a Command.  (line  41)
@@ -7364,49 +7373,51 @@ Function Index
 * TeX--completion-at-point:              Completion.          (line  51)
 * TeX-add-style-hook:                    Simple Style.        (line  34)
 * TeX-add-symbols:                       Adding Macros.       (line  24)
-* TeX-arg-bibliography:                  Adding Macros.       (line 210)
-* TeX-arg-bibstyle:                      Adding Macros.       (line 206)
-* TeX-arg-cite:                          Adding Macros.       (line 136)
-* TeX-arg-conditional:                   Adding Macros.       (line  86)
-* TeX-arg-coordinate:                    Adding Macros.       (line 241)
-* TeX-arg-corner:                        Adding Macros.       (line 214)
-* TeX-arg-counter:                       Adding Macros.       (line 141)
-* TeX-arg-date:                          Adding Macros.       (line 122)
-* TeX-arg-define-cite:                   Adding Macros.       (line 182)
-* TeX-arg-define-counter:                Adding Macros.       (line 185)
-* TeX-arg-define-environment:            Adding Macros.       (line 178)
-* TeX-arg-define-label:                  Adding Macros.       (line 166)
-* TeX-arg-define-length:                 Adding Macros.       (line 170)
-* TeX-arg-define-macro:                  Adding Macros.       (line 174)
-* TeX-arg-define-savebox:                Adding Macros.       (line 188)
-* TeX-arg-document:                      Adding Macros.       (line 191)
-* TeX-arg-environment:                   Adding Macros.       (line 133)
-* TeX-arg-eval:                          Adding Macros.       (line  97)
-* TeX-arg-file:                          Adding Macros.       (line 147)
-* TeX-arg-file-name:                     Adding Macros.       (line 151)
-* TeX-arg-file-name-sans-extension:      Adding Macros.       (line 155)
-* TeX-arg-free:                          Adding Macros.       (line  94)
-* TeX-arg-hook:                          Adding Macros.       (line 251)
-* TeX-arg-index:                         Adding Macros.       (line 113)
-* TeX-arg-index-tag:                     Adding Macros.       (line 109)
-* TeX-arg-input-file:                    Adding Macros.       (line 159)
-* TeX-arg-key-val:                       Adding Macros.       (line 257)
-* TeX-arg-label:                         Adding Macros.       (line 100)
-* TeX-arg-length:                        Adding Macros.       (line 116)
-* TeX-arg-literal:                       Adding Macros.       (line  90)
-* TeX-arg-lr:                            Adding Macros.       (line 217)
-* TeX-arg-macro:                         Adding Macros.       (line 119)
-* TeX-arg-pagestyle:                     Adding Macros.       (line 223)
-* TeX-arg-pair:                          Adding Macros.       (line 234)
-* TeX-arg-ref:                           Adding Macros.       (line 104)
-* TeX-arg-savebox:                       Adding Macros.       (line 144)
-* TeX-arg-set-exit-mark:                 Adding Macros.       (line 264)
-* TeX-arg-size:                          Adding Macros.       (line 238)
-* TeX-arg-space:                         Adding Macros.       (line 261)
-* TeX-arg-tb:                            Adding Macros.       (line 220)
-* TeX-arg-verb:                          Adding Macros.       (line 226)
-* TeX-arg-verb-delim-or-brace:           Adding Macros.       (line 229)
-* TeX-arg-version:                       Adding Macros.       (line 129)
+* TeX-arg-bibliography:                  Adding Macros.       (line  90)
+* TeX-arg-bibstyle:                      Adding Macros.       (line  94)
+* TeX-arg-cite:                          Adding Macros.       (line  98)
+* TeX-arg-completing-read:               Adding Macros.       (line 103)
+* TeX-arg-completing-read-multiple:      Adding Macros.       (line 107)
+* TeX-arg-conditional:                   Adding Macros.       (line 111)
+* TeX-arg-coordinate:                    Adding Macros.       (line 115)
+* TeX-arg-corner:                        Adding Macros.       (line 118)
+* TeX-arg-counter:                       Adding Macros.       (line 121)
+* TeX-arg-date:                          Adding Macros.       (line 127)
+* TeX-arg-define-counter:                Adding Macros.       (line 124)
+* TeX-arg-define-environment:            Adding Macros.       (line 146)
+* TeX-arg-define-label:                  Adding Macros.       (line 200)
+* TeX-arg-define-length:                 Adding Macros.       (line 207)
+* TeX-arg-define-macro:                  Adding Macros.       (line 221)
+* TeX-arg-define-savebox:                Adding Macros.       (line 240)
+* TeX-arg-document:                      Adding Macros.       (line 134)
+* TeX-arg-environment:                   Adding Macros.       (line 143)
+* TeX-arg-eval:                          Adding Macros.       (line 150)
+* TeX-arg-file:                          Adding Macros.       (line 153)
+* TeX-arg-file-name:                     Adding Macros.       (line 157)
+* TeX-arg-file-name-sans-extension:      Adding Macros.       (line 161)
+* TeX-arg-free:                          Adding Macros.       (line 165)
+* TeX-arg-hook:                          Adding Macros.       (line 168)
+* TeX-arg-index:                         Adding Macros.       (line 174)
+* TeX-arg-index-tag:                     Adding Macros.       (line 177)
+* TeX-arg-input-file:                    Adding Macros.       (line 181)
+* TeX-arg-key-val:                       Adding Macros.       (line 188)
+* TeX-arg-label:                         Adding Macros.       (line 195)
+* TeX-arg-length:                        Adding Macros.       (line 204)
+* TeX-arg-literal:                       Adding Macros.       (line 211)
+* TeX-arg-lr:                            Adding Macros.       (line 215)
+* TeX-arg-macro:                         Adding Macros.       (line 218)
+* TeX-arg-pagestyle:                     Adding Macros.       (line 225)
+* TeX-arg-pair:                          Adding Macros.       (line 228)
+* TeX-arg-ref:                           Adding Macros.       (line 232)
+* TeX-arg-savebox:                       Adding Macros.       (line 237)
+* TeX-arg-set-exit-mark:                 Adding Macros.       (line 243)
+* TeX-arg-size:                          Adding Macros.       (line 246)
+* TeX-arg-space:                         Adding Macros.       (line 249)
+* TeX-arg-string:                        Adding Macros.       (line 252)
+* TeX-arg-tb:                            Adding Macros.       (line 255)
+* TeX-arg-verb:                          Adding Macros.       (line 264)
+* TeX-arg-verb-delim-or-brace:           Adding Macros.       (line 267)
+* TeX-arg-version:                       Adding Macros.       (line 272)
 * TeX-auto-add-regexp:                   Hacking the Parser.  (line   6)
 * TeX-auto-generate:                     Automatic Private.   (line  23)
 * TeX-clean:                             Cleaning.            (line   6)
@@ -7417,7 +7428,7 @@ Function Index
 * TeX-comment-or-uncomment-paragraph:    Commenting.          (line  22)
 * TeX-comment-or-uncomment-region:       Commenting.          (line  14)
 * TeX-complete-symbol:                   Completion.          (line  23)
-* TeX-declare-expert-macros:             Adding Macros.       (line 278)
+* TeX-declare-expert-macros:             Adding Macros.       (line 287)
 * TeX-documentation-texdoc:              Documentation.       (line   6)
 * TeX-electric-macro:                    Completion.          (line 127)
 * TeX-error-overview:                    Error overview.      (line  10)
@@ -7457,8 +7468,8 @@ Function Index
 * TeX-PDF-mode:                          Processor Options.   (line  15)
 * TeX-pin-region:                        Starting a Command.  (line  89)
 * TeX-previous-error:                    Debugging.           (line  26)
-* TeX-read-hook:                         Adding Macros.       (line 248)
-* TeX-read-key-val:                      Adding Macros.       (line 254)
+* TeX-read-hook:                         Adding Macros.       (line 171)
+* TeX-read-key-val:                      Adding Macros.       (line 192)
 * TeX-recenter-output-buffer:            Control.             (line  13)
 * TeX-revert-document-buffer:            Modes and Hooks.     (line  43)
 * TeX-save-document:                     Multifile.           (line  98)
@@ -7604,13 +7615,13 @@ Variable Index
 * LaTeX-csquotes-close-quote:            Quotes.              (line  43)
 * LaTeX-csquotes-open-quote:             Quotes.              (line  43)
 * LaTeX-csquotes-quote-after-quote:      Quotes.              (line  43)
-* LaTeX-default-author:                  Adding Macros.       (line 245)
+* LaTeX-default-author:                  Adding Macros.       (line  86)
 * LaTeX-default-document-environment:    Environments.        (line  61)
 * LaTeX-default-environment:             Environments.        (line  56)
 * LaTeX-default-format:                  Tabular-like.        (line  10)
-* LaTeX-default-options:                 Adding Macros.       (line 192)
+* LaTeX-default-options:                 Adding Macros.       (line 134)
 * LaTeX-default-position:                Tabular-like.        (line  16)
-* LaTeX-default-style:                   Adding Macros.       (line 192)
+* LaTeX-default-style:                   Adding Macros.       (line 134)
 * LaTeX-default-width:                   Tabular-like.        (line  13)
 * LaTeX-done-mark:                       Sectioning.          (line  62)
 * LaTeX-electric-left-right-brace:       Quotes.              (line 175)
@@ -7662,7 +7673,7 @@ Variable Index
 * LaTeX-section-label <1>:               Sectioning.          (line 101)
 * LaTeX-short-caption-prompt-length:     Floats.              (line  27)
 * LaTeX-short-caption-prompt-length <1>: Floats.              (line  51)
-* LaTeX-style-list:                      Adding Macros.       (line 192)
+* LaTeX-style-list:                      Adding Macros.       (line 134)
 * LaTeX-syntactic-comments:              Indenting.           (line  68)
 * LaTeX-syntactic-comments <1>:          Indenting.           (line 103)
 * LaTeX-table-label:                     Floats.              (line  32)
@@ -7683,10 +7694,10 @@ Variable Index
 * TeX-after-compilation-finished-functions: Modes and Hooks.  (line  34)
 * TeX-after-compilation-finished-functions <1>: Modes and Hooks.
                                                               (line  44)
-* TeX-arg-cite-note-p:                   Adding Macros.       (line 137)
-* TeX-arg-input-file-search:             Adding Macros.       (line 160)
-* TeX-arg-input-file-search <1>:         Adding Macros.       (line 192)
-* TeX-arg-input-file-search <2>:         Adding Macros.       (line 201)
+* TeX-arg-cite-note-p:                   Adding Macros.       (line  98)
+* TeX-arg-input-file-search:             Adding Macros.       (line 134)
+* TeX-arg-input-file-search <1>:         Adding Macros.       (line 181)
+* TeX-arg-input-file-search <2>:         Adding Macros.       (line 258)
 * TeX-arg-item-label-p:                  Itemize-like.        (line  16)
 * TeX-arg-right-insert-p:                Quotes.              (line 168)
 * TeX-auto-cleanup-hook:                 Hacking the Parser.  (line 100)
@@ -7723,7 +7734,7 @@ Variable Index
 * TeX-complete-expert-commands:          Environments.        (line  78)
 * TeX-complete-expert-commands <1>:      Completion.          (line 162)
 * TeX-complete-list:                     Completion.          (line  26)
-* TeX-date-format:                       Adding Macros.       (line 123)
+* TeX-date-format:                       Adding Macros.       (line 127)
 * TeX-debug-bad-boxes:                   Ignoring warnings.   (line  10)
 * TeX-debug-warnings:                    Ignoring warnings.   (line  15)
 * TeX-default-macro:                     Completion.          (line  96)
@@ -8314,28 +8325,28 @@ Node: Automatic Local229539
 Node: Style Files230813
 Node: Simple Style231627
 Node: Adding Macros235420
-Node: Adding Environments245386
-Node: Adding Other250755
-Node: Hacking the Parser255665
-Node: Appendices259681
-Node: Copying this Manual259977
-Node: GNU Free Documentation License260888
-Node: Changes286011
-Node: Development287824
-Node: Mid-term Goals288470
-Node: Wishlist291320
-Node: Bugs297509
-Node: FAQ298645
-Node: Texinfo mode305467
-Node: Exploiting306601
-Node: Superseding307423
-Node: Mapping312238
-Node: Unbinding314181
-Node: Indices314729
-Node: Key Index314892
-Node: Function Index322932
-Node: Variable Index336005
-Node: Concept Index362889
+Node: Adding Environments245710
+Node: Adding Other251079
+Node: Hacking the Parser255989
+Node: Appendices260005
+Node: Copying this Manual260301
+Node: GNU Free Documentation License261212
+Node: Changes286335
+Node: Development288148
+Node: Mid-term Goals288794
+Node: Wishlist291644
+Node: Bugs297833
+Node: FAQ298969
+Node: Texinfo mode305791
+Node: Exploiting306925
+Node: Superseding307747
+Node: Mapping312562
+Node: Unbinding314505
+Node: Indices315053
+Node: Key Index315216
+Node: Function Index323256
+Node: Variable Index336475
+Node: Concept Index363359
 
 End Tag Table
 
