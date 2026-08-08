@@ -1,8 +1,8 @@
 This is auctex.info, produced by makeinfo version 7.1.1 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.1.2.2026-08-06_12:51:44 from
-2026-08-06_12:51:44), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.2.2026-08-07_15:53:08 from
+2026-08-07_15:53:08), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -5677,16 +5677,40 @@ in ‘latex.el’ it is just ignored.
 
    Following is a list of available hooks for ‘LaTeX-add-environments’:
 
+‘LaTeX-env-args’
+     Insert the given environment with arguments.  You can use this as a
+     hook in case you want to specify multiple complex arguments just
+     like in elements of ‘TeX-add-symbols’.  This is most useful if the
+     specification of arguments to be prompted for with strings and
+     strings wrapped in a vector as described above is too limited.
+
+     Here is an example from ‘listings.el’ which calls a function with
+     one argument in order to prompt for a ‘key=value’ list to be
+     inserted as an optional argument of the ‘lstlisting’ environment:
+
+          (LaTeX-add-environments
+           '("lstlisting" LaTeX-env-args
+             [TeX-arg-key-val (LaTeX-listings-key-val-options)]))
+
+‘LaTeX-env-array’
+     Insert the given array-like environment with position and column
+     specifications.
+
+‘LaTeX-env-bib’
+     Insert the given environment with a label for a bibitem.
+
+‘LaTeX-env-document’
+     Insert a ‘\documentclass’ macro if there's none already and prompt
+     for the insertion of ‘\usepackage’ macros.
+
 ‘LaTeX-env-item’
      Insert the given environment and the first item.
 
 ‘LaTeX-env-item-args’
      Insert the given environment plus further arguments, and the first
-     item.  You can use this as a hook in case you want to specify
-     multiple complex arguments just like in elements of
-     ‘TeX-add-symbols’.  Here is an example from ‘enumitem.el’ in order
-     to prompt for a ‘key=value’ list to be inserted as an optional
-     argument to the ‘itemize’ environment:
+     item.  Here is an example from ‘enumitem.el’ in order to prompt for
+     a ‘key=value’ list to be inserted as an optional argument to the
+     ‘itemize’ environment:
           (LaTeX-add-environments
            '("itemize" LaTeX-env-item-args
              [TeX-arg-key-val (LaTeX-enumitem-key-val-options)]))
@@ -5694,10 +5718,6 @@ in ‘latex.el’ it is just ignored.
 ‘LaTeX-env-figure’
      Insert the given figure-like environment with a caption and a
      label.
-
-‘LaTeX-env-array’
-     Insert the given array-like environment with position and column
-     specifications.
 
 ‘LaTeX-env-label’
      Insert the given environment with a label.
@@ -5714,36 +5734,18 @@ in ‘latex.el’ it is just ignored.
      Insert the given minipage-like environment with position and width
      specifications.
 
-‘LaTeX-env-tabular*’
-     Insert the given tabular*-like environment with width, position and
-     column specifications.
-
 ‘LaTeX-env-picture’
      Insert the given environment with width and height specifications.
 
-‘LaTeX-env-bib’
-     Insert the given environment with a label for a bibitem.
-
-‘LaTeX-env-args’
-     Insert the given environment with arguments.  You can use this as a
-     hook in case you want to specify multiple complex arguments just
-     like in elements of ‘TeX-add-symbols’.  This is most useful if the
-     specification of arguments to be prompted for with strings and
-     strings wrapped in a vector as described above is too limited.
-
-     Here is an example from ‘listings.el’ which calls a function with
-     one argument in order to prompt for a ‘key=value’ list to be
-     inserted as an optional argument of the ‘lstlisting’ environment:
-
-          (LaTeX-add-environments
-           '("lstlisting" LaTeX-env-args
-             [TeX-arg-key-val (LaTeX-listings-key-val-options)]))
+‘LaTeX-env-tabular*’
+     Insert the given tabular*-like environment with width, position and
+     column specifications.
 
    Some packages provide environments that are rarely useful to
 non-expert users.  Those should be marked as expert environments using
 ‘LaTeX-declare-expert-environments’.
 
- -- Function: LaTeX-declare-expert-environments STYLE ENVIRONMENTS...
+ -- Function: LaTeX-declare-expert-environments STYLE ENVIRONMENTS ...
      Declare ENVIRONMENTS as expert environments of STYLE.
 
      Expert environments are completed depending on
@@ -5989,8 +5991,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.2.2026-08-06_12:51:44 from
-2026-08-06_12:51:44), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.2.2026-08-07_15:53:08 from
+2026-08-07_15:53:08), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -7326,19 +7328,20 @@ Function Index
 * LaTeX-CLASSNAME-class-options:         Adding Other.        (line 107)
 * LaTeX-close-environment:               Environments.        (line 101)
 * LaTeX-command-section:                 Starting a Command.  (line  41)
-* LaTeX-declare-expert-environments:     Adding Environments. (line 140)
-* LaTeX-env-args:                        Adding Environments. (line 121)
-* LaTeX-env-array:                       Adding Environments. (line  92)
-* LaTeX-env-bib:                         Adding Environments. (line 118)
-* LaTeX-env-figure:                      Adding Environments. (line  88)
-* LaTeX-env-item:                        Adding Environments. (line  74)
-* LaTeX-env-item-args:                   Adding Environments. (line  77)
-* LaTeX-env-label:                       Adding Environments. (line  96)
-* LaTeX-env-label-args:                  Adding Environments. (line  99)
-* LaTeX-env-list:                        Adding Environments. (line 103)
-* LaTeX-env-minipage:                    Adding Environments. (line 107)
-* LaTeX-env-picture:                     Adding Environments. (line 115)
-* LaTeX-env-tabular*:                    Adding Environments. (line 111)
+* LaTeX-declare-expert-environments:     Adding Environments. (line 142)
+* LaTeX-env-args:                        Adding Environments. (line  74)
+* LaTeX-env-array:                       Adding Environments. (line  89)
+* LaTeX-env-bib:                         Adding Environments. (line  93)
+* LaTeX-env-document:                    Adding Environments. (line  96)
+* LaTeX-env-figure:                      Adding Environments. (line 112)
+* LaTeX-env-item:                        Adding Environments. (line 100)
+* LaTeX-env-item-args:                   Adding Environments. (line 103)
+* LaTeX-env-label:                       Adding Environments. (line 116)
+* LaTeX-env-label-args:                  Adding Environments. (line 119)
+* LaTeX-env-list:                        Adding Environments. (line 123)
+* LaTeX-env-minipage:                    Adding Environments. (line 127)
+* LaTeX-env-picture:                     Adding Environments. (line 131)
+* LaTeX-env-tabular*:                    Adding Environments. (line 134)
 * LaTeX-environment:                     Environments.        (line  22)
 * LaTeX-fill-environment:                Filling.             (line  79)
 * LaTeX-fill-environment <1>:            Filling.             (line  90)
@@ -8326,27 +8329,27 @@ Node: Style Files230813
 Node: Simple Style231627
 Node: Adding Macros235420
 Node: Adding Environments245710
-Node: Adding Other251079
-Node: Hacking the Parser255989
-Node: Appendices260005
-Node: Copying this Manual260301
-Node: GNU Free Documentation License261212
-Node: Changes286335
-Node: Development288148
-Node: Mid-term Goals288794
-Node: Wishlist291644
-Node: Bugs297833
-Node: FAQ298969
-Node: Texinfo mode305791
-Node: Exploiting306925
-Node: Superseding307747
-Node: Mapping312562
-Node: Unbinding314505
-Node: Indices315053
-Node: Key Index315216
-Node: Function Index323256
-Node: Variable Index336475
-Node: Concept Index363359
+Node: Adding Other251093
+Node: Hacking the Parser256003
+Node: Appendices260019
+Node: Copying this Manual260315
+Node: GNU Free Documentation License261226
+Node: Changes286349
+Node: Development288162
+Node: Mid-term Goals288808
+Node: Wishlist291658
+Node: Bugs297847
+Node: FAQ298983
+Node: Texinfo mode305805
+Node: Exploiting306939
+Node: Superseding307761
+Node: Mapping312576
+Node: Unbinding314519
+Node: Indices315067
+Node: Key Index315230
+Node: Function Index323270
+Node: Variable Index336562
+Node: Concept Index363446
 
 End Tag Table
 
