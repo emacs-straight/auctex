@@ -1,6 +1,6 @@
 ;;; floatrow.el --- AUCTeX style for `floatrow.sty' (v0.3b)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2017--2024 Free Software Foundation, Inc.
+;; Copyright (C) 2017--2026 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -423,10 +423,10 @@ entries are available under \"rawfigure*?\" and \"rawtable*?\"."
 
 (defun LaTeX-floatrow-env-figure (environment)
   "Create floating ENVIRONMENT suitable for floatrow macros."
-  (let ((float (and LaTeX-float
+  (let ((float (and LaTeX-float ;; LaTeX-float can be nil, i.e., do not prompt
                     (TeX-read-string
-                     (TeX-argument-prompt t nil "Float position")
-                     LaTeX-float))))
+                     (format-prompt "(Optional) Float position" LaTeX-float)
+                     nil nil LaTeX-float))))
     (LaTeX-insert-environment environment
                               (unless (zerop (length float))
                                 (concat LaTeX-optop float LaTeX-optcl)))))
