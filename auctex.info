@@ -1,8 +1,8 @@
 This is auctex.info, produced by makeinfo version 7.1.1 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.1.2.2026-08-08_15:13:24 from
-2026-08-08_15:13:24), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.2.2026-08-11_10:22:51 from
+2026-08-11_10:22:51), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -1802,12 +1802,18 @@ this completion-at-point facility.
    Sometimes the list of offered candidates is enriched by annotations
 which are appended to the candidates themself.  For labels which are
 referenced, the annotations are controlled by the variable
-‘LaTeX-label-annotation-max-length’ and RefTeX being enabled in the
-buffer since the annotations are gathered from it.
+‘LaTeX-label-annotation-max-length’.  For citation keys, the variable
+‘LaTeX-bib-annotation-max-length’ is consulted.  RefTeX must be enabled
+in the buffer since the annotations are gathered from it.
 
  -- User Option: LaTeX-label-annotation-max-length
      Controls the length of the annotation attached to a label, default
      is 30.  Setting this variable to 0 disables annotation of labels.
+
+ -- User Option: LaTeX-bib-annotation-max-length
+     Controls the length of the annotation attached to a citation key,
+     default is 50.  Setting this variable to 0 disables annotation of
+     citation keys.
 
    A more direct way to insert a macro is with ‘TeX-insert-macro’, bound
 to ‘C-c C-m’ which is equivalent to ‘C-c <RET>’.  It has the advantage
@@ -5991,8 +5997,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.2.2026-08-08_15:13:24 from
-2026-08-08_15:13:24), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.2.2026-08-11_10:22:51 from
+2026-08-11_10:22:51), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -7245,7 +7251,7 @@ Key Index
 * C-c C-k:                               Control.             (line  10)
 * C-c C-k <1>:                           Superseding.         (line  94)
 * C-c C-l:                               Control.             (line  14)
-* C-c C-m:                               Completion.          (line  89)
+* C-c C-m:                               Completion.          (line  95)
 * C-c C-n:                               Parsing Files.       (line  45)
 * C-c C-o b:                             Folding.             (line 130)
 * C-c C-o C-b:                           Folding.             (line  42)
@@ -7433,7 +7439,7 @@ Function Index
 * TeX-complete-symbol:                   Completion.          (line  23)
 * TeX-declare-expert-macros:             Adding Macros.       (line 287)
 * TeX-documentation-texdoc:              Documentation.       (line   6)
-* TeX-electric-macro:                    Completion.          (line 127)
+* TeX-electric-macro:                    Completion.          (line 133)
 * TeX-error-overview:                    Error overview.      (line  10)
 * TeX-fold-buffer:                       Folding.             (line  41)
 * TeX-fold-clearout-buffer:              Folding.             (line 129)
@@ -7456,7 +7462,7 @@ Function Index
 * TeX-insert-braces:                     Quotes.              (line 139)
 * TeX-insert-braces <1>:                 Superseding.         (line  29)
 * TeX-insert-dollar:                     Quotes.              (line  60)
-* TeX-insert-macro:                      Completion.          (line  88)
+* TeX-insert-macro:                      Completion.          (line  94)
 * TeX-insert-quote:                      Quotes.              (line  14)
 * TeX-interactive-mode:                  Processor Options.   (line  29)
 * TeX-ispell-skip-setcar:                Selecting a Command. (line 147)
@@ -7610,6 +7616,7 @@ Variable Index
 * LaTeX-babel-hyphen-after-hyphen:       European.            (line 189)
 * LaTeX-babel-hyphen-language-alist:     European.            (line 168)
 * LaTeX-begin-regexp:                    Indenting.           (line 119)
+* LaTeX-bib-annotation-max-length:       Completion.          (line  82)
 * LaTeX-biblatex-use-Biber:              Selecting a Command. (line  52)
 * LaTeX-CLASSNAME-class-options:         Adding Other.        (line 104)
 * LaTeX-clean-intermediate-suffixes:     Cleaning.            (line   7)
@@ -7655,7 +7662,7 @@ Variable Index
 * LaTeX-item-indent <1>:                 Indenting.           (line  95)
 * LaTeX-item-regexp:                     Indenting.           (line  19)
 * LaTeX-label-alist:                     Environments.        (line  38)
-* LaTeX-label-annotation-max-length:     Completion.          (line  77)
+* LaTeX-label-annotation-max-length:     Completion.          (line  78)
 * LaTeX-level:                           Sectioning.          (line  53)
 * LaTeX-listing-label:                   Floats.              (line  32)
 * LaTeX-listing-label <1>:               Floats.              (line  61)
@@ -7735,18 +7742,18 @@ Variable Index
 * TeX-command-list <1>:                  Starting a Command.  (line  32)
 * TeX-command-list <2>:                  Selecting a Command. (line  14)
 * TeX-complete-expert-commands:          Environments.        (line  78)
-* TeX-complete-expert-commands <1>:      Completion.          (line 162)
+* TeX-complete-expert-commands <1>:      Completion.          (line 168)
 * TeX-complete-list:                     Completion.          (line  26)
 * TeX-date-format:                       Adding Macros.       (line 127)
 * TeX-debug-bad-boxes:                   Ignoring warnings.   (line  10)
 * TeX-debug-warnings:                    Ignoring warnings.   (line  15)
-* TeX-default-macro:                     Completion.          (line  96)
+* TeX-default-macro:                     Completion.          (line 102)
 * TeX-default-mode:                      Japanese.            (line   6)
 * TeX-default-mode <1>:                  Japanese.            (line  67)
 * TeX-dialect:                           Simple Style.        (line  82)
 * TeX-display-help:                      Debugging.           (line  48)
 * TeX-DVI-via-PDFTeX:                    Processor Options.   (line  22)
-* TeX-electric-escape:                   Completion.          (line 117)
+* TeX-electric-escape:                   Completion.          (line 123)
 * TeX-electric-math:                     Quotes.              (line  72)
 * TeX-electric-sub-and-superscript:      Mathematics.         (line  70)
 * TeX-engine:                            Processor Options.   (line 104)
@@ -7790,9 +7797,9 @@ Variable Index
 * TeX-ignore-warnings:                   Ignoring warnings.   (line  25)
 * TeX-indent-close-delimiters:           Indenting.           (line 133)
 * TeX-indent-open-delimiters:            Indenting.           (line 128)
-* TeX-insert-braces:                     Completion.          (line 137)
-* TeX-insert-braces-alist:               Completion.          (line 141)
-* TeX-insert-macro-default-style:        Completion.          (line 100)
+* TeX-insert-braces:                     Completion.          (line 143)
+* TeX-insert-braces-alist:               Completion.          (line 147)
+* TeX-insert-macro-default-style:        Completion.          (line 106)
 * TeX-install-font-lock:                 Font Locking.        (line  13)
 * TeX-interactive-mode:                  Processor Options.   (line  30)
 * TeX-ispell-extend-skip-list:           Selecting a Command. (line  83)
@@ -7883,7 +7890,7 @@ Concept Index
 * \begin:                                Environments.        (line   6)
 * \chapter:                              Editing Facilities.  (line  24)
 * \chapter <1>:                          Sectioning.          (line   6)
-* \cite, completion of:                  Completion.          (line 174)
+* \cite, completion of:                  Completion.          (line 180)
 * \emph:                                 Editing Facilities.  (line  78)
 * \emph <1>:                             Font Specifiers.     (line  25)
 * \end:                                  Environments.        (line   6)
@@ -7892,10 +7899,10 @@ Concept Index
 * \item:                                 Itemize-like.        (line   6)
 * \label:                                Editing Facilities.  (line  24)
 * \label <1>:                            Sectioning.          (line   6)
-* \label, completion:                    Completion.          (line 174)
+* \label, completion:                    Completion.          (line 180)
 * \mathgt:                               Japanese.            (line 113)
 * \mathmc:                               Japanese.            (line 117)
-* \ref, completion:                      Completion.          (line 174)
+* \ref, completion:                      Completion.          (line 180)
 * \section:                              Editing Facilities.  (line  24)
 * \section <1>:                          Sectioning.          (line   6)
 * \subsection:                           Editing Facilities.  (line  24)
@@ -7948,9 +7955,9 @@ Concept Index
 * biblatex:                              Selecting a Command. (line  47)
 * Bibliographies, adding:                Adding Other.        (line   6)
 * Bibliography:                          Commands.            (line   6)
-* bibliography, completion:              Completion.          (line 174)
+* bibliography, completion:              Completion.          (line 180)
 * BibTeX:                                Commands.            (line   6)
-* BibTeX, completion:                    Completion.          (line 174)
+* BibTeX, completion:                    Completion.          (line 180)
 * book.el:                               Simple Style.        (line   6)
 * Braces:                                Quotes.              (line   6)
 * Brackets:                              Quotes.              (line   6)
@@ -7964,8 +7971,8 @@ Concept Index
 * ChinaTeX:                              Internationalization.
                                                               (line   6)
 * chktex:                                Checking.            (line   6)
-* citations, completion of:              Completion.          (line 174)
-* cite, completion of:                   Completion.          (line 174)
+* citations, completion of:              Completion.          (line 180)
+* cite, completion of:                   Completion.          (line 180)
 * CJK language:                          Internationalization.
                                                               (line   6)
 * CJK-LaTeX:                             Internationalization.
@@ -8091,7 +8098,7 @@ Concept Index
 * Labels:                                Sectioning.          (line 111)
 * Labels <1>:                            Floats.              (line  32)
 * Labels, adding:                        Adding Other.        (line   6)
-* labels, completion of:                 Completion.          (line 174)
+* labels, completion of:                 Completion.          (line 180)
 * lacheck:                               Checking.            (line   6)
 * Language Support:                      Internationalization.
                                                               (line   6)
@@ -8280,76 +8287,76 @@ Node: Tabular-like61688
 Node: Customizing Environments63578
 Node: Mathematics63818
 Node: Completion71938
-Node: Marking80260
-Node: Marking (LaTeX)80896
-Node: Marking (Texinfo)81852
-Node: Commenting83501
-Node: Indenting85528
-Node: Filling94255
-Node: Display100279
-Node: Font Locking102790
-Node: Fontification of macros104955
-Node: Fontification of quotes114971
-Node: Fontification of math116515
-Node: Verbatim content120297
-Node: Faces121087
-Node: Known problems121592
-Node: Folding122601
-Node: Outline139907
-Node: Narrowing141077
-Node: Prettifying142155
-Node: Processing143472
-Node: Commands144832
-Node: Starting a Command145396
-Node: Selecting a Command150771
-Node: Processor Options160118
-Node: Viewing171394
-Node: Starting Viewers171768
-Node: I/O Correlation177578
-Ref: I/O Correlation-Footnote-1183335
-Node: Debugging183597
-Node: Ignoring warnings186299
-Node: Error overview188418
-Node: Checking190364
-Node: Control192386
-Node: Cleaning194537
-Node: Documentation195990
-Node: Customization197111
-Node: Modes and Hooks197604
-Node: Multifile199753
-Node: Parsing Files204609
-Node: Internationalization209646
-Node: European210999
-Node: Japanese219221
-Node: Automatic224494
-Node: Automatic Global227033
-Node: Automatic Private228175
-Node: Automatic Local229539
-Node: Style Files230813
-Node: Simple Style231627
-Node: Adding Macros235420
-Node: Adding Environments245710
-Node: Adding Other251093
-Node: Hacking the Parser256003
-Node: Appendices260019
-Node: Copying this Manual260315
-Node: GNU Free Documentation License261226
-Node: Changes286349
-Node: Development288162
-Node: Mid-term Goals288808
-Node: Wishlist291658
-Node: Bugs297847
-Node: FAQ298983
-Node: Texinfo mode305805
-Node: Exploiting306939
-Node: Superseding307761
-Node: Mapping312576
-Node: Unbinding314519
-Node: Indices315067
-Node: Key Index315230
-Node: Function Index323270
-Node: Variable Index336562
-Node: Concept Index363446
+Node: Marking80557
+Node: Marking (LaTeX)81193
+Node: Marking (Texinfo)82149
+Node: Commenting83798
+Node: Indenting85825
+Node: Filling94552
+Node: Display100576
+Node: Font Locking103087
+Node: Fontification of macros105252
+Node: Fontification of quotes115268
+Node: Fontification of math116812
+Node: Verbatim content120594
+Node: Faces121384
+Node: Known problems121889
+Node: Folding122898
+Node: Outline140204
+Node: Narrowing141374
+Node: Prettifying142452
+Node: Processing143769
+Node: Commands145129
+Node: Starting a Command145693
+Node: Selecting a Command151068
+Node: Processor Options160415
+Node: Viewing171691
+Node: Starting Viewers172065
+Node: I/O Correlation177875
+Ref: I/O Correlation-Footnote-1183632
+Node: Debugging183894
+Node: Ignoring warnings186596
+Node: Error overview188715
+Node: Checking190661
+Node: Control192683
+Node: Cleaning194834
+Node: Documentation196287
+Node: Customization197408
+Node: Modes and Hooks197901
+Node: Multifile200050
+Node: Parsing Files204906
+Node: Internationalization209943
+Node: European211296
+Node: Japanese219518
+Node: Automatic224791
+Node: Automatic Global227330
+Node: Automatic Private228472
+Node: Automatic Local229836
+Node: Style Files231110
+Node: Simple Style231924
+Node: Adding Macros235717
+Node: Adding Environments246007
+Node: Adding Other251390
+Node: Hacking the Parser256300
+Node: Appendices260316
+Node: Copying this Manual260612
+Node: GNU Free Documentation License261523
+Node: Changes286646
+Node: Development288459
+Node: Mid-term Goals289105
+Node: Wishlist291955
+Node: Bugs298144
+Node: FAQ299280
+Node: Texinfo mode306102
+Node: Exploiting307236
+Node: Superseding308058
+Node: Mapping312873
+Node: Unbinding314816
+Node: Indices315364
+Node: Key Index315527
+Node: Function Index323567
+Node: Variable Index336859
+Node: Concept Index363816
 
 End Tag Table
 
