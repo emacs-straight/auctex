@@ -1,8 +1,8 @@
 This is auctex.info, produced by makeinfo version 7.1.1 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.1.2.2026-08-14_15:48:43 from
-2026-08-14_15:48:43), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.2.2026-08-16_21:46:58 from
+2026-08-16_21:46:58), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -4499,6 +4499,17 @@ yourself, by putting the following text at the end of your files.
      %%% TeX-master: "master"
      %%% End:
 
+   If you're using non-ASCII characters in the name of the master file,
+you should give Emacs a hint about the correct coding of the current
+file like this:
+
+     %%% Local Variables:
+     %%% coding: utf-8
+     %%% TeX-master: "ä-master"
+     %%% End:
+
+In general, we recommend to use UTF-8 for any non-ASCII text.
+
    You should always set this variable to the name of the top level
 document.  If you always use the same name for your top level documents,
 you can set ‘TeX-master’ in your init file such as ‘init.el’ or
@@ -5997,8 +6008,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.2.2026-08-14_15:48:43 from
-2026-08-14_15:48:43), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.2.2026-08-16_21:46:58 from
+2026-08-16_21:46:58), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -7204,7 +7215,7 @@ Key Index
 * {:                                     Quotes.              (line 172)
 * ^:                                     Mathematics.         (line  64)
 * $:                                     Quotes.              (line  61)
-* C-c _:                                 Multifile.           (line  71)
+* C-c _:                                 Multifile.           (line  82)
 * C-c ;:                                 Commenting.          (line  15)
 * C-c ?:                                 Documentation.       (line   7)
 * C-c .:                                 Marking (LaTeX).     (line  16)
@@ -7220,7 +7231,7 @@ Key Index
 * C-c C-a:                               Starting a Command.  (line  59)
 * C-c C-b:                               Starting a Command.  (line  35)
 * C-c C-c:                               Starting a Command.  (line  13)
-* C-c C-d:                               Multifile.           (line  99)
+* C-c C-d:                               Multifile.           (line 110)
 * C-c C-e:                               Environments.        (line  23)
 * C-c C-e <1>:                           Superseding.         (line  34)
 * C-c C-f:                               Font Specifiers.     (line  55)
@@ -7470,7 +7481,7 @@ Function Index
 * TeX-ispell-tex-arg-end:                Selecting a Command. (line 166)
 * TeX-kill-job:                          Control.             (line   9)
 * TeX-kill-job <1>:                      Superseding.         (line  94)
-* TeX-master-file-ask:                   Multifile.           (line  70)
+* TeX-master-file-ask:                   Multifile.           (line  81)
 * TeX-narrow-to-group:                   Narrowing.           (line  13)
 * TeX-next-error:                        Debugging.           (line  11)
 * TeX-normal-mode:                       Parsing Files.       (line  44)
@@ -7481,7 +7492,7 @@ Function Index
 * TeX-read-key-val:                      Adding Macros.       (line 192)
 * TeX-recenter-output-buffer:            Control.             (line  13)
 * TeX-revert-document-buffer:            Modes and Hooks.     (line  43)
-* TeX-save-document:                     Multifile.           (line  98)
+* TeX-save-document:                     Multifile.           (line 109)
 * TeX-source-correlate-mode:             Processor Options.   (line  36)
 * TeX-source-correlate-mode <1>:         I/O Correlation.     (line  12)
 * TeX-toggle-debug-bad-boxes:            Ignoring warnings.   (line   9)
@@ -7826,7 +7837,7 @@ Variable Index
 * TeX-macro-private:                     Automatic Private.   (line  12)
 * TeX-master:                            Starting a Command.  (line  16)
 * TeX-master <1>:                        Starting a Command.  (line  32)
-* TeX-master <2>:                        Multifile.           (line  39)
+* TeX-master <2>:                        Multifile.           (line  50)
 * TeX-math-input-method-off-regexp:      Mathematics.         (line  76)
 * TeX-mode-hook:                         Modes and Hooks.     (line  22)
 * TeX-modes:                             Activating the package.
@@ -7834,7 +7845,7 @@ Variable Index
 * TeX-newline-function:                  Indenting.           (line  29)
 * TeX-newline-function <1>:              Indenting.           (line 107)
 * TeX-Omega-command:                     Processor Options.   (line 121)
-* TeX-one-master:                        Multifile.           (line  57)
+* TeX-one-master:                        Multifile.           (line  68)
 * TeX-open-quote:                        Quotes.              (line  21)
 * TeX-outline-extra:                     Outline.             (line  13)
 * TeX-output-dir:                        Control.             (line  25)
@@ -7849,7 +7860,7 @@ Variable Index
 * TeX-refuse-unmatched-dollar:           Quotes.              (line 106)
 * TeX-region:                            Starting a Command.  (line  32)
 * TeX-region <1>:                        Starting a Command.  (line  65)
-* TeX-save-query:                        Multifile.           (line 102)
+* TeX-save-query:                        Multifile.           (line 113)
 * TeX-show-compilation:                  Processor Options.   (line 196)
 * TeX-source-correlate-map:              I/O Correlation.     (line  48)
 * TeX-source-correlate-method:           Processor Options.   (line  48)
@@ -8324,39 +8335,39 @@ Node: Documentation196287
 Node: Customization197408
 Node: Modes and Hooks197901
 Node: Multifile200050
-Node: Parsing Files204906
-Node: Internationalization209943
-Node: European211296
-Node: Japanese219518
-Node: Automatic224791
-Node: Automatic Global227330
-Node: Automatic Private228472
-Node: Automatic Local229836
-Node: Style Files231110
-Node: Simple Style231924
-Node: Adding Macros235717
-Node: Adding Environments246007
-Node: Adding Other251390
-Node: Hacking the Parser256300
-Node: Appendices260316
-Node: Copying this Manual260612
-Node: GNU Free Documentation License261523
-Node: Changes286646
-Node: Development288459
-Node: Mid-term Goals289105
-Node: Wishlist291955
-Node: Bugs298144
-Node: FAQ299280
-Node: Texinfo mode306102
-Node: Exploiting307236
-Node: Superseding308058
-Node: Mapping312873
-Node: Unbinding314816
-Node: Indices315364
-Node: Key Index315527
-Node: Function Index323567
-Node: Variable Index336859
-Node: Concept Index363816
+Node: Parsing Files205224
+Node: Internationalization210261
+Node: European211614
+Node: Japanese219836
+Node: Automatic225109
+Node: Automatic Global227648
+Node: Automatic Private228790
+Node: Automatic Local230154
+Node: Style Files231428
+Node: Simple Style232242
+Node: Adding Macros236035
+Node: Adding Environments246325
+Node: Adding Other251708
+Node: Hacking the Parser256618
+Node: Appendices260634
+Node: Copying this Manual260930
+Node: GNU Free Documentation License261841
+Node: Changes286964
+Node: Development288777
+Node: Mid-term Goals289423
+Node: Wishlist292273
+Node: Bugs298462
+Node: FAQ299598
+Node: Texinfo mode306420
+Node: Exploiting307554
+Node: Superseding308376
+Node: Mapping313191
+Node: Unbinding315134
+Node: Indices315682
+Node: Key Index315845
+Node: Function Index323885
+Node: Variable Index337177
+Node: Concept Index364134
 
 End Tag Table
 
