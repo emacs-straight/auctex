@@ -1,8 +1,8 @@
 This is auctex.info, produced by makeinfo version 7.1.1 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.1.2.2026-08-16_21:46:58 from
-2026-08-16_21:46:58), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.1.2.2026-08-16_22:10:36 from
+2026-08-16_22:10:36), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -3853,14 +3853,15 @@ them.
      If non-‘nil’, TeX will produce ‘file:line:error’ style error
      messages.
 
-   ConTeXt users can choose between Mark II and Mark IV versions.  This
-is controlled by ‘ConTeXt-Mark-version’ option.
+   ConTeXt users can choose between Mark II, Mark IV and Mark XL
+versions.  This is controlled by ‘ConTeXt-Mark-version’ option.
 
  -- User Option: ConTeXt-Mark-version
-     This variables specifies which version of Mark should be used.
-     Values currently supported are ‘"II"’, the default, and ‘"IV"’.  It
-     can be set globally using customization interface or on a per-file
-     basis, by specifying it as a file variable.
+     This variable specifies which version of Mark should be used.
+     Values currently supported are ‘"II"’, ‘"IV"’ and ‘"XL"’ which is
+     the default.  It can be set globally using customization interface
+     or on a per-file basis, by specifying it as a file variable.
+     Currently, there is no difference for ‘"IV"’ and ‘"XL"’ behavior.
 
 
 File: auctex.info,  Node: Viewing,  Next: Debugging,  Prev: Commands,  Up: Processing
@@ -6008,8 +6009,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.1.2.2026-08-16_21:46:58 from
-2026-08-16_21:46:58), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.1.2.2026-08-16_22:10:36 from
+2026-08-16_22:10:36), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -8321,53 +8322,53 @@ Node: Commands145129
 Node: Starting a Command145693
 Node: Selecting a Command151068
 Node: Processor Options160415
-Node: Viewing171691
-Node: Starting Viewers172065
-Node: I/O Correlation177875
-Ref: I/O Correlation-Footnote-1183632
-Node: Debugging183894
-Node: Ignoring warnings186596
-Node: Error overview188715
-Node: Checking190661
-Node: Control192683
-Node: Cleaning194834
-Node: Documentation196287
-Node: Customization197408
-Node: Modes and Hooks197901
-Node: Multifile200050
-Node: Parsing Files205224
-Node: Internationalization210261
-Node: European211614
-Node: Japanese219836
-Node: Automatic225109
-Node: Automatic Global227648
-Node: Automatic Private228790
-Node: Automatic Local230154
-Node: Style Files231428
-Node: Simple Style232242
-Node: Adding Macros236035
-Node: Adding Environments246325
-Node: Adding Other251708
-Node: Hacking the Parser256618
-Node: Appendices260634
-Node: Copying this Manual260930
-Node: GNU Free Documentation License261841
-Node: Changes286964
-Node: Development288777
-Node: Mid-term Goals289423
-Node: Wishlist292273
-Node: Bugs298462
-Node: FAQ299598
-Node: Texinfo mode306420
-Node: Exploiting307554
-Node: Superseding308376
-Node: Mapping313191
-Node: Unbinding315134
-Node: Indices315682
-Node: Key Index315845
-Node: Function Index323885
-Node: Variable Index337177
-Node: Concept Index364134
+Node: Viewing171797
+Node: Starting Viewers172171
+Node: I/O Correlation177981
+Ref: I/O Correlation-Footnote-1183738
+Node: Debugging184000
+Node: Ignoring warnings186702
+Node: Error overview188821
+Node: Checking190767
+Node: Control192789
+Node: Cleaning194940
+Node: Documentation196393
+Node: Customization197514
+Node: Modes and Hooks198007
+Node: Multifile200156
+Node: Parsing Files205330
+Node: Internationalization210367
+Node: European211720
+Node: Japanese219942
+Node: Automatic225215
+Node: Automatic Global227754
+Node: Automatic Private228896
+Node: Automatic Local230260
+Node: Style Files231534
+Node: Simple Style232348
+Node: Adding Macros236141
+Node: Adding Environments246431
+Node: Adding Other251814
+Node: Hacking the Parser256724
+Node: Appendices260740
+Node: Copying this Manual261036
+Node: GNU Free Documentation License261947
+Node: Changes287070
+Node: Development288883
+Node: Mid-term Goals289529
+Node: Wishlist292379
+Node: Bugs298568
+Node: FAQ299704
+Node: Texinfo mode306526
+Node: Exploiting307660
+Node: Superseding308482
+Node: Mapping313297
+Node: Unbinding315240
+Node: Indices315788
+Node: Key Index315951
+Node: Function Index323991
+Node: Variable Index337283
+Node: Concept Index364240
 
 End Tag Table
 
