@@ -1,4 +1,4 @@
-;;; ltx-talk.el --- AUCTeX style for `ltx-talk.cls' (v0.3.12)  -*- lexical-binding: t; -*-
+;;; ltx-talk.el --- AUCTeX style for `ltx-talk.cls' (v0.5.3)  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2025--2026 Free Software Foundation, Inc.
 
@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; This file adds support for `ltx-talk.sty' (v0.3.12) from 2026-01-21.
+;; This file adds support for `ltx-talk.sty' (v0.5.3) from 2026-08-05.
 ;; `ltx-talk.sty' is part of TeXLive.
 
 ;;; Code:
@@ -50,6 +50,12 @@ You can turn off the prompt for the overlay argument by setting
 Optional MACRO can be a string, for example, \"bibitem\"."
   (TeX-insert-macro (or macro "item")))
 
+(defvar LaTeX-ltx-talk-frame-key-val-options
+  '(("action-spec")
+    ("name")
+    ("vertical-alignment" ("bottom" "center" "stretch" "top")))
+  "List of key=val options for the frame environment.")
+
 (TeX-add-style-hook
  "ltx-talk"
  (lambda ()
@@ -59,15 +65,15 @@ Optional MACRO can be a string, for example, \"bibitem\"."
 
    ;; New symbols
    (TeX-add-symbols
-    ;; 6.2 Components of a frame: The optional [<options>] arg seems to
+    ;; 9.2 Components of a frame: The optional [<options>] arg seems to
     ;; be unused, to skip it for now:
     '("frametitle" [TeX-arg-ltx-talk-overlay-spec] "Title")
     '("framesubtitle" [TeX-arg-ltx-talk-overlay-spec] "Subtitle")
 
-    ;; 7.1 The \pause command
+    ;; 10.1 The \pause command
     '("pause" [TeX-arg-ltx-talk-overlay-spec])
 
-    ;; 7.3 Commands with overlay specifications
+    ;; 10.3 Commands with overlay specifications
     '("onslide"   [TeX-arg-ltx-talk-overlay-spec])
     '("only"      [TeX-arg-ltx-talk-overlay-spec] "Text")
     '("uncover"   [TeX-arg-ltx-talk-overlay-spec] "Text")
@@ -124,10 +130,10 @@ Optional MACRO can be a string, for example, \"bibitem\"."
       [TeX-arg-key-val (LaTeX-graphicx-key-val-options) nil nil ?\s]
       LaTeX-arg-includegraphics)
 
-    ;; 7.6.2 Action specifications
+    ;; 10.6.2 Action specifications
     '("action" [TeX-arg-ltx-talk-overlay-spec "Action spec"] "Text")
 
-    ;; 8.1 Adding a title frame
+    ;; 11.1 Adding a title frame
     '("maketitle" [TeX-arg-completing-read-multiple ("element-order"
                                                      "frame-style"
                                                      "horizontal-alignment"
@@ -163,13 +169,27 @@ Optional MACRO can be a string, for example, \"bibitem\"."
       TeX-arg-space)
 
     ;; 9.2 Highlighting
-    '("alert" [TeX-arg-ltx-talk-overlay-spec] "Text"))
+    '("alert" [TeX-arg-ltx-talk-overlay-spec] "Text")
+
+    ;; 12.6 Footnotes
+    '("footnote"
+      [TeX-arg-ltx-talk-overlay-spec]
+      (TeX-arg-conditional TeX-arg-footnote-number-p ([ "Number" ]) nil)
+      t)
+
+    ;; 12.7 Repeating a frame
+    '("reuseframe"
+      [TeX-arg-ltx-talk-overlay-spec]
+      [TeX-arg-key-val
+       (lambda ()
+         (remove '("name") LaTeX-ltx-talk-frame-key-val-options))]
+      "Name") )
 
    (LaTeX-add-environments
-    ;; 6.1 The frame environment: The optional [<options>] arg seems to
-    ;; be unused, to skip it for now:
+    ;; 9.1 The frame environment:
     '("frame" LaTeX-env-args
       [TeX-arg-ltx-talk-overlay-spec]
+      [TeX-arg-key-val LaTeX-ltx-talk-frame-key-val-options]
       (TeX-arg-conditional (or (LaTeX-provided-class-options-member
                                 "ltx-talk" "frame-title-arg")
                                (LaTeX-provided-class-options-member
@@ -178,6 +198,7 @@ Optional MACRO can be a string, for example, \"bibitem\"."
         ()))
     '("frame*" LaTeX-env-args
       [TeX-arg-ltx-talk-overlay-spec]
+      [TeX-arg-key-val LaTeX-ltx-talk-frame-key-val-options]
       (TeX-arg-conditional (or (LaTeX-provided-class-options-member
                                 "ltx-talk" "frame-title-arg")
                                (LaTeX-provided-class-options-member
@@ -185,17 +206,17 @@ Optional MACRO can be a string, for example, \"bibitem\"."
           ("Title")
         ()))
 
-    ;; 7.5 Dynamically changing text or images
+    ;; 10.5 Dynamically changing text or images
     '("overlayarea" LaTeX-env-args
       (TeX-arg-length "Area width") (TeX-arg-length "Area height"))
     '("overprint" LaTeX-env-args
       [TeX-arg-length "Area width"])
 
-    ;; 7.6.2 Action specifications
+    ;; 10.6.2 Action specifications
     '("actionenv" LaTeX-env-args
       [TeX-arg-ltx-talk-overlay-spec "Action spec"])
 
-    ;; 9.1 Itemizations, enumerations and descriptions
+    ;; 12.1 Itemizations, enumerations and descriptions
     '("description" LaTeX-env-item-args
       [TeX-arg-key-val (("action-spec") ("<>"))])
     '("enumerate" LaTeX-env-item-args
@@ -203,11 +224,11 @@ Optional MACRO can be a string, for example, \"bibitem\"."
     '("itemize" LaTeX-env-item-args
       [TeX-arg-key-val (("action-spec") ("<>"))])
 
-    ;; 9.2 Highlighting
+    ;; 12.2 Highlighting
     '("alertenv" LaTeX-env-args
       [TeX-arg-ltx-talk-overlay-spec])
 
-    ;; 9.5 Splitting a frame into multiple columns
+    ;; 12.5 Splitting a frame into multiple columns
     `("columns" LaTeX-env-args
       [TeX-arg-ltx-talk-overlay-spec "Action spec"]
       [TeX-arg-key-val (lambda ()
@@ -221,7 +242,7 @@ Optional MACRO can be a string, for example, \"bibitem\"."
       ["Placement"]
       TeX-arg-length) )
 
-   ;; 7.4 Environments with overlay specifications
+   ;; 10.4 Environments with overlay specifications
    (let ((envs '("onlyenv" "invisibleenv" "uncoverenv" "visibleenv"))
          result)
      (dolist (env envs)
@@ -293,10 +314,12 @@ Optional MACRO can be a string, for example, \"bibitem\"."
      (font-latex-add-keywords '(("includegraphics" "*<[[{")
                                 ("label"       "<{")
                                 ("hyperlink"   "<{{<")
-                                ("hypertarget" "<{{"))
+                                ("hypertarget" "<{{")
+                                ("footnote"    "<[{"))
                               'reference)
-     (font-latex-add-keywords '(("pause"     "[")
-                                ("maketitle" "["))
+     (font-latex-add-keywords '(("pause"      "[")
+                                ("maketitle"  "[")
+                                ("reuseframe" "<[{"))
                               'function)))
  TeX-dialect)
 
