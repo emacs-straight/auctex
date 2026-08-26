@@ -1,4 +1,4 @@
-;;; ltx-talk.el --- AUCTeX style for `ltx-talk.cls' (v0.5.3)  -*- lexical-binding: t; -*-
+;;; ltx-talk.el --- AUCTeX style for `ltx-talk.cls' (v0.6.0)  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2025--2026 Free Software Foundation, Inc.
 
@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; This file adds support for `ltx-talk.sty' (v0.5.3) from 2026-08-05.
+;; This file adds support for `ltx-talk.sty' (v0.6.0) from 2026-08-23.
 ;; `ltx-talk.sty' is part of TeXLive.
 
 ;;; Code:
@@ -52,7 +52,10 @@ Optional MACRO can be a string, for example, \"bibitem\"."
 
 (defvar LaTeX-ltx-talk-frame-key-val-options
   '(("action-spec")
+    ("auto-break" ("true" "false"))
+    ("auto-break-coverage")
     ("name")
+    ("supplementary-frame" ("true" "false"))
     ("vertical-alignment" ("bottom" "center" "stretch" "top")))
   "List of key=val options for the frame environment.")
 
@@ -328,7 +331,8 @@ Optional MACRO can be a string, for example, \"bibitem\"."
     ("font-size" ("10pt" "11pt" "12pt"))
     ("frame-title-arg" ("true" "false"))
     ("handout")
-    ("mode" ("handout" "projector")))
+    ("mode" ("handout" "projector"))
+    ("supplementary-frames" ("appendix" "in-place" "omit")))
   "Alist of class options for the ltx-talk class.")
 
 (defun LaTeX-ltx-talk-class-options ()
