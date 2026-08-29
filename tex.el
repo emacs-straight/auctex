@@ -5827,6 +5827,9 @@ returns non-nil, then no further macro arguments are consumed."
   ;; environments including gathered similarly.
   (save-restriction
     (when lower-bound
+      ;; `syntax-propertize' can't widen so make sure it won't
+      ;; need to (bug#81718).
+      (syntax-propertize lower-bound)
       (narrow-to-region lower-bound (point-max)))
     (let ((orig-point (point))
           start-point)
