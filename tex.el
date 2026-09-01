@@ -4036,7 +4036,7 @@ when MODE is one of the AUCTeX new mode names."
       ;; Sort it
       (message "Sorting %s..." name)
       (set local
-           (sort (mapcar #'TeX-listify (apply #'append (symbol-value local)))
+           (sort (mapcar #'ensure-list (apply #'append (symbol-value local)))
                  #'TeX-car-string-lessp))
       (message "Sorting %s...done" name)
       ;; Make it unique
@@ -4889,10 +4889,8 @@ The optional argument EXTRA-DIRS is passed to `TeX-search-files-kpathsea'."
 ;; Some of these functions has little to do with TeX, but nonetheless we
 ;; should use the "TeX-" prefix to avoid name clashes.
 
-(defun TeX-listify (elt)
-  "Return a newly created list with element ELT.
-If ELT already is a list, return ELT."
-  (if (listp elt) elt (list elt)))
+;; We can use `ensure-list' available with Emacs 28.1:
+(define-obsolete-function-alias 'TeX-listify #'ensure-list "AUCTeX 14.2.0")
 
 (defun TeX-member (elt list how)
   "Return the member ELT in LIST.  Comparison done with HOW.
