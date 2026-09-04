@@ -172,6 +172,18 @@
     ("dsuspend"      env-off))
   "The default entries for `texmathp-tex-commands', which see.")
 
+(defun texmathp--escaped-p (&optional pos)
+  "Return t if the character at position POS is escaped.
+If POS is omitted, examine the character at point.
+A character is escaped if it is preceded by an odd number of
+escape characters, namely \"\\\" in (La)TeX.
+
+This is a copy of `TeX-escaped-p' provided by tex.el in order to keep
+this library usable stand-alone."
+  (save-excursion
+    (when pos (goto-char pos))
+    (not (zerop (mod (skip-chars-backward (regexp-quote "\\")) 2)))))
+
 (defun texmathp-compile ()
   "Compile the value of `texmathp-tex-commands' into the internal lists.
 Call this when you have changed the value of that variable without using
@@ -192,12 +204,8 @@ customize (customize calls it when setting the variable)."
             ((memq type '(arg-on arg-off)) (push (car entry) texmathp-macros))
             ((memq type '(sw-on sw-off))   (push (car entry) switches))
             ((memq type '(sw-toggle))      (push (car entry) togglers))))
-    (setq texmathp-onoff-regexp
-          (concat "\\(?:[^\\]\\|\\`\\)"
-                  (regexp-opt switches t))
-          texmathp-toggle-regexp
-          (concat "\\([^\\$]\\|\\`\\)"
-                  (regexp-opt togglers t)))))
+    (setq texmathp-onoff-regexp  (regexp-opt switches t)
+          texmathp-toggle-regexp (regexp-opt togglers t))))
 
 (defcustom texmathp-tex-commands nil
   "List of environments and macros influencing (La)TeX math mode.
@@ -312,9 +320,12 @@ See the variable `texmathp-tex-commands' about which commands are checked."
         (save-excursion
           (goto-char (cdr match))
           (while (re-search-forward texmathp-toggle-regexp pos t)
-            (if (setq math-on (not math-on))
-                (setq sw-match (cons (match-string-no-properties 2) (match-beginning 2)))
-              (setq sw-match nil)))
+            ;; Check the toggle is unescaped (bug#81327):
+            (unless (texmathp--escaped-p (match-beginning 1))
+              (if (setq math-on (not math-on))
+                  (setq sw-match (cons (match-string-no-properties 1)
+                                       (match-beginning 1)))
+                (setq sw-match nil))))
           (and math-on sw-match (setq match sw-match))))
 
     ;; Store info, show as message when interactive, and return
@@ -447,9 +458,11 @@ Limit searches to BOUND.  The return value is like (\"\\macro\" . (point))."
 (defun texmathp-match-switch (bound)
   "Search backward for any of the math switches.
 Limit searched to BOUND."
-  ;; The return value is like ("\\(" . (point)).
+  ;; The return value is like ("\\(" . (point)) only if "\\(" isn't
+  ;; escaped (bug#81327):
   (save-excursion
-    (if (re-search-backward texmathp-onoff-regexp bound t)
+    (if (and (re-search-backward texmathp-onoff-regexp bound t)
+             (not (texmathp--escaped-p)))
         (cons (buffer-substring-no-properties (match-beginning 1) (match-end 1))
               (match-beginning 1))
       nil)))

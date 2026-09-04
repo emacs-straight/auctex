@@ -10,6 +10,13 @@
 Added
 ─────
 
+  • Add more control over preview-latex snippets: The new option
+    `preview-visibility-style' controls how previews and their source
+    are displayed relative to point.  The option
+    `preview-at-point-placement' controls the placement of the at-point
+    preview relative to its source.  Finally, the boolean option
+    `preview-keep-stale-images' determines how the preview is updated
+    after the source is changed.
   • Activate new TeX xref backend (`tex-etags') provided by Emacs 31.
   • Add support for in-buffer completion of citation keys for various
     `\cite' macros.  The length of the annotations attached to the keys
@@ -112,17 +119,5 @@ Added
   • Add new commands `LaTeX-make-inline' which converts the display math
     environment at point to inline math and the more general
     `LaTeX-modify-math' which converts the mathematical construct at
-    point into one with different kind of delimiter or another
-    environment.
-  • Add new support files `style/embedfile.el',
-    `style/figureversions.el', `style/needspace.el',
-    `style/tablericons.el' and `style/wrapstuff.el'.
-
-
-Changed
-───────
-
-  • AUCTeX now requires GNU Emacs 28.1 or higher.
-  • Replace `$..$' with `\[..\]' in LaTeX mode and any derived mode when
-    hitting `$' repeatedly where `TeX-electric-math' is non-`nil'.
+    point
   …  …

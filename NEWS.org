@@ -11,6 +11,12 @@
 
 ** Added
 
+- Add more control over preview-latex snippets: The new option
+  ~preview-visibility-style~ controls how previews and their source are
+  displayed relative to point.  The option ~preview-at-point-placement~
+  controls the placement of the at-point preview relative to its source.
+  Finally, the boolean option ~preview-keep-stale-images~ determines how
+  the preview is updated after the source is changed.
 - Activate new TeX xref backend (~tex-etags~) provided by Emacs 31.
 - Add support for in-buffer completion of citation keys for various
   =\cite= macros.  The length of the annotations attached to the keys is

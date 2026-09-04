@@ -457,7 +457,7 @@ set to `postscript'."
   :type 'boolean)
 
 (defcustom preview-visibility-style 'off-point
-  "When and where previews are displayed relative to their source.
+  "When and where previews and their source are displayed relative to point.
 
 Possible values:
 
