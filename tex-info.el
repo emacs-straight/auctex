@@ -1,6 +1,6 @@
 ;;; tex-info.el --- Support for editing Texinfo source.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 1993-2024  Free Software Foundation, Inc.
+;; Copyright (C) 1993-2026 Free Software Foundation, Inc.
 
 ;; Maintainer: auctex-devel@gnu.org
 ;; Keywords: tex
@@ -23,8 +23,10 @@
 ;;; Code:
 
 (require 'tex)
-
 (require 'texinfo)
+
+;; Silence the compiler:
+(defvar outline-heading-alist)
 
 ;;; Environments:
 (defvar Texinfo-environment-list
