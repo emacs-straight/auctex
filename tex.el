@@ -823,6 +823,22 @@ overlays between two existing ones.")
 ;; which results in a void-variable error if crm hasn't been loaded before.
 (require 'crm)
 
+;; The function `crm--choose-completion-string' was removed with Emacs
+;; 32 (git commit e8b46219).  We preserve it here:
+(defun TeX-crm--choose-completion-string (choice buffer base-position
+                                                 &rest _ignored)
+  "Completion string chooser for `completing-read-multiple'.
+This is called from `choose-completion-string-functions'.
+It replaces the string that is currently being completed, without
+exiting the minibuffer.
+
+This is a copy of the function `crm--choose-completion-string' removed
+in Emacs 32.1."
+  (let ((completion-no-auto-exit t)
+        (choose-completion-string-functions nil))
+    (choose-completion-string choice buffer base-position)
+    t))
+
 ;; For GNU Emacs 24.4 or later, based on `completing-read-multiple' of
 ;; git commit b14abca9476cba2f500b5eda89441d593dd0f12b
 ;;   2013-01-10  * lisp/emacs-lisp/crm.el: Allow any regexp for separators.
@@ -835,7 +851,7 @@ in nil across different emacs versions."
   (unwind-protect
       (progn
         (add-hook 'choose-completion-string-functions
-                  #'crm--choose-completion-string)
+                  #'TeX-crm--choose-completion-string)
         (let* ((minibuffer-completion-table #'crm--collection-fn)
                (minibuffer-completion-predicate predicate)
                ;; see completing_read in src/minibuf.c
@@ -857,7 +873,7 @@ in nil across different emacs versions."
               nil
             result)))
     (remove-hook 'choose-completion-string-functions
-                 #'crm--choose-completion-string)))
+                 #'TeX-crm--choose-completion-string)))
 
 (defun TeX-read-string (prompt &optional initial-input history default-value)
   (read-string prompt initial-input history default-value t))

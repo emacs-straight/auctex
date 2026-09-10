@@ -25,8 +25,9 @@ Added
     Multicite commands (Qualified Citation Lists) from the biblatex
     package are not supported.
   • Improve in-buffer completion of referencing macros.
-  • Add new support files `style/handstroke.el', `style/lineno.el',
-    `style/lua-unicode-math.el', `style/sourcesans.el' and
+  • Add new support files `style/bigfoot.el', `style/handstroke.el',
+    `style/lineno.el', `style/lua-unicode-math.el', `style/manyfoot.el',
+    `style/perpage.el', `style/sourcesans.el' and
     `style/sourceserif.el'.
 
 
@@ -118,6 +119,4 @@ Added
 
   • Add new commands `LaTeX-make-inline' which converts the display math
     environment at point to inline math and the more general
-    `LaTeX-modify-math' which converts the mathematical construct at
-    point
   …  …

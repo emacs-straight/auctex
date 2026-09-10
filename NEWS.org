@@ -25,9 +25,9 @@
   commands (Qualified Citation Lists) from the biblatex package are not
   supported.
 - Improve in-buffer completion of referencing macros.
-- Add new support files =style/handstroke.el=, =style/lineno.el=,
-  =style/lua-unicode-math.el=, =style/sourcesans.el= and
-  =style/sourceserif.el=.
+- Add new support files =style/bigfoot.el=, =style/handstroke.el=,
+  =style/lineno.el=, =style/lua-unicode-math.el=, =style/manyfoot.el=,
+  =style/perpage.el=, =style/sourcesans.el= and =style/sourceserif.el=.
 
 ** Changed
 
