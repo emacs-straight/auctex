@@ -7750,7 +7750,17 @@ this point.  If nil, limit to the previous 15 lines."
         ;; (setq env-or-mac-start (point))
         (when (and (memql (following-char) ;; '(?\[ ?\{ ?\( ?<)
                           (LaTeX-completion-macro-delimiters 'open))
-                   (re-search-backward "\\\\[*+a-zA-Z]+\\=" nil t))
+                   ;; Deal with spaces between macro name and argument
+                   ;; in `docTeX-mode':
+                   (when (derived-mode-p 'docTeX-mode)
+                     (skip-chars-backward "[ ]"))
+                   (re-search-backward (concat (regexp-quote TeX-esc)
+                                               "["
+                                               "-*+a-zA-Z@"
+                                               (when (derived-mode-p 'docTeX-mode)
+                                                 ":_")
+                                               "]+\\=")
+                                       nil t))
           (setq cmd (TeX-match-buffer 0))
           (when (looking-at "\\\\begin{\\([^}]+\\)}")
             (setq cmd (TeX-match-buffer 1))
