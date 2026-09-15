@@ -7752,8 +7752,9 @@ this point.  If nil, limit to the previous 15 lines."
                           (LaTeX-completion-macro-delimiters 'open))
                    ;; Deal with spaces between macro name and argument
                    ;; in `docTeX-mode':
-                   (when (derived-mode-p 'docTeX-mode)
-                     (skip-chars-backward "[ ]"))
+                   (if (derived-mode-p 'docTeX-mode)
+                       (skip-chars-backward " ")
+                     t)
                    (re-search-backward (concat (regexp-quote TeX-esc)
                                                "["
                                                "-*+a-zA-Z@"

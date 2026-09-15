@@ -399,14 +399,13 @@ not be quoted.  An opening brace `{', asterisk `*' and at-sign
 (TeX-ispell-skip-setcdr
  '(;; filecontents.sty
    ("filecontents\\*?" ispell-tex-arg-end)
-   ;; stabular.sty
-   ("stabular" ispell-tex-arg-end)
-   ("stabular\\*" TeX-ispell-tex-arg-end)
+   ;; Standard LaTeX tabular, stabular.sty
+   ("s?tabular" ispell-tex-arg-end)
+   ;; Standard LaTeX tabular*, stabular.sty, tabularx.sty, tabulary.sty,
+   ("s?tabular[*xy]" TeX-ispell-tex-arg-end)
    ;; tabularray.sty
    ("\\(?:long\\|tall\\)?tblr" ispell-tex-arg-end)
    ("booktabs" ispell-tex-arg-end)
-   ;; tabularx.sty, tabulary.sty, Standard LaTeX tabular*-env
-   ("tabular[*xy]" TeX-ispell-tex-arg-end)
    ;; tcolorbox.sty -- raster library
    ("tcboxed\\(raster\\|itemize\\)" ispell-tex-arg-end)
    ;; xltabular.sty
