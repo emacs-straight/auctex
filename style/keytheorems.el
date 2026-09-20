@@ -1,6 +1,6 @@
-;;; keytheorems.el --- AUCTeX style for `keytheorems.sty' (v0.3.0)  -*- lexical-binding: t; -*-
+;;; keytheorems.el --- AUCTeX style for `keytheorems.sty' (v0.4.0)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2025 Free Software Foundation, Inc.
+;; Copyright (C) 2025--2026 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -24,8 +24,8 @@
 
 ;;; Commentary:
 
-;; This file adds support for `keytheorems.sty' (v0.3.0) from
-;; 2025-06-20.  `keytheorems.sty' is part of TeXLive.
+;; This file adds support for `keytheorems.sty' (v0.4.0) from
+;; 2026-09-17.  `keytheorems.sty' is part of TeXLive.
 
 ;;; Code:
 
@@ -41,6 +41,8 @@
     ("auto-translate" ("true" "false"))
     ("predefined")
     ("qed-symbol")
+    ("auto-qed")
+    ("thmmarks")
     ("restate-counters")
     ("store-all")
     ("store-sets-label"))
@@ -261,14 +263,21 @@ Select the content of the optional argument with a key:
    ;; Add keytheorems to the parser.
    (TeX-auto-add-regexp LaTeX-keytheorems-newkeytheorem-regexp)
 
+   ;; Options management
    (TeX-run-style-hooks "amsthm")
+   (when (or (LaTeX-provided-package-options-member "keytheorems" "auto-qed")
+             (LaTeX-provided-package-options-member "keytheorems" "thmmarks"))
+     (TeX-run-style-hooks "amsmath"))
 
    (TeX-add-symbols
     ;; 2 Global options
     '("keytheoremset"
-      (TeX-arg-key-val (lambda ()
-                         (append '(("continues-code"))
-                                 LaTeX-keytheorems-package-options-list))))
+      (TeX-arg-key-val
+       (lambda ()
+         (append '(("continues-code"))
+                 (let ((opts (copy-sequence LaTeX-keytheorems-package-options-list)))
+                   (dolist (elt '(("auto-qed") ("thmmarks")) opts)
+                     (setq opts (delete elt opts))))))))
 
     ;; 3 Defining theorems
     '("newkeytheorem"
