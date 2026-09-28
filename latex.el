@@ -9645,7 +9645,7 @@ wrapped in \\(?:...\\)? then."
        "\\(?:{[^}{]*}[^}{]*\\)*"
      "}[^}{]*\\)*"
    "}[^][]*\\)*"
-   ;; If KEY is the symbol none, don't look for any key=val:
+   ;; If KEY is the symbol `none', don't look for any key=val:
    (unless (eq key 'none)
      (concat "\\<"
              ;; Match the key, default is label
@@ -9661,8 +9661,9 @@ wrapped in \\(?:...\\)? then."
              "[^] ,}\r\n\t%]+"
              ;; Close the group
              "\\)}?"))
-   ;; We are done.  Just search until the next closing bracket
-   "[^]]*\\]"))
+   ;; Search until the next closing bracket only when KEY is `none'.
+   ;; Point should be after the label entry during the search:
+   (when (eq key 'none) "[^]]*\\]")))
 
 (defun LaTeX-keyval-caption-reftex-context-function (env-or-mac)
   "Return a key=val caption context string for RefTeX in ENV-OR-MAC.

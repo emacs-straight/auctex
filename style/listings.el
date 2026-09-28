@@ -1,6 +1,6 @@
 ;;; listings.el --- AUCTeX style for `listings.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2004-2024 Free Software Foundation, Inc.
+;; Copyright (C) 2004-2026 Free Software Foundation, Inc.
 
 ;; Author: Ralf Angeli <angeli@iwi.uni-sb.de>
 ;; Maintainer: auctex-devel@gnu.org
@@ -45,12 +45,8 @@
 (require 'latex)
 
 ;; Silence the compiler:
-(declare-function font-latex-add-keywords
-                  "font-latex"
-                  (keywords class))
-
-(declare-function font-latex-set-syntactic-keywords
-                  "font-latex")
+(declare-function font-latex-add-keywords "font-latex" (keywords class))
+(declare-function font-latex-set-syntactic-keywords "font-latex")
 
 (declare-function LaTeX-color-definecolor-list "color" ())
 (declare-function LaTeX-xcolor-definecolor-list "xcolor" ())
@@ -286,7 +282,7 @@
 
 ;; Setup for \lstnewenvironment:
 (defvar LaTeX-auto-listings-lstnewenvironment nil
-  "Temporary for parsing the arguments of '\\lstnewenvironment'.")
+  "Temporary for parsing the arguments of \\lstnewenvironment.")
 
 (defvar LaTeX-listings-lstnewenvironment-regexp
   `(,(concat "\\\\lstnewenvironment"
@@ -296,7 +292,7 @@
              "%?"
              "[ \t\n\r]*\\(\\[\\)?")
     (1 2 3) LaTeX-auto-listings-lstnewenvironment)
-  "Matches the argument of '\\lstnewenvironment'.")
+  "Matches the argument of \\lstnewenvironment.")
 
 ;; Setup for \lstdefinestyle:
 (TeX-auto-add-type "listings-lstdefinestyle" "LaTeX")
@@ -304,15 +300,18 @@
 (defvar LaTeX-listings-lstdefinestyle-regexp
   '("\\\\lstdefinestyle{\\([^}]+\\)}"
     1 LaTeX-auto-listings-lstdefinestyle)
-  "Matches the argument of \\='\\lstdefinestyle\\=' from listings package.")
+  "Matches the argument of \\lstdefinestyle from listings package.")
 
 ;; Setup for parsing the labels inside optional arguments:
 
 (defvar LaTeX-listings-key-val-label-regexp
   `(,(concat
-      "\\\\begin{lstlisting}" (LaTeX-extract-key-value-label))
+      "\\\\\\(?:begin{lstlisting}\\|lstinputlisting\\)"
+      (LaTeX-extract-key-value-label))
     1 LaTeX-auto-label)
-  "Matches the label inside an optional argument after \\begin{lstlisting}.")
+  "Matches the label inside an optional argument.
+Optional arguments after \\begin{lstlisting} are \\lstinputlisting are
+considered.")
 
 (defun LaTeX-listings-auto-prepare ()
   "Clear temporary variable from listings package before parsing."
@@ -428,14 +427,26 @@
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "lstinline")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "lstinline")
 
-   ;; RefTeX support lstlistings environment via
+   ;; RefTeX supports lstlistings environment via
    ;; `reftex-label-alist-builtin'.  We add the same thing here only
    ;; with our function as 5th element:
    (when (fboundp 'reftex-add-label-environments)
      (reftex-add-label-environments
       '(("lstlisting" ?l "lst:" "~\\ref{%s}"
          LaTeX-keyval-caption-reftex-context-function
+         (regexp "[Ll]isting"))
+        ("\\lstinputlisting[]{}" ?l "lst:" "~\\ref{%s}"
+         LaTeX-keyval-caption-reftex-context-function
          (regexp "[Ll]isting")))))
+
+   ;; Tell RefTeX about \lstinputlisting:
+   (when (and (boundp 'reftex-label-regexps)
+              (fboundp 'reftex-compile-variables))
+     (let ((regexp (concat "\\\\lstinputlisting"
+                           (LaTeX-extract-key-value-label "label" 1))))
+       (unless (member regexp reftex-label-regexps)
+         (add-to-list (make-local-variable 'reftex-label-regexps) regexp t)
+         (reftex-compile-variables))))
 
    ;; Fontification
    (when (and (fboundp 'font-latex-add-keywords)
