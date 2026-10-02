@@ -1,6 +1,6 @@
 ;;; paracol.el --- AUCTeX style for `paracol.sty' (v1.37)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2016--2025 Free Software Foundation, Inc.
+;; Copyright (C) 2016--2026 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -167,7 +167,7 @@ If XCOLOR is non-nil, store the returned value in the variable
     '("syncallcounters")
 
     ;; 7.6 Page-Wise Footnotes
-    '("footnotelayout"
+    '("footnoteplacement"
       (TeX-arg-completing-read ("c" "m" "p") "Layout"))
 
     ;; \footnote*[num]{text}
@@ -210,6 +210,17 @@ If XCOLOR is non-nil, store the returned value in the variable
 
     ;; 7.10 Page Flushing Commands
     '("flushpage" 0))
+
+   ;; Add \footnotelayout only if footmisc.sty isn't loaded;
+   ;; footmisc.sty offers a macro with the same name:
+   (unless (member "footmisc" (TeX-style-list))
+     (TeX-add-symbols
+      '("footnotelayout"
+        (TeX-arg-completing-read ("c" "m" "p") "Layout")))
+     (when (and (featurep 'font-latex)
+                (eq TeX-install-font-lock 'font-latex-setup))
+       (font-latex-add-keywords '(("footnotelayout" "{"))
+                                'function)))
 
    ;; xcolor.el
    (when (member "xcolor" (TeX-style-list))
@@ -327,7 +338,7 @@ If XCOLOR is non-nil, store the returned value in the variable
                                 ("definethecounter"             "{{{")
                                 ("synccounter"                  "{")
                                 ("syncallcounters"              "")
-                                ("footnotelayout"               "{")
+                                ("footnoteplacement"            "{")
                                 ("fncounteradjustment"          "")
                                 ("nofncounteradjustment"        "")
                                 ("normalcolumncolor"            "[")
