@@ -1,4 +1,4 @@
-;;; simpleicons.el --- AUCTeX style for `simpleicons.sty' (v16.29.0)  -*- lexical-binding: t; -*-
+;;; simpleicons.el --- AUCTeX style for `simpleicons.sty' (v16.33.0)  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023--2026 Free Software Foundation, Inc.
 
@@ -24,8 +24,8 @@
 
 ;;; Commentary:
 
-;; This file adds support for `simpleicons.sty' (v16.29.0) from
-;; 2026-09-04.  `simpleicons.sty' is part of TeXLive.
+;; This file adds support for `simpleicons.sty' (v16.33.0) from
+;; 2026-10-02.  `simpleicons.sty' is part of TeXLive.
 
 ;;; Code:
 
@@ -144,6 +144,7 @@
     "alliedmodders"
     "alltrails"
     "almalinux"
+    "alphaxiv"
     "alpinedotjs"
     "alpinelinux"
     "alternativeto"
@@ -279,6 +280,7 @@
     "atari"
     "atlasos"
     "atlassian"
+    "atomgit"
     "auchan"
     "audacity"
     "audi"
@@ -1150,7 +1152,6 @@
     "giphy"
     "git"
     "gitbook"
-    "gitcode"
     "gitconnected"
     "gitea"
     "gitee"
@@ -1191,6 +1192,7 @@
     "gocd"
     "godaddy"
     "godotengine"
+    "godox"
     "gofundme"
     "gogdotcom"
     "gojek"
@@ -1407,6 +1409,7 @@
     "hyper"
     "hyperskill"
     "hyperx"
+    "hypit"
     "hypothesis"
     "hyprland"
     "hyundai"
@@ -2068,6 +2071,7 @@
     "note"
     "notebooklm"
     "notepadplusplus"
+    "notesnook"
     "notion"
     "notist"
     "nounproject"
@@ -2125,6 +2129,7 @@
     "onlyoffice"
     "onnx"
     "onstar"
+    "oomol"
     "opel"
     "open3d"
     "openaccess"
