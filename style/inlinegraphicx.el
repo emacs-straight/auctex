@@ -24,8 +24,8 @@
 
 ;;; Commentary:
 
-;; This file adds support for `inlinegraphicx.sty' v0.1.0 from
-;; 2024-11-06.
+;; This file adds support for `inlinegraphicx.sty' v0.20d from
+;; 2026-10-03.
 
 ;;; Code:
 
@@ -33,9 +33,7 @@
 (require 'latex)
 
 ;; Silence the compiler:
-(declare-function font-latex-add-keywords
-                  "font-latex"
-                  (keywords class))
+(declare-function font-latex-add-keywords "font-latex" (keywords class))
 
 (TeX-add-style-hook
  "inlinegraphicx"
@@ -46,20 +44,37 @@
    (TeX-add-symbols
     '("inlinegraphics"
       [TeX-arg-key-val (("scale") ("strut"))]
+      [TeX-arg-key-val (LaTeX-graphicx-key-val-options)
+                       nil nil ?\s "<" ">"]
       LaTeX-arg-includegraphics)
 
     '("inlinegraphics*"
       [TeX-arg-key-val (("scale") ("strut"))]
+      [TeX-arg-key-val (LaTeX-graphicx-key-val-options)
+                       nil nil ?\s "<" ">"]
+      LaTeX-arg-includegraphics)
+
+    '("inlinegraphicspath" t)
+    '("inlinegraphicxsetup"
+      (TeX-arg-key-val (("searchpath" ("{}")) ("extensions" ("{}")))))
+    '("safeincludegraphics"
+      [TeX-arg-key-val (LaTeX-graphicx-key-val-options)
+                       nil nil ?\s]
       LaTeX-arg-includegraphics))
 
    ;; Fontification
    (when (and (featurep 'font-latex)
               (eq TeX-install-font-lock 'font-latex-setup))
-     (font-latex-add-keywords '(("inlinegraphics" "*[{"))
-                              'reference)))
+     (font-latex-add-keywords '(("inlinegraphics"      "*[<{")
+                                ("safeincludegraphics" "[{"))
+                              'reference)
+     (font-latex-add-keywords '(("inlinegraphicspath"  "{")
+                                ("inlinegraphicxsetup" "{"))
+                              'function)))
  TeX-dialect)
 
-(defvar LaTeX-inlinegraphicx-package-options nil
+(defvar LaTeX-inlinegraphicx-package-options
+  '("inherit" "inherit=true" "inherit=false")
   "Package options for the inlinegraphicx package.")
 
 ;;; inlinegraphicx.el ends here
