@@ -284,8 +284,8 @@ and set `preview-dvi*-image-type' instead.")
 
 (defcustom preview-prefer-TeX-bb nil
   "Prefer TeX bounding box to EPS one if available.
-If `preview-fast-conversion' is set, this option is not
- consulted since the TeX bounding box has to be used anyway."
+If `preview-fast-conversion' is set, this option is not consulted since
+the TeX bounding box has to be used anyway."
   :group 'preview-gs
   :type 'boolean)
 
@@ -2484,6 +2484,7 @@ contiguous previews invalidated by modifications.
 
 Overriding any other action, if a region is
 active (`transient-mark-mode'), it is run through `preview-region'."
+  (declare (modes LaTeX-mode))
   (interactive)
   (if (TeX-active-mark)
       (preview-region (region-beginning) (region-end))
@@ -2545,6 +2546,7 @@ affected.  Those two values default to the borders of
 the entire buffer.  If TIMESTAMP is non-nil, previews
 with a `timestamp' property of it are kept.  If EXCEPTION
 is a non-nil overlay, then it is not cleared."
+  (declare (modes LaTeX-mode))
   (interactive "r")
   (dolist (ov (overlays-in (or start (point-min))
                            (or end (point-max))))
@@ -2557,6 +2559,7 @@ is a non-nil overlay, then it is not cleared."
 
 (defun preview-clearout-buffer (&optional buffer)
   "Clearout BUFFER from previews, current buffer if nil."
+  (declare (modes LaTeX-mode))
   (interactive)
   (if buffer
       (with-current-buffer buffer (preview-clearout))
@@ -2564,6 +2567,7 @@ is a non-nil overlay, then it is not cleared."
 
 (defun preview-clearout-section ()
   "Clearout previews from LaTeX section."
+  (declare (modes LaTeX-mode))
   (interactive)
   (save-mark-and-excursion
     (LaTeX-mark-section)
@@ -2571,6 +2575,7 @@ is a non-nil overlay, then it is not cleared."
 
 (defun preview-clearout-at-point ()
   "Clearout any preview at point."
+  (declare (modes LaTeX-mode))
   (interactive)
   (preview-clearout (max (point-min) (1- (point)))
                     (min (point-max) (1+ (point)))))
@@ -2599,6 +2604,7 @@ has FUNC called with its current buffer being set to it."
 The document consists of all buffers that have the same master file
 as the current buffer.  This makes the current document lose
 all previews."
+  (declare (modes LaTeX-mode))
   (interactive)
   (preview-walk-document #'preview-clearout-buffer))
 
@@ -4291,6 +4297,7 @@ Return the process for dumping, nil if there is still a valid
 format available.
 
 If FORMAT-CONS is non-nil, a previous format may get reused."
+  (declare (modes LaTeX-mode))
   (interactive)
   (setq TeX-current-process-region-p nil)
   (let* ((dump-file
@@ -4368,6 +4375,7 @@ If FORMAT-CONS is non-nil, a previous format may get reused."
 The use of the format file is discontinued.
 OLD-FORMAT may already contain a format-cons as
 stored in `preview-dumped-alist'."
+  (declare (modes LaTeX-mode))
   (interactive)
   (unless old-format
     (setq old-format
@@ -4386,6 +4394,7 @@ The functions in this variable will each be called inside
 (defun preview-region (begin end)
   "Run preview on region between BEGIN and END.
 Return the started process."
+  (declare (modes LaTeX-mode))
   (interactive "r")
   (let ((TeX-region-extra
          ;; Write out counter information to region.
@@ -4410,6 +4419,7 @@ Return the started process."
 
 (defun preview-buffer ()
   "Run preview on current buffer."
+  (declare (modes LaTeX-mode))
   (interactive)
   (preview-region (point-min) (point-max)))
 
@@ -4440,6 +4450,7 @@ of the preamble part of REGION-TEXT."
 
 (defun preview-document ()
   "Run preview on master document."
+  (declare (modes LaTeX-mode))
   (interactive)
   (TeX-save-document #'TeX-master-file)
   (setq TeX-current-process-region-p nil)
@@ -4456,6 +4467,7 @@ This avoids running environments through preview that are
 indicated in `preview-inner-environments'.  If you use a prefix
 argument COUNT, the corresponding level of outward nested
 environments is selected."
+  (declare (modes LaTeX-mode))
   (interactive "p")
   (save-excursion
     (let (currenv)
@@ -4474,7 +4486,9 @@ environments is selected."
        (save-excursion (LaTeX-find-matching-end) (point))))))
 
 (defun preview-section ()
-  "Run preview on LaTeX section." (interactive)
+  "Run preview on LaTeX section."
+  (declare (modes LaTeX-mode))
+  (interactive)
   (save-mark-and-excursion
     (LaTeX-mark-section)
     (preview-region (region-beginning) (region-end))))
