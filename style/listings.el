@@ -52,17 +52,19 @@
 (declare-function LaTeX-xcolor-definecolor-list "xcolor" ())
 
 ;; The following are options taken from chapter 4 of the listings
-;; manual (2007/02/22 Version 1.4).
+;; manual (2025/11/14 Version 1.11b).
 (defvar LaTeX-listings-key-val-options
-  '(;; Space and placement
-    ("float" ("t" "b" "p" "h")) ; Support [*] as an optional prefix and that
-                                ; tbph are not exclusive.
+  '(;; 4.3.1 Searching for files
+    ("inputpath")
+    ;; 4.3.2 Space and placement
+    ;; Support [*] as an optional prefix and that tbph are not exclusive.
+    ("float" ("t" "b" "p" "h"))
     ("floatplacement" ("t" "b" "p" "h"))
     ("aboveskip")
     ("belowskip")
     ("lineskip")
     ("boxpos" ("b" "c" "t"))
-    ;; The printed range
+    ;; 4.3.3 The printed range
     ("print" ("true" "false"))
     ("firstline")
     ("lastline")
@@ -71,7 +73,7 @@
     ("showlines" ("true" "false"))
     ("emptylines")
     ("gobble")
-    ;; Languages and styles
+    ;; 4.3.4 Languages and styles
     ("style")
     ("language")
     ("alsolanguage")
@@ -81,7 +83,7 @@
     ("tagstyle")
     ("markfirstintag")
     ("makemacrouse" ("true" "false"))
-    ;; Figure out the appearance
+    ;; 4.3.5 Figure out the appearance
     ("basicstyle")
     ("identifierstyle")
     ("commentstyle")
@@ -97,7 +99,7 @@
     ("delim")
     ("moredelim")
     ("deletedelim")
-    ;; Getting all characters right
+    ;; 4.3.6 Getting all characters right
     ("extendedchars" ("true" "false"))
     ("inputencoding") ; Could make use of `latex-inputenc-coding-alist'.
     ("upquote" ("true" "false"))
@@ -107,7 +109,7 @@
     ("showspaces" ("true" "false"))
     ("showstringspaces" ("true" "false"))
     ("formfeed")
-    ;; Line numbers
+    ;; 4.3.7 Line numbers
     ("numbers" ("none" "left" "right"))
     ("stepnumber")
     ("numberfirstline" ("true" "false"))
@@ -116,7 +118,7 @@
     ("numberblanklines" ("true" "false"))
     ("firstnumber" ("auto" "last")) ; Can also take a number.
     ("name")
-    ;; Captions
+    ;; 4.3.8 Captions
     ("title")
     ("caption") ; Insert braces?
     ;; Label is inserted as part of environment insertion; see below
@@ -127,7 +129,7 @@
     ("captionpos" ("t" "b")) ; Can be a subset of tb.
     ("abovecaptionskip")
     ("belowcaptionskip")
-    ;; Margins and line shape
+    ;; 4.3.9 Margins and line shape
     ("linewidth")
     ("xleftmargin")
     ("xrightmargin")
@@ -138,7 +140,7 @@
     ("postbreak")
     ("breakindent")
     ("breakautoindent" ("true" "false"))
-    ;; Frames
+    ;; 4.3.10 Frames
     ("frame" ("none" "leftline" "topline" "bottomline" "lines" "single"
               "shadowbox"
               ;; Alternative to the above values.  A subset of trblTRBL can be
@@ -151,37 +153,37 @@
     ("framexleftmargin")
     ("framexrightmargin")
     ("framextopmargin")
-    ("framebottommargin")
+    ("framexbottommargin")
     ("backgroundcolor")
     ("rulecolor")
     ("fillcolor")
     ("rulesepcolor")
-    ("frameshape")
-    ;; Indexing
+    ("frameshape" ("{}{}{}{}"))
+    ;; 4.3.11 Indexing
     ("index")
     ("moreindex")
     ("deleteindex")
     ("indexstyle")
-    ;; Column alignment
+    ;; 4.3.12 Column alignment
     ("columns" ("fixed" "flexible" "fullflexible" "spaceflexible")) ;
                                         ; Also supports an optional
                                         ; argument with {c,l,r}.
     ("flexiblecolumns" ("true" "false"))
     ("keepspaces" ("true" "false"))
-    ("basewidth")
+    ("basewidth" ("{}"))
     ("fontadjust" ("true" "false"))
-    ;; Escaping to LaTeX
+    ;; 4.3.13 Escaping to LaTeX
     ("texcl" ("true" "false"))
     ("mathescape" ("true" "false"))
     ("escapechar")
     ("escapeinside")
     ("escapebegin")
     ("escapeend")
-    ;; Interface to fancyvrb
+    ;; 4.4 Interface to fancyvrb
     ("fancyvrb" ("true" "false"))
     ("fvcmdparams")
     ("morefvcmdparams")
-    ;; Language definitions
+    ;; 4.7 Language definitions
     ("keywordsprefix")
     ("keywords")
     ("morekeywords")
@@ -244,8 +246,7 @@
   (append
    ;; Check for x?color package.  Note that listings requires a \color
    ;; command, e.g., 'rulecolor=\color{blue}':
-   (when (and (or (member "xcolor" (TeX-style-list))
-                  (member "color" TeX-active-styles)))
+   (when (TeX-member "\\`x?color\\'" (TeX-style-list) #'string-match-p)
      (let* ((colorcmd (if (member "xcolor" TeX-active-styles)
                           #'LaTeX-xcolor-definecolor-list
                         #'LaTeX-color-definecolor-list))
