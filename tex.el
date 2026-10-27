@@ -99,6 +99,7 @@
 (defvar TeX-ispell-verb-delimiters)
 ;; Others:
 (defvar tex--prettify-symbols-alist)    ; tex-mode.el
+(defvar auto-insert)                    ; autoinsert.el
 (defvar Info-file-list-for-emacs)       ; info.el
 (defvar ispell-parser)                  ; ispell.el
 (defvar compilation-error-regexp-alist) ; compile.el
@@ -9274,7 +9275,8 @@ original file."
          ;; We search for header and trailer in the master file.
          (orig-buffer (current-buffer))
          (master-name (TeX-master-file TeX-default-extension))
-         (master-buffer (find-file-noselect master-name))
+         (master-buffer (let ((auto-insert nil))
+                          (find-file-noselect master-name)))
 
          ;; Attempt to disable font lock.
          (font-lock-mode-hook nil)
