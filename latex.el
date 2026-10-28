@@ -8032,10 +8032,10 @@ or `LaTeX-environment-list' and returns it."
 
     ;; Now parse the `arg-list':
     (cond ((and (eq type 'optional)
-                (= opt-dis 0))
+                (= opt-dis 0)
+                (vectorp (nth (1- total-num) arg-list)))
            ;; Optional arg without mandatory one before: This case is
-           ;; straight and we just pick the correct one out of the
-           ;; list:
+           ;; straight and we just pick the correct one out of the list:
            (setq result (nth (1- total-num) arg-list)))
 
           ;; Mandatory arg: Loop over the arg-list and drop all
@@ -8722,7 +8722,9 @@ function would return non-nil and `(match-string 1)' would return
 
   ;; `latex.ltx' defines the following counters
   (LaTeX-add-counters "page" "equation" "enumi" "enumii" "enumiii"
-                      "enumiv" "footnote" "mpfootnote")
+                      "enumiv" "footnote" "mpfootnote"
+                      "tocdepth" "secnumdepth"
+                      "topnumber" "bottomnumber" "totalnumber" "dbltopnumber")
 
   (LaTeX-add-lengths "arraycolsep" "arrayrulewidth" "baselineskip" "baselinestretch"
                      "bibindent" "columnsep" "columnseprule" "columnwidth"
@@ -8991,6 +8993,8 @@ function would return non-nil and `(match-string 1)' would return
      "textquotedblright" "textquoteleft" "textquoteright"
      "textbackslash" "textbar" "textless" "textgreater"
      "textasciicircum" "textasciitilde"
+     "topfraction" "bottomfraction" "textfraction" "floatpagefraction"
+     "dbltopfraction" "dblfloatpagefraction"
 
      ;; With the advent of LaTeX2e release 2020-02-02, all symbols
      ;; provided by textcomp.sty are available out of the box by the
