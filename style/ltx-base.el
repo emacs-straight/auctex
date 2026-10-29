@@ -1,6 +1,6 @@
 ;;; ltx-base.el --- AUCTeX style for basic LaTeX commands.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2004--2025 Free Software Foundation, Inc.
+;; Copyright (C) 2004--2026 Free Software Foundation, Inc.
 
 ;; Author: Frank Küster <frank@kuesterei.ch>
 ;; Maintainer: auctex-devel@gnu.org
@@ -162,7 +162,7 @@
     ;; Some general macros not mentioned in clsguide.pdf
     '("@addtoreset" TeX-arg-counter (TeX-arg-counter "Within counter"))
     '("addpenalty" "Penalty")
-    '("@ifundefined" TeX-arg-macro 2)
+    '("@ifundefined" (TeX-arg-completing-read (TeX-symbol-list) "Macro name") 2)
     '("@ifnextchar" (TeX-arg-literal " ") (TeX-arg-free "Character") 2)
     '("expandafter" 0) )
 
