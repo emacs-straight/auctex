@@ -1,8 +1,9 @@
-;;; scrreprt.el --- AUCTeX style for scrreprt.cls.  -*- lexical-binding: t; -*-
+;;; scrreprt.el --- AUCTeX style for scrreprt.cls  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2002, 2005, 2018, 2020 Free Software Foundation
+;; Copyright (C) 2002--2026 Free Software Foundation
 
 ;; Author: Mark Trettin <Mark.Trettin@gmx.de>
+;; Maintainer: auctex-devel@gnu.org
 ;; Created: 2002-09-26
 ;; Keywords: tex
 
@@ -23,8 +24,8 @@
 
 ;;; Commentary:
 
-;; This file adds support for `scrreprt.cls'. This file needs
-;; `scrbase.el'.
+;; This file adds support for `scrreprt.cls' v3.49.3 from 2026-10-19.
+;; This file needs `scrkbase.el'.
 
 ;;; Code:
 
@@ -32,40 +33,27 @@
 (require 'latex)
 
 ;; Silence the compiler:
-(declare-function font-latex-add-keywords
-                  "font-latex"
-                  (keywords class))
+(declare-function LaTeX-KOMA-key-val-options "scrkbase")
 
 (TeX-add-style-hook
  "scrreprt"
  (lambda ()
    (LaTeX-largest-level-set "chapter")
-   ;; load basic definitons
-   (TeX-run-style-hooks "scrbase")
-   (TeX-add-symbols
-    "chapapp"
-    "raggeddictum"
-    '("chapappifchapterprefix" "Additional text")
-    '("setpartpreamble" [ TeX-arg-KOMA-setpreamble ] [ "Width" ] t)
-    '("setchapterpreamble" [ TeX-arg-KOMA-setpreamble ] [ "Width" ] t)
-    '("dictum" [ "Author" ] t))
-   (LaTeX-add-environments "abstract")
-   (LaTeX-section-list-add-locally '("addchap" 1))
-   (make-local-variable 'LaTeX-section-label)
-   (setq LaTeX-section-label (append
-                              LaTeX-section-label
-                              '(("addchap" . nil))))
-   ;; Definitions for font-latex
-   (when (and (featurep 'font-latex)
-              (eq TeX-install-font-lock 'font-latex-setup))
-     ;; Textual keywords
-     (font-latex-add-keywords '(("addchap" "[{")
-                                ("setpartpreamble" "[[{")
-                                ("setchapterpreamble" "[[{")
-                                ("dictum" "[{"))
-                              'textual)
-     ;; Sectioning keywords
-     (font-latex-add-keywords '(("addchap" "[{")) 'sectioning-1)))
+   ;; Load basic definitons
+   (TeX-run-style-hooks "scrkbase")
+   (LaTeX-add-environments "abstract"))
  TeX-dialect)
+
+(defun LaTeX-scrreprt-class-options-list ()
+  "Return an alist of options for the scrreprt class."
+  (TeX-load-style "typearea")
+  (TeX-load-style "scrkbase")
+  (append
+   (LaTeX-KOMA-key-val-options)
+   '(("leqno") ("fleqn") ("origlongtable"))))
+
+(defun LaTeX-scrreprt-class-options ()
+  "Read the scrreprt class options from the user."
+  (TeX-read-key-val t (LaTeX-scrreprt-class-options-list)))
 
 ;;; scrreprt.el ends here

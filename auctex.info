@@ -1,8 +1,8 @@
 This is auctex.info, produced by makeinfo version 7.1.1 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.2.0.2026-10-27_21:14:37 from
-2026-10-27_21:14:37), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.2.0.2026-10-31_14:18:15 from
+2026-10-31_14:18:15), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -5493,6 +5493,10 @@ overwrite the default prompt.
      Prompt for a filename and use as initial input the name of the file
      being visited in the current buffer, without extension.
 
+‘TeX-arg-font-switches’
+     Prompt for multiple font switch commands separated by a backslash
+     and insert the result.
+
 ‘TeX-arg-free’
      Parse its arguments but use no braces when they are inserted.
 
@@ -6009,8 +6013,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.2.0.2026-10-27_21:14:37 from
-2026-10-27_21:14:37), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.2.0.2026-10-31_14:18:15 from
+2026-10-31_14:18:15), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -7342,7 +7346,7 @@ Function Index
 * LaTeX-add-environments:                Adding Environments. (line  66)
 * LaTeX-add-labels:                      Adding Other.        (line  16)
 * LaTeX-arg-author:                      Adding Macros.       (line  86)
-* LaTeX-arg-usepackage:                  Adding Macros.       (line 258)
+* LaTeX-arg-usepackage:                  Adding Macros.       (line 262)
 * LaTeX-CLASSNAME-class-options:         Adding Other.        (line 107)
 * LaTeX-close-environment:               Environments.        (line 101)
 * LaTeX-command-section:                 Starting a Command.  (line  41)
@@ -7406,39 +7410,40 @@ Function Index
 * TeX-arg-date:                          Adding Macros.       (line 127)
 * TeX-arg-define-counter:                Adding Macros.       (line 124)
 * TeX-arg-define-environment:            Adding Macros.       (line 146)
-* TeX-arg-define-label:                  Adding Macros.       (line 200)
-* TeX-arg-define-length:                 Adding Macros.       (line 207)
-* TeX-arg-define-macro:                  Adding Macros.       (line 221)
-* TeX-arg-define-savebox:                Adding Macros.       (line 240)
+* TeX-arg-define-label:                  Adding Macros.       (line 204)
+* TeX-arg-define-length:                 Adding Macros.       (line 211)
+* TeX-arg-define-macro:                  Adding Macros.       (line 225)
+* TeX-arg-define-savebox:                Adding Macros.       (line 244)
 * TeX-arg-document:                      Adding Macros.       (line 134)
 * TeX-arg-environment:                   Adding Macros.       (line 143)
 * TeX-arg-eval:                          Adding Macros.       (line 150)
 * TeX-arg-file:                          Adding Macros.       (line 153)
 * TeX-arg-file-name:                     Adding Macros.       (line 157)
 * TeX-arg-file-name-sans-extension:      Adding Macros.       (line 161)
-* TeX-arg-free:                          Adding Macros.       (line 165)
-* TeX-arg-hook:                          Adding Macros.       (line 168)
-* TeX-arg-index:                         Adding Macros.       (line 174)
-* TeX-arg-index-tag:                     Adding Macros.       (line 177)
-* TeX-arg-input-file:                    Adding Macros.       (line 181)
-* TeX-arg-key-val:                       Adding Macros.       (line 188)
-* TeX-arg-label:                         Adding Macros.       (line 195)
-* TeX-arg-length:                        Adding Macros.       (line 204)
-* TeX-arg-literal:                       Adding Macros.       (line 211)
-* TeX-arg-lr:                            Adding Macros.       (line 215)
-* TeX-arg-macro:                         Adding Macros.       (line 218)
-* TeX-arg-pagestyle:                     Adding Macros.       (line 225)
-* TeX-arg-pair:                          Adding Macros.       (line 228)
-* TeX-arg-ref:                           Adding Macros.       (line 232)
-* TeX-arg-savebox:                       Adding Macros.       (line 237)
-* TeX-arg-set-exit-mark:                 Adding Macros.       (line 243)
-* TeX-arg-size:                          Adding Macros.       (line 246)
-* TeX-arg-space:                         Adding Macros.       (line 249)
-* TeX-arg-string:                        Adding Macros.       (line 252)
-* TeX-arg-tb:                            Adding Macros.       (line 255)
-* TeX-arg-verb:                          Adding Macros.       (line 264)
-* TeX-arg-verb-delim-or-brace:           Adding Macros.       (line 267)
-* TeX-arg-version:                       Adding Macros.       (line 272)
+* TeX-arg-font-switches:                 Adding Macros.       (line 165)
+* TeX-arg-free:                          Adding Macros.       (line 169)
+* TeX-arg-hook:                          Adding Macros.       (line 172)
+* TeX-arg-index:                         Adding Macros.       (line 178)
+* TeX-arg-index-tag:                     Adding Macros.       (line 181)
+* TeX-arg-input-file:                    Adding Macros.       (line 185)
+* TeX-arg-key-val:                       Adding Macros.       (line 192)
+* TeX-arg-label:                         Adding Macros.       (line 199)
+* TeX-arg-length:                        Adding Macros.       (line 208)
+* TeX-arg-literal:                       Adding Macros.       (line 215)
+* TeX-arg-lr:                            Adding Macros.       (line 219)
+* TeX-arg-macro:                         Adding Macros.       (line 222)
+* TeX-arg-pagestyle:                     Adding Macros.       (line 229)
+* TeX-arg-pair:                          Adding Macros.       (line 232)
+* TeX-arg-ref:                           Adding Macros.       (line 236)
+* TeX-arg-savebox:                       Adding Macros.       (line 241)
+* TeX-arg-set-exit-mark:                 Adding Macros.       (line 247)
+* TeX-arg-size:                          Adding Macros.       (line 250)
+* TeX-arg-space:                         Adding Macros.       (line 253)
+* TeX-arg-string:                        Adding Macros.       (line 256)
+* TeX-arg-tb:                            Adding Macros.       (line 259)
+* TeX-arg-verb:                          Adding Macros.       (line 268)
+* TeX-arg-verb-delim-or-brace:           Adding Macros.       (line 271)
+* TeX-arg-version:                       Adding Macros.       (line 276)
 * TeX-auto-add-regexp:                   Hacking the Parser.  (line   6)
 * TeX-auto-generate:                     Automatic Private.   (line  23)
 * TeX-clean:                             Cleaning.            (line   6)
@@ -7449,7 +7454,7 @@ Function Index
 * TeX-comment-or-uncomment-paragraph:    Commenting.          (line  22)
 * TeX-comment-or-uncomment-region:       Commenting.          (line  14)
 * TeX-complete-symbol:                   Completion.          (line  23)
-* TeX-declare-expert-macros:             Adding Macros.       (line 287)
+* TeX-declare-expert-macros:             Adding Macros.       (line 291)
 * TeX-documentation-texdoc:              Documentation.       (line   6)
 * TeX-electric-macro:                    Completion.          (line 133)
 * TeX-error-overview:                    Error overview.      (line  10)
@@ -7489,8 +7494,8 @@ Function Index
 * TeX-PDF-mode:                          Processor Options.   (line  15)
 * TeX-pin-region:                        Starting a Command.  (line  89)
 * TeX-previous-error:                    Debugging.           (line  26)
-* TeX-read-hook:                         Adding Macros.       (line 171)
-* TeX-read-key-val:                      Adding Macros.       (line 192)
+* TeX-read-hook:                         Adding Macros.       (line 175)
+* TeX-read-key-val:                      Adding Macros.       (line 196)
 * TeX-recenter-output-buffer:            Control.             (line  13)
 * TeX-revert-document-buffer:            Modes and Hooks.     (line  43)
 * TeX-save-document:                     Multifile.           (line 109)
@@ -7718,8 +7723,8 @@ Variable Index
                                                               (line  44)
 * TeX-arg-cite-note-p:                   Adding Macros.       (line  98)
 * TeX-arg-input-file-search:             Adding Macros.       (line 134)
-* TeX-arg-input-file-search <1>:         Adding Macros.       (line 181)
-* TeX-arg-input-file-search <2>:         Adding Macros.       (line 258)
+* TeX-arg-input-file-search <1>:         Adding Macros.       (line 185)
+* TeX-arg-input-file-search <2>:         Adding Macros.       (line 262)
 * TeX-arg-item-label-p:                  Itemize-like.        (line  16)
 * TeX-arg-right-insert-p:                Quotes.              (line 168)
 * TeX-auto-cleanup-hook:                 Hacking the Parser.  (line 100)
@@ -8347,28 +8352,28 @@ Node: Automatic Local230260
 Node: Style Files231534
 Node: Simple Style232348
 Node: Adding Macros236141
-Node: Adding Environments246431
-Node: Adding Other251814
-Node: Hacking the Parser256724
-Node: Appendices260740
-Node: Copying this Manual261036
-Node: GNU Free Documentation License261947
-Node: Changes287070
-Node: Development288883
-Node: Mid-term Goals289529
-Node: Wishlist292379
-Node: Bugs298568
-Node: FAQ299704
-Node: Texinfo mode306526
-Node: Exploiting307660
-Node: Superseding308482
-Node: Mapping313297
-Node: Unbinding315240
-Node: Indices315788
-Node: Key Index315951
-Node: Function Index323991
-Node: Variable Index337283
-Node: Concept Index364240
+Node: Adding Environments246559
+Node: Adding Other251942
+Node: Hacking the Parser256852
+Node: Appendices260868
+Node: Copying this Manual261164
+Node: GNU Free Documentation License262075
+Node: Changes287198
+Node: Development289011
+Node: Mid-term Goals289657
+Node: Wishlist292507
+Node: Bugs298696
+Node: FAQ299832
+Node: Texinfo mode306654
+Node: Exploiting307788
+Node: Superseding308610
+Node: Mapping313425
+Node: Unbinding315368
+Node: Indices315916
+Node: Key Index316079
+Node: Function Index324119
+Node: Variable Index337484
+Node: Concept Index364441
 
 End Tag Table
 

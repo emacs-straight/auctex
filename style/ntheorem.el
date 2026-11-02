@@ -1,6 +1,6 @@
 ;;; ntheorem.el --- AUCTeX style for `ntheorem.sty' (v1.33)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015-2023  Free Software Foundation, Inc.
+;; Copyright (C) 2015-2026  Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -169,23 +169,11 @@ make them available as new environments.  Update
     '("theoremstyle"
       (TeX-arg-completing-read LaTeX-ntheorem-theoremstyle-list "Style"))
 
-    `("theorembodyfont"
-      (TeX-arg-completing-read-multiple
-       ,(lambda () (append LaTeX-font-family
-                           LaTeX-font-series
-                           LaTeX-font-shape
-                           LaTeX-font-size))
-       "Body font" nil nil ,(regexp-quote TeX-esc) ,TeX-esc
-       nil nil nil nil ,TeX-esc))
+    '("theorembodyfont"
+      (TeX-arg-font-switches "Body font"))
 
     '("theoremheaderfont"
-      (TeX-arg-completing-read-multiple
-       ,(lambda () (append LaTeX-font-family
-                           LaTeX-font-series
-                           LaTeX-font-shape
-                           LaTeX-font-size))
-       "Header font" nil nil ,(regexp-quote TeX-esc) ,TeX-esc
-       nil nil nil nil ,TeX-esc))
+      (TeX-arg-font-switches "Header font"))
 
     '("theoremnumbering"
       (TeX-arg-completing-read ("arabic" "roman" "Roman" "alph" "Alph"

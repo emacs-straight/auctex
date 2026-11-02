@@ -3888,6 +3888,38 @@ Insert the given hook as a TeX macro argument.  If OPTIONAL is
 non-nil, insert it as an optional argument."
   (TeX-argument-insert (TeX-read-hook) optional))
 
+(defvar LaTeX-font-family '("normalfont" "rmfamily" "sffamily" "ttfamily")
+  "List of LaTeX font family declarations.")
+
+(defvar LaTeX-font-series '("mdseries" "bfseries")
+  "List of LaTeX font series declarations.")
+
+(defvar LaTeX-font-shape '("itshape" "slshape"  "scshape"  "sscshape"
+                           "swshape" "ulcshape" "upshape")
+  "List of LaTeX font shape declarations.")
+
+(defvar LaTeX-font-size '("tiny" "scriptsize" "footnotesize" "small"
+                          "normalsize" "large" "Large"
+                          "LARGE" "huge" "Huge")
+  "List of LaTeX font size declarations.")
+
+(defun TeX-arg-font-switches (optional &optional prompt)
+  "Query and insert font switches.
+If OPTIONAL is non-nil, insert the result in square brackets only in
+non-empty.  PROMPT replaces the standard one."
+  (let ((switches (append LaTeX-font-family LaTeX-font-series
+                          LaTeX-font-shape LaTeX-font-size))
+        (crm-separator (regexp-quote TeX-esc))
+        (prompt (if prompt
+                    (concat prompt " (crm): \\")
+                  "Font switches (crm): \\")))
+    (TeX-argument-insert
+     (mapconcat #'identity
+                (TeX-read-completing-read-multiple optional switches
+                                                   prompt t)
+                TeX-esc)
+     optional TeX-esc)))
+
 ;;; Verbatim constructs
 
 (defcustom LaTeX-verbatim-macros-with-delims
@@ -7872,7 +7904,7 @@ and is appended to the return value."
         (up-list -1))
       (setq list-beg (1+ (point))))
     (save-excursion
-      (unless (search-backward "," list-beg t)
+      (unless (re-search-backward "[,\\]" list-beg t)
         (goto-char list-beg))
       (skip-chars-forward "^a-zA-Z0-9\\\\" end)
       (setq beg (point)))
@@ -8101,8 +8133,12 @@ only mapping for functions which perform key=val completions.  See also
 `LaTeX-completion-function-map-alist-crm'.")
 
 (defvar LaTeX-completion-function-map-alist-crm
-  '((TeX-arg-ref . LaTeX-completion-label-list)
-    (TeX-arg-cite . LaTeX-completion-bib-list))
+  `((TeX-arg-ref . LaTeX-completion-label-list)
+    (TeX-arg-cite . LaTeX-completion-bib-list)
+    (TeX-arg-font-switches . ,(lambda ()
+                                (mapcar (lambda (x) (concat TeX-esc x))
+                                        (append LaTeX-font-family LaTeX-font-series
+                                                LaTeX-font-shape LaTeX-font-size)))))
   "Alist mapping style funcs to completion-candidates counterparts.
 Each element is a cons with the name of the function used in an AUCTeX
 style file which queries and inserts something in the buffer as car and
@@ -9707,22 +9743,6 @@ CONTEXT-METHOD."
           ;; Return the extracted string
           (buffer-substring-no-properties capt-start capt-end))
       (error "%s" "No caption found"))))
-
-(defvar LaTeX-font-family '("normalfont" "rmfamily"
-                            "sffamily"   "ttfamily")
-  "List of LaTeX font family declarations.")
-
-(defvar LaTeX-font-series '("mdseries" "bfseries")
-  "List of LaTeX font series declarations.")
-
-(defvar LaTeX-font-shape '("itshape" "slshape"  "scshape"  "sscshape"
-                           "swshape" "ulcshape" "upshape")
-  "List of LaTeX font shape declarations.")
-
-(defvar LaTeX-font-size '("tiny" "scriptsize" "footnotesize" "small"
-                          "normalsize" "large" "Large"
-                          "LARGE" "huge" "Huge")
-  "List of LaTeX font size declarations.")
 
 (defun LaTeX--strip-labels ()
   "Remove label commands between point and end of buffer."

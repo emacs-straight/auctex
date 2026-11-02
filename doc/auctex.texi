@@ -5924,6 +5924,10 @@ being visited in the current buffer, with extension.
 Prompt for a filename and use as initial input the name of the file
 being visited in the current buffer, without extension.
 
+@item TeX-arg-font-switches
+Prompt for multiple font switch commands separated by a backslash and
+insert the result.
+
 @item TeX-arg-free
 Parse its arguments but use no braces when they are inserted.
 

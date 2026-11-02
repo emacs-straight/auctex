@@ -1,8 +1,9 @@
 ;;; scrartcl.el -- AUCTeX style for scrartcl.cls  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2002--2024 Free Software Foundation
+;; Copyright (C) 2002--2026 Free Software Foundation
 
 ;; Author: Mark Trettin <Mark.Trettin@gmx.de>
+;; Maintainer: auctex-devel@gnu.org
 ;; Created: 2002-09-26
 ;; Keywords: tex
 
@@ -23,22 +24,36 @@
 
 ;;; Commentary:
 
-;; This file adds support for `scrartcl.cls'. This file needs
-;; `scrbase.el'.
+;; This file adds support for `scrartcl.cls' v3.49.3 from 2026-10-19.
+;; This file needs `scrkbase.el'.
 
-;; This file is part of  AUCTeX.
+;;; Code:
 
 (require 'tex)
 (require 'latex)
 
-;;; Code:
+;; Silence the compiler:
+(declare-function LaTeX-KOMA-key-val-options "scrkbase")
+
 (TeX-add-style-hook
  "scrartcl"
  (lambda ()
    (LaTeX-largest-level-set "section")
-   ;; load basic definitons
-   (TeX-run-style-hooks "scrbase")
+   ;; Load basic definitons
+   (TeX-run-style-hooks "scrkbase")
    (LaTeX-add-environments "abstract"))
  TeX-dialect)
+
+(defun LaTeX-scrartcl-class-options-list ()
+  "Return an alist of options for the scrartcl class."
+  (TeX-load-style "typearea")
+  (TeX-load-style "scrkbase")
+  (append
+   (LaTeX-KOMA-key-val-options)
+   '(("leqno") ("fleqn") ("origlongtable"))))
+
+(defun LaTeX-scrartcl-class-options ()
+  "Read the scrartcl class options from the user."
+  (TeX-read-key-val t (LaTeX-scrartcl-class-options-list)))
 
 ;;; scrartcl.el ends here

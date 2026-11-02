@@ -4,6 +4,23 @@
            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
+[Unreleased]
+════════════
+
+Added
+─────
+
+  • Add new support files `style/mfb-oldstyle.el' and
+    `style/fontscale.el'.
+
+
+Changed
+───────
+
+  • Update KOMA-Script bundle with current macros incl. completion.
+    Also add the support file `style/typearea.el'.
+
+
 [14.2.0] - 2026-09-15
 ═════════════════════
 
@@ -105,18 +122,5 @@ Fixed
 
   • Ignore the (non-error) "ignored error" messages emitted by the
     typesetting engine and don't abort the re-compilation when
-    necessary.  It fixes this [LaTeX report].
-
-
-[LaTeX report] <https://github.com/latex3/latex2e/issues/1907>
-
-
-[14.1.0] - 2025-07-11
-═════════════════════
-
-Added
-─────
-
-  • Add new commands `LaTeX-make-inline' which converts the display math
-    environment at point to inline math and the more general
+    necessary.
   …  …

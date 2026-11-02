@@ -1,6 +1,6 @@
 ;;; tex-ispell.el --- AUCTeX skip additions for Ispell  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2016-2024 Free Software Foundation, Inc.
+;; Copyright (C) 2016-2026 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -53,6 +53,7 @@
 ;; fancyvrb.sty
 ;; filecontents.sty
 ;; fontaxes.sty
+;; fontscale.sty
 ;; fontspec.sty
 ;; hyperref.sty
 ;; listings.sty
@@ -185,6 +186,9 @@
       ("LVerbatimInput*" . 1)
       ;; fontaxes.sty
       ("figureversion" . 1)
+      ;; fontscale.sty
+      ("fontscalesetup" . 1)
+      ("fontscalesetup*" . 1)
       ;; fontspec.sty
       ("addfontfeatures" . 1)
       ;; hyperref.sty

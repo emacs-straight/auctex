@@ -1,8 +1,9 @@
 ;;; scrbase.el --- AUCTeX style for the KOMA-Script bundle.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2002, 2004, 2005, 2007, 2014, 2018-2021 Free Software Foundation, Inc.
+;; Copyright (C) 2002--2026 Free Software Foundation, Inc.
 
 ;; Author: Mark Trettin <Mark.Trettin@gmx.de>
+;; Maintainer: auctex-devel@gnu.org
 ;; Created: 2002-09-26
 ;; Keywords: tex
 
@@ -24,9 +25,9 @@
 ;;; Commentary:
 
 ;; This file adds support for the KOMA-Script bundle.  This file
-;; contains the base definitions that work with all KOMA-Script
-;; classes (scrarctl.cls, scrreprt.cls, scrbook.cls and scrlttr2.cls).
-;; You need this file since it's loaded from the class-styles.
+;; contains the base definitions that work with all KOMA-Script classes
+;; (scrarctl.cls, scrreprt.cls, scrbook.cls and scrlttr2.cls).  You need
+;; this file since it's loaded from the class-styles via `scrkbase.el'.
 
 ;;; Code:
 
@@ -34,193 +35,323 @@
 (require 'latex)
 
 ;; Silence the compiler:
-(declare-function font-latex-add-keywords
-                  "font-latex"
-                  (keywords class))
+(declare-function font-latex-add-keywords "font-latex" (keywords class))
 
-(TeX-add-style-hook "scrbase"
-                    (lambda ()
-                      (TeX-add-symbols
-                       "appendixmore"
-                       "autodot"
-                       '("addtokomafont" TeX-arg-KOMA-fontelements t)
-                       '("areaset" [ "BCOR" ] "Width" "Height")
-                       '("captionabove" [ "Lof entry" ] "Caption")
-                       '("captionbelow" [ "Lof entry" ] "Caption")
-                       '("cleardoubleemptypage")
-                       '("cleardoubleplainpage")
-                       '("cleardoublestandardpage")
-                       '("dedication" t)
-                       '("deffootnote" [ "Mark width" ] "Indent" "Parindent" "Definition")
-                       '("deffootnotemark" "Definition")
-                       '("extratitle" t)
-                       '("ifpdfoutput" t nil)
-                       '("ifthispageodd" t nil)
-                       '("lowertitleback" t)
-                       '("maketitle" [ "Pagenumber" ])
-                       '("marginline" t)
-                       '("publishers" "Publishers")
-                       '("setbibpreamble" "Preamble")
-                       '("setcaphanging")
-                       '("setcapindent" "Indent")
-                       '("setcapindent*" "X-Indent")
-                       '("setcapmargin" [ "Margin left" ] "Margin")
-                       '("setcapmargin*" [ "Margin inside" ] "Margin")
-                       '("setcapwidth" [ TeX-arg-KOMA-capjust ] "Width")
-                       '("setindexpreamble" "Preamble")
-                       '("setkomafont" TeX-arg-KOMA-fontelements t)
-                       '("subject" "Subject")
-                       '("thanks" "Footnote")
-                       '("thefootnotemark")
-                       '("titlehead" t)
-                       '("uppertitleback" t)
-                       '("usekomafont" TeX-arg-KOMA-fontelements))
-                      (LaTeX-add-environments
-                       '("labeling" (lambda (env &rest ignore)
-                                      (LaTeX-insert-environment
-                                       env
-                                       (let ((delim (TeX-read-string "(Optional) Delimiter: "))
-                                             (width (TeX-read-string "Longest item: ")))
-                                         (concat
-                                          (if (not (zerop (length delim)))
-                                              (format "[%s]" delim))
-                                          (format "{%s}" width))))
-                                      (LaTeX-find-matching-begin)
-                                      (end-of-line 1)
-                                      (LaTeX-insert-item)))
-                       '("addmargin" (lambda (env &rest ignore)
-                                       (LaTeX-insert-environment
-                                        env
-                                        (let ((leftin (TeX-read-string "(Optional) Left Indentation: "))
-                                              (indent (TeX-read-string "Indentation: ")))
-                                          (concat
-                                           (if (not (zerop (length leftin)))
-                                               (format "[%s]" leftin))
-                                           (format "{%s}" indent))))))
-                       '("addmargin*" (lambda (env &rest ignore)
-                                        (LaTeX-insert-environment
-                                         env
-                                         (let ((innin (TeX-read-string "(Optional) Inner Indentation: "))
-                                               (indent (TeX-read-string "Indentation: ")))
-                                           (concat
-                                            (if (not (zerop (length innin)))
-                                                (format "[%s]" innin))
-                                            (format "{%s}" indent))))))
-                       '("captionbeside" (lambda (env &rest ignore)
-                                           (LaTeX-insert-environment
-                                            env
-                                            (let ((lofent (TeX-read-string "(Optional) Lof Entry: "))
-                                                  (title (TeX-read-string "Caption: "))
-                                                  (place (TeX-read-string "(Optional) Placement (l,r,o,i): "))
-                                                  (width (TeX-read-string "(Optional) Width: "))
-                                                  (offset (TeX-read-string "(Optional) Offset: ")))
-                                              (concat
-                                               (if (not (zerop (length lofent)))
-                                                   (format "[%s]" lofent))
-                                               (format "{%s}" title)
-                                               (if (not (zerop (length place)))
-                                                   (format "[%s]" place))
-                                               (if (not (zerop (length width)))
-                                                   (format "[%s]" width))
-                                               (and
-                                                (not (zerop (length place)))
-                                                (not (zerop (length offset)))
-                                                (format "[%s]%s" offset
-                                                        (if (y-or-n-p "Starred? ")
-                                                            "*" "")))))))))
-                      (LaTeX-section-list-add-locally '(("addpart" 0)
-                                                        ("addsec" 2)
-                                                        ("minisec" 7)))
-                      ;; This doesn't work. Maybe it's RefTeX's label insertion?
-                      (make-local-variable 'LaTeX-section-label)
-                      (setq LaTeX-section-label (append
-                                                 LaTeX-section-label
-                                                 '(("addpart" . nil)
-                                                   ("addsec" . nil)
-                                                   ("minisec" . nil))))
-                      ;; Fill \minisec{...} like normal sectioning commands
-                      (LaTeX-paragraph-commands-add-locally "minisec")
-                      ;; Fontification
-                      (when (and (featurep 'font-latex)
-                                 (eq TeX-install-font-lock 'font-latex-setup))
-                        ;; Textual keywords
-                        (font-latex-add-keywords '(("captionabove" "[{")
-                                                   ("captionbelow" "[{")
-                                                   ("dedication" "{")
-                                                   ("extratitle" "{")
-                                                   ("lowertitleback" "{")
-                                                   ("maketitle" "[")
-                                                   ("marginline" "{")
-                                                   ("publishers" "{")
-                                                   ("subject" "{")
-                                                   ("setbibpreamble" "{")
-                                                   ("setindexpreamble" "{")
-                                                   ("titlehead" "{")
-                                                   ("uppertitleback" "{"))
-                                                 'textual)
-                        ;; Function keywords
-                        (font-latex-add-keywords '(("deffootnote" "[{{{")
-                                                   ("deffootnotemark" "{")
-                                                   ("ifpdfoutput" "{{")
-                                                   ("ifthispageodd" "{{"))
-                                                 'function)
-                        ;; Variable keywords
-                        (font-latex-add-keywords '(("addtokomafont" "{{")
-                                                   ("areaset" "[{{")
-                                                   ("setcaphanging" "")
-                                                   ("setcapindent" "{")
-                                                   ("setcapmargin" "*[{")
-                                                   ("setcapwidth" "[{")
-                                                   ("setkomafont" "{{")
-                                                   ("typearea" "[{")
-                                                   ("usekomafont" "{"))
-                                                 'variable)
-                        ;; Warning keywords
-                        (font-latex-add-keywords '("cleardoublestandardpage"
-                                                   "cleardoubleplainpage"
-                                                   "cleardoubleemptypage")
-                                                 'warning)
-                        ;; Sectioning keywords
-                        (font-latex-add-keywords '(("addpart" "[{")) 'sectioning-1)
-                        (font-latex-add-keywords '(("addsec" "[{")) 'sectioning-2)
-                        (font-latex-add-keywords '(("minisec" "[{")) 'sectioning-4)))
-                    TeX-dialect)
+(TeX-add-style-hook
+ "scrbase"
+ (lambda ()
+   (TeX-add-symbols
+    ;; 3.6. Text Markup
+    "maybesffamily"
+    '("textmaybesf" t)
 
-(defun TeX-arg-KOMA-setpreamble (optional &optional prompt)
-  "Prompt for KOMA-Script's \\set*preamble position with completion."
-  (TeX-argument-insert
-   (completing-read
-    (TeX-argument-prompt optional prompt "Position")
-    '(("") ("l") ("r") ("c") ("o") ("u")
-      ("lo") ("lu") ("ro") ("ru") ("co") ("cu"))
-    nil t)
-   optional))
+    ;; 3.7. Document Titles
+    "coverpagetopmargin"
+    "coverpageleftmargin"
+    "coverpagerightmargin"
+    "coverpagebottommargin"
+    '("maketitle" ["Page number"])
+    '("extratitle" t)
+    '("frontispiece" t)
 
-(defun TeX-arg-KOMA-capjust (optional &optional prompt)
-  "Prompt for KOMA-Script's \\setcapwidth justification with completion."
-  (TeX-argument-insert
-   (completing-read
-    (TeX-argument-prompt optional prompt "Justification")
-    '(("") ("l") ("r") ("c") ("i") ("o"))
-    nil t)
-   optional))
+    '("titlehead" t)
+    '("subject" "Subject")
+    '("subtitle" t)
+    '("publishers" t)
+    '("uppertitleback" t)
+    '("lowertitleback" t)
+    '("dedication" t)
 
-(defun TeX-arg-KOMA-fontelements (optional &optional prompt)
-  "Prompt for KOMA-Script's fontelements with completion."
-  (TeX-argument-insert
-   (completing-read
-    (TeX-argument-prompt optional prompt "Element")
-    '(("")
-      ("caption") ("captionlabel")
-      ("descriptionlabel") ("dictum") ("dictumauthor") ("dictumtext")
-      ("footnote") ("footnotelabel") ("footnotereference")
-      ("pagefoot") ("pagehead") ("pagenumber") ("pagination")
-      ("sectioning") ("part") ("partnumber") ("chapter") ("section")
-      ("subsection") ("subsubsection") ("paragraph") ("subparagraph")
-      ("title") ("disposition") ("minisec"))
-    nil t)
-   optional))
- 
-(add-to-list 'LaTeX-item-list '("labeling" . LaTeX-item-argument))
+    ;; 3.9. Table of Contents
+    "parttocdepth"
+    "sectiontocdepth"
+    "subsectiontocdepth"
+    "subsubsectiontocdepth"
+    "paragraphtocdepth"
+    "subparagraphtocdepth"
+
+    ;; 3.12 Headers and Footers Using Predefined Page Styles
+    "titlepagestyle"
+    "partpagestyle"
+    "chapterpagestyle"
+    "indexpagestyle"
+    '("cleardoublepageusingstyle" TeX-arg-pagestyle)
+    "cleardoubleemptypage"
+    "cleardoubleplainpage"
+    "cleardoublestandardpage"
+    "cleardoubleoddpage"
+    '("cleardoubleoddpageusingstyle" TeX-arg-pagestyle)
+    "cleardoubleoddemptypage"
+    "cleardoubleoddplainpage"
+    "cleardoubleoddstandardpage"
+    "cleardoubleevenpage"
+    '("cleardoubleevenpageusingstyle" TeX-arg-pagestyle)
+    "cleardoubleevenemptypage"
+    "cleardoubleevenplainpage"
+    "cleardoubleevenstandardpage"
+
+    ;; 3.14. Footnotes
+    "multfootsep"
+    "multiplefootnoteseparator"
+
+    '("deffootnote"
+      [TeX-arg-length "Mark width"]
+      (TeX-arg-length "Indent")
+      (TeX-arg-length "Paragraph indent")
+      t)
+    '("deffootnotemark")
+    "thefootnotemark"
+    '("setfootnoterule"
+      [TeX-arg-length "Thickness"]
+      (TeX-arg-length "Length"))
+    "raggedfootnote"
+
+    ;; 3.16. Document Structure
+    "raggedpart" "raggedsection"
+    "partformat"
+    "sectionformat"
+    "subsectionformat"
+    "subsubsectionformat"
+    "paragraphformat"
+    "subparagraphformat"
+    "autodot"
+
+    "partnumdepth"
+    "sectionnumdepth"
+    "subsectionnumdepth"
+    "subsubsectionnumdepth"
+    "paragraphnumdepth"
+    "subparagraphnumdepth"
+
+    '("Ifnumbered"
+      (TeX-arg-completing-read ("part" "chapter" "section" "subsection"
+                                "subsubsection" "paragraph" "subparagraph")
+                               "Section level")
+      2)
+    '("Ifunnumbered"
+      (TeX-arg-completing-read ("part" "chapter" "section" "subsection"
+                                "subsubsection" "paragraph" "subparagraph")
+                               "Section level")
+      2))
+
+   ;; 3.16. Document Structure: Deal with macros here and not in
+   ;; scrbook.el or scrreprt.el:
+   (make-local-variable 'LaTeX-section-label)
+   (when (cl-intersection '("scrbook" "scrreprt") (TeX-style-list)
+                          :test #'string-equal)
+     (LaTeX-section-list-add-locally '("addchap" 1))
+     (add-to-list 'LaTeX-section-label '("addchap" . nil) t)
+     (LaTeX-paragraph-commands-add-locally "addchap")
+
+     (TeX-add-symbols
+      "raggedchapter"
+      "chapterformat"
+      "chapternumdepth"
+      '("setpartpreamble"
+        [TeX-arg-completing-read ("l" "r" "c" "o" "u"
+                                  "lo" "lu" "ro" "ru" "co" "cu")
+                                 "Position"]
+        [TeX-arg-length "Width"]
+        t)
+      '("setchapterpreamble"
+        [TeX-arg-completing-read ("l" "r" "c" "o" "u"
+                                  "lo" "lu" "ro" "ru" "co" "cu")
+                                 "Position"]
+        [TeX-arg-length "Width"]
+        t))
+     ;; Fontification
+     (when (and (featurep 'font-latex)
+                (eq TeX-install-font-lock 'font-latex-setup))
+       (font-latex-add-keywords '(("addchap" "*[{"))
+                                'sectioning-1)
+       (font-latex-add-keywords '(("setpartpreamble"    "[[")
+                                  ("setchapterpreamble" "[["))
+                                'textual)) )
+
+   ;; 3.16. Document Structure: These are defined in all classes:
+   (LaTeX-section-list-add-locally '(("addpart" 0)
+                                     ("addsec"  2)
+                                     ("minisec" 7)))
+
+   ;; nil as cdr in `LaTeX-section-label' means: No label insetion:
+   (let ((list '(("addpart" . nil)
+                 ("addsec" . nil)
+                 ("minisec" . nil))))
+     (dolist (elt list)
+       (add-to-list 'LaTeX-section-label elt t)))
+   (LaTeX-paragraph-commands-add-locally '("addpart" "addsec" "minisec"))
+
+   (TeX-add-symbols
+    ;; 3.17. Dicta
+    '("dictum" ["Author"] t)
+    "dictumwidth"
+    "dictumauthorformat"
+    "dictumrule"
+    "raggeddictum"
+    "raggeddictumtext"
+    "raggeddictumauthor"
+
+    '("captionbelow" ["Short caption"] "Caption")
+    '("captionabove" ["Short caption"] "Caption")
+    '("captionof"
+      (TeX-arg-completing-read ("figure" "table") "Float type")
+      ["Short caption"] "Caption")
+    '("captionbelowof"
+      (TeX-arg-completing-read ("figure" "table") "Float type")
+      ["Short caption"] "Caption")
+    '("captionaboveof"
+      (TeX-arg-completing-read ("figure" "table") "Float type")
+      ["Short caption"] "Caption")
+
+    ;; 3.20. Floating Environments for Tables and Figures
+    "captionformat"
+    "figureformat"
+    "tableformat"
+
+    '("setcapindent"  (TeX-arg-length "Indent"))
+    '("setcapindent*" (TeX-arg-length "Indent"))
+    "setcaphanging"
+
+    '("setcapwidth"
+      [TeX-arg-completing-read ("l" "c" "r" "i" "o") "Justification"]
+      (TeX-arg-length "Width"))
+    '("setcapdynwidth"
+      [TeX-arg-completing-read ("l" "c" "r" "i" "o") "Justification"]
+      (TeX-arg-length "Width"))
+    '("setcapmargin"
+      [TeX-arg-length "Left margin"]
+      (TeX-arg-length "Margin"))
+    '("setcapmargin*"
+      [TeX-arg-length "Inside margin"]
+      (TeX-arg-length "Margin"))
+    '("setcaptionalignment"
+      [TeX-arg-completing-read ("figure" "table") "Float type"]
+      (TeX-arg-completing-read ("l" "c" "r" "i" "o") "Alignment"))
+
+    ;; 3.21. Marginal Notes
+    '("marginline" "Text")
+
+    ;; 3.23. Bibliography
+    '("setbibpreamble" t)
+
+    ;; 3.24. Index
+    '("setindexpreamble" t) )
+
+   (LaTeX-add-environments
+    ;; 3.18. Lists
+    '("labeling" LaTeX-env-item-args
+      ["Delimiter"] "Widest pattern")
+
+    '("addmargin" LaTeX-env-args
+      [TeX-arg-length "Left indentation"]
+      (TeX-arg-length "Indentation"))
+
+    '("addmargin*" LaTeX-env-args
+      [TeX-arg-length "Inner indentation"]
+      (TeX-arg-length "Indentation"))
+
+    ;; 3.20. Floating Environments for Tables and Figures
+    '("figure-" LaTeX-env-figure)
+    '("table-" LaTeX-env-figure)
+
+    `("captionbeside" LaTeX-env-args
+      ["Short caption"] "Caption"
+      [TeX-arg-completing-read ("l" "r" "i" "o") "Placement"]
+      [TeX-arg-length "Width"]
+      [TeX-arg-length "Offset"]
+      ,(lambda (_)
+         (and (save-excursion
+                (re-search-backward "\\(?:\\[[^]]*\\]\\)\\{3\\}"
+                                    (line-beginning-position) t))
+              (y-or-n-p "With optional star?: ")
+              (insert "*"))))
+
+    `("captionofbeside" LaTeX-env-args
+      (TeX-arg-completing-read ("figure" "table") "Float type")
+      ["Short caption"] "Caption"
+      [TeX-arg-completing-read ("l" "r" "i" "o") "Placement"]
+      [TeX-arg-length "Width"]
+      [TeX-arg-length "Offset"]
+      ,(lambda (_)
+         (and (save-excursion
+                (re-search-backward "\\(?:\\[[^]]*\\]\\)\\{3\\}"
+                                    (line-beginning-position) t))
+              (y-or-n-p "With optional star?: ")
+              (insert "*")))))
+
+   (add-to-list 'LaTeX-item-list '("labeling" . LaTeX-item-argument))
+   (make-local-variable 'LaTeX-label-alist)
+   (dolist (elt '(("figure-" . LaTeX-figure-label)
+                  ("table-" . LaTeX-table-label)))
+     (add-to-list 'LaTeX-label-alist elt t))
+
+   ;; Fontification
+   (when (and (featurep 'font-latex)
+              (eq TeX-install-font-lock 'font-latex-setup))
+     (font-latex-add-keywords '(("proportionalfigures" "{")
+                                ("tabularfigures"      "{")
+                                ("textfigures"         "{")
+                                ("textmaybesf"         "{"))
+                              'type-command)
+     (font-latex-add-keywords '("maybesffamily")
+                              'type-declaration)
+     (font-latex-add-keywords '(("deffootnote"         "[{{{")
+                                ("deffootnotemark"     "{")
+                                ("setcapdynwidth"      "[{")
+                                ("setcapindent"        "*{")
+                                ("setcapmargin"        "*[{")
+                                ("setcaptionalignment" "[{")
+                                ("setcapwidth"         "[{")
+                                ("setfootnoterule"     "[{"))
+                              'function)
+     (font-latex-add-keywords '("multiplefootnoteseparator"
+                                "raggedfootnote"
+                                "setbibpreamble"
+                                "setcaphanging"
+                                "setchapterpreamble"
+                                "setindexpreamble"
+                                "setpartpreamble")
+                              'function-noarg)
+     (font-latex-add-keywords '(("captionabove"   "[{")
+                                ("captionaboveof" "{[{")
+                                ("captionbelow"   "[{")
+                                ("captionbelowof" "{[{")
+                                ("captionof"      "{[{")
+                                ("dediction"      "{")
+                                ("dictum"         "[{")
+                                ("extratitle"     "{")
+                                ("frontispiece"   "{")
+                                ("lowertitleback" "{")
+                                ("maketitle"      "[")
+                                ("publishers"     "{")
+                                ("subject"        "{")
+                                ("subtitle"       "{")
+                                ("titlehead"      "{")
+                                ("uppertitleback" "{"))
+                              'textual)
+     (font-latex-add-keywords '(("marginline" "{"))
+                              'reference)
+     (font-latex-add-keywords '("cleardoubleemptypage"
+                                "cleardoubleevenemptypage"
+                                "cleardoubleevenpage"
+                                "cleardoubleevenpageusingstyle"
+                                "cleardoubleevenplainpage"
+                                "cleardoubleevenstandardpage"
+                                "cleardoubleoddemptypage"
+                                "cleardoubleoddpage"
+                                "cleardoubleoddpageusingstyle"
+                                "cleardoubleoddplainpage"
+                                "cleardoubleoddstandardpage"
+                                "cleardoublepageusingstyle"
+                                "cleardoubleplainpage"
+                                "cleardoublestandardpage")
+                              'warning)
+     (font-latex-add-keywords '(("addpart" "*[{"))
+                              'sectioning-0)
+     (font-latex-add-keywords '(("addsec"  "*[{"))
+                              'sectioning-2)
+     (font-latex-add-keywords '(("minisec" "{"))
+                              'sectioning-4)))
+ TeX-dialect)
 
 ;;; scrbase.el ends here

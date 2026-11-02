@@ -1,6 +1,6 @@
 ;;; amsthm.el --- Style hook for the AMS-LaTeX amsthm package.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 1997--2023  Free Software Foundation, Inc.
+;; Copyright (C) 1997--2026  Free Software Foundation, Inc.
 
 ;; Author: Carsten Dominik <dominik@strw.leidenuniv.nl>
 ;; Maintainer: auctex-devel@gnu.org
@@ -133,21 +133,9 @@ make them available as new environments."
            (TeX-argument-insert nthmstyle optional)))
       (TeX-arg-length "Space above")
       (TeX-arg-length "Space below")
-      (TeX-arg-completing-read-multiple
-       ,(lambda () (append LaTeX-font-family
-                           LaTeX-font-series
-                           LaTeX-font-shape
-                           LaTeX-font-size))
-       "Body font" nil nil ,(regexp-quote TeX-esc) ,TeX-esc
-       nil nil nil nil ,TeX-esc)
+      (TeX-arg-font-switches "Body font")
       "Indent amount"
-      (TeX-arg-completing-read-multiple
-       ,(lambda () (append LaTeX-font-family
-                           LaTeX-font-series
-                           LaTeX-font-shape
-                           LaTeX-font-size))
-       "Theorem head font" nil nil ,(regexp-quote TeX-esc) ,TeX-esc
-       nil nil nil nil ,TeX-esc)
+      (TeX-arg-font-switches "Theorem head font")
       "Punctuation after head"
       (TeX-arg-length "Space after head")
       "Theorem head spec"))
