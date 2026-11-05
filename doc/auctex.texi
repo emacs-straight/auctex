@@ -1359,7 +1359,7 @@ adding the following to your init file::
   (LaTeX-modify-math "equation*"))
 @end lisp
 
-You can use @code{LaTeX-modify-math} to build higher‑level toggles.  The
+You can use @code{LaTeX-modify-math} to build higher-level toggles.  The
 following modifies any math construct to an @samp{equation*} environment,
 then toggles the numbered status:
 
@@ -3690,7 +3690,7 @@ verbatim text are stored in @code{TeX-ispell-verb-delimiters}.
 
 @defopt TeX-ispell-verb-delimiters
 String with delimiters recognized for in-line verbatim macros.  This
-variable is initialized to @samp{!|#~"*/+^-}.  Since this string is
+variable is initialized to @samp{!|#~"/+=^-}.  Since this string is
 used to build a character alternative inside a regular expression,
 special characters @samp{^} and @samp{-} should come last.  Other
 characters like opening brace @samp{@{}, asterisk @samp{*} or at sign

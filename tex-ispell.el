@@ -371,14 +371,15 @@ Environments for math or verbatim text are candidates for this list."))
 
 
 ;; Special setup for verbatim macros:
-(defcustom TeX-ispell-verb-delimiters "!|#~\"/+^-"
+(defcustom TeX-ispell-verb-delimiters "!|#~\"/+=^-"
   "String with all delimiters for verbatim macros.
 Characters special in regexps like `^' and `-' must come last and
 not be quoted.  An opening brace `{', asterisk `*' and at-sign
 `@' should not be used as they are not recognized by
 `font-latex.el' correctly."
   :group 'TeX-misc
-  :type 'string)
+  :type 'string
+  :package-version '(auctex . "14.2.1"))
 
 ;; listings.sty, fancyvrb.sty, pythontex.sty: With opt. argument only
 ;; before verb content:
