@@ -1295,6 +1295,8 @@ have changed."
   '((?\( . ".") (?\) . ".")
     ;; Use word syntax for @ because we use \> for matching macros and
     ;; we don't want \foo@bar to be found if we search for \foo.
+    ;; Changes for ':' and '_' are added inside `font-latex-setup' only
+    ;; for `docTeX-mode':
     (?@ . "w")
     ;; Use punctuation syntax for numbers for the same reason, so things
     ;; like \LaTeX3 are fontified correctly.  (Bug#79587)
@@ -1366,10 +1368,16 @@ triggers Font Lock to recognize the change."
             syntax-propertize-wholelines
             font-latex-sp-extend-region-backwards-verb-env))))
     ;; Add the mode-dependent stuff to the basic variables defined above.
-    (if (eq major-mode 'docTeX-mode)
+    (if (derived-mode-p 'docTeX-mode)
         (progn
-          (setcar defaults (append (car defaults)
-                                   '(font-latex-doctex-keywords)))
+          (setq defaults
+                `(( font-latex-keywords font-latex-keywords-1
+                    font-latex-keywords-2 font-latex-doctex-keywords)
+                  nil nil
+                  ;; Add ':' and '_' here and not globally in
+                  ;; `font-latex-syntax-alist':
+                  ,(append '((?\: . "w") (?\_ . "w")) font-latex-syntax-alist)
+                  nil))
           (setq variables
                 (append variables
                         '((font-lock-syntactic-face-function

@@ -1,6 +1,6 @@
 ;;; xr.el --- AUCTeX style for `xr.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2021--2024 Free Software Foundation, Inc.
+;; Copyright (C) 2021--2026 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; This file adds support for `xr.sty' v5.06 from 2020-05-10.  RefTeX
+;; This file adds support for `xr.sty' v6.00 from 2024-12-22.  RefTeX
 ;; has good support for referencing external \label's, so it should be
 ;; used.
 
@@ -34,9 +34,7 @@
 (require 'latex)
 
 ;; Silence the compiler:
-(declare-function font-latex-add-keywords
-                  "font-latex"
-                  (keywords class))
+(declare-function font-latex-add-keywords "font-latex" (keywords class))
 
 (TeX-add-style-hook
  "xr"
@@ -44,19 +42,24 @@
    (TeX-add-symbols
     '("externaldocument"
       ["Prefix"]
+      [TeX-arg-completing-read ("nocite") "Cite option"]
       ;; Act like \include and not like \input:
-      (TeX-arg-input-file "File" t))
+      (TeX-arg-input-file "File" t)
+      ["Final file"])
 
+    ;; \externalcitedocument is just an alias:
     '("externalcitedocument"
       ["Prefix"]
+      [TeX-arg-completing-read ("nocite") "Cite option"]
       ;; Act like \include and not like \input:
-      (TeX-arg-input-file "File" t)))
+      (TeX-arg-input-file "File" t)
+      ["Final file"]))
 
    ;; Fontification
    (when (and (featurep 'font-latex)
               (eq TeX-install-font-lock 'font-latex-setup))
-     (font-latex-add-keywords '(("externaldocument"     "[{")
-                                ("externalcitedocument" "[{"))
+     (font-latex-add-keywords '(("externaldocument"     "[[{[")
+                                ("externalcitedocument" "[[{["))
                               'reference)))
  TeX-dialect)
 

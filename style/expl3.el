@@ -38,10 +38,13 @@
 
 (defvar LaTeX-expl3-syntax-table
   (let ((st (copy-syntax-table LaTeX-mode-syntax-table)))
-    ;; Make _ and : word chars
-    (modify-syntax-entry ?\_ "w" st)
-    (modify-syntax-entry ?\: "w" st)
-    st))
+    ;; Make _ and : symbol chars
+    (modify-syntax-entry ?\_ "_" st)
+    (modify-syntax-entry ?\: "_" st)
+    st)
+  "Syntax table used in `docTeX-mode' with expl3.el loaded.
+This syntax table loads `LaTeX-mode-syntax-table' and modifies the
+entries for `_' and `:' to symbol class.")
 
 (defun TeX-arg-expl3-macro (_optional &optional prompt definition no-param)
   "Read and insert an expl3 macro.

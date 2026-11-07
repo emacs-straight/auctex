@@ -1,6 +1,6 @@
 ;;; xr-hyper.el --- AUCTeX style for `xr-hyper.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2021--2024 Free Software Foundation, Inc.
+;; Copyright (C) 2021--2026 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -24,43 +24,17 @@
 
 ;;; Commentary:
 
-;; This file adds support for `xr-hyper.sty' v7.00m from 2021-06-07.
-;; RefTeX has good support for referencing external \label's, so it
-;; should be used.
+;; This file adds support for `xr-hyper.sty' v7.01t from 2026-11-03.
+;; `xr-hyper.sty' is now deprecated, it simply loads the `xr' package.
 
 ;;; Code:
 
 (require 'tex)
-(require 'latex)
-
-;; Silence the compiler:
-(declare-function font-latex-add-keywords
-                  "font-latex"
-                  (keywords class))
 
 (TeX-add-style-hook
  "xr-hyper"
  (lambda ()
-   (TeX-add-symbols
-    '("externaldocument"
-      ["Prefix"]
-      [TeX-arg-completing-read ("nocite") "Cite option"]
-      ;; Act like \include and not like \input:
-      (TeX-arg-input-file "File" t)
-      ["Final file"])
-
-    '("externalcitedocument"
-      ["Prefix"]
-      ;; Act like \include and not like \input:
-      (TeX-arg-input-file "File" t)
-      ["Final file"]))
-
-   ;; Fontification
-   (when (and (featurep 'font-latex)
-              (eq TeX-install-font-lock 'font-latex-setup))
-     (font-latex-add-keywords '(("externaldocument"     "[[{[")
-                                ("externalcitedocument" "[[{["))
-                              'reference)))
+   (TeX-run-style-hooks "xr"))
  TeX-dialect)
 
 (defvar LaTeX-xr-hyper-package-options nil
