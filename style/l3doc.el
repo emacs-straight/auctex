@@ -212,6 +212,16 @@ For syntax environment from l3doc class."
    ;; Append syntax to `LaTeX-item-list' with `LaTeX-item-l3doc-syntax'
    (add-to-list 'LaTeX-item-list '("syntax" . LaTeX-item-l3doc-syntax) t)
 
+   ;; Extend Ispell skip list:
+   (TeX-ispell-skip-setcar
+    `((,(concat (regexp-quote TeX-esc)
+                (regexp-opt '("cs" "tn" "meta"
+                              "Arg" "marg" "org" "parg"
+                              "file" "env" "pkg" "cls"
+                              "NB")))
+       ispell-tex-arg-end)
+      ("\\\\begin{\\(function\\|variable\\)}" ispell-tex-arg-end)))
+
    ;; Fontification
    (when (and (featurep 'font-latex)
               (eq TeX-install-font-lock 'font-latex-setup))

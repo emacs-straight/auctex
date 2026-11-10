@@ -1,6 +1,6 @@
 ;;; doc.el --- AUCTeX style for `doc.sty'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2004-2022  Free Software Foundation, Inc.
+;; Copyright (C) 2004-2026 Free Software Foundation, Inc.
 
 ;; Author: Frank Küster <frank@kuesterei.ch>
 ;; Maintainer: auctex-devel@gnu.org
@@ -406,6 +406,16 @@ percent sign at the beginning of a line before
    (LaTeX-paragraph-commands-add-locally '("DescribeEnv"
                                            "DescribeMacro"
                                            "changes"))
+
+   ;; Extend Ispell skip list:
+   (TeX-ispell-skip-setcar
+    `((,(concat (regexp-quote TeX-esc)
+                (regexp-opt '("DescribeMacro" "DescribeEnv"
+                              "meta")))
+       ispell-tex-arg-end)
+      ("\\\\begin{\\(macro\\|environment\\)}" ispell-tex-arg-end)
+      ("\\\\changes" ispell-tex-arg-end 2)
+      ("%<" . ">")))
 
    ;; Fontification
    (when (and (featurep 'font-latex)
