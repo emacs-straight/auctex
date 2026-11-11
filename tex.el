@@ -10319,7 +10319,7 @@ a bad box."
                       ;; meaningful info from the log file is very
                       ;; difficult.
                       (goto-char (point-max))
-                      (when (re-search-backward "^[0-9]+ ")
+                      (when (re-search-backward "^[0-9]+ " nil t)
                           (end-of-line)
                           (let ((start (1+ (point))))
                             (goto-char (point-max))

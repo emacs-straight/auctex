@@ -4557,6 +4557,10 @@ outer indentation in case of a commented line.  The symbols
     (LaTeX-back-to-indentation force-type)
     (let ((i 0)
           (list-length (safe-length docTeX-indent-inner-fixed))
+          ;; `LaTeX-syntactic-comments' should affect only the inner
+          ;; indentation of commented lines.
+          (LaTeX-syntactic-comments
+           (and (not (eq force-type 'outer)) LaTeX-syntactic-comments))
           (case-fold-search nil)
           entry
           found)
