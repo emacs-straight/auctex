@@ -1,6 +1,6 @@
-;;; geometry.el --- AUCTeX style for `geometry.sty' (v5.6)  -*- lexical-binding: t; -*-
+;;; geometry.el --- AUCTeX style for `geometry.sty' (v6.1)  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015--2024 Free Software Foundation, Inc.
+;; Copyright (C) 2015--2026 Free Software Foundation, Inc.
 
 ;; Author: Arash Esbati <arash@gnu.org>
 ;; Maintainer: auctex-devel@gnu.org
@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; This file adds support for `geometry.sty' (v5.6) from 2010/09/12.
+;; This file adds support for `geometry.sty' (v6.1) from 2026-11-03.
 ;; `geometry.sty' is part of TeXLive.
 
 ;;; Code:
@@ -33,18 +33,20 @@
 (require 'latex)
 
 ;; Silence the compiler:
-(declare-function font-latex-add-keywords
-                  "font-latex"
-                  (keywords class))
+(declare-function font-latex-add-keywords "font-latex" (keywords class))
 
 (defvar LaTeX-geometry-always-key-val-options
   '(("layout" ("a0paper" "a1paper" "a2paper" "a3paper" "a4paper"
-               "a5paper" "a6paper" "b0paper" "b1paper" "b2paper"
-               "b3paper" "b4paper" "b5paper" "b6paper" "c0paper"
-               "c1paper" "c2paper" "c3paper" "c4paper" "c5paper"
-               "c6paper" "b0j" "b1j" "b2j" "b3j" "b4j" "b5j" "b6j"
+               "a5paper" "a6paper" "a7paper" "a8paper" "a9paper"
+               "a10paper" "b0paper" "b1paper" "b2paper" "b3paper"
+               "b4paper" "b5paper" "b6paper"  "b7paper" "b8paper"
+               "b9paper" "b10paper" "c0paper" "c1paper" "c2paper"
+               "c3paper" "c4paper" "c5paper" "c6paper" "c6/c5paper"
+               "c7paper" "c7/c6paper" "c8paper" "c9paper" "c10paper"
+               "dlpaper" "e4paper" "b0j" "b1j" "b2j" "b3j" "b4j"
+               "b5j" "b6j" "b7j" "b8j" "b9j" "b10j" "b11j" "b12"
                "ansiapaper" "ansibpaper" "ansicpaper" "ansidpaper"
-               "ansiepaper"))
+               "ansiepaper" "letterpaper" "executivepaper" "legalpaper"))
     ("layoutwidth") ("layoutheight") ("layoutsize")
     ("layouthoffset") ("layoutvoffset") ("layoutoffset") ("hscale")
     ("vscale") ("scale") ("width") ("totalwidth") ("height") ("totalheight")
@@ -65,32 +67,27 @@
   "Key=value options always available for geometry macros.")
 
 (defvar LaTeX-geometry-preamble-key-val-options
-  '(("paper" ("a0paper" "a1paper" "a2paper" "a3paper" "a4paper"
-              "a5paper" "a6paper" "b0paper" "b1paper" "b2paper"
-              "b3paper" "b4paper" "b5paper" "b6paper" "c0paper"
-              "c1paper" "c2paper" "c3paper" "c4paper" "c5paper"
-              "c6paper" "b0j" "b1j" "b2j" "b3j" "b4j" "b5j" "b6j"
-              "ansiapaper" "ansibpaper" "ansicpaper" "ansidpaper"
-              "ansiepaper"))
-    ("papername" ("a0paper" "a1paper" "a2paper" "a3paper" "a4paper"
-                  "a5paper" "a6paper" "b0paper" "b1paper" "b2paper"
-                  "b3paper" "b4paper" "b5paper" "b6paper" "c0paper"
-                  "c1paper" "c2paper" "c3paper" "c4paper" "c5paper"
-                  "c6paper" "b0j" "b1j" "b2j" "b3j" "b4j" "b5j" "b6j"
+  (let ((papers '("a0paper" "a1paper" "a2paper" "a3paper" "a4paper"
+                  "a5paper" "a6paper" "a7paper" "a8paper" "a9paper"
+                  "a10paper" "b0paper" "b1paper" "b2paper" "b3paper"
+                  "b4paper" "b5paper" "b6paper"  "b7paper" "b8paper"
+                  "b9paper" "b10paper" "c0paper" "c1paper" "c2paper"
+                  "c3paper" "c4paper" "c5paper" "c6paper" "c6/c5paper"
+                  "c7paper" "c7/c6paper" "c8paper" "c9paper" "c10paper"
+                  "dlpaper" "e4paper" "b0j" "b1j" "b2j" "b3j" "b4j"
+                  "b5j" "b6j" "b7j" "b8j" "b9j" "b10j" "b11j" "b12"
                   "ansiapaper" "ansibpaper" "ansicpaper" "ansidpaper"
-                  "ansiepaper"))
-    ("a0paper") ("a1paper") ("a2paper") ("a3paper") ("a4paper") ("a5paper")
-    ("a6paper") ("b0paper") ("b1paper") ("b2paper") ("b3paper") ("b4paper")
-    ("b5paper") ("b6paper") ("c0paper") ("c1paper") ("c2paper") ("c3paper")
-    ("c4paper") ("c5paper") ("c6paper") ("b0j") ("b1j") ("b2j") ("b3j")
-    ("b4j") ("b5j") ("b6j") ("ansiapaper") ("ansibpaper") ("ansicpaper")
-    ("ansidpaper") ("ansiepaper") ("screen") ("paperwidth") ("paperheight")
-    ("papersize") ("landscape") ("portrait")
-    ("driver" ("dvips" "dvipdfm" "dvipdfmx" "xdvipdfmx"
-               "pdftex" "luatex" "vtex" "xetex" "auto" "none"))
-    ("dvips") ("dvipdfm") ("dvipdfmx") ("xdvipdfmx") ("pdftex") ("luatex")
-    ("xetex") ("vtex") ("verbose") ("reset")
-    ("mag") ("truedimen") ("pass") ("showframe") ("showcrop"))
+                  "ansiepaper" "letterpaper" "executivepaper" "legalpaper")))
+    `(("paper" ,papers)
+      ("papername" ,papers)
+      ,@(mapcar (lambda (x) (list x)) papers)
+      ("screen") ("paperwidth") ("paperheight")
+      ("papersize") ("landscape") ("portrait")
+      ("driver" ("dvips" "dvipdfm" "dvipdfmx" "xdvipdfmx"
+                 "pdftex" "luatex" "vtex" "xetex" "auto" "none"))
+      ("dvips") ("dvipdfm") ("dvipdfmx") ("xdvipdfmx") ("pdftex") ("luatex")
+      ("xetex") ("vtex") ("verbose") ("reset")
+      ("mag") ("truedimen") ("pass") ("showframe") ("showcrop")))
   "Key=value options allowed only in the preamble for geometry macros.")
 
 ;; Setup for \savegeometry:

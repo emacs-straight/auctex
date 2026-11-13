@@ -7820,8 +7820,10 @@ this point.  If nil, limit to the previous 15 lines."
           (narrow-to-region (max (point-min) bound) (point-max))
           (with-syntax-table (apply #'TeX-search-syntax-table
                                     (LaTeX-completion-macro-delimiters))
-            (let ((forward-sexp-function nil))
-              (up-list -1))
+            (condition-case nil
+                (let ((forward-sexp-function nil))
+                  (up-list -1))
+              (error nil))
             (unless (= (following-char) ?\{)
               (cl-incf cnt-distance))
             (while (and (LaTeX-move-to-previous-arg bound)

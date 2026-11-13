@@ -4055,7 +4055,6 @@ when MODE is one of the AUCTeX new mode names."
          (local (nth TeX-auto-parser-local entry)))
     (if (not change-value)
         ()
-      (set change nil)
       ;; Sort it
       (message "Sorting %s..." name)
       (set local
@@ -4075,7 +4074,9 @@ when MODE is one of the AUCTeX new mode names."
               (if (> (length next) (length this))
                   (setcdr this (cdr next)))
               (setcdr entry (cdr (cdr entry)))))))
-      (message "Removing duplicates...done"))
+      (message "Removing duplicates...done")
+      ;; Set the flag once sorting and unifying were successful
+      (set change nil))
     (symbol-value local)))
 
 (defmacro TeX-auto-add-type (name prefix &optional plural)
