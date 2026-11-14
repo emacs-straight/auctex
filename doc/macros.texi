@@ -51,8 +51,12 @@ font-latex
 @tex
 \global\let\savedTeX\TeX
 \gdef\TeX#{\savedTeX}
-\gdef\LaTeX#{%
-    L\kern-.36em\raise.3ex\hbox{\sc{a}}\kern-.15em\TeX}
+%
+% texinfo.tex provides its own definition of \LaTeX, so use that and don't
+% overwrite it:
+% \gdef\LaTeX#{%
+%     L\kern-.36em\raise.3ex\hbox{\sc{a}}\kern-.15em\TeX}
+%
 \gdef\previewlatex#{%
     {\textsf preview-latex}}
 \gdef\fontlatex#{%

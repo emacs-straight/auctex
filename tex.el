@@ -10256,8 +10256,7 @@ avoid unnecessary reads of the log file.")
 TYPE is a symbol specifing if ERROR is a real error, a warning or
 a bad box."
 
-  (let ((old-buffer (current-buffer))
-        (log-file (with-current-buffer runbuffer
+  (let ((log-file (with-current-buffer runbuffer
                     (with-current-buffer TeX-command-buffer
                       (expand-file-name (TeX-active-master "log")))))
         (error-description-list
@@ -10274,62 +10273,62 @@ a bad box."
                               error))
       (setq TeX-error-pointer (+ TeX-error-pointer 1)))
 
-    (TeX-pop-to-buffer (get-buffer-create "*TeX Help*") nil t)
-    (let ((inhibit-read-only t))
-      (erase-buffer)
-      (insert
-       (cond
-        ((equal type 'error)
-         (propertize "ERROR" 'font-lock-face 'TeX-error-description-error))
-        ((equal type 'warning)
-         (propertize "WARNING" 'font-lock-face 'TeX-error-description-warning))
-        ((equal type 'bad-box)
-         (propertize "BAD BOX" 'font-lock-face 'TeX-error-description-warning)))
-       ": " error
-       (propertize "\n\n--- TeX said ---" 'font-lock-face
-                   'TeX-error-description-tex-said)
-       output
-       (propertize "\n--- HELP ---\n" 'font-lock-face
-                   'TeX-error-description-help)
-       (let ((help (cdr (nth TeX-error-pointer
-                             error-description-list))))
-         (or (and (= (1+ TeX-error-pointer)
-                     (length error-description-list))
-                  (with-current-buffer
-                      (get-buffer-create (format " *%s*" log-file))
-                    (let ((modtime (file-attribute-modification-time
-                                    (file-attributes log-file))))
-                      (unless (and TeX--log-file-readin-modtime
-                                   (time-equal-p TeX--log-file-readin-modtime
-                                                 modtime))
-                        (insert-file-contents log-file nil nil nil 'replace)
-                        (setq TeX--log-file-readin-modtime modtime)))
-                    (goto-char (point-min))
-                    (if (and (search-forward error nil t 1)
+    (save-selected-window
+      (TeX-pop-to-buffer (get-buffer-create "*TeX Help*") t t)
+      (let ((inhibit-read-only t))
+        (erase-buffer)
+        (insert
+         (cond
+          ((equal type 'error)
+           (propertize "ERROR" 'font-lock-face 'TeX-error-description-error))
+          ((equal type 'warning)
+           (propertize "WARNING" 'font-lock-face 'TeX-error-description-warning))
+          ((equal type 'bad-box)
+           (propertize "BAD BOX" 'font-lock-face 'TeX-error-description-warning)))
+         ": " error
+         (propertize "\n\n--- TeX said ---" 'font-lock-face
+                     'TeX-error-description-tex-said)
+         output
+         (propertize "\n--- HELP ---\n" 'font-lock-face
+                     'TeX-error-description-help)
+         (let ((help (cdr (nth TeX-error-pointer
+                               error-description-list))))
+           (or (and (= (1+ TeX-error-pointer)
+                       (length error-description-list))
+                    (with-current-buffer
+                        (get-buffer-create (format " *%s*" log-file))
+                      (let ((modtime (file-attribute-modification-time
+                                      (file-attributes log-file))))
+                        (unless (and TeX--log-file-readin-modtime
+                                     (time-equal-p TeX--log-file-readin-modtime
+                                                   modtime))
+                          (insert-file-contents log-file nil nil nil 'replace)
+                          (setq TeX--log-file-readin-modtime modtime)))
+                      (goto-char (point-min))
+                      (if (and (search-forward error nil t 1)
                                (re-search-forward "^l\\." nil t)
                                (re-search-forward "^ [^\n]+$" nil t))
-                      (let ((start (1+ (point))))
-                        (forward-char 1)
-                        (re-search-forward "^$")
-                        (concat "From the .log file...\n\n"
-                                (buffer-substring start (point))))
-                      ;; ConTeXt case: assume just one error per run,
-                      ;; since it requires some ConTeXt wizardry to not
-                      ;; stop on the first error, and, if the run
-                      ;; doesn't stop on the first error, getting
-                      ;; meaningful info from the log file is very
-                      ;; difficult.
-                      (goto-char (point-max))
-                      (when (re-search-backward "^[0-9]+ " nil t)
+                          (let ((start (1+ (point))))
+                            (forward-char 1)
+                            (re-search-forward "^$")
+                            (concat "From the .log file...\n\n"
+                                    (buffer-substring start (point))))
+                        ;; ConTeXt case: assume just one error per run,
+                        ;; since it requires some ConTeXt wizardry to not
+                        ;; stop on the first error, and, if the run
+                        ;; doesn't stop on the first error, getting
+                        ;; meaningful info from the log file is very
+                        ;; difficult.
+                        (goto-char (point-max))
+                        (when (re-search-backward "^[0-9]+ " nil t)
                           (end-of-line)
                           (let ((start (1+ (point))))
                             (goto-char (point-max))
                             (concat "From the .log file...\n\n"
-                              (buffer-substring start (point))))))))
-           help))))
-    (goto-char (point-min))
-    (TeX-special-mode)
-    (TeX-pop-to-buffer old-buffer nil t)))
+                                    (buffer-substring start (point))))))))
+               help))))
+      (goto-char (point-min))
+      (TeX-special-mode))))
 
 ;;; Error Overview
 
