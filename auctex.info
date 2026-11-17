@@ -1,8 +1,8 @@
 This is auctex.info, produced by makeinfo version 7.1.1 from
 auctex.texi.
 
-This manual is for AUCTeX (version 14.2.0.2026-11-14_13:20:12 from
-2026-11-14_13:20:12), a sophisticated TeX environment for Emacs.
+This manual is for AUCTeX (version 14.2.0.2026-11-16_00:06:50 from
+2026-11-16_00:06:50), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -1092,6 +1092,9 @@ inserted.
 
 ‘C-c C-f C-e’
      Insert _emphasized_ ‘\emph{⋆}’ text.
+
+‘C-c C-f C-o’
+     Insert strong emphasized ‘\strongemph{⋆}’ text.
 
 ‘C-c C-f C-s’
      Insert slanted ‘\textsl{⋆}’ text.
@@ -6013,8 +6016,8 @@ A.1 Copying this Manual
 
 The copyright notice for this manual is:
 
-   This manual is for AUCTeX (version 14.2.0.2026-11-14_13:20:12 from
-2026-11-14_13:20:12), a sophisticated TeX environment for Emacs.
+   This manual is for AUCTeX (version 14.2.0.2026-11-16_00:06:50 from
+2026-11-16_00:06:50), a sophisticated TeX environment for Emacs.
 
    Copyright © 1992-1995, 2001, 2002, 2004-2026 Free Software
 Foundation, Inc.
@@ -7239,29 +7242,30 @@ Key Index
 * C-c C-d:                               Multifile.           (line 110)
 * C-c C-e:                               Environments.        (line  23)
 * C-c C-e <1>:                           Superseding.         (line  34)
-* C-c C-f:                               Font Specifiers.     (line  55)
+* C-c C-f:                               Font Specifiers.     (line  58)
 * C-c C-f C-b:                           Editing Facilities.  (line  72)
-* C-c C-f C-b <1>:                       Font Specifiers.     (line  16)
+* C-c C-f C-b <1>:                       Font Specifiers.     (line  15)
 * C-c C-f C-c:                           Editing Facilities.  (line  93)
 * C-c C-f C-c <1>:                       Editing Facilities.  (line  96)
-* C-c C-f C-c <2>:                       Font Specifiers.     (line  40)
-* C-c C-f C-c <3>:                       Font Specifiers.     (line  52)
+* C-c C-f C-c <2>:                       Font Specifiers.     (line  42)
+* C-c C-f C-c <3>:                       Font Specifiers.     (line  54)
 * C-c C-f C-e:                           Editing Facilities.  (line  78)
-* C-c C-f C-e <1>:                       Font Specifiers.     (line  25)
+* C-c C-f C-e <1>:                       Font Specifiers.     (line  24)
 * C-c C-f C-f:                           Editing Facilities.  (line  87)
-* C-c C-f C-f <1>:                       Font Specifiers.     (line  34)
+* C-c C-f C-f <1>:                       Font Specifiers.     (line  36)
 * C-c C-f C-i:                           Editing Facilities.  (line  75)
-* C-c C-f C-i <1>:                       Font Specifiers.     (line  22)
-* C-c C-f C-l:                           Font Specifiers.     (line  43)
-* C-c C-f C-m:                           Font Specifiers.     (line  19)
-* C-c C-f C-n:                           Font Specifiers.     (line  49)
+* C-c C-f C-i <1>:                       Font Specifiers.     (line  21)
+* C-c C-f C-l:                           Font Specifiers.     (line  45)
+* C-c C-f C-m:                           Font Specifiers.     (line  18)
+* C-c C-f C-n:                           Font Specifiers.     (line  51)
+* C-c C-f C-o:                           Font Specifiers.     (line  27)
 * C-c C-f C-r:                           Editing Facilities.  (line  84)
-* C-c C-f C-r <1>:                       Font Specifiers.     (line  31)
+* C-c C-f C-r <1>:                       Font Specifiers.     (line  33)
 * C-c C-f C-s:                           Editing Facilities.  (line  81)
-* C-c C-f C-s <1>:                       Font Specifiers.     (line  28)
+* C-c C-f C-s <1>:                       Font Specifiers.     (line  30)
 * C-c C-f C-t:                           Editing Facilities.  (line  90)
-* C-c C-f C-t <1>:                       Font Specifiers.     (line  37)
-* C-c C-f C-w:                           Font Specifiers.     (line  46)
+* C-c C-f C-t <1>:                       Font Specifiers.     (line  39)
+* C-c C-f C-w:                           Font Specifiers.     (line  48)
 * C-c C-f g:                             Japanese.            (line 113)
 * C-c C-f m:                             Japanese.            (line 117)
 * C-c C-k:                               Control.             (line  10)
@@ -7473,7 +7477,7 @@ Function Index
 * TeX-fold-paragraph:                    Folding.             (line  93)
 * TeX-fold-region:                       Folding.             (line  90)
 * TeX-fold-section:                      Folding.             (line  97)
-* TeX-font:                              Font Specifiers.     (line  54)
+* TeX-font:                              Font Specifiers.     (line  57)
 * tex-font-setup:                        Font Locking.        (line  21)
 * TeX-home-buffer:                       Control.             (line  17)
 * TeX-insert-braces:                     Quotes.              (line 139)
@@ -7667,7 +7671,7 @@ Variable Index
 * LaTeX-fold-env-spec-list:              Folding.             (line 225)
 * LaTeX-fold-macro-spec-list:            Folding.             (line 225)
 * LaTeX-fold-math-spec-list:             Folding.             (line 225)
-* LaTeX-font-list:                       Font Specifiers.     (line  69)
+* LaTeX-font-list:                       Font Specifiers.     (line  72)
 * LaTeX-indent-environment-check:        Indenting.           (line  51)
 * LaTeX-indent-environment-list:         Indenting.           (line  37)
 * LaTeX-indent-environment-list <1>:     Indenting.           (line  48)
@@ -7807,7 +7811,7 @@ Variable Index
 * TeX-fold-unspec-env-display-string:    Folding.             (line 235)
 * TeX-fold-unspec-macro-display-string:  Folding.             (line 231)
 * TeX-fold-unspec-use-name:              Folding.             (line 239)
-* TeX-font-list:                         Font Specifiers.     (line  60)
+* TeX-font-list:                         Font Specifiers.     (line  63)
 * TeX-header-end:                        Starting a Command.  (line  32)
 * TeX-header-end <1>:                    Starting a Command.  (line  74)
 * TeX-ignore-file:                       Automatic.           (line  52)
@@ -7909,7 +7913,7 @@ Concept Index
 * \chapter <1>:                          Sectioning.          (line   6)
 * \cite, completion of:                  Completion.          (line 180)
 * \emph:                                 Editing Facilities.  (line  78)
-* \emph <1>:                             Font Specifiers.     (line  25)
+* \emph <1>:                             Font Specifiers.     (line  24)
 * \end:                                  Environments.        (line   6)
 * \include:                              Multifile.           (line   6)
 * \input:                                Multifile.           (line   6)
@@ -7922,28 +7926,29 @@ Concept Index
 * \ref, completion:                      Completion.          (line 180)
 * \section:                              Editing Facilities.  (line  24)
 * \section <1>:                          Sectioning.          (line   6)
+* \strongemph:                           Font Specifiers.     (line  27)
 * \subsection:                           Editing Facilities.  (line  24)
 * \subsection <1>:                       Sectioning.          (line   6)
 * \textbf:                               Editing Facilities.  (line  72)
-* \textbf <1>:                           Font Specifiers.     (line  16)
+* \textbf <1>:                           Font Specifiers.     (line  15)
 * \textgt:                               Japanese.            (line 113)
 * \textit:                               Editing Facilities.  (line  75)
-* \textit <1>:                           Font Specifiers.     (line  22)
+* \textit <1>:                           Font Specifiers.     (line  21)
 * \textmc:                               Japanese.            (line 117)
-* \textmd:                               Font Specifiers.     (line  19)
-* \textnormal:                           Font Specifiers.     (line  49)
+* \textmd:                               Font Specifiers.     (line  18)
+* \textnormal:                           Font Specifiers.     (line  51)
 * \textrm:                               Editing Facilities.  (line  84)
-* \textrm <1>:                           Font Specifiers.     (line  31)
+* \textrm <1>:                           Font Specifiers.     (line  33)
 * \textsc:                               Editing Facilities.  (line  93)
-* \textsc <1>:                           Font Specifiers.     (line  40)
+* \textsc <1>:                           Font Specifiers.     (line  42)
 * \textsf:                               Editing Facilities.  (line  87)
-* \textsf <1>:                           Font Specifiers.     (line  34)
+* \textsf <1>:                           Font Specifiers.     (line  36)
 * \textsl:                               Editing Facilities.  (line  81)
-* \textsl <1>:                           Font Specifiers.     (line  28)
-* \textsw:                               Font Specifiers.     (line  46)
+* \textsl <1>:                           Font Specifiers.     (line  30)
+* \textsw:                               Font Specifiers.     (line  48)
 * \texttt:                               Editing Facilities.  (line  90)
-* \texttt <1>:                           Font Specifiers.     (line  37)
-* \textulc:                              Font Specifiers.     (line  43)
+* \texttt <1>:                           Font Specifiers.     (line  39)
+* \textulc:                              Font Specifiers.     (line  45)
 * Abbreviations:                         Mathematics.         (line   6)
 * Adding a style hook:                   Simple Style.        (line   6)
 * Adding bibliographies:                 Adding Other.        (line   6)
@@ -8016,7 +8021,7 @@ Concept Index
 * Defining macros in style hooks:        Adding Macros.       (line   6)
 * Defining other information in style hooks: Adding Other.    (line   5)
 * Deleting fonts:                        Editing Facilities.  (line  96)
-* Deleting fonts <1>:                    Font Specifiers.     (line  52)
+* Deleting fonts <1>:                    Font Specifiers.     (line  54)
 * Descriptions:                          Itemize-like.        (line   6)
 * Display math mode:                     Quotes.              (line   6)
 * Display math, converting:              Mathematics.         (line  84)
@@ -8295,85 +8300,85 @@ Node: Processing Facilities29255
 Node: Editing34142
 Node: Quotes35480
 Node: Font Specifiers45154
-Node: Sectioning47362
-Node: Environments52093
-Node: Equations57782
-Node: Floats58402
-Node: Itemize-like60824
-Node: Tabular-like61688
-Node: Customizing Environments63578
-Node: Mathematics63818
-Node: Completion71936
-Node: Marking80555
-Node: Marking (LaTeX)81191
-Node: Marking (Texinfo)82147
-Node: Commenting83796
-Node: Indenting85823
-Node: Filling94550
-Node: Display100574
-Node: Font Locking103085
-Node: Fontification of macros105250
-Node: Fontification of quotes115266
-Node: Fontification of math116810
-Node: Verbatim content120592
-Node: Faces121382
-Node: Known problems121887
-Node: Folding122896
-Node: Outline140202
-Node: Narrowing141372
-Node: Prettifying142450
-Node: Processing143767
-Node: Commands145127
-Node: Starting a Command145691
-Node: Selecting a Command151066
-Node: Processor Options160413
-Node: Viewing171795
-Node: Starting Viewers172169
-Node: I/O Correlation177979
-Ref: I/O Correlation-Footnote-1183736
-Node: Debugging183998
-Node: Ignoring warnings186700
-Node: Error overview188819
-Node: Checking190765
-Node: Control192787
-Node: Cleaning194938
-Node: Documentation196391
-Node: Customization197512
-Node: Modes and Hooks198005
-Node: Multifile200154
-Node: Parsing Files205328
-Node: Internationalization210365
-Node: European211718
-Node: Japanese219940
-Node: Automatic225213
-Node: Automatic Global227752
-Node: Automatic Private228894
-Node: Automatic Local230258
-Node: Style Files231532
-Node: Simple Style232346
-Node: Adding Macros236139
-Node: Adding Environments246557
-Node: Adding Other251940
-Node: Hacking the Parser256850
-Node: Appendices260866
-Node: Copying this Manual261162
-Node: GNU Free Documentation License262073
-Node: Changes287196
-Node: Development289009
-Node: Mid-term Goals289655
-Node: Wishlist292505
-Node: Bugs298694
-Node: FAQ299830
-Node: Texinfo mode306652
-Node: Exploiting307786
-Node: Superseding308608
-Node: Mapping313423
-Node: Unbinding315366
-Node: Indices315914
-Node: Key Index316077
-Node: Function Index324117
-Node: Variable Index337482
-Node: Concept Index364439
+Node: Sectioning47440
+Node: Environments52171
+Node: Equations57860
+Node: Floats58480
+Node: Itemize-like60902
+Node: Tabular-like61766
+Node: Customizing Environments63656
+Node: Mathematics63896
+Node: Completion72014
+Node: Marking80633
+Node: Marking (LaTeX)81269
+Node: Marking (Texinfo)82225
+Node: Commenting83874
+Node: Indenting85901
+Node: Filling94628
+Node: Display100652
+Node: Font Locking103163
+Node: Fontification of macros105328
+Node: Fontification of quotes115344
+Node: Fontification of math116888
+Node: Verbatim content120670
+Node: Faces121460
+Node: Known problems121965
+Node: Folding122974
+Node: Outline140280
+Node: Narrowing141450
+Node: Prettifying142528
+Node: Processing143845
+Node: Commands145205
+Node: Starting a Command145769
+Node: Selecting a Command151144
+Node: Processor Options160491
+Node: Viewing171873
+Node: Starting Viewers172247
+Node: I/O Correlation178057
+Ref: I/O Correlation-Footnote-1183814
+Node: Debugging184076
+Node: Ignoring warnings186778
+Node: Error overview188897
+Node: Checking190843
+Node: Control192865
+Node: Cleaning195016
+Node: Documentation196469
+Node: Customization197590
+Node: Modes and Hooks198083
+Node: Multifile200232
+Node: Parsing Files205406
+Node: Internationalization210443
+Node: European211796
+Node: Japanese220018
+Node: Automatic225291
+Node: Automatic Global227830
+Node: Automatic Private228972
+Node: Automatic Local230336
+Node: Style Files231610
+Node: Simple Style232424
+Node: Adding Macros236217
+Node: Adding Environments246635
+Node: Adding Other252018
+Node: Hacking the Parser256928
+Node: Appendices260944
+Node: Copying this Manual261240
+Node: GNU Free Documentation License262151
+Node: Changes287274
+Node: Development289087
+Node: Mid-term Goals289733
+Node: Wishlist292583
+Node: Bugs298772
+Node: FAQ299908
+Node: Texinfo mode306730
+Node: Exploiting307864
+Node: Superseding308686
+Node: Mapping313501
+Node: Unbinding315444
+Node: Indices315992
+Node: Key Index316155
+Node: Function Index324268
+Node: Variable Index337633
+Node: Concept Index364590
 
 End Tag Table
 
