@@ -1,4 +1,4 @@
-;;; geometry.el --- AUCTeX style for `geometry.sty' (v6.1)  -*- lexical-binding: t; -*-
+;;; geometry.el --- AUCTeX style for `geometry.sty' (v6.3)  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2015--2026 Free Software Foundation, Inc.
 
@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; This file adds support for `geometry.sty' (v6.1) from 2026-11-03.
+;; This file adds support for `geometry.sty' (v6.3) from 2026-11-16.
 ;; `geometry.sty' is part of TeXLive.
 
 ;;; Code:
@@ -86,7 +86,7 @@
       ("driver" ("dvips" "dvipdfm" "dvipdfmx" "xdvipdfmx"
                  "pdftex" "luatex" "vtex" "xetex" "auto" "none"))
       ("dvips") ("dvipdfm") ("dvipdfmx") ("xdvipdfmx") ("pdftex") ("luatex")
-      ("xetex") ("vtex") ("verbose") ("reset")
+      ("xetex") ("vtex") ("verbose") ("logunit") ("reset")
       ("mag") ("truedimen") ("pass") ("showframe") ("showcrop")))
   "Key=value options allowed only in the preamble for geometry macros.")
 
